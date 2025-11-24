@@ -3,6 +3,10 @@ title: "About"
 image: profile.jpg
 about:
   template: jolla
+
+---
+
+<!--
   links:
     - icon: twitter
       text: Twitter
@@ -13,7 +17,6 @@ about:
     - icon: github
       text: Github
       href: https://github.com
+-->
 
----
-
-About this blog
+Just a blog about this and that, by Basics.

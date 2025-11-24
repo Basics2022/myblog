@@ -1,99 +1,23 @@
 project:
   type: website
-  pre-render: pre-render-listing-content.R
-  preview:
-    port: 4200
 
 website:
-  page-navigation: true
-  title: "Beatriz Milz"
-  site-url: "https://beamilz.com/"
-  google-analytics: "G-2J79YYG9CZ"
-  page-footer:
-    left: "Website made with [Quarto](https://quarto.org/), by Beatriz Milz. License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
-    right:
-      - icon: envelope
-        href: mailto:milz.bea@gmail.com
-      - icon: youtube
-        href: https://www.youtube.com/@beamilz
-      - text: "{{< iconify simple-icons bluesky >}}"
-        href: https://bsky.app/profile/beatrizmilz.bsky.social
-      - icon: github
-        href: https://github.com/beatrizmilz
-      - icon: linkedin
-        href: https://www.linkedin.com/in/beatrizmilz/
-      - text: "{{< ai researchgate >}}"
-        href: https://www.researchgate.net/profile/Beatriz-Milz
-      - text: "{{< ai lattes >}}"
-        href: http://lattes.cnpq.br/5150665880581477
-      - text: "{{< ai orcid >}}"
-        href: https://orcid.org/0000-0002-3064-4486
-      - icon: instagram
-        href: https://www.instagram.com/bea.milz/
-
-
-
+  description: "A blog built with Quarto"
+  site-url: https://basics2022.github.io/myblog # you must change this appropriately for RSS feeds to work properly
+  title: "basics blog"
   navbar:
     right:
-      - text: About
-        menu:
-          - text: English
-            href: about.qmd
-          - text: Português
-            href: about-pt.qmd
-          - text: Español
-            href: about-es.qmd
-      - text: Posts
-        menu:
-          - text: All posts
-            href: posts/index.qmd
-          - text: English
-            href: posts/en.qmd
-          - text: Português
-            href: posts/pt.qmd
-          - text: Español
-            href: posts/es.qmd
-      - text: Talks and teaching
-        href: content.qmd
-      - text: Videos
-        href: videos/index.qmd
-      - text: Projects
-        href: projects/index.qmd
-      - text: Other
-        menu:
-          - text: Research (PT-BR)
-            href: research/index.qmd
-          - quarto.qmd
-      # - text: Resume
-      #   href: https://beatrizmilz.github.io/resume/index.pdf
-      # - icon: newspaper
-      #   href: https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7129591797797797888
+      - about.qmd
       - icon: github
-        href: https://github.com/beatrizmilz/blog-en
-
-lang: pt
-
+        href: https://github.com/Basics2022
+#     - icon: twitter
+#       href: https://twitter.com
 format:
   html:
-    link-external-icon: true
-    link-external-newwindow: true
-    smooth-scroll: true
     theme:
-      - pulse
-      - custom.scss
-    citations-hover: true
-    footnotes-hover: true
-    toc: true
-    code-link: true
-
-editor: visual
-
-comments:
-  giscus:
-    repo: beatrizmilz/blog-en
-
-execute:
-  freeze: true
+      - cosmo
+      - brand
+    css: styles.css
 
 
 
