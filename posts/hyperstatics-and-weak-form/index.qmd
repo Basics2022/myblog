@@ -1,0 +1,11 @@
+---
+title: "Weak formulation of problems in structural mechanics"
+author: "Basics"
+date: "2025-11-24"
+categories: [structural analysis, weak form]
+---
+
+
+![](thumbnail.png)
+
+...

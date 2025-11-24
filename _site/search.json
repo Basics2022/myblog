@@ -7,13 +7,6 @@
     "text": "Hello, blog!\nThis is just the first post of the basics blog, exploiting Quarto. Could it be the answer to the need for a simple tool, providing similar experience to Jupyter Books with minimal fancy tools for blogging, like tags, automatic layout of the main page (e.g. with latest post), built with .md and .ipynb, to be publicly hosted on GitHub, and allowing comments with the smallest amount of pain as possible? I’ll find out.\nI’ve come across Quarto just this morning, through some nice examples Mark Isken, Bits of Abalytics, who looks like having some experience with blogging and moved to Quarto after using several other platforms: his blog looks good and clean, it looks like he has my same needs, he looks quite satisfied with Quarto and he’s explaining why in details in his post Firts impressions of blogging with Quarto, written in 2023. There are no later posts about porting, while the last post came out only few days ago: it looks like the blog is alive and he keeps using Quarto. So, why shouldn’t I trust him?"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "myblog",
-    "section": "",
-    "text": "A bit of this and that\n\nLatest posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHello blog!\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -21,10 +14,17 @@
     "text": "Just a blog about this and that, by Basics."
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "myblog",
     "section": "",
-    "text": "This is a post with executable code."
+    "text": "A bit of this and that\n\nLatest posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeak formulation of problems in structural mechanics\n\n\n\nstructural analysis\n\nweak form\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello blog!\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/hyperstatics-and-weak-form/index.html",
+    "href": "posts/hyperstatics-and-weak-form/index.html",
+    "title": "Weak formulation of problems in structural mechanics",
+    "section": "",
+    "text": "…"
   }
 ]

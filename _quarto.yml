@@ -1,5 +1,5 @@
 project:
-  type: website
+    type: website
 
 website:
   description: "A blog built with Quarto"

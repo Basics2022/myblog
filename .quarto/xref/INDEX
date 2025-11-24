@@ -1,14 +1,8 @@
 {
-  "about.qmd": {
-    "about.html": "7076d258"
+  "posts/hyperstatics-and-weak-form/index.qmd": {
+    "index.html": "af8e44e1"
   },
   "index.qmd": {
-    "index.html": "42b85a34"
-  },
-  "posts/post-with-code/index.qmd": {
-    "index.html": "fd2d78ae"
-  },
-  "posts/welcome/index.qmd": {
-    "index.html": "6b36bb69"
+    "index.html": "e7a40e93"
   }
 }
