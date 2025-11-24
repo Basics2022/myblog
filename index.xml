@@ -8,7 +8,7 @@
 <title>basics blog</title>
 <link>https://basics2022.github.io/myblog/</link>
 <atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
-<description>A blog built with Quarto</description>
+<description>Basics blog</description>
 <generator>quarto-1.8.26</generator>
 <lastBuildDate>Sun, 23 Nov 2025 23:00:00 GMT</lastBuildDate>
 <item>
@@ -27,9 +27,31 @@
 
 
  ]]></description>
-  <category>structural analysis</category>
+  <category>structural mechanics</category>
   <category>weak form</category>
   <guid>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</guid>
+  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Natural modes in structures</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/modes-in-structures/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>This post tries to answer a narrow <a href="https://physics.stackexchange.com/questions/864252/fixed-vs-free-ends-in-1d-standing-waves">question</a> I’ve found on Physics SE, mainly about some doubts (s)he has about standing waves and response to harmonic forcing arising from the YouTube video, <a href="https://www.youtube.com/watch?si=Ewe45KtT3trKdzPS&amp;v=-gr7KmTOrx0&amp;feature=youtu.be">Standing Waves Parti I: Demonstration</a>, by <a href="James Dann, Ph.D">James Dann, Ph.D</a>.</p>
+<p><img src="https://basics2022.github.io/myblog/posts/modes-in-structures/thumbnail.png" class="img-fluid"></p>
+
+
+
+ ]]></description>
+  <category>structural mechanics</category>
+  <category>natural modes</category>
+  <category>resonance</category>
+  <guid>https://basics2022.github.io/myblog/posts/modes-in-structures/</guid>
   <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
