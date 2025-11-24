@@ -12,5 +12,7 @@ page-layout: full
 title-block-banner: true
 ---
 
+A bit of this and that
 
+# Latest posts
 

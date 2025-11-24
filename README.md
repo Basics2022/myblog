@@ -39,6 +39,7 @@ Download .deb or .tar from the official website.
 
 ## References and Examples
 * https://quarto.org/
+* https://quarto.org/docs/websites/website-blog.html
 * https://bitsofanalytics.org/
 * https://beamilz.com/
 

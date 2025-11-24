@@ -1,12 +1,22 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2025-11-21"
-categories: [news]
+title: "Hello blog!"
+author: "Basics"
+date: "2025-11-24"
+categories: [blog,]
 ---
-
-This is the first post in a Quarto blog. Welcome!
 
 ![](thumbnail.jpg)
 
+Hello, blog!
+
+This is just the first post of the **basics blog**, exploiting Quarto. Could it be the answer to the need for a simple tool, providing similar experience to Jupyter Books with minimal fancy tools for blogging, like tags, automatic layout of the main page (e.g. with latest post), built with .md and .ipynb, to be publicly hosted on GitHub, and allowing comments with the smallest amount of pain as possible? I'll find out.
+
+I've come across Quarto just this morning, through some nice examples [Mark Isken, Bits of Abalytics](https://bitsofanalytics.org/), who looks like having some experience with blogging and moved to Quarto after using several other platforms: his blog looks good and clean, it looks like he has my same needs, he looks quite satisfied with Quarto and he's explaining why in details in his post [Firts impressions of blogging with Quarto](https://bitsofanalytics.org/posts/port-to-quarto/), written in 2023. There are no later posts about porting, while the last post came out only few days ago: it looks like the blog is alive and he keeps using Quarto. So, why shouldn't I trust him?
+
+<!--
+This is the first post in a Quarto blog. Welcome!
+
+Let's edit it.
+
 Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+-->
