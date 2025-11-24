@@ -10,17 +10,32 @@ Hoping that this will feel like a clean extension of a Jupyter Book with fancy t
 
 Here I'll list some useful comments and references
 
-## Setup and building
+## Setup and create
 
-### Initialize GitHub repo
+### Setup Quarto
+
+#### Download sources
+
+Download .deb or .tar from the official website.
+
+#### Create project
+
+> quarto create-project myblog --type website:blog
+
+### Setup
+
+#### Create and setup repo
 ...
 
-### Create action
+#### Create action
 ...
 
-###
+#### ...
 ...
 
+### Create posts
+
+> quarto create post "Title"
 
 ## References and Examples
 * https://quarto.org/
