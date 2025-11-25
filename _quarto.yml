@@ -2,14 +2,17 @@ project:
     type: website
 
 website:
-  description: "A blog built with Quarto"
-  site-url: https://basics2022.github.io/myblog # you must change this appropriately for RSS feeds to work properly
   title: "basics blog"
+  site-url: https://basics2022.github.io/myblog # you must change this appropriately for RSS feeds to work properly
+  description: "Basics blog"
+  favicon: favicon-sugar.svg
   navbar:
     right:
       - about.qmd
       - icon: github
         href: https://github.com/Basics2022
+      - icon: rss
+        href: index.xml
 #     - icon: twitter
 #       href: https://twitter.com
 format:

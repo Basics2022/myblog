@@ -4,5 +4,17 @@
   },
   "index.qmd": {
     "index.html": "e7a40e93"
+  },
+  "about.qmd": {
+    "about.html": "1e2798c6"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "d86eab41"
+  },
+  "posts/modes-in-structures/index.qmd": {
+    "index.html": "5ec334ef"
+  },
+  "posts/welcome-ipynb/index.ipynb": {
+    "index.html": "88d46982"
   }
 }

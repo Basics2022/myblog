@@ -22,12 +22,17 @@ Download .deb or .tar from the official website.
 
 > quarto create-project myblog --type website:blog
 
+**!** It looks like *website:blog* doesn't exist, but *--type website* does
+
 ### Setup
 
-#### Create and setup repo
+#### Create and setup GitHub repo
 ...
 
-#### Create action
+#### Create GitHub action
+
+Create branch *gh-pages*, and create GitHub action for updating deplyed website.
+
 ...
 
 #### ...
@@ -36,6 +41,17 @@ Download .deb or .tar from the official website.
 ### Create posts
 
 > quarto create post "Title"
+
+**!** Not working with my current installation. Just create a folder containing an *index.qdm* or *index.ipynb* file for the post, and everything else is required (images, and other sources).
+
+### Git add, commit, push and publish
+
+> git add .
+> git commit -m "..."
+> git push
+
+> quarto publish gh-pages
+
 
 ## References and Examples
 * https://quarto.org/
