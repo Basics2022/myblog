@@ -12,6 +12,16 @@
 <generator>quarto-1.8.26</generator>
 <lastBuildDate>Sun, 23 Nov 2025 23:00:00 GMT</lastBuildDate>
 <item>
+  <title></title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>structural mechanics</category>
+  <category>weak form</category>
+  <guid>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</guid>
+  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Hello .ipynb on the blog!</title>
   <dc:creator>Basics </dc:creator>
   <link>https://basics2022.github.io/myblog/posts/welcome-ipynb/</link>
@@ -68,6 +78,17 @@ font-style: inherit;">=</span> np.sin(x)</span></code></pre></div></div>
   <category>blog</category>
   <category>jupyter</category>
   <guid>https://basics2022.github.io/myblog/posts/welcome-ipynb/</guid>
+  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/modes-in-structures/</link>
+  <description><![CDATA[ undefined ]]></description>
+  <category>structural mechanics</category>
+  <category>natural modes</category>
+  <category>resonance</category>
+  <guid>https://basics2022.github.io/myblog/posts/modes-in-structures/</guid>
   <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
 </item>
 <item>

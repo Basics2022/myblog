@@ -47,7 +47,9 @@ Create branch *gh-pages*, and create GitHub action for updating deplyed website.
 ### Git add, commit, push and publish
 
 > git add .
+
 > git commit -m "..."
+
 > git push
 
 > quarto publish gh-pages
