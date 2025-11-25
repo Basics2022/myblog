@@ -3,6 +3,7 @@ title: "Weak formulation of problems in structural mechanics"
 author: "Basics"
 date: "2025-11-24"
 categories: [structural mechanics, weak form]
+draft: true
 ---
 
 ![](thumbnail.png)

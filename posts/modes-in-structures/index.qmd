@@ -3,6 +3,7 @@ title: "Natural modes in structures"
 author: "Basics"
 date: "2025-11-24"
 categories: [structural mechanics, natural modes, resonance]
+draft: true
 ---
 
 This post tries to answer a narrow [question](https://physics.stackexchange.com/questions/864252/fixed-vs-free-ends-in-1d-standing-waves) I've found on Physics SE, mainly about some doubts (s)he has about standing waves and response to harmonic forcing arising from the YouTube video, [Standing Waves Parti I: Demonstration](https://www.youtube.com/watch?si=Ewe45KtT3trKdzPS&v=-gr7KmTOrx0&feature=youtu.be), by [James Dann, Ph.D](James Dann, Ph.D).
