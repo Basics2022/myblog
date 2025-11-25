@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "myblog",
     "section": "",
-    "text": "A bit of this and that\n\nLatest posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeak formulation of problems in structural mechanics\n\n\n\nstructural mechanics\n\nweak form\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello .ipynb on the blog!\n\n\n\nblog\n\njupyter\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nNatural modes in structures\n\n\n\nstructural mechanics\n\nnatural modes\n\nresonance\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello blog!\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\nNo matching items"
+    "text": "A bit of this and that\n\nLatest posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNatural modes in structures\n\n\n\nstructural mechanics\n\nnatural modes\n\nresonance\n\n\n\n\n\n\n\n\n\nNov 25, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello .ipynb on the blog!\n\n\n\nblog\n\njupyter\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello blog!\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -26,5 +26,26 @@
     "title": "About",
     "section": "",
     "text": "Just a blog about this and that, by Basics."
+  },
+  {
+    "objectID": "posts/modes-in-structures/index.html",
+    "href": "posts/modes-in-structures/index.html",
+    "title": "Natural modes in structures",
+    "section": "",
+    "text": "This post tries to answer a narrow question I’ve found on Physics SE, mainly about some doubts the OP1 had about standing waves — or natural or proper modes of vibration —, their definition and the role of boundary conditions in the differential problem, and response to external forcing arising from the YouTube video, Standing Waves Parti I: Demonstration, by James Dann, Ph.D."
+  },
+  {
+    "objectID": "posts/modes-in-structures/index.html#footnotes",
+    "href": "posts/modes-in-structures/index.html#footnotes",
+    "title": "Natural modes in structures",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nSlang proper of Stack Exchange and other forums, OP means Original Poster.↩︎"
+  },
+  {
+    "objectID": "posts/modes-in-structures/index.html#natural-modes",
+    "href": "posts/modes-in-structures/index.html#natural-modes",
+    "title": "Natural modes in structures",
+    "section": "Natural modes",
+    "text": "Natural modes\nMany structural problems are governed by a differential problem, whose discret(ized) counterpart is a second order dynamical system,\n\\[\\mathbf{M} \\ddot{\\mathbf{u}} + \\mathbf{C} \\dot{\\mathbf{u}} + \\mathbf{K} \\mathbf{u} = \\mathbf{f} \\ ,\\]\nsupplied with the proper conditions on the state \\(\\mathbf{u}(t)\\), like initial values of the function and its first derivative for Cauchy problems (or initial value problems).\n\nThis is a linear problem, and its solution can be written as a linear combination of a set of solutions\nProper modes: a basis for the non-trivial solution of the homogenous problem, i.e. the response of the system to a free system with no external forcing, to a non-zero initial condition"
   }
 ]

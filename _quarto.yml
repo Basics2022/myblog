@@ -5,7 +5,7 @@ website:
   title: "basics blog"
   site-url: https://basics2022.github.io/myblog # you must change this appropriately for RSS feeds to work properly
   description: "Basics blog"
-  favicon: favicon-sugar.svg
+  favicon: favicon-color.svg
   navbar:
     right:
       - about.qmd
