@@ -12,46 +12,62 @@
 <generator>quarto-1.8.26</generator>
 <lastBuildDate>Sun, 23 Nov 2025 23:00:00 GMT</lastBuildDate>
 <item>
-  <title>Weak formulation of problems in structural mechanics</title>
+  <title>Hello .ipynb on the blog!</title>
   <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</link>
+  <link>https://basics2022.github.io/myblog/posts/welcome-ipynb/</link>
   <description><![CDATA[ 
 
 
 
 
 
-<p><img src="https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/thumbnail.png" class="img-fluid"></p>
-<p>…</p>
+<p>Just the first try of a notebook post.</p>
+<div id="47eb7d6d-0617-4c3c-8c0d-bd1419af76b1" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#&gt; Import libraries</span></span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span></code></pre></div></div>
+</div>
+<div id="d9dea04d-e654-4b93-bf6d-da38522c1a77" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">x <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>np.pi, np.pi, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">101</span>)</span>
+<span id="cb2-2">y <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.sin(x)</span></code></pre></div></div>
+</div>
+<div id="30a1d12a-d178-455f-90eb-aa71ef27eb41" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">plt.figure()</span>
+<span id="cb3-2">plt.plot(x,y)</span>
+<span id="cb3-3">plt.grid()</span></code></pre></div></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://basics2022.github.io/myblog/posts/welcome-ipynb/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 
  ]]></description>
-  <category>structural mechanics</category>
-  <category>weak form</category>
-  <guid>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</guid>
-  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Natural modes in structures</title>
-  <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/modes-in-structures/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-<p>This post tries to answer a narrow <a href="https://physics.stackexchange.com/questions/864252/fixed-vs-free-ends-in-1d-standing-waves">question</a> I’ve found on Physics SE, mainly about some doubts (s)he has about standing waves and response to harmonic forcing arising from the YouTube video, <a href="https://www.youtube.com/watch?si=Ewe45KtT3trKdzPS&amp;v=-gr7KmTOrx0&amp;feature=youtu.be">Standing Waves Parti I: Demonstration</a>, by <a href="James Dann, Ph.D">James Dann, Ph.D</a>.</p>
-<p><img src="https://basics2022.github.io/myblog/posts/modes-in-structures/thumbnail.png" class="img-fluid"></p>
-
-
-
- ]]></description>
-  <category>structural mechanics</category>
-  <category>natural modes</category>
-  <category>resonance</category>
-  <guid>https://basics2022.github.io/myblog/posts/modes-in-structures/</guid>
+  <category>blog</category>
+  <category>jupyter</category>
+  <guid>https://basics2022.github.io/myblog/posts/welcome-ipynb/</guid>
   <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
 </item>
 <item>
