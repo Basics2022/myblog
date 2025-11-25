@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/modes-in-structures/index.html",
       "/posts/welcome-ipynb/index.html",
       "/posts/welcome/index.html"
     ]
