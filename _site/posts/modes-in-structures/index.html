@@ -346,15 +346,18 @@ Solution
 <p><span class="math display">\[s^2 + 2 \xi_n \omega_n s + \omega^2_n = 0 \qquad \rightarrow \qquad s_{1,2} = - \xi_{n} \omega_n \mp \sqrt{\xi_n^2 \omega_n^2 - \omega^2_n} = \omega_n \left[ -\xi_n \mp i \sqrt{ 1 - \xi_n^2 } \right] \ ,\]</span></p>
 <p>and the solution of the homogeneous equation reads</p>
 <p><span class="math display">\[\begin{aligned}
-  g_n(t)
+  g_{n,0}(t)
   &amp; = c_n e^{\left(- \xi_n \mp i \sqrt{1-\xi^2_n} \right) \omega_n t} + \text{ c.c.} = \\
   &amp; = a_n e^{-\xi_n \omega_n t} \cos\left( \sqrt{1 - \xi^2_n} \, \omega_n t \right) + b_n e^{-\xi_n \omega_n t} \sin\left( \sqrt{1 - \xi^2_n} \, \omega_n t \right)
 \end{aligned}\]</span></p>
+<p>If the damping is non-zero, <span class="math inline">\(\xi_n &gt; 0\)</span>, and the homogeneous part of the solution <span class="math inline">\(g_{n,0}(t)\)</span> goes to zero for sufficient long time,</p>
+<p><span class="math display">\[\lim_{t \rightarrow + \infty} g_{n,0}(t) \rightarrow 0 \ ,\]</span></p>
+<p>and thus the free response of the system — and the effect of the initial condition — becomes negligible and only the forced response is relevant.</p>
 </section>
 <section id="harmonic-forcing" class="level4">
 <h4 class="anchored" data-anchor-id="harmonic-forcing">Harmonic forcing</h4>
-<p>With <span class="math inline">\(u_B(t) = U \cos \left( \Omega t \right)\)</span>, the particular solution has the expression</p>
-<p><span class="math display">\[g_{n,P} = A_n \cos\left( \Omega t \right) + B_n \sin\left( \Omega t \right) \ , \]</span></p>
+<p>With <span class="math inline">\(u_B(t) = U \sin \left( \Omega t \right)\)</span>, the particular solution has the expression</p>
+<p><span class="math display">\[g_{n,P}(t) = A_n \cos\left( \Omega t \right) + B_n \sin\left( \Omega t \right) \ , \]</span></p>
 <p>whose coefficients <span class="math inline">\(A_n\)</span>, <span class="math inline">\(B_n\)</span> can be evaluated matching harmonic terms</p>
 <p><span class="math display">\[
 \begin{bmatrix}
@@ -362,7 +365,7 @@ Solution
 -2 \xi_n \omega_n \Omega &amp; -\Omega^2+\omega_n^2
 \end{bmatrix}
 \begin{bmatrix} A_n \\ B_n \end{bmatrix} =
-\begin{bmatrix} 1 \\ 0 \end{bmatrix} (-1)^{n+1} \dfrac{2}{\pi n} U \Omega^2
+\begin{bmatrix} 0 \\ 1 \end{bmatrix} (-1)^{n+1} \dfrac{2}{\pi n} U \Omega^2
 \]</span></p>
 <p><span class="math display">\[\begin{aligned}
 \begin{bmatrix} A_n \\ B_n \end{bmatrix} &amp; =
@@ -371,17 +374,17 @@ Solution
 -\Omega^2+\omega_n^2 &amp; -2 \xi_n \omega_n \Omega \\
 2 \xi_n \omega_n \Omega &amp; -\Omega^2+\omega_n^2
 \end{bmatrix}
-\begin{bmatrix} 1 \\ 0 \end{bmatrix} (-1)^{n+1} \dfrac{2}{\pi n} U \Omega^2 = \\
+\begin{bmatrix} 0 \\ 1 \end{bmatrix} (-1)^{n+1} \dfrac{2}{\pi n} U \Omega^2 = \\
 &amp; =  (-1)^{n+1} \dfrac{2}{\pi n} \dfrac{\Omega^2}{\left(-\Omega^2 + \omega^2_n \right)^2 + \left( 2 \xi_n \omega_n \Omega \right)^2}
-\begin{bmatrix} -\Omega^2 + \omega^2_n \\ 2 \xi_n \omega_n \Omega \end{bmatrix} U \ .
+\begin{bmatrix} -2 \xi_n \omega_n \Omega \\ -\Omega^2 + \omega^2_n \end{bmatrix} U \ .
 \end{aligned}\]</span></p>
 <p>Exploiting properties of harmonic functions, the particular solution can be recast as</p>
 <p><span class="math display">\[\begin{aligned}
   \dfrac{g_{n,P}(t)}{U}
   &amp; = A_n \cos(\Omega t ) + B_n \sin(\Omega t ) = \\
-  &amp; = C_n \cos(\Omega t - \varphi_n ) = \\
+  &amp; = C_n \sin(\Omega t + \varphi_n ) = \\
   &amp; = C_n \left( \dfrac{A_n}{C_n} \cos(\Omega t) + \dfrac{B_n}{C_n} \sin(\Omega t) \right) = \\
-  &amp; = C_n \left( \cos \varphi_n \cos(\Omega t) + \sin \varphi_n \sin(\Omega t) \right) \ ,
+  &amp; = C_n \left( \sin \varphi_n \cos(\Omega t) + \cos \varphi_n \sin(\Omega t) \right) \ ,
 \end{aligned}\]</span></p>
 <p>with <strong>gain</strong> <span class="math inline">\(C_n = \sqrt{A^2_n + B^2_n}\)</span>, i.e.</p>
 <p><span class="math display">\[\begin{aligned}
@@ -391,8 +394,12 @@ Solution
   &amp; = \dfrac{2}{\pi n} \dfrac{\left(\frac{\Omega}{\omega_n}\right)^2}{\sqrt{\left(1 - \left(\frac{\Omega}{\omega_n}\right)^2 \right)^2 + \left( 2 \xi_n \frac{\Omega}{\omega_n} \right)^2}} \ ,
 \end{aligned}\]</span></p>
 <p>and <strong>phase delay</strong> <span class="math inline">\(\varphi_n\)</span> s.t.</p>
-<p><span class="math display">\[\tan \varphi_n = \dfrac{B_n}{A_n} = \dfrac{2 \xi_n \omega_n \Omega}{-\Omega^2 + \omega^2_n} = \dfrac{2 \xi_n \frac{\Omega}{\omega_n}}{1 - \left(\frac{\Omega}{\omega_n}\right)^2} \ .\]</span></p>
-<div id="0e20e103-22a2-4f04-8dc2-f1ed079bb53d" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="43">
+<p><span class="math display">\[ \varphi_n = \text{atan2}\left( a \sin \varphi_n, a \cos \varphi_n \right) = \text{atan2}\left( A_n, B_n \right) = \left( (-1)^{n} \cdot 2 \xi_n \omega_n \Omega , (-1)^{n} ( \Omega^2 - \omega_n^2 ) \right) \ ,\]</span></p>
+<p>having exploited the definition of an <span class="math inline">\(\text{atan2}(\cdot)\)</span> function, whose co-domain width is <span class="math inline">\(2\pi\)</span>.</p>
+<!--
+$$\tan \varphi_n = \dfrac{B_n}{A_n} = \dfrac{2 \xi_n \omega_n \Omega}{-\Omega^2 + \omega^2_n} = \dfrac{2 \xi_n \frac{\Omega}{\omega_n}}{1 - \left(\frac{\Omega}{\omega_n}\right)^2} \ .$$
+-->
+<div id="0e20e103-22a2-4f04-8dc2-f1ed079bb53d" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="45">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Some libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> signal</span>
@@ -436,10 +443,10 @@ Solution
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlim(omegas[<span class="dv">0</span>], omegas[<span class="op">-</span><span class="dv">1</span>])<span class="op">;</span>  ax[<span class="dv">0</span>].grid()</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_ylim(G_ticks[<span class="dv">0</span>], G_ticks[<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlim(omegas[<span class="dv">0</span>], omegas[<span class="op">-</span><span class="dv">1</span>])<span class="op">;</span>  ax[<span class="dv">1</span>].grid()</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_ylabel(<span class="st">'$|G|$'</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_ylabel(<span class="st">'$|G|_</span><span class="sc">{dB}</span><span class="st">$'</span>)</span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">'$</span><span class="er">\</span><span class="st">Omega$'</span>)</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_ylabel(<span class="st">'$</span><span class="er">\</span><span class="st">phi$'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>Text(0, 0.5, '$\\phi$')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -450,6 +457,37 @@ Solution
 </div>
 </div>
 </div>
+</section>
+<section id="full-solution" class="level4">
+<h4 class="anchored" data-anchor-id="full-solution">Full solution</h4>
+<p>Full solution of the problem with the prescribed motion <span class="math inline">\(u_B(t) = U \sin(\Omega t)\)</span> reads</p>
+<p><span class="math display">\[\begin{aligned}
+  u(x,t) &amp; = \left\{ \frac{x}{b} \sin(\Omega t) + \sum_n \sin \left( k_n x \right) g_{n,p}(t) \right\} U_B + \sum_{n} C_{n,0} \sin( k_n x ) e^{-\xi_n \omega_n t} \cos \left( \sqrt{1 - \xi^2_n} \, \omega_n t - \varphi_{n,0} \right) \\
+  &amp; = \left\{ \frac{x}{b} \sin(\Omega t) + \sum_n \sin \left( k_n x \right) C_n(\Omega) \sin(\Omega t + \varphi_n(\Omega) ) \right\} U_B + \sum_{n} C_{n,0} \sin( k_n x ) e^{-\xi_n \omega_n t} \cos \left( \sqrt{1 - \xi^2_n} \, \omega_n t + \varphi_{n,0} \right)
+\end{aligned}\]</span></p>
+<p>s.t. its time derivative <span class="math inline">\(\partial_t u(x,t)\)</span> is</p>
+<p><span class="math display">\[\begin{aligned}
+  \dot{u}(x,t)
+  &amp; = \left\{ \frac{x}{b} \cos(\Omega t) + \sum_n \sin \left( k_n x \right) C_n(\Omega) \cos(\Omega t + \phi_n(\Omega) ) \right\} \Omega U_B + \sum_{n} C_{n,0} \sin( k_n x ) e^{-\xi_n \omega_n t} \left[ - \xi_n \omega_n \cos \left( \sqrt{1 - \xi^2_n} \, \omega_n t + \varphi_{n,0} \right) - \sqrt{1-\xi_n^2} \omega_n \sin\left( \sqrt{1 - \xi^2_n} \, \omega_n t + \varphi_{n,0} \right) \right]
+\end{aligned}\]</span></p>
+<p>Both forced and free response can be re-written as the sum of a <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span> contribution per each wave number. The coefficients <span class="math inline">\(A_n\)</span>, <span class="math inline">\(B_n\)</span> of the forced response have already been evaluated above. The coefficients of the free response <span class="math inline">\(A_{0,n}\)</span>, <span class="math inline">\(B_{0,n}\)</span> need to be evaluated with the initial conditions.</p>
+<p><span class="math display">\[f(t) = e^{-\xi \omega t} \left[ A_0 \cos(\widetilde{\omega} t) + B_0 \sin(\widetilde{\omega} t) \right]\]</span></p>
+<p><span class="math display">\[\dot{f}(t) = e^{-\xi \omega t} \left[ A_0 \left( -\xi \omega \cos(\widetilde{\omega} t) - \widetilde{\omega} \sin(\widetilde{\omega} t) \right) + B_0 \left(-\xi \omega \sin(\widetilde{\omega} t) + \widetilde{\omega} \cos(\widetilde{\omega} t) \right) \right]\]</span></p>
+</section>
+<section id="solving-for-initial-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="solving-for-initial-conditions">Solving for initial conditions</h4>
+<p><em>Projection to find a linear system for the coefficients <span class="math inline">\(A_{n,0}\)</span>, <span class="math inline">\(B_{n,0}\)</span>…</em></p>
+<p><span class="math display">\[u_0(x) = u(x,0) = \sum_{n} \sin(k_n x) A_n U_B + \sum_{n} A_{n,0} \sin(k_n x)\]</span></p>
+<p><span class="math display">\[v_0(x) = \dot{u}(x,0) = \dfrac{x}{b}\Omega U_B + \sum_{n} B_n \Omega U_B \sin(k_n x) + \sum_{n} \left\{ - A_{n,0} \xi_n \omega_n + B_{n,0} \omega_n \sqrt{1 - \xi_n^2} \right\} \sin(k_n x)\]</span></p>
+<p>This is a system of two equations, with infinite unknowns <span class="math inline">\(A_{n,0}\)</span>, <span class="math inline">\(B_{n,0}\)</span>. While this sounds like a very under-determined system, this is not the case since the two equations depends on the continuous spatial coordinate <span class="math inline">\(x\)</span> and thus they’re 2 <em>infinite-dimensional</em> equations: each equation is not just an equality, but it’s an equality that needs to hold for every possible <span class="math inline">\(x \in [0,b]\)</span>, and thus each equation prescribes infinite constraints.</p>
+<p>Now, infinite constraints and infinite unknowns…the problem looks trickier and trickier. But it’s quite easy to solve through projection on the functions <span class="math inline">\(\sin( k_p x )\)</span> exploiting the orthogonality of these harmonic functions on the interval <span class="math inline">\([0,b]\)</span>. This process should recall to the reader the Fourier series expansion of periodic functions. The equations become an infinite number of decoupled pairs of equations,</p>
+<p><span class="math display">\[\int_{x=0}^{b} \sin(k_p x) u_0(x) dx = \dfrac{b}{2} \left( A_p U_B + A_{p,0} \right)\]</span></p>
+<p><span class="math display">\[\int_{x=0}^{b} \sin(k_p x) \left( v_0(x) - \dfrac{x}{b} \Omega U_B \right) \, dx = \dfrac{b}{2} \left( B_p \Omega U_B + \omega_p \left( - \xi_p A_{p,0} + \sqrt{1 - \xi^2_p} B_{p,0} \right) \right)\]</span></p>
+<p>whose results are easily evaluated as</p>
+<p><span class="math display">\[\begin{aligned}
+  A_{p,0} &amp; = - A_p U_B + \dfrac{2}{b} \int_{x=0}^{b} \sin(k_p x) u_0(x) \, dx
+  B_{p,0} &amp; = \dots
+\end{aligned}\]</span></p>
 
 
 </section>
