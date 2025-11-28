@@ -3,9 +3,123 @@ title: "Weak formulation of problems in structural mechanics"
 author: "Basics"
 date: "2025-11-24"
 categories: [structural mechanics, weak form]
-draft: true
 ---
+<!--
+draft: true
+-->
 
+This post grew out of a question about a structural mechanics exercise that appeared in a community of structural engineers. The exercise dealt with a hyperstatic beam system with elastic supports and thermal strains.
+
+It’s a nice excuse to talk about the role of the weak form &mdash; especially compatibility and equilibrium conditions &mdash; and to show that the so-called energy theorems follow directly from choosing suitable test functions in the weak formulation.
+
+<!--
 ![](thumbnail.png)
+-->
 
-...
+<p align="center">
+  <img src="thumbnail.png" />
+</p>
+
+## Linear elastic problem
+
+$$\begin{cases}
+  \boldsymbol\nabla \cdot \boldsymbol\sigma + \overline{\mathbf{f}} = \mathbf{0}  && \text{in $V$} \\
+  \boldsymbol\varepsilon = \frac{1}{2} \left( \boldsymbol\nabla \mathbf{s} + \boldsymbol\nabla^T \mathbf{s} \right) \\
+  \boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T \\
+  \mathbf{s} = \overline{\mathbf{s}}   && \text{on $S_D$} \\
+  \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \overline{\mathbf{t}}_n   && \text{on $S_N$} \\
+  \mathbf{K} \cdot \mathbf{s} + \mathbf{S} \cdot (\hat{\mathbf{n}} \cdot \boldsymbol\sigma ) = \overline{h}   && \text{on $S_R$} \\
+\end{cases}$$
+
+## Equilibrium conditions
+
+### Strong form
+
+$$\begin{cases}
+  \boldsymbol\nabla \cdot \boldsymbol\sigma + \overline{\mathbf{f}} = \mathbf{0}  && \text{in $V$} \\
+  \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \overline{\mathbf{t}}_n   && \text{on $S_N$} \\
+\end{cases}$$
+
+with $\boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T$.
+
+### Weak form
+
+For every *sufficiently regular* test function $\mathbf{w}$,
+
+$$\begin{aligned}
+  0
+  & = \int_{V} \mathbf{w} \cdot \left\{ \boldsymbol\nabla \cdot \boldsymbol\sigma + \overline{\mathbf{f}} \right\} = \\
+  & = \oint_{\partial V} \hat{\mathbf{n}} \cdot \boldsymbol\sigma \cdot \mathbf{w} - \int_{V} \boldsymbol\nabla \mathbf{w} : \boldsymbol\sigma + \int_{V} \mathbf{w} \cdot \mathbf{f} = \\
+  & = \oint_{\partial V} \hat{\mathbf{n}} \cdot \boldsymbol\sigma \cdot \mathbf{w} - \int_{V} \dfrac{1}{2} \left( \boldsymbol\nabla \mathbf{w} + \boldsymbol\nabla^T \mathbf{w} \right) : \boldsymbol\sigma + \int_{V} \mathbf{w} \cdot \mathbf{f} \ .
+\end{aligned}$$
+
+having exploited the symmetry of the stress tensor $\boldsymbol\sigma$.
+
+### ...
+
+### PVW
+
+## Compatibility conditions
+
+### Strong form
+
+$$\begin{cases}
+  \boldsymbol\varepsilon = \frac{1}{2} \left( \boldsymbol\nabla \mathbf{s} + \boldsymbol\nabla^T \mathbf{s} \right) && \text{in $V$} \\
+  \mathbf{s} = \overline{\mathbf{s}}   && \text{on $S_D$} \\
+\end{cases}$$
+
+with $\boldsymbol\varepsilon = \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \Delta T$.
+
+### Weak form
+
+For every *sufficiently regular* test function $\boldsymbol\Sigma$ ($2^{nd}$-order tensor)
+
+$$\begin{aligned}
+  0
+  & = \int_{V} \boldsymbol\Sigma : \left( \boldsymbol\varepsilon - \dfrac{1}{2} \left( \boldsymbol\nabla \mathbf{s} + \boldsymbol\nabla^T \mathbf{s} \right) \right) = \\
+  & = \int_{V} \boldsymbol\Sigma : \boldsymbol\varepsilon - \oint_{\partial V} \hat{\mathbf{n}} \cdot \boldsymbol\Sigma \cdot \mathbf{s} + \int_V \boldsymbol\nabla \cdot \boldsymbol\Sigma \cdot \mathbf{s} = \\
+\end{aligned}$$
+
+if the tensor test function is symmetric $\boldsymbol\Sigma = \boldsymbol\Sigma^T$.
+
+### Force method
+
+Choosing the test function to be an equilibrated stress field &mdash; let's define it as $\boldsymbol\Sigma := \widetilde{\boldsymbol\sigma}$ to recall this condition &mdash; i.e. a stress field that satisfies equilibrium conditions
+
+$$\begin{cases}
+  \boldsymbol\nabla \cdot \widetilde{\boldsymbol\sigma} + \widetilde{\mathbf{f}} = \mathbf{0}  && \text{in $V$} \\
+  \hat{\mathbf{n}} \cdot \widetilde{\boldsymbol\sigma} = \widetilde{\mathbf{t}}_n   && \text{on $S_N$} \\
+\end{cases}$$
+
+<!--  
+-->
+
+under some external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_n$ on $S_N$. The weak problem thus becomes
+
+$$0 = \int_{V} \widetilde{\boldsymbol\sigma} : \boldsymbol\varepsilon - \int_{V} \widetilde{\mathbf{f}} \cdot \mathbf{s} - \int_{S_N} \widetilde{\mathbf{t}}_n \cdot \mathbf{s} - \int_{S_D} \hat{\mathbf{n}} \cdot \widetilde{\boldsymbol\sigma} \cdot \overline{\mathbf{s}} - \int_{S_R} \dots  $$
+
+```{admonition} Example: evaluation of hyperstatics
+:class: tip
+
+One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.
+
+```
+
+### PCVW
+
+Choosing the test function to be the variation equilibrated stress field &mdash; let's define it as $\boldsymbol\Sigma := \delta \widetilde{\boldsymbol\sigma}$ to recall this condition &mdash; i.e. a stress field that satisfies equilibrium conditions
+
+$$\begin{cases}
+  \boldsymbol\nabla \cdot \delta \widetilde{\boldsymbol\sigma} = \mathbf{0}  && \text{in $V$} \\
+  \hat{\mathbf{n}} \cdot \delta \widetilde{\boldsymbol\sigma} = \mathbf{0}  && \text{on $S_N$} \\
+\end{cases}$$
+
+<!--  
+-->
+
+as the variation of given external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathbf{t}}_n$ on $S_N$ is identically zero. The weak problem thus becomes
+
+$$0 = \int_{V} \delta \widetilde{\boldsymbol\sigma} : \boldsymbol\varepsilon - \int_{S_D} \hat{\mathbf{n}} \cdot \delta \widetilde{\boldsymbol\sigma} \cdot \overline{\mathbf{s}} - \int_{S_R} \dots  $$
+
+
+
