@@ -293,7 +293,7 @@ Remarks
 </section>
 <section id="slow-part" class="level4">
 <h4 class="anchored" data-anchor-id="slow-part">Slow part</h4>
-<p>Slow part taks into account the remaining part of the problem</p>
+<p>Slow part takes into account the remaining part of the problem</p>
 <p><span class="math display">\[\begin{cases}
   - m \ddot{u}_0 + N_0 u''_0 = m \ddot{u}_p - N_0 \underbrace{u''_p}_{=0}           &amp; , \quad \text{$(x,t) \in [0,b] \times [0, t_{max}]$} \\
   u_0(0,t)  = 0                          &amp; , \quad \text{$t \in [0,t_{max}]$} \\
@@ -314,28 +314,28 @@ Solution
 </summary>
 <p>Exploiting orthogonality of harmonic functions,</p>
 <p><span class="math display">\[\begin{aligned}
-      \int_{0}^{b} \sin \left(\frac{n \pi x}{b}\right) \sin \left(\frac{m \pi x}{b} \right) \, dx &amp; = \frac{b}{2} \delta_{nm} \\
-      \int_{0}^{b} \cos \left(\frac{n \pi x}{b}\right) \cos \left(\frac{m \pi x}{b} \right) \, dx &amp; = \frac{b}{2} \delta_{nm} \\
-      \int_{0}^{b} \sin \left(\frac{n \pi x}{b}\right) \cos \left(\frac{m \pi x}{b} \right) \, dx &amp; = 0 \\
-    \end{aligned}\]</span></p>
+  \int_{0}^{b} \sin \left(\frac{n \pi x}{b}\right) \sin \left(\frac{m \pi x}{b} \right) \, dx &amp; = \frac{b}{2} \delta_{nm} \\
+  \int_{0}^{b} \cos \left(\frac{n \pi x}{b}\right) \cos \left(\frac{m \pi x}{b} \right) \, dx &amp; = \frac{b}{2} \delta_{nm} \\
+  \int_{0}^{b} \sin \left(\frac{n \pi x}{b}\right) \cos \left(\frac{m \pi x}{b} \right) \, dx &amp; = 0 \\
+\end{aligned}\]</span></p>
 <p>and projection of the solution onto these functions,</p>
 <p><span class="math display">\[\begin{aligned}
-      0 &amp; = \int_{x=0}^{b} \sin\left( \dfrac{m \pi x}{b} \right) \left\{ - m \ddot{u}_0 + N_0 u''_0 - m \ddot{u}_p \right\} dx = \\
-        &amp; = \int_{x=0}^{b} \sin\left( \dfrac{m \pi x}{b} \right) \sum_n \left\{ - m \ddot{g}_n(t) - k^2_n N_0 g_n(t) \right\} \sin \left( \dfrac{n \pi x}{b} \right) \, dx - \int_{x=0}^b \sin\left( \dfrac{m \pi x}{b} \right) m \frac{x}{b} dx \, \ddot{u}_B(t)
-    \end{aligned}\]</span></p>
+  0 &amp; = \int_{x=0}^{b} \sin\left( \dfrac{m \pi x}{b} \right) \left\{ - m \ddot{u}_0 + N_0 u''_0 - m \ddot{u}_p \right\} dx = \\
+    &amp; = \int_{x=0}^{b} \sin\left( \dfrac{m \pi x}{b} \right) \sum_n \left\{ - m \ddot{g}_n(t) - k^2_n N_0 g_n(t) \right\} \sin \left( \dfrac{n \pi x}{b} \right) \, dx - \int_{x=0}^b \sin\left( \dfrac{m \pi x}{b} \right) m \frac{x}{b} dx \, \ddot{u}_B(t)
+\end{aligned}\]</span></p>
 <p>the PDEs can be recast as a (infinite dimension) linear system</p>
 <p><span class="math display">\[m \dfrac{b}{2} \ddot{g}_n(t) + k^2_n N_0 \dfrac{b}{2} g_n(t) = (-1)^{n} m \dfrac{b}{\pi n} \ddot{u}_B(t) \ , \]</span></p>
 <p>or, dividing by the mass <span class="math inline">\(m\)</span> times <span class="math inline">\(\frac{b}{2}\)</span> and recalling that <span class="math inline">\(k_n = \frac{n \pi}{b}\)</span>, <span class="math inline">\(c := \sqrt{\frac{N_0}{m}}\)</span> and <span class="math inline">\(\omega_n := c k_n\)</span>,</p>
 <p><span class="math display">\[\ddot{g}_n(t) + \omega_n^2 g_n(t) = (-1)^{n} \dfrac{2}{\pi n} \ddot{u}_P(t) \ ,\]</span></p>
 <p>being</p>
 <p><span class="math display">\[\begin{aligned}
-    \int_{x=0}^b \dfrac{x}{b} \sin \left( \dfrac{m \pi x}{b} \right) dx
-      &amp; = \left.\left[ - \dfrac{x}{b} \dfrac{b}{\pi m} \cos\left( \dfrac{m \pi x}{b} \right) \right]\right|_{x=0}^{b} + \int_{x=0}^{b} \dfrac{1}{\pi m} \cos \left( \dfrac{m \pi x}{b} \right) \, dx = \\
-      &amp; = - \dfrac{b}{\pi m} \underbrace{\cos\left( m \pi \right)}_{(-1)^m} + \underbrace{\dfrac{b}{(\pi m)^2} \left.\sin\left( \dfrac{m \pi x}{b} \right)\right|_{x=0}^{b}}_{=0} = \\
-      &amp; = -(-1)^{m} \dfrac{b}{\pi m} \ .
-    \end{aligned}\]</span></p>
+\int_{x=0}^b \dfrac{x}{b} \sin \left( \dfrac{m \pi x}{b} \right) dx
+  &amp; = \left.\left[ - \dfrac{x}{b} \dfrac{b}{\pi m} \cos\left( \dfrac{m \pi x}{b} \right) \right]\right|_{x=0}^{b} + \int_{x=0}^{b} \dfrac{1}{\pi m} \cos \left( \dfrac{m \pi x}{b} \right) \, dx = \\
+  &amp; = - \dfrac{b}{\pi m} \underbrace{\cos\left( m \pi \right)}_{(-1)^m} + \underbrace{\dfrac{b}{(\pi m)^2} \left.\sin\left( \dfrac{m \pi x}{b} \right)\right|_{x=0}^{b}}_{=0} = \\
+  &amp; = -(-1)^{m} \dfrac{b}{\pi m} \ .
+\end{aligned}\]</span></p>
 <p>The solution of the equation for <span class="math inline">\(g_n\)</span> can be written as the sum of the solution of the homogeneous equation and an <em>independent</em> particular solution <span class="math inline">\(g_{n,P}\)</span></p>
-<p><span class="math display">\[g_n(t) = a_n \cos \left( \omega_n t \right) + b_n \sin \left( \omega_n t \right) + g_{n,P}(t) \ ,\]</span></p>
+<p><span class="math display">\[g_n(t) = a_n \cos \left( \omega_n t \right) + b_n \sin \left( \omega_n t \right) + g_{n,P}(t) \ .\]</span></p>
 </details>
 </section>
 <section id="sligthly-damped-system" class="level4">
@@ -353,6 +353,19 @@ Solution
 <p>If the damping is non-zero, <span class="math inline">\(\xi_n &gt; 0\)</span>, and the homogeneous part of the solution <span class="math inline">\(g_{n,0}(t)\)</span> goes to zero for sufficient long time,</p>
 <p><span class="math display">\[\lim_{t \rightarrow + \infty} g_{n,0}(t) \rightarrow 0 \ ,\]</span></p>
 <p>and thus the free response of the system — and the effect of the initial condition — becomes negligible and only the forced response is relevant.</p>
+<!--
+<details open><summary>Back to PDE: damping term.</summary>
+
+The goal of this section is to provide the expression of a damping contribution that is compatible with the modal damping, starting from the equations for the amplitude of the modes and going back to the original PDE.
+
+If the equation
+
+$$\ddot{g}_n + 2 \xi_n \omega_n \dot{g}_n + \omega^2_n g_n = F_n(t) \ ,$$
+
+comes from the diagonalization of the problem &mdash; with $\omega_n = n \sqrt{\frac{N_0}{m}}$ &mdash;, after having introduced the ansatz using separation of variables, $u(x,t) = \sum_n f_n(x) g_n(t)$,
+
+</details>
+-->
 </section>
 <section id="harmonic-forcing" class="level4">
 <h4 class="anchored" data-anchor-id="harmonic-forcing">Harmonic forcing</h4>

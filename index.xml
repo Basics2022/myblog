@@ -78,7 +78,7 @@ Remarks
 </section>
 <section id="slow-part" class="level4">
 <h4 class="anchored" data-anchor-id="slow-part">Slow part</h4>
-<p>Slow part taks into account the remaining part of the problem</p>
+<p>Slow part takes into account the remaining part of the problem</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bcases%7D%0A%20%20-%20m%20%5Cddot%7Bu%7D_0%20+%20N_0%20u''_0%20=%20m%20%5Cddot%7Bu%7D_p%20-%20N_0%20%5Cunderbrace%7Bu''_p%7D_%7B=0%7D%20%20%20%20%20%20%20%20%20%20%20&amp;%20,%20%5Cquad%20%5Ctext%7B$(x,t)%20%5Cin%20%5B0,b%5D%20%5Ctimes%20%5B0,%20t_%7Bmax%7D%5D$%7D%20%5C%5C%0A%20%20u_0(0,t)%20%20=%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;%20,%20%5Cquad%20%5Ctext%7B$t%20%5Cin%20%5B0,t_%7Bmax%7D%5D$%7D%20%5C%5C%0A%20%20u_0(b,t)%20%20=%200%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5C%5C%0A%20%20u_0(x,0)%20%20=%20u(x,0)%20-%20u_p(x,0)%20%20%20%20%20%20%20%20%20%20&amp;%20,%20%5Cquad%20%5Ctext%7B$x%20%5Cin%20%5B0,b%5D$%7D%20%20%20%20%20%20%20%5C%5C%0A%20%20%5Cdot%7Bu%7D_0(x,0)%20=%20%5Cdot%7Bu%7D(x,0)%20-%20%5Cdot%7Bu%7D_p(x,0)%0A%5Cend%7Bcases%7D"></p>
 <p>The solution of this problem can be written as a linear combination</p>
 <p><img src="https://latex.codecogs.com/png.latex?u_0(x,t)%20=%20%5Csum_n%20g_n(t)%20%5C,%20f_n(x)%20%5C%20,"></p>
@@ -92,17 +92,17 @@ Remarks
 Solution
 </summary>
 <p>Exploiting orthogonality of harmonic functions,</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20%20%20%20%20%5Cint_%7B0%7D%5E%7Bb%7D%20%5Csin%20%5Cleft(%5Cfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%5Cright)%20%5Csin%20%5Cleft(%5Cfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20&amp;%20=%20%5Cfrac%7Bb%7D%7B2%7D%20%5Cdelta_%7Bnm%7D%20%5C%5C%0A%20%20%20%20%20%20%5Cint_%7B0%7D%5E%7Bb%7D%20%5Ccos%20%5Cleft(%5Cfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%5Cright)%20%5Ccos%20%5Cleft(%5Cfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20&amp;%20=%20%5Cfrac%7Bb%7D%7B2%7D%20%5Cdelta_%7Bnm%7D%20%5C%5C%0A%20%20%20%20%20%20%5Cint_%7B0%7D%5E%7Bb%7D%20%5Csin%20%5Cleft(%5Cfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%5Cright)%20%5Ccos%20%5Cleft(%5Cfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20&amp;%20=%200%20%5C%5C%0A%20%20%20%20%5Cend%7Baligned%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20%5Cint_%7B0%7D%5E%7Bb%7D%20%5Csin%20%5Cleft(%5Cfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%5Cright)%20%5Csin%20%5Cleft(%5Cfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20&amp;%20=%20%5Cfrac%7Bb%7D%7B2%7D%20%5Cdelta_%7Bnm%7D%20%5C%5C%0A%20%20%5Cint_%7B0%7D%5E%7Bb%7D%20%5Ccos%20%5Cleft(%5Cfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%5Cright)%20%5Ccos%20%5Cleft(%5Cfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20&amp;%20=%20%5Cfrac%7Bb%7D%7B2%7D%20%5Cdelta_%7Bnm%7D%20%5C%5C%0A%20%20%5Cint_%7B0%7D%5E%7Bb%7D%20%5Csin%20%5Cleft(%5Cfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%5Cright)%20%5Ccos%20%5Cleft(%5Cfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20&amp;%20=%200%20%5C%5C%0A%5Cend%7Baligned%7D"></p>
 <p>and projection of the solution onto these functions,</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20%20%20%20%200%20&amp;%20=%20%5Cint_%7Bx=0%7D%5E%7Bb%7D%20%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5Cleft%5C%7B%20-%20m%20%5Cddot%7Bu%7D_0%20+%20N_0%20u''_0%20-%20m%20%5Cddot%7Bu%7D_p%20%5Cright%5C%7D%20dx%20=%20%5C%5C%0A%20%20%20%20%20%20%20%20&amp;%20=%20%5Cint_%7Bx=0%7D%5E%7Bb%7D%20%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5Csum_n%20%5Cleft%5C%7B%20-%20m%20%5Cddot%7Bg%7D_n(t)%20-%20k%5E2_n%20N_0%20g_n(t)%20%5Cright%5C%7D%20%5Csin%20%5Cleft(%20%5Cdfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20-%20%5Cint_%7Bx=0%7D%5Eb%20%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20m%20%5Cfrac%7Bx%7D%7Bb%7D%20dx%20%5C,%20%5Cddot%7Bu%7D_B(t)%0A%20%20%20%20%5Cend%7Baligned%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%200%20&amp;%20=%20%5Cint_%7Bx=0%7D%5E%7Bb%7D%20%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5Cleft%5C%7B%20-%20m%20%5Cddot%7Bu%7D_0%20+%20N_0%20u''_0%20-%20m%20%5Cddot%7Bu%7D_p%20%5Cright%5C%7D%20dx%20=%20%5C%5C%0A%20%20%20%20&amp;%20=%20%5Cint_%7Bx=0%7D%5E%7Bb%7D%20%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5Csum_n%20%5Cleft%5C%7B%20-%20m%20%5Cddot%7Bg%7D_n(t)%20-%20k%5E2_n%20N_0%20g_n(t)%20%5Cright%5C%7D%20%5Csin%20%5Cleft(%20%5Cdfrac%7Bn%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20-%20%5Cint_%7Bx=0%7D%5Eb%20%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20m%20%5Cfrac%7Bx%7D%7Bb%7D%20dx%20%5C,%20%5Cddot%7Bu%7D_B(t)%0A%5Cend%7Baligned%7D"></p>
 <p>the PDEs can be recast as a (infinite dimension) linear system</p>
 <p><img src="https://latex.codecogs.com/png.latex?m%20%5Cdfrac%7Bb%7D%7B2%7D%20%5Cddot%7Bg%7D_n(t)%20+%20k%5E2_n%20N_0%20%5Cdfrac%7Bb%7D%7B2%7D%20g_n(t)%20=%20(-1)%5E%7Bn%7D%20m%20%5Cdfrac%7Bb%7D%7B%5Cpi%20n%7D%20%5Cddot%7Bu%7D_B(t)%20%5C%20,%20"></p>
 <p>or, dividing by the mass <img src="https://latex.codecogs.com/png.latex?m"> times <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bb%7D%7B2%7D"> and recalling that <img src="https://latex.codecogs.com/png.latex?k_n%20=%20%5Cfrac%7Bn%20%5Cpi%7D%7Bb%7D">, <img src="https://latex.codecogs.com/png.latex?c%20:=%20%5Csqrt%7B%5Cfrac%7BN_0%7D%7Bm%7D%7D"> and <img src="https://latex.codecogs.com/png.latex?%5Comega_n%20:=%20c%20k_n">,</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cddot%7Bg%7D_n(t)%20+%20%5Comega_n%5E2%20g_n(t)%20=%20(-1)%5E%7Bn%7D%20%5Cdfrac%7B2%7D%7B%5Cpi%20n%7D%20%5Cddot%7Bu%7D_P(t)%20%5C%20,"></p>
 <p>being</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20%20%20%5Cint_%7Bx=0%7D%5Eb%20%5Cdfrac%7Bx%7D%7Bb%7D%20%5Csin%20%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20dx%0A%20%20%20%20%20%20&amp;%20=%20%5Cleft.%5Cleft%5B%20-%20%5Cdfrac%7Bx%7D%7Bb%7D%20%5Cdfrac%7Bb%7D%7B%5Cpi%20m%7D%20%5Ccos%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5Cright%5D%5Cright%7C_%7Bx=0%7D%5E%7Bb%7D%20+%20%5Cint_%7Bx=0%7D%5E%7Bb%7D%20%5Cdfrac%7B1%7D%7B%5Cpi%20m%7D%20%5Ccos%20%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20=%20%5C%5C%0A%20%20%20%20%20%20&amp;%20=%20-%20%5Cdfrac%7Bb%7D%7B%5Cpi%20m%7D%20%5Cunderbrace%7B%5Ccos%5Cleft(%20m%20%5Cpi%20%5Cright)%7D_%7B(-1)%5Em%7D%20+%20%5Cunderbrace%7B%5Cdfrac%7Bb%7D%7B(%5Cpi%20m)%5E2%7D%20%5Cleft.%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%5Cright%7C_%7Bx=0%7D%5E%7Bb%7D%7D_%7B=0%7D%20=%20%5C%5C%0A%20%20%20%20%20%20&amp;%20=%20-(-1)%5E%7Bm%7D%20%5Cdfrac%7Bb%7D%7B%5Cpi%20m%7D%20%5C%20.%0A%20%20%20%20%5Cend%7Baligned%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%5Cint_%7Bx=0%7D%5Eb%20%5Cdfrac%7Bx%7D%7Bb%7D%20%5Csin%20%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20dx%0A%20%20&amp;%20=%20%5Cleft.%5Cleft%5B%20-%20%5Cdfrac%7Bx%7D%7Bb%7D%20%5Cdfrac%7Bb%7D%7B%5Cpi%20m%7D%20%5Ccos%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5Cright%5D%5Cright%7C_%7Bx=0%7D%5E%7Bb%7D%20+%20%5Cint_%7Bx=0%7D%5E%7Bb%7D%20%5Cdfrac%7B1%7D%7B%5Cpi%20m%7D%20%5Ccos%20%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%20%5C,%20dx%20=%20%5C%5C%0A%20%20&amp;%20=%20-%20%5Cdfrac%7Bb%7D%7B%5Cpi%20m%7D%20%5Cunderbrace%7B%5Ccos%5Cleft(%20m%20%5Cpi%20%5Cright)%7D_%7B(-1)%5Em%7D%20+%20%5Cunderbrace%7B%5Cdfrac%7Bb%7D%7B(%5Cpi%20m)%5E2%7D%20%5Cleft.%5Csin%5Cleft(%20%5Cdfrac%7Bm%20%5Cpi%20x%7D%7Bb%7D%20%5Cright)%5Cright%7C_%7Bx=0%7D%5E%7Bb%7D%7D_%7B=0%7D%20=%20%5C%5C%0A%20%20&amp;%20=%20-(-1)%5E%7Bm%7D%20%5Cdfrac%7Bb%7D%7B%5Cpi%20m%7D%20%5C%20.%0A%5Cend%7Baligned%7D"></p>
 <p>The solution of the equation for <img src="https://latex.codecogs.com/png.latex?g_n"> can be written as the sum of the solution of the homogeneous equation and an <em>independent</em> particular solution <img src="https://latex.codecogs.com/png.latex?g_%7Bn,P%7D"></p>
-<p><img src="https://latex.codecogs.com/png.latex?g_n(t)%20=%20a_n%20%5Ccos%20%5Cleft(%20%5Comega_n%20t%20%5Cright)%20+%20b_n%20%5Csin%20%5Cleft(%20%5Comega_n%20t%20%5Cright)%20+%20g_%7Bn,P%7D(t)%20%5C%20,"></p>
+<p><img src="https://latex.codecogs.com/png.latex?g_n(t)%20=%20a_n%20%5Ccos%20%5Cleft(%20%5Comega_n%20t%20%5Cright)%20+%20b_n%20%5Csin%20%5Cleft(%20%5Comega_n%20t%20%5Cright)%20+%20g_%7Bn,P%7D(t)%20%5C%20."></p>
 </details>
 </section>
 <section id="sligthly-damped-system" class="level4">
@@ -116,6 +116,19 @@ Solution
 <p>If the damping is non-zero, <img src="https://latex.codecogs.com/png.latex?%5Cxi_n%20%3E%200">, and the homogeneous part of the solution <img src="https://latex.codecogs.com/png.latex?g_%7Bn,0%7D(t)"> goes to zero for sufficient long time,</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Clim_%7Bt%20%5Crightarrow%20+%20%5Cinfty%7D%20g_%7Bn,0%7D(t)%20%5Crightarrow%200%20%5C%20,"></p>
 <p>and thus the free response of the system — and the effect of the initial condition — becomes negligible and only the forced response is relevant.</p>
+<!--
+<details open><summary>Back to PDE: damping term.</summary>
+
+The goal of this section is to provide the expression of a damping contribution that is compatible with the modal damping, starting from the equations for the amplitude of the modes and going back to the original PDE.
+
+If the equation
+
+$$\ddot{g}_n + 2 \xi_n \omega_n \dot{g}_n + \omega^2_n g_n = F_n(t) \ ,$$
+
+comes from the diagonalization of the problem &mdash; with $\omega_n = n \sqrt{\frac{N_0}{m}}$ &mdash;, after having introduced the ansatz using separation of variables, $u(x,t) = \sum_n f_n(x) g_n(t)$,
+
+</details>
+-->
 </section>
 <section id="harmonic-forcing" class="level4">
 <h4 class="anchored" data-anchor-id="harmonic-forcing">Harmonic forcing</h4>
@@ -532,7 +545,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```bdmtetbxcehf Example: evaluation of hyperstatics :class: tip</p>
+<p>```qjxzmncmyx Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
