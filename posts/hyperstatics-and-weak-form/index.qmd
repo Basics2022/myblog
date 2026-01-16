@@ -98,8 +98,7 @@ under some external loads $\widetilde{\mathbf{f}}$ in $V$ and $\widetilde{\mathb
 
 $$0 = \int_{V} \widetilde{\boldsymbol\sigma} : \boldsymbol\varepsilon - \int_{V} \widetilde{\mathbf{f}} \cdot \mathbf{s} - \int_{S_N} \widetilde{\mathbf{t}}_n \cdot \mathbf{s} - \int_{S_D} \hat{\mathbf{n}} \cdot \widetilde{\boldsymbol\sigma} \cdot \overline{\mathbf{s}} - \int_{S_R} \dots  $$
 
-```{admonition} Example: evaluation of hyperstatics
-:class: tip
+```{dropdown} Example: evaluation of hyperstatics
 
 One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.
 
