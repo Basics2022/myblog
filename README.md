@@ -54,9 +54,19 @@ Create branch *gh-pages*, and create GitHub action for updating deplyed website.
 
 > quarto publish gh-pages
 
+## Preview, render and publish
+
 ### Local preview
 
 > quarto preview &
+
+### Render
+
+> quarto preview
+
+### Publish
+
+> quarto publish
 
 ## References and Examples
 * https://quarto.org/

@@ -5,6 +5,8 @@ date: "2026-01-16"
 categories: [conics, quadratic equations, analytic geometry, linear algebra]
 ---
 
+This
+
 **Introduction.**
 
 **Geometry.** Different definitions:

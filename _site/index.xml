@@ -10,7 +10,113 @@
 <atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Basics blog</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Thu, 15 Jan 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 12 Mar 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Compressible fluid mechanics and finite volume method</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/hyperbolic-equations/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<!--
+draft: true
+-->
+<p>This post acts as an introduction to or the landing page of a “meta-course” on compressible fluid mechanics and finite volume method.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Topics</th>
+<th style="text-align: left;">Main contents</th>
+<th style="text-align: left;">Primary link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Physics of Compressible Fluids</td>
+<td style="text-align: left;">From physics principles to Euler equations</td>
+<td style="text-align: left;"><a href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/intro.html">Fluid Mechanics: Compressible Fluid Mechanics</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mathematics of Hyperbolic PDEs</td>
+<td style="text-align: left;">Eigenstructure and characteristics of differential equation; discontinuities from integral equations</td>
+<td style="text-align: left;"><a href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/hyperbolic.html">Math: PDEs: Hyperbolic Equations</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Numerical methods for Hyperbolic PDEs</td>
+<td style="text-align: left;">Physics-based schemes in FVM: non-linear Riemann solvers (Godunov) and linearized solvers (Roe)</td>
+<td style="text-align: left;"><a href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fvm-hyperbolic-pde.html">Math: Numerical Methods for PDEs: Finite Volume Method</a></td>
+</tr>
+</tbody>
+</table>
+<section id="the-physics" class="level2">
+<h2 class="anchored" data-anchor-id="the-physics">The physics</h2>
+<p><strong>Differential equations.</strong> Euler equations are the local (differential) form of three fundamental principles of classical mechanics:</p>
+<ol type="1">
+<li>conservation of mass</li>
+<li>second principle of Newtonian mechanics, or balance of momentum</li>
+<li>first principle of Thermodynamics, or balance of total energy</li>
+</ol>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20&amp;%20%5Cpartial_t%20%5Crho%20+%20%5Cnabla%20%5Ccdot%20(%20%5Crho%20%5Cmathbf%7Bu%7D%20)%20=%200%20%5C%5C%0A%20%20&amp;%20%5Cpartial_t%20(%20%5Crho%20%5Cmathbf%7Bu%7D%20)%20+%20%5Cnabla%20%5Ccdot%20%5Cleft(%20%5Crho%20%5Cmathbf%7Bu%7D%20%5Cmathbf%7Bu%7D%20+%20p%20%5Cright)%20=%20%5Crho%20%5Cmathbf%7Bg%7D%20%5C%5C%0A%20%20&amp;%20%5Cpartial_t%20%5Cleft(%20%5Crho%20e%5Et%20%5Cright)%20+%20%5Cnabla%20%5Ccdot%20%5Cleft(%20%5Crho%20h%5Et%20%5Cmathbf%7Bu%7D%20%5Cright)%20=%20%5Crho%20%5Cmathbf%7Bg%7D%20%5Ccdot%20%5Cmathbf%7Bu%7D%20%5C%5C%0A%5Cend%7Baligned%7D"></p>
+<p>in the limit of <strong>negligible viscosity and heat conduction</strong>, supplemented with proper:</p>
+<ul>
+<li>constitutive equations describing the behavior of the medium of interest,</li>
+<li>boundary conditions</li>
+<li>initial conditions.</li>
+</ul>
+<p>Differential equations hold only in regions of space where the functions involved are continuous and sufficient regular for the derivativesi appearing in the equations to exist.</p>
+<p>Neglecting diffusive terms (viscous stress and heat conduction), Navier-Stokes equations become Euler equations. While Navier-Stokes equations contain second-order derivatives in space (e.g.&nbsp;the Laplacian of the velocity in viscous stress, and the Laplacian of temperature in heat conduction flux), Euler equations are first orde. While Navier-Stokes equations are not prone to produce discontinuous solutions, <strong>discontinuities</strong> (like shock waves) naturally arises in Euler equations.</p>
+<p>Fields involved in Euler equations may be not continuous across a discontiuity. Thus, across a discontinuity, the differential form of the equations is likely to fail, while integral equations are still valid (not having the same regularity assumptions required by differential equations, to be derived from the integral equations, namely no divergenvce theorem is required).</p>
+<p><strong>Integral equations.</strong> For a control volume <img src="https://latex.codecogs.com/png.latex?V"> at rest</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20&amp;%20%5Cfrac%7Bd%7D%7Bdt%7D%20%5Cint_V%20%5Crho%20+%20%5Coint_%7B%5Cpartial%20V%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20(%20%5Crho%20%5Cmathbf%7Bu%7D%20)%20=%200%20%5C%5C%0A%20%20&amp;%20%5Cfrac%7Bd%7D%7Bdt%7D%20%5Cint_V%20%5Crho%20%5Cmathbf%7Bu%7D%20+%20%5Coint_%7B%5Cpartial%20V%7D%20%5Crho%20%5Cmathbf%7Bu%7D%20%5Cmathbf%7Bu%7D%20%5Ccdot%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20+%20%5Coint_%7B%5Cpartial%20V%7D%20p%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20=%20%5Cint_%7BV%7D%20%5Crho%20%5Cmathbf%7Bg%7D%20%5C%5C%0A%20%20&amp;%20%5Cfrac%7Bd%7D%7Bdt%7D%20%5Cint_V%20%5Crho%20e%5Et%20+%20%5Coint_%7B%5Cpartial%20V%7D%20%5Crho%20e%5Et%20%5Cmathbf%7Bu%7D%20%5Ccdot%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20+%20%5Coint_%7B%5Cpartial%20V%7D%20p%20%5Cmathbf%7Bu%7D%20%5Ccdot%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20=%20%5Cint_%7BV%7D%20%5Crho%20%5Cmathbf%7Bg%7D%20%5Ccdot%20%5Cmathbf%7Bu%7D%20%5C%5C%0A%5Cend%7Baligned%7D"></p>
+<p>Integral equations for an arbitrary volume <img src="https://latex.codecogs.com/png.latex?v_t"> can be written Using <strong>Reynolds’ transport theorem</strong>. These equations provides:</p>
+<ul>
+<li><strong>jump conditions</strong> across discontinuities</li>
+<li><strong>arbitrary Lagrangian Eulerian</strong> description of the problem, that can be useful for moving domains</li>
+</ul>
+</section>
+<section id="the-mathematical-features" class="level2">
+<h2 class="anchored" data-anchor-id="the-mathematical-features">The mathematical features</h2>
+<p>Euler equations are an example of a non-linear hyperbolic system of equations. In this section, general hyperbolic problems</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cpartial_t%20%5Cmathbf%7Bu%7D%20+%20%5Cnabla%20%5Ccdot%20%5Cmathbf%7BF%7D(%5Cmathbf%7Bu%7D)%20=%20%5Cmathbf%7Bs%7D%20%5C%20,"></p>
+<p>are introduced and their features are discussed.</p>
+<p><strong>todo</strong></p>
+<ul>
+<li><p>conservative and convective form of the differential equations</p></li>
+<li><p>spectral decomposition of the convection matrix</p></li>
+<li><p>origin of speed of sound</p></li>
+<li><p>velocity of propagation of the info</p></li>
+<li><p>continuous solutions</p></li>
+<li><p>discontinuous solutions (speed of the shock and Rankine-Hugoniot conditions)</p></li>
+<li><p>infinite non-physical solutions; entropy condition to select the physical solution among them</p></li>
+<li><p>Riemann problem: definition; solution of the Riemann problem is used in physics-based numerical schemes</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://basics2022.github.io/myblog/posts/hyperbolic-equations/riemann-psys.png" class="img-fluid figure-img"></p>
+<figcaption>Phase state of the Riemann problem for a P-sys, see <a href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/riemann-problem-psys.html">Fluid Mechanics: Compressible Fluid Mechanics: P-system</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="the-numerical-realization" class="level2">
+<h2 class="anchored" data-anchor-id="the-numerical-realization">The numerical realization</h2>
+<p>The Finite Volume Method (FVM) is the natural choice for hyperbolic conservation laws because it is derived directly from the <strong>integral form of the governing equations</strong>. Rather than approximating derivatives at discrete points, FVM enforces the balance of fluxes across the boundaries of discrete control volumes (cells).</p>
+<p>In its simplest form, the numerical solution is represented as piecewise constant, where physical fields are averaged within each cell. The core challenge in developing an FVM scheme lies in the design of the <strong>numerical flux at cell interfaces</strong>. This flux must be carefully constructed not only for stability but to act as a mathematical “selection principle,” ensuring that the captured solution is the unique physical solution (the entropy solution) among the infinite set of weak solutions allowed by the mathematics of hyperbolic PDEs.</p>
+<p><strong>Godunov scheme</strong> treates the jump between fields in two adjacent cells as a local Riemann problem. The scheme solves the Riemann problem to find the <em>state at the boundary</em>, and uses that state to compute the numerical flux. Riemann problem is a non-linear problem that could be computationally expensive to solve at every time-step for every cell interface. To reduce the computational cost, <strong>Roe method</strong> intoruces a local linearization of the problem at each interface. Convection matrix is evaluated on the <em>Roe intermediate state</em>, and its spectrum is used to build an upwind scheme that, combined with entropy fix schemes, introduces enough numerical diffusion to select the physical solution.</p>
+<p><strong>todo</strong> - CFL condition - theorems about flux: stability vs.&nbsp;accuracy - high-order schemes - …</p>
+
+
+</section>
+
+ ]]></description>
+  <category>fluid mechanics</category>
+  <category>hyperbolic equations</category>
+  <category>finite volume method</category>
+  <guid>https://basics2022.github.io/myblog/posts/hyperbolic-equations/</guid>
+  <pubDate>Thu, 12 Mar 2026 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Quadratic Equations and Conics</title>
   <dc:creator>Basics </dc:creator>
@@ -21,6 +127,7 @@
 
 
 
+<p>This</p>
 <p><strong>Introduction.</strong></p>
 <p><strong>Geometry.</strong> Different definitions:</p>
 <ul>
@@ -623,7 +730,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```wnfnwygxnk Example: evaluation of hyperstatics</p>
+<p>```cndepbqmkf Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Harlow Malloc">
-<meta name="dcterms.date" content="2025-11-24">
+<meta name="author" content="Basics">
+<meta name="dcterms.date" content="2026-03-13">
 
-<title>Post With Code – basics blog</title>
+<title>Compressible fluid mechanics and finite volume method – basics blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../favicon-color.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +72,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -101,6 +131,11 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -112,11 +147,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Post With Code</h1>
+      <h1 class="title">Compressible fluid mechanics and finite volume method</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">fluid mechanics</div>
+                <div class="quarto-category">hyperbolic equations</div>
+                <div class="quarto-category">finite volume method</div>
               </div>
                   </div>
   </div>
@@ -127,14 +162,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Harlow Malloc </p>
+               <p>Basics </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 24, 2025</p>
+        <p class="date">March 13, 2026</p>
       </div>
     </div>
     
@@ -153,9 +188,102 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is a post with executable code.</p>
+<!--
+draft: true
+-->
+<p>This post acts as an introduction to or the landing page of a “meta-course” on compressible fluid mechanics and finite volume method.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Topics</th>
+<th style="text-align: left;">Main contents</th>
+<th style="text-align: left;">Primary link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Physics of Compressible Fluids</td>
+<td style="text-align: left;">From physics principles to Euler equations</td>
+<td style="text-align: left;"><a href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/intro.html">Fluid Mechanics: Compressible Fluid Mechanics</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mathematics of Hyperbolic PDEs</td>
+<td style="text-align: left;">Eigenstructure and characteristics of differential equation; discontinuities from integral equations</td>
+<td style="text-align: left;"><a href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/hyperbolic.html">Math: PDEs: Hyperbolic Equations</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Numerical methods for Hyperbolic PDEs</td>
+<td style="text-align: left;">Physics-based schemes in FVM: non-linear Riemann solvers (Godunov) and linearized solvers (Roe)</td>
+<td style="text-align: left;"><a href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fvm-hyperbolic-pde.html">Math: Numerical Methods for PDEs: Finite Volume Method</a></td>
+</tr>
+</tbody>
+</table>
+<section id="the-physics" class="level2">
+<h2 class="anchored" data-anchor-id="the-physics">The physics</h2>
+<p><strong>Differential equations.</strong> Euler equations are the local (differential) form of three fundamental principles of classical mechanics:</p>
+<ol type="1">
+<li>conservation of mass</li>
+<li>second principle of Newtonian mechanics, or balance of momentum</li>
+<li>first principle of Thermodynamics, or balance of total energy</li>
+</ol>
+<p><span class="math display">\[\begin{aligned}
+  &amp; \partial_t \rho + \nabla \cdot ( \rho \mathbf{u} ) = 0 \\
+  &amp; \partial_t ( \rho \mathbf{u} ) + \nabla \cdot \left( \rho \mathbf{u} \mathbf{u} + p \right) = \rho \mathbf{g} \\
+  &amp; \partial_t \left( \rho e^t \right) + \nabla \cdot \left( \rho h^t \mathbf{u} \right) = \rho \mathbf{g} \cdot \mathbf{u} \\
+\end{aligned}\]</span></p>
+<p>in the limit of <strong>negligible viscosity and heat conduction</strong>, supplemented with proper:</p>
+<ul>
+<li>constitutive equations describing the behavior of the medium of interest,</li>
+<li>boundary conditions</li>
+<li>initial conditions.</li>
+</ul>
+<p>Differential equations hold only in regions of space where the functions involved are continuous and sufficient regular for the derivativesi appearing in the equations to exist.</p>
+<p>Neglecting diffusive terms (viscous stress and heat conduction), Navier-Stokes equations become Euler equations. While Navier-Stokes equations contain second-order derivatives in space (e.g.&nbsp;the Laplacian of the velocity in viscous stress, and the Laplacian of temperature in heat conduction flux), Euler equations are first orde. While Navier-Stokes equations are not prone to produce discontinuous solutions, <strong>discontinuities</strong> (like shock waves) naturally arises in Euler equations.</p>
+<p>Fields involved in Euler equations may be not continuous across a discontiuity. Thus, across a discontinuity, the differential form of the equations is likely to fail, while integral equations are still valid (not having the same regularity assumptions required by differential equations, to be derived from the integral equations, namely no divergenvce theorem is required).</p>
+<p><strong>Integral equations.</strong> For a control volume <span class="math inline">\(V\)</span> at rest</p>
+<p><span class="math display">\[\begin{aligned}
+  &amp; \frac{d}{dt} \int_V \rho + \oint_{\partial V} \hat{\mathbf{n}} \cdot ( \rho \mathbf{u} ) = 0 \\
+  &amp; \frac{d}{dt} \int_V \rho \mathbf{u} + \oint_{\partial V} \rho \mathbf{u} \mathbf{u} \cdot \hat{\mathbf{n}} + \oint_{\partial V} p \hat{\mathbf{n}} = \int_{V} \rho \mathbf{g} \\
+  &amp; \frac{d}{dt} \int_V \rho e^t + \oint_{\partial V} \rho e^t \mathbf{u} \cdot \hat{\mathbf{n}} + \oint_{\partial V} p \mathbf{u} \cdot \hat{\mathbf{n}} = \int_{V} \rho \mathbf{g} \cdot \mathbf{u} \\
+\end{aligned}\]</span></p>
+<p>Integral equations for an arbitrary volume <span class="math inline">\(v_t\)</span> can be written Using <strong>Reynolds’ transport theorem</strong>. These equations provides:</p>
+<ul>
+<li><strong>jump conditions</strong> across discontinuities</li>
+<li><strong>arbitrary Lagrangian Eulerian</strong> description of the problem, that can be useful for moving domains</li>
+</ul>
+</section>
+<section id="the-mathematical-features" class="level2">
+<h2 class="anchored" data-anchor-id="the-mathematical-features">The mathematical features</h2>
+<p>Euler equations are an example of a non-linear hyperbolic system of equations. In this section, general hyperbolic problems</p>
+<p><span class="math display">\[\partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{s} \ ,\]</span></p>
+<p>are introduced and their features are discussed.</p>
+<p><strong>todo</strong></p>
+<ul>
+<li><p>conservative and convective form of the differential equations</p></li>
+<li><p>spectral decomposition of the convection matrix</p></li>
+<li><p>origin of speed of sound</p></li>
+<li><p>velocity of propagation of the info</p></li>
+<li><p>continuous solutions</p></li>
+<li><p>discontinuous solutions (speed of the shock and Rankine-Hugoniot conditions)</p></li>
+<li><p>infinite non-physical solutions; entropy condition to select the physical solution among them</p></li>
+<li><p>Riemann problem: definition; solution of the Riemann problem is used in physics-based numerical schemes</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="riemann-psys.png" class="img-fluid figure-img"></p>
+<figcaption>Phase state of the Riemann problem for a P-sys, see <a href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/riemann-problem-psys.html">Fluid Mechanics: Compressible Fluid Mechanics: P-system</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="the-numerical-realization" class="level2">
+<h2 class="anchored" data-anchor-id="the-numerical-realization">The numerical realization</h2>
+<p>The Finite Volume Method (FVM) is the natural choice for hyperbolic conservation laws because it is derived directly from the <strong>integral form of the governing equations</strong>. Rather than approximating derivatives at discrete points, FVM enforces the balance of fluxes across the boundaries of discrete control volumes (cells).</p>
+<p>In its simplest form, the numerical solution is represented as piecewise constant, where physical fields are averaged within each cell. The core challenge in developing an FVM scheme lies in the design of the <strong>numerical flux at cell interfaces</strong>. This flux must be carefully constructed not only for stability but to act as a mathematical “selection principle,” ensuring that the captured solution is the unique physical solution (the entropy solution) among the infinite set of weak solutions allowed by the mathematics of hyperbolic PDEs.</p>
+<p><strong>Godunov scheme</strong> treates the jump between fields in two adjacent cells as a local Riemann problem. The scheme solves the Riemann problem to find the <em>state at the boundary</em>, and uses that state to compute the numerical flux. Riemann problem is a non-linear problem that could be computationally expensive to solve at every time-step for every cell interface. To reduce the computational cost, <strong>Roe method</strong> intoruces a local linearization of the problem at each interface. Convection matrix is evaluated on the <em>Roe intermediate state</em>, and its spectrum is used to build an upwind scheme that, combined with entropy fix schemes, introduces enough numerical diffusion to select the physical solution.</p>
+<p><strong>todo</strong> - CFL condition - theorems about flux: stability vs.&nbsp;accuracy - high-order schemes - …</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
