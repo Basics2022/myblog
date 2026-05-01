@@ -5,6 +5,7 @@ website:
   title: "basics blog"
   google-analytics: "G-3LNCTR9MVE"
   site-url: https://basics2022.github.io/myblog # you must change this appropriately for RSS feeds to work properly
+  repo-url: https://github.com/Basics2022/myblog
   description: "Basics blog"
   favicon: favicon-color.svg
   navbar:
@@ -19,6 +20,10 @@ website:
 format:
   html:
     # include-in-header: google-analytics.html
+    code-links:
+      - text: Open in Colab
+        icon: laptop
+        href: https://colab.research.google.com/github/Basics2022/myblog/blob/main
     theme:
       - cosmo
       - brand
