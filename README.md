@@ -62,7 +62,7 @@ Create branch *gh-pages*, and create GitHub action for updating deplyed website.
 
 ### Render
 
-> quarto preview
+> quarto render
 
 ### Publish
 
