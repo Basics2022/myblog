@@ -1194,7 +1194,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```ddosqktetd Example: evaluation of hyperstatics</p>
+<p>```jmwnypccvm Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
