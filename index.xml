@@ -30,7 +30,7 @@ due to natural constraints, such as the thresholds imposed by industrial quality
 <h2 class="anchored" data-anchor-id="population-distribution-px">Population distribution, <img src="https://latex.codecogs.com/png.latex?p(x)"></h2>
 <p>Before looking at sample averages, the “ground truth” of our data is built. In this example, population has weight with a probability density distribution <img src="https://latex.codecogs.com/png.latex?p(x)">, resulting as an example from a factory production line for pens. While the machine produces a standard spread, a quality control process rejects any pen weighing less than a specific threshold (e.g., 10g).</p>
 <p>The resulting distribution of this process is a left-truncated Gaussian: it features a sharp “cliff” on the left and a natural decay on the right. Clearly, the individual items in this population do not follow a standard bell curve.</p>
-<p><strong>Remark.</strong> Different processes may produce individuals following different probability density. <strong>todo</strong> <em>As an example, there’s a bimodal distribution: just open this file (Add a link to Colab to run this .ipynb)</em></p>
+<p><strong>Remark.</strong> Different processes may produce individuals following different probability densities. As an example, there’s a bimodal distribution already implemented: just open this file in Colab, clicking on the button <strong>“Open in Colab”</strong>, under the Code Links, uncomment those lines and run this script.</p>
 <div id="0a11bff9-4dd0-4b7e-80bd-ccf69dab980c" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="40">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -1215,7 +1215,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```axydexzubp Example: evaluation of hyperstatics</p>
+<p>```mvzvzefphg Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
