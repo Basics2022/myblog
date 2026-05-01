@@ -25,5 +25,8 @@
   },
   "posts/hyperbolic-equations/index.qmd": {
     "index.html": "3b17cd6f"
+  },
+  "posts/central-limit-thm/index.ipynb": {
+    "index.html": "05b7767f"
   }
 }
