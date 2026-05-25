@@ -1339,7 +1339,7 @@ font-style: inherit;">/</span>n_flips ]</span>
 <p><img src="https://latex.codecogs.com/png.latex?%5Chat%7Bx%7D%20=%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bj=1%7D%5E%7Bn%7D%20x_n%20%5C%20,"></p>
 <p>tends to a random variable with Gaussian distribution <img src="https://latex.codecogs.com/png.latex?%5Cmathscr%7BN%7D%5Cleft(%20%5Cmu,%20%5Cfrac%7B%5Csigma%5E2%7D%7Bn%7D%20%5Cright)">, for the <a href="https://basics2022.github.io/bbooks-statistics/ch/prob/iid.html?highlight=central+limit+theorem#central-limit-theorem">central limit theorem</a>. This observation seamlessly induces a useful scaling of the test variable</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Chat%7Bx%7D%20-%20%5Cmu%7D%7B%5Csigma/%5Csqrt%7Bn%7D%7D%20%5Csim%20%5Cmathscr%7BN%7D%5Cleft(%200,%201%20%5Cright)%20%5C%20."></p>
-<div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="45">
+<div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="55">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
@@ -1472,13 +1472,81 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rigged, .1'</span>)</span>
-<span id="cb11-27">plt.xlim(<span class="dv" style="color: #AD0000;
+<span id="cb11-27"></span>
+<span id="cb11-28">plt.plot(n_flipsv, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair)), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>))</span>
+<span id="cb11-29">plt.plot(n_flipsv, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.52</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair)), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb11-30">plt.plot(n_flipsv, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.6</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair)), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>))</span>
+<span id="cb11-31">plt.plot(n_flipsv, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.7</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair)), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>))</span>
+<span id="cb11-32">plt.plot(n_flipsv, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.8</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair)), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb11-33">plt.plot(n_flipsv, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.9</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair)), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>))</span>
+<span id="cb11-34"></span>
+<span id="cb11-35">plt.xlim(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>, n_flips)</span>
-<span id="cb11-28"><span class="co" style="color: #5E5E5E;
+<span id="cb11-36"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#plt.ylim(-5, 5)</span></span>
-<span id="cb11-29">plt.title(<span class="st" style="color: #20794D;
+<span id="cb11-37">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Avg outcome, $</span><span class="er" style="color: #AD0000;
 background-color: null;
@@ -1489,30 +1557,31 @@ background-color: null;
 font-style: inherit;">{x}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">_s(n_s)$"</span>)</span>
-<span id="cb11-30">plt.xlabel(<span class="st" style="color: #20794D;
+<span id="cb11-38">plt.xlabel(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'$n_s$'</span>)</span>
-<span id="cb11-31">plt.legend()</span>
-<span id="cb11-32"></span>
-<span id="cb11-33"><span class="co" style="color: #5E5E5E;
+<span id="cb11-39">plt.legend()</span>
+<span id="cb11-40">plt.grid()</span>
+<span id="cb11-41"></span>
+<span id="cb11-42"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">#&gt; For scaling results</span></span>
-<span id="cb11-34">bernoulli_avg, bernoulli_var <span class="op" style="color: #5E5E5E;
+<span id="cb11-43">bernoulli_avg, bernoulli_var <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">.5</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">.25</span></span>
-<span id="cb11-35"></span>
-<span id="cb11-36">plt.subplot(<span class="dv" style="color: #AD0000;
+<span id="cb11-44"></span>
+<span id="cb11-45">plt.subplot(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>)</span>
-<span id="cb11-37"><span class="cf" style="color: #003B4F;
+<span id="cb11-46"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">for</span> ial <span class="kw" style="color: #003B4F;
@@ -1521,14 +1590,14 @@ font-weight: bold;
 font-style: inherit;">in</span> np.arange(<span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">len</span>(alpha_v)):</span>
-<span id="cb11-38">    <span class="co" style="color: #5E5E5E;
+<span id="cb11-47">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># plt.plot(n_flipsv, xlv[:,ial], color=plt.cm.tab10(ial))</span></span>
-<span id="cb11-39">    <span class="co" style="color: #5E5E5E;
+<span id="cb11-48">    <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># plt.plot(n_flipsv, xrv[:,ial], color=plt.cm.tab10(ial))</span></span>
-<span id="cb11-40">    plt.fill_between(n_flipsv, </span>
-<span id="cb11-41">                     (xlv[:,ial]<span class="op" style="color: #5E5E5E;
+<span id="cb11-49">    plt.fill_between(n_flipsv, </span>
+<span id="cb11-50">                     (xlv[:,ial]<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1543,7 +1612,7 @@ background-color: null;
 font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">.5</span>, </span>
-<span id="cb11-42">                     (xrv[:,ial]<span class="op" style="color: #5E5E5E;
+<span id="cb11-51">                     (xrv[:,ial]<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1568,7 +1637,7 @@ background-color: null;
 font-style: inherit;">0</span>,<span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">.1</span>))</span>
-<span id="cb11-43">plt.plot(n_flipsv, (xsv_fair<span class="op" style="color: #5E5E5E;
+<span id="cb11-52">plt.plot(n_flipsv, (xsv_fair<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1591,7 +1660,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'fair'</span>)</span>
-<span id="cb11-44">plt.plot(n_flipsv, (xsv_rigg<span class="op" style="color: #5E5E5E;
+<span id="cb11-53">plt.plot(n_flipsv, (xsv_rigg<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1614,7 +1683,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rigged, .48'</span>)</span>
-<span id="cb11-45">plt.plot(n_flipsv, (xsv_rig4<span class="op" style="color: #5E5E5E;
+<span id="cb11-54">plt.plot(n_flipsv, (xsv_rig4<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1637,7 +1706,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rigged, .4'</span>)</span>
-<span id="cb11-46">plt.plot(n_flipsv, (xsv_rig3<span class="op" style="color: #5E5E5E;
+<span id="cb11-55">plt.plot(n_flipsv, (xsv_rig3<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1660,7 +1729,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rigged, .3'</span>)</span>
-<span id="cb11-47">plt.plot(n_flipsv, (xsv_rig2<span class="op" style="color: #5E5E5E;
+<span id="cb11-56">plt.plot(n_flipsv, (xsv_rig2<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1683,7 +1752,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rigged, .2'</span>)</span>
-<span id="cb11-48">plt.plot(n_flipsv, (xsv_rig1<span class="op" style="color: #5E5E5E;
+<span id="cb11-57">plt.plot(n_flipsv, (xsv_rig1<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -1706,18 +1775,99 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rigged, .1'</span>)</span>
-<span id="cb11-49"></span>
-<span id="cb11-50">plt.xlim(<span class="dv" style="color: #AD0000;
+<span id="cb11-58">plt.grid()</span>
+<span id="cb11-59"></span>
+<span id="cb11-60">plt.plot(n_flipsv, ( <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> n_flipsv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>bernoulli_var<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>))</span>
+<span id="cb11-61">plt.plot(n_flipsv,<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.48</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> n_flipsv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>bernoulli_var<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb11-62">plt.plot(n_flipsv,<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>( <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.4</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>np.ones(np.shape(xsv_fair))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>bernoulli_avg) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> n_flipsv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span>bernoulli_var<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">**</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">.5</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--'</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>plt.cm.tab10(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>))</span>
+<span id="cb11-63"></span>
+<span id="cb11-64">plt.xlim(<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span>, n_flips)</span>
-<span id="cb11-51">plt.ylim(<span class="op" style="color: #5E5E5E;
+<span id="cb11-65">plt.ylim(<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">5</span>)</span>
-<span id="cb11-52">plt.title(<span class="st" style="color: #20794D;
+<span id="cb11-66">plt.title(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Scaled avg outcome, $</span><span class="er" style="color: #AD0000;
 background-color: null;
@@ -1752,10 +1902,11 @@ background-color: null;
 font-style: inherit;">{n}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">}$"</span>)</span>
-<span id="cb11-53">plt.xlabel(<span class="st" style="color: #20794D;
+<span id="cb11-67">plt.xlabel(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'$n_s$'</span>)</span>
-<span id="cb11-54">plt.legend()</span></code></pre></div></div>
+<span id="cb11-68">plt.legend()</span>
+<span id="cb11-69"></span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1766,17 +1917,7 @@ font-style: inherit;">'$n_s$'</span>)</span>
 </div>
 </div>
 <p>Acceptance regions for different statistical significance levels are shown in grayscale. The widest, most conservative acceptance region corresponds to <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.003"> (the standard industrial <img src="https://latex.codecogs.com/png.latex?%5Csim3%5Csigma"> control limit). The intermediate region corresponds to <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.05"> (the standard scientific <img src="https://latex.codecogs.com/png.latex?%5Csim2%5Csigma"> limit), and the narrowest, most sensitive region corresponds to <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.3"> (a loose <img src="https://latex.codecogs.com/png.latex?%5Csim%201%5Csigma"> limit).</p>
-<div id="e9ec9e02-a801-4605-891f-6a2e61c0a890" class="cell" data-execution_count="46">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="bu" style="color: null;
-background-color: null;
-font-style: inherit;">print</span>(bernoulli_avg)</span></code></pre></div></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5</code></pre>
-</div>
-</div>
+<p>The right plot shows that 2000 tosses my be not enough to reject the assumption that a <img src="https://latex.codecogs.com/png.latex?48-52%5C%25"> unfair coin is note fair.</p>
 </section>
 <section id="anomaly-detection" class="level2">
 <h2 class="anchored" data-anchor-id="anomaly-detection">Anomaly detection</h2>
@@ -2993,7 +3134,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```busnyugxbl Example: evaluation of hyperstatics</p>
+<p>```zggxwkeake Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>

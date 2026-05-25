@@ -4061,7 +4061,7 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Basics2022"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/Basics2022/myblog"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -4084,7 +4084,6 @@ window.Quarto = {
       <h1 class="title">Dice to health monitoring - From prior statistics to inference</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">statistics</div>
-                <div class="quarto-category">central limit theorem</div>
               </div>
                   </div>
   </div>
@@ -4543,7 +4542,7 @@ if (outputEl) {{
 <p><span class="math display">\[\hat{x} = \frac{1}{n} \sum_{j=1}^{n} x_n \ ,\]</span></p>
 <p>tends to a random variable with Gaussian distribution <span class="math inline">\(\mathscr{N}\left( \mu, \frac{\sigma^2}{n} \right)\)</span>, for the <a href="https://basics2022.github.io/bbooks-statistics/ch/prob/iid.html?highlight=central+limit+theorem#central-limit-theorem">central limit theorem</a>. This observation seamlessly induces a useful scaling of the test variable</p>
 <p><span class="math display">\[\frac{\hat{x} - \mu}{\sigma/\sqrt{n}} \sim \mathscr{N}\left( 0, 1 \right) \ .\]</span></p>
-<div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="45">
+<div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="55">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Convert list to numpy arrays, to perform some algebra below</span></span>
@@ -4572,34 +4571,49 @@ if (outputEl) {{
 <span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig3, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">'rigged, .3'</span>)</span>
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig2, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">'rigged, .2'</span>)</span>
 <span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig1, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">'rigged, .1'</span>)</span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, n_flips)</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim(-5, 5)</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Avg outcome, $</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s(n_s)$"</span>)</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$n_s$'</span>)</span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; For scaling results</span></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>bernoulli_avg, bernoulli_var <span class="op">=</span> <span class="fl">.5</span>, <span class="fl">.25</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ial <span class="kw">in</span> np.arange(<span class="bu">len</span>(alpha_v)):</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plt.plot(n_flipsv, xlv[:,ial], color=plt.cm.tab10(ial))</span></span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plt.plot(n_flipsv, xrv[:,ial], color=plt.cm.tab10(ial))</span></span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    plt.fill_between(n_flipsv, </span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>                     (xlv[:,ial]<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, </span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>                     (xrv[:,ial]<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.1</span>))</span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_fair<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>), label<span class="op">=</span><span class="st">'fair'</span>)</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rigg<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>), label<span class="op">=</span><span class="st">'rigged, .48'</span>)</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig4<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>), label<span class="op">=</span><span class="st">'rigged, .4'</span>)</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig3<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">'rigged, .3'</span>)</span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig2<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">'rigged, .2'</span>)</span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig1<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">'rigged, .1'</span>)</span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, n_flips)</span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>)</span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Scaled avg outcome, $</span><span class="er">\</span><span class="st">dfrac{</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s - </span><span class="er">\</span><span class="st">overline</span><span class="sc">{x}</span><span class="st">}{</span><span class="er">\</span><span class="st">sigma/</span><span class="er">\</span><span class="st">sqrt</span><span class="sc">{n}</span><span class="st">}$"</span>)</span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$n_s$'</span>)</span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, <span class="fl">.5</span> <span class="op">*</span>np.ones(np.shape(xsv_fair)), <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>))</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, <span class="fl">.52</span><span class="op">*</span>np.ones(np.shape(xsv_fair)), <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>))</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, <span class="fl">.6</span> <span class="op">*</span>np.ones(np.shape(xsv_fair)), <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>))</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, <span class="fl">.7</span> <span class="op">*</span>np.ones(np.shape(xsv_fair)), <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>))</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, <span class="fl">.8</span> <span class="op">*</span>np.ones(np.shape(xsv_fair)), <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>))</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, <span class="fl">.9</span> <span class="op">*</span>np.ones(np.shape(xsv_fair)), <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>))</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, n_flips)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim(-5, 5)</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Avg outcome, $</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s(n_s)$"</span>)</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$n_s$'</span>)</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; For scaling results</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>bernoulli_avg, bernoulli_var <span class="op">=</span> <span class="fl">.5</span>, <span class="fl">.25</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ial <span class="kw">in</span> np.arange(<span class="bu">len</span>(alpha_v)):</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plt.plot(n_flipsv, xlv[:,ial], color=plt.cm.tab10(ial))</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># plt.plot(n_flipsv, xrv[:,ial], color=plt.cm.tab10(ial))</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>    plt.fill_between(n_flipsv, </span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>                     (xlv[:,ial]<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, </span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>                     (xrv[:,ial]<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.1</span>))</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_fair<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>), label<span class="op">=</span><span class="st">'fair'</span>)</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rigg<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>), label<span class="op">=</span><span class="st">'rigged, .48'</span>)</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig4<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>), label<span class="op">=</span><span class="st">'rigged, .4'</span>)</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig3<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">'rigged, .3'</span>)</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig2<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">'rigged, .2'</span>)</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig1<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">'rigged, .1'</span>)</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, ( <span class="fl">.5</span><span class="op">*</span>np.ones(np.shape(xsv_fair))<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>))</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv,<span class="op">-</span>(<span class="fl">.48</span><span class="op">*</span>np.ones(np.shape(xsv_fair))<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>))</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv,<span class="op">-</span>( <span class="fl">.4</span><span class="op">*</span>np.ones(np.shape(xsv_fair))<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, <span class="st">'--'</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>))</span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, n_flips)</span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Scaled avg outcome, $</span><span class="er">\</span><span class="st">dfrac{</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s - </span><span class="er">\</span><span class="st">overline</span><span class="sc">{x}</span><span class="st">}{</span><span class="er">\</span><span class="st">sigma/</span><span class="er">\</span><span class="st">sqrt</span><span class="sc">{n}</span><span class="st">}$"</span>)</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$n_s$'</span>)</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -4610,15 +4624,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>Acceptance regions for different statistical significance levels are shown in grayscale. The widest, most conservative acceptance region corresponds to <span class="math inline">\(\alpha = 0.003\)</span> (the standard industrial <span class="math inline">\(\sim3\sigma\)</span> control limit). The intermediate region corresponds to <span class="math inline">\(\alpha = 0.05\)</span> (the standard scientific <span class="math inline">\(\sim2\sigma\)</span> limit), and the narrowest, most sensitive region corresponds to <span class="math inline">\(\alpha = 0.3\)</span> (a loose <span class="math inline">\(\sim 1\sigma\)</span> limit).</p>
-<div id="e9ec9e02-a801-4605-891f-6a2e61c0a890" class="cell" data-execution_count="46">
-<details class="code-fold">
-<summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bernoulli_avg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>0.5</code></pre>
-</div>
-</div>
+<p>The right plot shows that 2000 tosses my be not enough to reject the assumption that a <span class="math inline">\(48-52\%\)</span> unfair coin is note fair.</p>
 </section>
 <section id="anomaly-detection" class="level2">
 <h2 class="anchored" data-anchor-id="anomaly-detection">Anomaly detection</h2>
