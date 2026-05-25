@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.8.26" />
 
-<meta name="author" content="Basics">
-<meta name="dcterms.date" content="2026-05-25">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Basics" />
+<meta name="dcterms.date" content="2026-05-25" />
 
 <title>Dice to health monitoring - From prior statistics to inference – basics blog</title>
 <style>
@@ -59,26 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../favicon-color.svg" rel="icon" type="image/svg+xml">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-6660b2feb115f6b5f2bedb0eb85352b2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -106,7 +89,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3LNCTR9MVE"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3LNCTR9MVE"></script>
 
 <script type="text/javascript">
 
@@ -116,7 +99,7 @@ gtag('js', new Date());
 gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous" data-relocate-top="true"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
         <script>
         window.PlotlyConfig = {MathJaxConfig: 'local'};
@@ -4036,37 +4019,45 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../styles.css" />
 </head>
 
-<body class="nav-fixed quarto-light">
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="/index.html">
     <span class="navbar-title">basics blog</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="/about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/Basics2022"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/Basics2022/myblog"> <i 
+  class="bi bi-github" 
+  role="img" 
+>
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="../../index.xml"> <i class="bi bi-rss" role="img">
+    <a class="nav-link" href="/index.xml"> <i 
+  class="bi bi-rss" 
+  role="img" 
+>
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -4078,13 +4069,22 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <div id="quarto-toc-target"></div>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+  <div class="quarto-title-banner">
     <div class="quarto-title column-body">
       <h1 class="title">Dice to health monitoring - From prior statistics to inference</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">statistics</div>
-                <div class="quarto-category">central limit theorem</div>
               </div>
                   </div>
   </div>
@@ -4110,17 +4110,7 @@ window.Quarto = {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></div>
-<!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
-
-
-
+  </header>
 
 
 <p><strong>Contents.</strong></p>
@@ -4130,7 +4120,7 @@ window.Quarto = {
 <div id="b5a47335-1bd3-4431-a52f-b1e8f2321ae6" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="11">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Import libraries</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Import libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>reset <span class="op">-</span>f</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy <span class="im">as</span> sp</span>
@@ -4141,14 +4131,14 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">"notebook"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>pio.renderers.default <span class="op">=</span> <span class="st">&quot;notebook&quot;</span></span></code></pre></div>
 </details>
 </div>
 <!--
 (dice-to-health-monitoring:fair-dice)=
 -->
 <section id="the-fair-dice" class="level2">
-<h2 class="anchored" data-anchor-id="the-fair-dice">The fair dice</h2>
+<h2>The fair dice</h2>
 <p>We know that a dice is fair, so that its outcome has the probability of 50% to be head (<span class="math inline">\(H\)</span>) and 50% to be tail (<span class="math inline">\(T\)</span>). Mathematically, the outcome of the dice can be modelled as <strong>Bernoulli random variable</strong> with <span class="math inline">\(p_{\text{H}} = 0.5\)</span> and <span class="math inline">\(p_{\text{T}} = 1 - p_{\text{H}} = 0.5\)</span>.</p>
 <p><span class="math display">\[p(X) = \left\{
 \begin{aligned}
@@ -4160,13 +4150,13 @@ window.Quarto = {
 <div id="13c8329d-d856-45e3-8fb5-bd4242cc26ea" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="18">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Set seed for reproducibility and simulate 500,000 coin tosses</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Set seed for reproducibility and simulate 500,000 coin tosses</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 0 = Tails (T), 1 = Heads (H)</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># np.random.seed(42)</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>num_tosses <span class="op">=</span> <span class="dv">50_000</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>tosses <span class="op">=</span> np.random.randint(<span class="dv">0</span>, <span class="dv">2</span>, size<span class="op">=</span>num_tosses)</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Analyze the outcomes following a streak of 'n' consecutive Heads</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Analyze the outcomes following a streak of &#39;n&#39; consecutive Heads</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>max_n <span class="op">=</span> <span class="dv">8</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -4178,7 +4168,7 @@ window.Quarto = {
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Slide a window across the array to find streaks</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We stop at len(tosses) - 1 because we need to look at the subsequent toss</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_tosses <span class="op">-</span> n):</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if the previous 'n' tosses were all Heads (1)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Check if the previous &#39;n&#39; tosses were all Heads (1)</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> np.<span class="bu">all</span>(tosses[i:i<span class="op">+</span>n] <span class="op">==</span> <span class="dv">1</span>):</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            streak_count <span class="op">+=</span> <span class="dv">1</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Look at the immediate next toss (index i + n)</span></span>
@@ -4199,17 +4189,17 @@ window.Quarto = {
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        margin_of_error <span class="op">=</span> <span class="fl">0.0</span></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    results.append({</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Streak Length (n)"</span>: n,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Total Matches"</span>: streak_count,</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Next is H"</span>: next_is_head,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Next is T"</span>: next_is_tail,</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Empirical P(H)"</span>: <span class="ss">f"</span><span class="sc">{</span>p_head<span class="sc">:.2f}</span><span class="ss">%"</span>,</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">"95% CI Limit"</span>: <span class="ss">f"50.00% ± </span><span class="sc">{</span>margin_of_error<span class="sc">:.2f}</span><span class="ss">%"</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Streak Length (n)&quot;</span>: n,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Total Matches&quot;</span>: streak_count,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Next is H&quot;</span>: next_is_head,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Next is T&quot;</span>: next_is_tail,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Empirical P(H)&quot;</span>: <span class="ss">f&quot;</span><span class="sc">{</span>p_head<span class="sc">:.2f}</span><span class="ss">%&quot;</span>,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;95% CI Limit&quot;</span>: <span class="ss">f&quot;50.00% ± </span><span class="sc">{</span>margin_of_error<span class="sc">:.2f}</span><span class="ss">%&quot;</span></span>
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    })</span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the results neatly</span></span>
 <span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(results)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code> Streak Length (n)  Total Matches  Next is H  Next is T Empirical P(H)   95% CI Limit
@@ -4226,46 +4216,46 @@ window.Quarto = {
 <!-- (dice-to-health-monitoring:10-heads-in-a-row)= -->
 </section>
 <section id="heads-in-a-row.-is-the-dice-fair" class="level2">
-<h2 class="anchored" data-anchor-id="heads-in-a-row.-is-the-dice-fair">10 heads in a row. Is the dice fair?</h2>
+<h2>10 heads in a row. Is the dice fair?</h2>
 <p>The problem is a bit different from the one of the first section. You walk up to a table and know nothing about the croupier and the dice. You start watching the table and the first 10 tosses you observe are all heads. Is it reasonable to think you’re observing a rare event for a fair coin, or should you start blaming the coin?</p>
 <p><strong>Probability <span class="math inline">\(p_N(n)\)</span> of <span class="math inline">\(n\)</span> Head outcomes in <span class="math inline">\(N\)</span> tosses of a fair dice.</strong> With a fair dice, the probability of observe <span class="math inline">\(n\)</span> Heads in <span class="math inline">\(N\)</span> tosses is represented by the <strong>binomial distribution</strong></p>
 <p><span class="math display">\[p_N(n) = \left( \begin{matrix} N \\ n \end{matrix} \right) p_{\text{H}}^n ( 1 - p_{\text{H}} )^{N-n}\]</span></p>
 <div id="53c741c6-4e60-4703-a400-642bb5e9283b" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="12">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Possible outcomes of the n. of observed Heads in n_flips</span></span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Possible outcomes of the n. of observed Heads in n_flips</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>n_flips <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>heads_v <span class="op">=</span> np.arange(n_flips<span class="op">+</span><span class="dv">1</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>xv <span class="op">=</span> heads_v <span class="co"># / n_flips     # If required, normalization</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Discrete probability density for a fair coin</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>p_head_fair <span class="op">=</span> <span class="fl">.5</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>x_H0_fv <span class="op">=</span> sp.stats.binom.pmf(heads_v, n_flips, p_head_fair)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>x_H0_fv <span class="op">=</span> sp.stats.binom.pmf(heads_v, n_flips, p_head_fair)</span></code></pre></div>
 </details>
 </div>
 <div id="6866babd-2e89-4713-b31a-578b5bbba0fa" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="13">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Plotly image</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Plotly image</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Dataframe collecting n.of head outcomes and their probability</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Number of Heads (n)'</span>: heads_v,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Probability'</span>: x_H0_fv</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Number of Heads (n)&#39;</span>: heads_v,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Probability&#39;</span>: x_H0_fv</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Plotly figure</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df, x<span class="op">=</span><span class="st">'Number of Heads (n)'</span>, y<span class="op">=</span><span class="st">'Probability'</span>, </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             title<span class="op">=</span><span class="st">'Probability of Observing n Heads in 10 Coin Tosses'</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>             labels<span class="op">=</span>{<span class="st">'Number of Heads (n)'</span>: <span class="st">'Number of Heads (n)'</span>, <span class="st">'Probability'</span>: <span class="st">'Probability'</span>},</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>             text_auto<span class="op">=</span><span class="st">'.4f'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(df, x<span class="op">=</span><span class="st">&#39;Number of Heads (n)&#39;</span>, y<span class="op">=</span><span class="st">&#39;Probability&#39;</span>, </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             title<span class="op">=</span><span class="st">&#39;Probability of Observing n Heads in 10 Coin Tosses&#39;</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>             labels<span class="op">=</span>{<span class="st">&#39;Number of Heads (n)&#39;</span>: <span class="st">&#39;Number of Heads (n)&#39;</span>, <span class="st">&#39;Probability&#39;</span>: <span class="st">&#39;Probability&#39;</span>},</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>             text_auto<span class="op">=</span><span class="st">&#39;.4f&#39;</span>)</span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>fig.update_layout(</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    xaxis<span class="op">=</span><span class="bu">dict</span>(tickmode<span class="op">=</span><span class="st">'linear'</span>, tick0<span class="op">=</span><span class="dv">0</span>, dtick<span class="op">=</span><span class="dv">1</span>),</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    xaxis<span class="op">=</span><span class="bu">dict</span>(tickmode<span class="op">=</span><span class="st">&#39;linear&#39;</span>, tick0<span class="op">=</span><span class="dv">0</span>, dtick<span class="op">=</span><span class="dv">1</span>),</span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    title_x<span class="op">=</span><span class="fl">0.5</span></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="fb071a0f-b832-4f88-b158-5bbf9cdff3aa" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("fb071a0f-b832-4f88-b158-5bbf9cdff3aa")) {                    Plotly.newPlot(                        "fb071a0f-b832-4f88-b158-5bbf9cdff3aa",                        [{"hovertemplate":"Number of Heads (n)=%{x}\u003cbr\u003eProbability=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"v","showlegend":false,"textposition":"auto","texttemplate":"%{y:.4f}","x":{"dtype":"i1","bdata":"AAECAwQFBgcICQo="},"xaxis":"x","y":{"dtype":"f8","bdata":"9v\u002f\u002f\u002f\u002f\u002f\u002fTz8BAAAAAACEPwYAAAAAgKY\u002fAAAAAAAAvj\u002f8\u002f\u002f\u002f\u002f\u002fz\u002fKPwEAAAAAgM8\u002f\u002fP\u002f\u002f\u002f\u002f8\u002fyj\u002f\u002f\u002f\u002f\u002f\u002f\u002f\u002f+9PwYAAAAAgKY\u002fAQAAAAAAhD8AAAAAAABQPw=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Number of Heads (n)"},"tickmode":"linear","tick0":0,"dtick":1},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Probability"}},"legend":{"tracegroupgap":0},"title":{"text":"Probability of Observing n Heads in 10 Coin Tosses","x":0.5},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
@@ -4297,13 +4287,13 @@ if (outputEl) {{
 </div>
 <p>The probability of observing <span class="math inline">\(N\)</span> heads in <span class="math inline">\(N\)</span> tosses with a fair coin goes as</p>
 <p><span class="math display">\[P_N(N) = \frac{1}{2^N} \ ,\]</span></p>
-<p>as it’s the joint probability of <span class="math inline">\(N\)</span> independent events with individual probability <span class="math inline">\(p_{\text{H,fair}} = \frac{1}{2}\)</span>. So, while there <span class="math inline">\(50\%\)</span> - i.e.&nbsp;<span class="math inline">\(1/2\)</span> - probability of observing <span class="math inline">\(H\)</span> in a toss, <span class="math inline">\(25\%\)</span> - i.e.&nbsp;<span class="math inline">\(1/4\)</span> - of observing <span class="math inline">\(HH\)</span> in 2 tosses, there’s less than <span class="math inline">\(1/1000\)</span> probability of observing <span class="math inline">\(10 \, \text{H}\)</span> in a row in <span class="math inline">\(10\)</span> tosses with a fair coin.</p>
+<p>as it’s the joint probability of <span class="math inline">\(N\)</span> independent events with individual probability <span class="math inline">\(p_{\text{H,fair}} = \frac{1}{2}\)</span>. So, while there <span class="math inline">\(50\%\)</span> - i.e. <span class="math inline">\(1/2\)</span> - probability of observing <span class="math inline">\(H\)</span> in a toss, <span class="math inline">\(25\%\)</span> - i.e. <span class="math inline">\(1/4\)</span> - of observing <span class="math inline">\(HH\)</span> in 2 tosses, there’s less than <span class="math inline">\(1/1000\)</span> probability of observing <span class="math inline">\(10 \, \text{H}\)</span> in a row in <span class="math inline">\(10\)</span> tosses with a fair coin.</p>
 <!--
 | $N$  |  $1$ | $2$ | $3$ | $4$ | $5$ | $6$ | $7$ | $8$ | $9$ | $10$ |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | $p_N(N)$ | $0.5$ | $0.25$ | $0.125$ | $6.25 \cdot 10^{-2}$ | $3.125 \cdot 10^{-2}$ | $1.56 \cdot 10^{-2}$ | $7.81 \cdot 10^{-3}$ |  $3.91 \cdot 10^{-3}$ |  $1.95 \cdot 10^{-3}$ |  $9.77 \cdot 10^{-4}$ |
 -->
-<table class="caption-top table">
+<table class="caption-top">
 <thead>
 <tr class="header">
 <th style="text-align: left;"><span class="math inline">\(N\)</span></th>
@@ -4353,7 +4343,7 @@ if (outputEl) {{
 </tr>
 </tbody>
 </table>
-<p><strong>Inferring if a coin is fair.</strong> With <a href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/hp-test.html">Fisher method for hypothesis testing</a>, * a <strong>null assumption</strong> <span class="math inline">\(\text{H}_0\)</span> is formulated, and believed true until it’s not believed true anymore - i.e.&nbsp;it’s falsified. This null assumption is usually formulated with a <strong>test statistics</strong> <span class="math inline">\(x\)</span> whose conditioned probability under the null assumption <span class="math inline">\(p(x | \text{H}_0)\)</span> is known * the method (1- or 2-tail test) and the significativity level <span class="math inline">\(\alpha\)</span> of the test are chooen. These choises determin the rejection region <span class="math inline">\(A_r(\alpha)\)</span> and the acceptance region <span class="math inline">\(A_a(\alpha)\)</span> of the test statistics * samples are collected and the test statistics <span class="math inline">\(\hat{x}\)</span> is evaluated (<strong>estimated</strong>, since we’re trying to evaluate a random variable through samples - see as an example <a href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/estimate.html?highlight=media+campionaria">Estimators; sample mean and variance</a>) with these samples * comparison of the estimate <span class="math inline">\(\hat{x}\)</span> of the test statistics with the rejection region <span class="math display">\[\begin{aligned}
+<p><strong>Inferring if a coin is fair.</strong> With <a href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/hp-test.html">Fisher method for hypothesis testing</a>, * a <strong>null assumption</strong> <span class="math inline">\(\text{H}_0\)</span> is formulated, and believed true until it’s not believed true anymore - i.e. it’s falsified. This null assumption is usually formulated with a <strong>test statistics</strong> <span class="math inline">\(x\)</span> whose conditioned probability under the null assumption <span class="math inline">\(p(x | \text{H}_0)\)</span> is known * the method (1- or 2-tail test) and the significativity level <span class="math inline">\(\alpha\)</span> of the test are chooen. These choises determin the rejection region <span class="math inline">\(A_r(\alpha)\)</span> and the acceptance region <span class="math inline">\(A_a(\alpha)\)</span> of the test statistics * samples are collected and the test statistics <span class="math inline">\(\hat{x}\)</span> is evaluated (<strong>estimated</strong>, since we’re trying to evaluate a random variable through samples - see as an example <a href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/estimate.html?highlight=media+campionaria">Estimators; sample mean and variance</a>) with these samples * comparison of the estimate <span class="math inline">\(\hat{x}\)</span> of the test statistics with the rejection region <span class="math display">\[\begin{aligned}
      \hat{x} \in A_r(\alpha) \quad \rightarrow \quad \text{the test falsifies H}_0
    \end{aligned}\]</span></p>
 <p>As the significativity level <span class="math inline">\(\alpha\)</span> increases, the rejection region becomes smaller and smaller, so the need for evidence increases.</p>
@@ -4363,38 +4353,38 @@ if (outputEl) {{
 <div id="d3143e50-3671-4a7d-8dde-30e9abf5c193" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="19">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Random process of interest, unknown execpt for the sample.</span></span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Random process of interest, unknown execpt for the sample.</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p_head_default <span class="op">=</span> <span class="fl">.5</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p_tail_default <span class="op">=</span> <span class="fl">1.</span> <span class="op">-</span> p_head_default</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Coin flip as a Bernoulli probability with outcomes: a = [0, 1] with prob p = [p_head, p_tail]</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>flip_rng_default <span class="op">=</span> np.random.default_rng(<span class="dv">42</span>).choice</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>flip_params_default <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [p_head_default, p_tail_default], <span class="st">'size'</span>: <span class="dv">1</span> }   <span class="co"># default params</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>flip_params_default <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [p_head_default, p_tail_default], <span class="st">&#39;size&#39;</span>: <span class="dv">1</span> }   <span class="co"># default params</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_experiment(rng<span class="op">=</span>flip_rng_default, rng_params<span class="op">=</span>flip_params_default):</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rng(<span class="op">**</span>rng_params)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> rng(<span class="op">**</span>rng_params)</span></code></pre></div>
 </details>
 </div>
 <div id="7ef3f812-1fb3-4da4-9650-906ba9d76655" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="20">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> px_H0(p, p_params,):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p(<span class="op">**</span>p_params)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> px_H0(p, p_params,):</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p(<span class="op">**</span>p_params)</span></code></pre></div>
 </details>
 </div>
 <div id="7fdc4d7b-98a2-4918-ab13-98b96de99ec9" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="21">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Acceptance and rejection regions, for discrete pdf</span></span>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Acceptance and rejection regions, for discrete pdf</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Starting from the value of the test statistics x_max = max(x_H0_fv), expand </span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_acceptance_region(p, alpha, test_type<span class="op">=</span><span class="st">'value'</span>):</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_acceptance_region(p, alpha, test_type<span class="op">=</span><span class="st">&#39;value&#39;</span>):</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Find acceptance region for a discrete pdf, supposed to be unimodal </span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">    for a given value of significance level</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">    test_type is not used so far...</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    x_max <span class="op">=</span> np.argmax(p)</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    nx <span class="op">=</span> <span class="bu">len</span>(p)</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    threshold <span class="op">=</span> <span class="fl">1.</span> <span class="op">-</span> alpha</span>
@@ -4402,7 +4392,7 @@ if (outputEl) {{
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialization</span></span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    p_acc, xl, xr <span class="op">=</span> p[x_max], x_max, x_max</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if ( test_type == 'value' ):</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if ( test_type == &#39;value&#39; ):</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> ( p_acc <span class="op">&lt;</span> threshold ):</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ( p[xl<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;=</span> p[xr<span class="op">+</span><span class="dv">1</span>] ):</span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            xl <span class="op">-=</span> <span class="dv">1</span><span class="op">;</span>  p_acc <span class="op">+=</span> p[xl]</span>
@@ -4413,13 +4403,13 @@ if (outputEl) {{
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> xl, xr</span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_acceptance_regions(p, alpha_v, test_type<span class="op">=</span><span class="st">'value'</span>):</span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> find_acceptance_regions(p, alpha_v, test_type<span class="op">=</span><span class="st">&#39;value&#39;</span>):</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
 <span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">    Find acceptance region for a discrete pdf, supposed to be unimodal </span></span>
 <span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">    for a set of values of significance levels, type(alpha_v) = numpy.array</span></span>
 <span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">    test_type is not used so far...</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
 <span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&gt; Dimensions</span></span>
 <span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    ix_max <span class="op">=</span> np.argmax(p)</span>
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    nx, nal <span class="op">=</span> <span class="bu">len</span>(p), <span class="bu">len</span>(alpha_v)</span>
@@ -4449,25 +4439,25 @@ if (outputEl) {{
 <span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="co"># n_flips = 160</span></span>
 <span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="co"># x_H0_fv = sp.stats.binom.pmf(np.arange(n_flips+1), n_flips, .5)   # p_fair_coin .5</span></span>
 <span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="co"># xlv, xrv = find_acceptance_regions(x_H0_fv, alpha_v,)</span></span>
-<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="co"># print(xlv, xrv)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="co"># print(xlv, xrv)</span></span></code></pre></div>
 </details>
 </div>
 <p>Different significativity levels are defined, to show its influence on the acceptance region and on the inference test later.</p>
 <div id="331304fd-5c4c-4efc-8506-930adae06437" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="22">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Test characteristics: symmetric</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># test_type = 'value'  # 'symmetric', 'right', 'left', 'value'</span></span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Test characteristics: symmetric</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># test_type = &#39;value&#39;  # &#39;symmetric&#39;, &#39;right&#39;, &#39;left&#39;, &#39;value&#39;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Significance level, alpha = .05 ("default")</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Significance level, alpha = .05 (&quot;default&quot;)</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> <span class="fl">.05</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>alpha_v <span class="op">=</span> np.array([ <span class="fl">.3</span>, <span class="fl">.05</span>, <span class="fl">.003</span> ])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>alpha_v <span class="op">=</span> np.array([ <span class="fl">.3</span>, <span class="fl">.05</span>, <span class="fl">.003</span> ])</span></code></pre></div>
 </details>
 </div>
 <div id="2d5bd4d5-816c-4958-97ba-45a703246e3c" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="43">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Run experiments, with incremental number of samples</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Run experiments, with incremental number of samples</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n_flips_1 <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>n_flips_max <span class="op">=</span> <span class="dv">10_000</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -4479,13 +4469,13 @@ if (outputEl) {{
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>xsv_rig4, xsv_rig3, xsv_rig2, xsv_rig1 <span class="op">=</span> [], [], [], []</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>flip_rng <span class="op">=</span> np.random.default_rng().choice</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>flip_params_fair <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [<span class="fl">.5</span> , <span class="fl">.5</span> ], <span class="st">'size'</span>: n_flips_1 }   <span class="co"># default params</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>flip_params_rigg <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [<span class="fl">.48</span>, <span class="fl">.52</span>], <span class="st">'size'</span>: n_flips_1 }   <span class="co"># default params</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># flip_params_rigg = { 'a': [0,1], 'p': [.45, .55], 'size': n_flips_1 }   # default params</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>flip_params_rig4 <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [<span class="fl">.4</span> , <span class="fl">.6</span> ], <span class="st">'size'</span>: n_flips_1 }   <span class="co"># default params</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>flip_params_rig3 <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [<span class="fl">.3</span> , <span class="fl">.7</span> ], <span class="st">'size'</span>: n_flips_1 }   <span class="co"># default params</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>flip_params_rig2 <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [<span class="fl">.2</span> , <span class="fl">.8</span> ], <span class="st">'size'</span>: n_flips_1 }   <span class="co"># default params</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>flip_params_rig1 <span class="op">=</span> { <span class="st">'a'</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">'p'</span>: [<span class="fl">.1</span> , <span class="fl">.9</span> ], <span class="st">'size'</span>: n_flips_1 }   <span class="co"># default params</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>flip_params_fair <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [<span class="fl">.5</span> , <span class="fl">.5</span> ], <span class="st">&#39;size&#39;</span>: n_flips_1 }   <span class="co"># default params</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>flip_params_rigg <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [<span class="fl">.48</span>, <span class="fl">.52</span>], <span class="st">&#39;size&#39;</span>: n_flips_1 }   <span class="co"># default params</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># flip_params_rigg = { &#39;a&#39;: [0,1], &#39;p&#39;: [.45, .55], &#39;size&#39;: n_flips_1 }   # default params</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>flip_params_rig4 <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [<span class="fl">.4</span> , <span class="fl">.6</span> ], <span class="st">&#39;size&#39;</span>: n_flips_1 }   <span class="co"># default params</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>flip_params_rig3 <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [<span class="fl">.3</span> , <span class="fl">.7</span> ], <span class="st">&#39;size&#39;</span>: n_flips_1 }   <span class="co"># default params</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>flip_params_rig2 <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [<span class="fl">.2</span> , <span class="fl">.8</span> ], <span class="st">&#39;size&#39;</span>: n_flips_1 }   <span class="co"># default params</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>flip_params_rig1 <span class="op">=</span> { <span class="st">&#39;a&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>], <span class="st">&#39;p&#39;</span>: [<span class="fl">.1</span> , <span class="fl">.9</span> ], <span class="st">&#39;size&#39;</span>: n_flips_1 }   <span class="co"># default params</span></span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> ( n_flips <span class="op">&lt;</span> n_flips_max <span class="kw">and</span> H0_true ):</span>
@@ -4507,7 +4497,7 @@ if (outputEl) {{
 <span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>    ov_rig1 <span class="op">+=</span> <span class="bu">list</span>(ov_rig1_1)</span>
 <span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&gt; Find distribution function</span></span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    x_H0_fv <span class="op">=</span> px_H0(sp.stats.binom.pmf, {<span class="st">'k'</span>: np.arange(<span class="dv">0</span>,n_flips<span class="op">+</span><span class="dv">1</span>), <span class="st">'n'</span>: n_flips, <span class="st">'p'</span>: <span class="fl">.5</span>})  <span class="co"># H0: fair coin</span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    x_H0_fv <span class="op">=</span> px_H0(sp.stats.binom.pmf, {<span class="st">&#39;k&#39;</span>: np.arange(<span class="dv">0</span>,n_flips<span class="op">+</span><span class="dv">1</span>), <span class="st">&#39;n&#39;</span>: n_flips, <span class="st">&#39;p&#39;</span>: <span class="fl">.5</span>})  <span class="co"># H0: fair coin</span></span>
 <span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&gt; Evaluate acceptance region</span></span>
 <span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    ixl, ixr <span class="op">=</span> find_acceptance_regions(x_H0_fv, alpha_v,)</span>
@@ -4535,7 +4525,7 @@ if (outputEl) {{
 <span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a>    xsv_rig3 <span class="op">+=</span> [ ixs_rig3<span class="op">/</span>n_flips ]</span>
 <span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>    xsv_rig2 <span class="op">+=</span> [ ixs_rig2<span class="op">/</span>n_flips ]</span>
 <span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>    xsv_rig1 <span class="op">+=</span> [ ixs_rig1<span class="op">/</span>n_flips ]</span>
-<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
 </details>
 </div>
 <p>Results are shown. The outcome of the coin toss is converted to a <span class="math inline">\(\{ 0, 1 \}\)</span> coding, as <span class="math inline">\(H \rightarrow 0\)</span>, <span class="math inline">\(T \rightarrow 1\)</span>. The test statistics</p>
@@ -4546,7 +4536,7 @@ if (outputEl) {{
 <div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="45">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Convert list to numpy arrays, to perform some algebra below</span></span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Convert list to numpy arrays, to perform some algebra below</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>n_flipsv <span class="op">=</span> np.array(n_flipsv)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>xlv <span class="op">=</span> np.array(xlv)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>xrv <span class="op">=</span> np.array(xrv)</span>
@@ -4566,16 +4556,16 @@ if (outputEl) {{
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    plt.fill_between(n_flipsv, </span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                     xlv[:,ial], </span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                     xrv[:,ial], color<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.1</span>))</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_fair, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>), label<span class="op">=</span><span class="st">'fair'</span>)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rigg, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>), label<span class="op">=</span><span class="st">'rigged, .48'</span>)</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig4, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>), label<span class="op">=</span><span class="st">'rigged, .4'</span>)</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig3, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">'rigged, .3'</span>)</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig2, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">'rigged, .2'</span>)</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig1, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">'rigged, .1'</span>)</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_fair, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>), label<span class="op">=</span><span class="st">&#39;fair&#39;</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rigg, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>), label<span class="op">=</span><span class="st">&#39;rigged, .48&#39;</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig4, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>), label<span class="op">=</span><span class="st">&#39;rigged, .4&#39;</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig3, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">&#39;rigged, .3&#39;</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig2, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">&#39;rigged, .2&#39;</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, xsv_rig1, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">&#39;rigged, .1&#39;</span>)</span>
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, n_flips)</span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.ylim(-5, 5)</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Avg outcome, $</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s(n_s)$"</span>)</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$n_s$'</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Avg outcome, $</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s(n_s)$&quot;</span>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;$n_s$&#39;</span>)</span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; For scaling results</span></span>
@@ -4588,23 +4578,23 @@ if (outputEl) {{
 <span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    plt.fill_between(n_flipsv, </span>
 <span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>                     (xlv[:,ial]<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, </span>
 <span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>                     (xrv[:,ial]<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="fl">.1</span>))</span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_fair<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>), label<span class="op">=</span><span class="st">'fair'</span>)</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rigg<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>), label<span class="op">=</span><span class="st">'rigged, .48'</span>)</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig4<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>), label<span class="op">=</span><span class="st">'rigged, .4'</span>)</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig3<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">'rigged, .3'</span>)</span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig2<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">'rigged, .2'</span>)</span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig1<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">'rigged, .1'</span>)</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_fair<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">0</span>), label<span class="op">=</span><span class="st">&#39;fair&#39;</span>)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rigg<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">1</span>), label<span class="op">=</span><span class="st">&#39;rigged, .48&#39;</span>)</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig4<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">2</span>), label<span class="op">=</span><span class="st">&#39;rigged, .4&#39;</span>)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig3<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">3</span>), label<span class="op">=</span><span class="st">&#39;rigged, .3&#39;</span>)</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig2<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">4</span>), label<span class="op">=</span><span class="st">&#39;rigged, .2&#39;</span>)</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>plt.plot(n_flipsv, (xsv_rig1<span class="op">-</span>bernoulli_avg) <span class="op">*</span> n_flipsv<span class="op">**</span><span class="fl">.5</span><span class="op">/</span>bernoulli_var<span class="op">**</span><span class="fl">.5</span>, color<span class="op">=</span>plt.cm.tab10(<span class="dv">5</span>), label<span class="op">=</span><span class="st">&#39;rigged, .1&#39;</span>)</span>
 <span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, n_flips)</span>
 <span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>)</span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Scaled avg outcome, $</span><span class="er">\</span><span class="st">dfrac{</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s - </span><span class="er">\</span><span class="st">overline</span><span class="sc">{x}</span><span class="st">}{</span><span class="er">\</span><span class="st">sigma/</span><span class="er">\</span><span class="st">sqrt</span><span class="sc">{n}</span><span class="st">}$"</span>)</span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$n_s$'</span>)</span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">&quot;Scaled avg outcome, $</span><span class="er">\</span><span class="st">dfrac{</span><span class="er">\</span><span class="st">hat</span><span class="sc">{x}</span><span class="st">_s - </span><span class="er">\</span><span class="st">overline</span><span class="sc">{x}</span><span class="st">}{</span><span class="er">\</span><span class="st">sigma/</span><span class="er">\</span><span class="st">sqrt</span><span class="sc">{n}</span><span class="st">}$&quot;</span>)</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">&#39;$n_s$&#39;</span>)</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="index_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<figure>
+<p><img src="index_files/figure-html/cell-11-output-1.png" class="img-fluid" /></p>
 </figure>
 </div>
 </div>
@@ -4613,7 +4603,7 @@ if (outputEl) {{
 <div id="e9ec9e02-a801-4605-891f-6a2e61c0a890" class="cell" data-execution_count="46">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bernoulli_avg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bernoulli_avg)</span></code></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>0.5</code></pre>
@@ -4621,13 +4611,17 @@ if (outputEl) {{
 </div>
 </section>
 <section id="anomaly-detection" class="level2">
-<h2 class="anchored" data-anchor-id="anomaly-detection">Anomaly detection</h2>
-
-
+<h2>Anomaly detection</h2>
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl">basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXItdGl0bGU=">basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6QWJvdXQ=">About</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Fib3V0Lmh0bWw=">/about.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6aHR0cHM6Ly9naXRodWIuY29tL0Jhc2ljczIwMjIvbXlibG9n">https://github.com/Basics2022/myblog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2luZGV4LnhtbA==">/index.xml</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ==">Dice to health monitoring - From prior statistics to inference – basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=">Dice to health monitoring - From prior statistics to inference – basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl">Dice to health monitoring - From prior statistics to inference – basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">Basics blog</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">Basics blog</span></p>
+</div>
 </section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
     const anchorJS = new window.AnchorJS();
@@ -5029,7 +5023,6 @@ if (outputEl) {{
   </script>
 </div> <!-- /content -->
 
+</body>
 
-
-
-</body></html>
+</html>
