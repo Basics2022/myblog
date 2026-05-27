@@ -4122,10 +4122,9 @@ window.Quarto = {
 
 
 
-<p><strong>Contents.</strong></p>
-<p><strong>The fair coin.</strong></p>
-<p><strong>10 heads in a row. Is the coin fair?</strong> Statistical inference.</p>
-<p><strong>Anomaly detection.</strong></p>
+<p>Humans are wired to find patterns in randomness. If a coin lands on Heads five times in a row, our intuition insists something is up. But how do we separate a genuine structural change from mere background noise?</p>
+<p>An answer can be provided using <strong>Hypothesis Testing</strong>. This statistical framework strips away human subjectivity - or at least define it before performing experiments and quantify its consequences - and quantifies our beliefs. By setting an initial assumption—the Null Hypothesis (<span class="math inline">\(H_0\)</span>), such as a perfectly fair coin—we can mathematically calculate whether our observations are a random fluke or a definitive anomaly.</p>
+<p>This post contains three sections: * <strong>Coin tosses have no memory</strong>: <span class="math inline">\(50.000\)</span> tosses of a fair coin is modeled as independent random variables, and sample data are discussed to show that random independent events have no memory, debunking the myth of the “hot hand.” * <strong>10 Heads in a Row</strong>: in the first section a definition of <em>fair coin</em> is used, and trusted. But how can be infer/know that a coin is fair from a sequence of its outcomes? This section aims at using hypotesis testing to provide an answer * …<strong>todo</strong> <em>Anomaly detection</em>. Introduction and link to a more detailed post</p>
 <div id="b5a47335-1bd3-4431-a52f-b1e8f2321ae6" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="24">
 <details class="code-fold">
 <summary>Show the code</summary>
@@ -4146,8 +4145,8 @@ window.Quarto = {
 <!--
 (dice-to-health-monitoring:fair-dice)=
 -->
-<section id="the-fair-coin" class="level2">
-<h2 class="anchored" data-anchor-id="the-fair-coin">The fair coin</h2>
+<section id="coin-tosses-have-no-memory" class="level2">
+<h2 class="anchored" data-anchor-id="coin-tosses-have-no-memory">Coin tosses have no memory</h2>
 <section id="coin-toss-as-a-bernoulli-random-variable" class="level3">
 <h3 class="anchored" data-anchor-id="coin-toss-as-a-bernoulli-random-variable">Coin toss as a Bernoulli random variable</h3>
 <p>We know that a coin is fair, so that its outcome has the probability of 50% to be head (<span class="math inline">\(H\)</span>) and 50% to be tail (<span class="math inline">\(T\)</span>). Mathematically, the outcome of a coin toss can be modelled as <strong>Bernoulli random variable</strong> with <span class="math inline">\(p_{\text{H}} = 0.5\)</span> and <span class="math inline">\(p_{\text{T}} = 1 - p_{\text{H}} = 0.5\)</span>.</p>
@@ -4318,8 +4317,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The empirical probability of getting <span class="math inline">\(H\)</span> after a streak of <span class="math inline">\(n\)</span> <span class="math inline">\(H\)</span> is approximatley <span class="math inline">\(50%\)</span>. This is a qualitatively information. But <strong>how much close to <span class="math inline">\(50\%\)</span> is enough</strong>? I could think <span class="math inline">\(49.5\%\)</span> is not enough to prove the assumption, you could think <span class="math inline">\(55.5\%\)</span> is fair enough.</p>
-<p>We can’t cut subjectivity as a whole, but <a href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/hp-test.html">hypthesis testing</a> provides a framework to work with. Level of significance <span class="math inline">\(\alpha\)</span> - representing the subjectivity - represents the probability of inferring a false claim from sampled data. * A statement is made, the null hypotesis <span class="math inline">\(H_0\)</span> * A test statistics of data under <span class="math inline">\(H_0\)</span> is chosen, so that the probability <span class="math inline">\(p(x|H_0)\)</span> is known * Data is sampled, and the estimate <span class="math inline">\(\hat{x}\)</span> of the test statistics is evaluated with the samples * The properties of the statistical test (one- or two-tail test, reference value,…) are chosen * Acceptance and rejection regions - depending on <span class="math inline">\(\alpha\)</span> - are evaluated * Null hypotesis is rejected if <span class="math inline">\(\hat{x}\)</span> belongs to the rejection region</p>
+<p>The empirical probability of getting <span class="math inline">\(H\)</span> after a streak of <span class="math inline">\(n\)</span> <span class="math inline">\(H\)</span> is approximatley <span class="math inline">\(50%\)</span>. This is a qualitatively information. But <strong>how close to <span class="math inline">\(50\%\)</span> is close enough</strong>? I could think <span class="math inline">\(49.5\%\)</span> is not enough to prove the assumption, you could think <span class="math inline">\(55.5\%\)</span> is fair enough.</p>
+<p>We can’t cut subjectivity as a whole, but <a href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/hp-test.html">hypthesis testing</a> provides a framework to work with. Level of significance <span class="math inline">\(\alpha\)</span> - representing the subjectivity - represents the the probability of rejecting a true null hypothesis (Type I erro/false positive). * A statement is made, the null hypotesis <span class="math inline">\(H_0\)</span> * A test statistics of data under <span class="math inline">\(H_0\)</span> is chosen, so that the probability <span class="math inline">\(p(x|H_0)\)</span> is known * Data is sampled, and the estimate <span class="math inline">\(\hat{x}\)</span> of the test statistics is evaluated with the samples * The properties of the statistical test (one- or two-tail test, reference value,…) are chosen * Acceptance and rejection regions - depending on <span class="math inline">\(\alpha\)</span> - are evaluated * Null hypotesis is rejected if <span class="math inline">\(\hat{x}\)</span> belongs to the rejection region</p>
 <p>Here the level of acceptance - the probability of not-rejecting a false claim - <span class="math inline">\(\alpha = 5\%\)</span> is chosen; the test statistics <span class="math inline">\(x\)</span> is chosen as the average value of the coin tosses after the desired streaks, or the ratio of the number of heads over the number of tosses after the desired streaks; the ratio of head outcomes after the desired streaks - i.e.&nbsp;the estimated value <span class="math inline">\(\hat{x}\)</span> - is counted; this value is checked against the rejection region.</p>
 <p>Relying on the <a href="https://basics2022.github.io/bbooks-statistics/ch/prob/iid.html?highlight=central+limit+theorem#central-limit-theorem">central limit theorem</a>, here the acceptance region is defined for a Gaussian distribution - well approximating the binomial distribution of sequences of independent Bernoulli events. For a given value of <span class="math inline">\(\alpha\)</span>, the half-width of the <span class="math inline">\(95\%\)</span> intervals scales with the number of samples, here the <strong>Total Matches</strong>, as</p>
 <p><span class="math display">\[1.96 \frac{\sigma}{\sqrt{N_{matches}}} \ ,\]</span></p>
@@ -4731,7 +4730,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>Acceptance regions for different statistical significance levels are shown in grayscale. The widest, most conservative acceptance region corresponds to <span class="math inline">\(\alpha = 0.003\)</span> (the standard industrial <span class="math inline">\(\sim3\sigma\)</span> control limit). The intermediate region corresponds to <span class="math inline">\(\alpha = 0.05\)</span> (the standard scientific <span class="math inline">\(\sim2\sigma\)</span> limit), and the narrowest, most sensitive region corresponds to <span class="math inline">\(\alpha = 0.3\)</span> (a loose <span class="math inline">\(\sim 1\sigma\)</span> limit).</p>
-<p>The right plot shows that 2000 tosses my be not enough to reject the assumption that a <span class="math inline">\(48-52\%\)</span> unfair coin is note fair.</p>
+<p>The right plot shows that 2000 tosses may not be enough to reject the assumption of fairness for a subtly rigged coin (<span class="math inline">\(48\%\)</span> - <span class="math inline">\(52\%\)</span> split).</p>
 </section>
 <section id="anomaly-detection" class="level2">
 <h2 class="anchored" data-anchor-id="anomaly-detection">Anomaly detection</h2>
