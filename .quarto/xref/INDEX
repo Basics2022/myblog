@@ -34,5 +34,8 @@
   },
   "posts/juxtaposition/index.qmd": {
     "index.html": "8a3ec637"
+  },
+  "posts/coin-tosses/index.ipynb": {
+    "index.html": "378ca8c7"
   }
 }
