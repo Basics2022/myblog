@@ -88,11 +88,11 @@ Figure&nbsp;2: Screenshot of a Julia output
 $$\frac{6}{2}(1+2) = 9 \quad \text{vs.} \quad \frac{6}{2(1+2)} = 1$$
 -->
 <p>I’ve already spent too much words and time on this post. I’ll leave you this citation from <a href="https://www.themathdoctors.org/implied-multiplication-2-is-there-a-standard/">themathdoctors</a>.</p>
-<p>The next time you see one of these posts clogging your feed, don’t comment, don’t choose a side, and don’t feed the engagement algorithm. Maybe block the creator, if you smell the logic of click-baiting: just do not confuse math/logic tests with bad contents; just don’t lose your time, patience and energy after them; just claim higher quality. It’s <strong>a matter of hygiene</strong>.</p>
 <blockquote class="blockquote">
 <p>Since there are different opinions in reputable sources, and no one authoritative source, the best I can do is to point out the ambiguity and recommend avoidance, which is what I’ve been doing for 25 years.</p>
 <p>The only people who insist on writing such expressions, in my experience, are Internet trolls who want to start arguments. I choose not to join them, nor to agree with people who predict catastrophe if this isn’t fully resolved. This simply isn’t that important. – <cite> </cite></p>
 </blockquote>
+<p>The next time you see one of these posts clogging your feed, don’t comment, don’t choose a side, and don’t feed the engagement algorithm. Or just leave a last comment before blocking the creator, if you smell the logic of click-baiting: just do not confuse math/logic tests with bad contents; just don’t lose your time, patience and energy after them; just claim higher quality. It’s <strong>a matter of hygiene</strong>.</p>
 </section>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
@@ -3372,7 +3372,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```bylrhtlwcj Example: evaluation of hyperstatics</p>
+<p>```zvrlglynfn Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
