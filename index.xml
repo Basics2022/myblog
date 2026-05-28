@@ -113,9 +113,9 @@ $$\frac{6}{2}(1+2) = 9 \quad \text{vs.} \quad \frac{6}{2(1+2)} = 1$$
   <pubDate>Wed, 27 May 2026 22:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Coin to health monitoring - From prior statistics to inference</title>
+  <title>Coin tosses - From prior statistics to inference</title>
   <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/dice-to-health-monitoring/</link>
+  <link>https://basics2022.github.io/myblog/posts/coin-tosses/</link>
   <description><![CDATA[ 
 
 
@@ -127,10 +127,13 @@ $$\frac{6}{2}(1+2) = 9 \quad \text{vs.} \quad \frac{6}{2(1+2)} = 1$$
 <p>This post contains three sections:</p>
 <ul>
 <li><p><strong>Coin tosses have no memory</strong>: <img src="https://latex.codecogs.com/png.latex?50.000"> tosses of a fair coin is modeled as independent random variables, and sample data are discussed to show that random independent events have no memory, debunking the myth of the “hot hand.”</p></li>
-<li><p><strong>10 Heads in a Row</strong>: in the first section a definition of <em>fair coin</em> is used, and trusted. But how can be infer/know that a coin is fair from a sequence of its outcomes? This section aims at using hypotesis testing to provide an answer</p></li>
-<li><p>…<strong>todo</strong> <em>Anomaly detection</em>. Introduction and link to a more detailed post</p></li>
+<li><p><strong>10 heads in a row</strong>: in the first section a definition of <em>fair coin</em> is used, and trusted. But how can be infer/know that a coin is fair from a sequence of its outcomes? This section aims at using hypotesis testing to provide an answer</p></li>
+<li><p><strong>The Bayesian alternative</strong></p></li>
 </ul>
-<div id="b5a47335-1bd3-4431-a52f-b1e8f2321ae6" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="24">
+<!--
+* ...**todo** *Anomaly detection*. Introduction and link to a more detailed post
+-->
+<div id="b5a47335-1bd3-4431-a52f-b1e8f2321ae6" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="2">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
@@ -189,7 +192,7 @@ font-style: inherit;">"notebook"</span></span></code></pre></div></div>
 <section id="coin-toss-as-a-bernoulli-random-variable" class="level3">
 <h3 class="anchored" data-anchor-id="coin-toss-as-a-bernoulli-random-variable">Coin toss as a Bernoulli random variable</h3>
 <p>We know that a coin is fair, so that its outcome has the probability of 50% to be head (<img src="https://latex.codecogs.com/png.latex?H">) and 50% to be tail (<img src="https://latex.codecogs.com/png.latex?T">). Mathematically, the outcome of a coin toss can be modelled as <strong>Bernoulli random variable</strong> with <img src="https://latex.codecogs.com/png.latex?p_%7B%5Ctext%7BH%7D%7D%20=%200.5"> and <img src="https://latex.codecogs.com/png.latex?p_%7B%5Ctext%7BT%7D%7D%20=%201%20-%20p_%7B%5Ctext%7BH%7D%7D%20=%200.5">.</p>
-<p><img src="https://latex.codecogs.com/png.latex?p(X)%20=%20%5Cleft%5C%7B%0A%5Cbegin%7Baligned%7D%0A&amp;%20%20p_%7B%5Ctext%7BH%7D%7D%20%20%20%20%20%20&amp;%20,%20%5Cquad%20%5Ctext%7BX%7D%20=%20%5Ctext%7BH%7D%20%5C%5C%0A&amp;%20%201%20-%20p_%7B%5Ctext%7BH%7D%7D%20%20&amp;%20,%20%5Cquad%20%5Ctext%7BX%7D%20=%20%5Ctext%7BT%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A%5Cright."></p>
+<p><span id="eq-bernoulli-coin-toss"><img src="https://latex.codecogs.com/png.latex?p(X)%20=%20%5Cleft%5C%7B%0A%5Cbegin%7Baligned%7D%0A&amp;%20%20p_%7B%5Ctext%7BH%7D%7D%20%20%20%20%20%20&amp;%20,%20%5Cquad%20%5Ctext%7BX%7D%20=%20%5Ctext%7BH%7D%20%5C%5C%0A&amp;%20%201%20-%20p_%7B%5Ctext%7BH%7D%7D%20%20&amp;%20,%20%5Cquad%20%5Ctext%7BX%7D%20=%20%5Ctext%7BT%7D%20%5C%5C%0A%5Cend%7Baligned%7D%0A%5Cright.%20%5Ctag%7B1%7D"></span></p>
 <p>One may ask <strong>how does one know that the coin is fair?</strong>, and an answer to this question is provided in the <a href="coin-to-health-monitoring:10-heads-in-a-row">next section</a>.</p>
 </section>
 <section id="multiple-coin-tosses.-does-3-heads-h-in-a-row-make-next-is-a-tail-t-more-likely" class="level3">
@@ -200,7 +203,7 @@ font-style: inherit;">"notebook"</span></span></code></pre></div></div>
 <li>the assumption holds for all the values of <img src="https://latex.codecogs.com/png.latex?n"></li>
 <li>the effect of number of samples on the dimensions of rejection and acceptance regions of hypothesis testing: as the streak length <img src="https://latex.codecogs.com/png.latex?n"> increases from <img src="https://latex.codecogs.com/png.latex?1"> to <img src="https://latex.codecogs.com/png.latex?8">, the number of matches <img src="https://latex.codecogs.com/png.latex?N_%7Bmatches%7D"> of <img src="https://latex.codecogs.com/png.latex?n">-length streaks in the sequence of <img src="https://latex.codecogs.com/png.latex?N_%7Btosses%7D%20=%2050.000"> samples decreases from approximately <img src="https://latex.codecogs.com/png.latex?25.000"> to <img src="https://latex.codecogs.com/png.latex?180"></li>
 </ul>
-<div id="13c8329d-d856-45e3-8fb5-bd4242cc26ea" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="25">
+<div id="13c8329d-d856-45e3-8fb5-bd4242cc26ea" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="3">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
@@ -517,74 +520,74 @@ font-style: inherit;"># print(df.to_string(index=False))</span></span></code></p
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
 <td>1</td>
-<td>24757</td>
-<td>12287</td>
-<td>49.63%</td>
+<td>25097</td>
+<td>12607</td>
+<td>50.23%</td>
 <td>49.38% - 50.62%</td>
 <td>0.62%</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
 <td>2</td>
-<td>12287</td>
-<td>5992</td>
-<td>48.77%</td>
-<td>49.12% - 50.88%</td>
-<td>0.88%</td>
+<td>12607</td>
+<td>6338</td>
+<td>50.27%</td>
+<td>49.13% - 50.87%</td>
+<td>0.87%</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
 <td>3</td>
-<td>5992</td>
-<td>2950</td>
-<td>49.23%</td>
-<td>48.73% - 51.27%</td>
-<td>1.27%</td>
+<td>6338</td>
+<td>3234</td>
+<td>51.03%</td>
+<td>48.77% - 51.23%</td>
+<td>1.23%</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
 <td>4</td>
-<td>2950</td>
-<td>1474</td>
-<td>49.97%</td>
-<td>48.20% - 51.80%</td>
-<td>1.80%</td>
+<td>3234</td>
+<td>1669</td>
+<td>51.61%</td>
+<td>48.28% - 51.72%</td>
+<td>1.72%</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
 <td>5</td>
-<td>1474</td>
-<td>752</td>
-<td>51.02%</td>
-<td>47.45% - 52.55%</td>
-<td>2.55%</td>
+<td>1669</td>
+<td>875</td>
+<td>52.43%</td>
+<td>47.60% - 52.40%</td>
+<td>2.40%</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">5</th>
 <td>6</td>
-<td>752</td>
-<td>365</td>
-<td>48.54%</td>
-<td>46.43% - 53.57%</td>
-<td>3.57%</td>
+<td>875</td>
+<td>471</td>
+<td>53.83%</td>
+<td>46.69% - 53.31%</td>
+<td>3.31%</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">6</th>
 <td>7</td>
-<td>365</td>
-<td>178</td>
-<td>48.77%</td>
-<td>44.87% - 55.13%</td>
-<td>5.13%</td>
+<td>471</td>
+<td>253</td>
+<td>53.72%</td>
+<td>45.48% - 54.52%</td>
+<td>4.52%</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">7</th>
 <td>8</td>
-<td>178</td>
-<td>96</td>
-<td>53.93%</td>
-<td>42.65% - 57.35%</td>
-<td>7.35%</td>
+<td>253</td>
+<td>150</td>
+<td>59.29%</td>
+<td>43.84% - 56.16%</td>
+<td>6.16%</td>
 </tr>
 </tbody>
 </table>
@@ -609,8 +612,8 @@ We can't cut subjectivity as a whole, but hypthesis testing provides a framework
 <h2 class="anchored" data-anchor-id="heads-in-a-row.-is-the-dice-fair">10 heads in a row. Is the dice fair?</h2>
 <p>The problem is a bit different from the one of the first section. You walk up to a table and know nothing about the croupier and the dice. You start watching the table and the first 10 tosses you observe are all heads. Is it reasonable to think you’re observing a rare event for a fair coin, or should you start blaming the coin?</p>
 <p><strong>Probability <img src="https://latex.codecogs.com/png.latex?p_N(n)"> of <img src="https://latex.codecogs.com/png.latex?n"> Head outcomes in <img src="https://latex.codecogs.com/png.latex?N"> tosses of a fair dice.</strong> With a fair dice, the probability of observe <img src="https://latex.codecogs.com/png.latex?n"> Heads in <img src="https://latex.codecogs.com/png.latex?N"> tosses is represented by the <strong>binomial distribution</strong></p>
-<p><img src="https://latex.codecogs.com/png.latex?p_N(n)%20=%20%5Cleft(%20%5Cbegin%7Bmatrix%7D%20N%20%5C%5C%20n%20%5Cend%7Bmatrix%7D%20%5Cright)%20p_%7B%5Ctext%7BH%7D%7D%5En%20(%201%20-%20p_%7B%5Ctext%7BH%7D%7D%20)%5E%7BN-n%7D"></p>
-<div id="53c741c6-4e60-4703-a400-642bb5e9283b" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="26">
+<p><span id="eq-binomial-coin"><img src="https://latex.codecogs.com/png.latex?p_N(n)%20=%20%5Cleft(%20%5Cbegin%7Bmatrix%7D%20N%20%5C%5C%20n%20%5Cend%7Bmatrix%7D%20%5Cright)%20p_%7B%5Ctext%7BH%7D%7D%5En%20(%201%20-%20p_%7B%5Ctext%7BH%7D%7D%20)%5E%7BN-n%7D%20%5Ctag%7B2%7D"></span></p>
+<div id="53c741c6-4e60-4703-a400-642bb5e9283b" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="4">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
@@ -647,7 +650,7 @@ background-color: null;
 font-style: inherit;">=</span> sp.stats.binom.pmf(heads_v, n_flips, p_head_fair)</span></code></pre></div></div>
 </details>
 </div>
-<div id="6866babd-2e89-4713-b31a-578b5bbba0fa" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="27">
+<div id="6866babd-2e89-4713-b31a-578b5bbba0fa" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="5">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
@@ -732,9 +735,9 @@ font-style: inherit;">0.5</span></span>
 <span id="cb4-20">fig.show()</span></code></pre></div></div>
 </details>
 <div class="cell-output cell-output-display">
-<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="015006da-59a6-4875-92d6-5bea8b6e7a9e" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("015006da-59a6-4875-92d6-5bea8b6e7a9e")) {                    Plotly.newPlot(                        "015006da-59a6-4875-92d6-5bea8b6e7a9e",                        [{"hovertemplate":"Number of Heads (n)=%{x}\u003cbr\u003eProbability=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"v","showlegend":false,"textposition":"auto","texttemplate":"%{y:.4f}","x":{"dtype":"i1","bdata":"AAECAwQFBgcICQo="},"xaxis":"x","y":{"dtype":"f8","bdata":"9v\u002f\u002f\u002f\u002f\u002f\u002fTz8BAAAAAACEPwYAAAAAgKY\u002fAAAAAAAAvj\u002f8\u002f\u002f\u002f\u002f\u002fz\u002fKPwEAAAAAgM8\u002f\u002fP\u002f\u002f\u002f\u002f8\u002fyj\u002f\u002f\u002f\u002f\u002f\u002f\u002f\u002f+9PwYAAAAAgKY\u002fAQAAAAAAhD8AAAAAAABQPw=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Number of Heads (n)"},"tickmode":"linear","tick0":0,"dtick":1},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Probability"}},"legend":{"tracegroupgap":0},"title":{"text":"Probability of Observing n Heads in 10 Coin Tosses","x":0.5},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script>if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                    <div id="c9369e8e-1944-4748-b826-381da4cb6287" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script>                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("c9369e8e-1944-4748-b826-381da4cb6287")) {                    Plotly.newPlot(                        "c9369e8e-1944-4748-b826-381da4cb6287",                        [{"hovertemplate":"Number of Heads (n)=%{x}\u003cbr\u003eProbability=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"v","showlegend":false,"textposition":"auto","texttemplate":"%{y:.4f}","x":{"dtype":"i1","bdata":"AAECAwQFBgcICQo="},"xaxis":"x","y":{"dtype":"f8","bdata":"9v\u002f\u002f\u002f\u002f\u002f\u002fTz8BAAAAAACEPwYAAAAAgKY\u002fAAAAAAAAvj\u002f8\u002f\u002f\u002f\u002f\u002fz\u002fKPwEAAAAAgM8\u002f\u002fP\u002f\u002f\u002f\u002f8\u002fyj\u002f\u002f\u002f\u002f\u002f\u002f\u002f\u002f+9PwYAAAAAgKY\u002fAQAAAAAAhD8AAAAAAABQPw=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"Number of Heads (n)"},"tickmode":"linear","tick0":0,"dtick":1},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Probability"}},"legend":{"tracegroupgap":0},"title":{"text":"Probability of Observing n Heads in 10 Coin Tosses","x":0.5},"barmode":"relative"},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('015006da-59a6-4875-92d6-5bea8b6e7a9e');
+var gd = document.getElementById('c9369e8e-1944-4748-b826-381da4cb6287');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -822,7 +825,7 @@ if (outputEl) {{
 <p>Here the coin toss is modelled as a Bernoulli stochastic variable. Different coins with “different levels of fairiness” are uniquely defined by the probability <img src="https://latex.codecogs.com/png.latex?p_%7B%5Ctext%7BH%7D%7D"> of the head event. Here different coins are evaluated with</p>
 <p><img src="https://latex.codecogs.com/png.latex?p_%7B%5Ctext%7BH%7D%7D%20%5Cin%20%5Cleft%5C%7B%200.5,%200.45,%200.4,%200.3,%200.2,%200.1%20%5Cright%5C%7D%20%5C%20."></p>
 <p>Routines for running the experiments and evaluating the acceptance regions are defined.</p>
-<div id="d3143e50-3671-4a7d-8dde-30e9abf5c193" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="28">
+<div id="d3143e50-3671-4a7d-8dde-30e9abf5c193" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="6">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
@@ -883,7 +886,7 @@ background-color: null;
 font-style: inherit;">**</span>rng_params)</span></code></pre></div></div>
 </details>
 </div>
-<div id="7ef3f812-1fb3-4da4-9650-906ba9d76655" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="29">
+<div id="7ef3f812-1fb3-4da4-9650-906ba9d76655" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="7">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
@@ -898,7 +901,7 @@ background-color: null;
 font-style: inherit;">**</span>p_params)</span></code></pre></div></div>
 </details>
 </div>
-<div id="7fdc4d7b-98a2-4918-ab13-98b96de99ec9" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="30">
+<div id="7fdc4d7b-98a2-4918-ab13-98b96de99ec9" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="8">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
@@ -1159,7 +1162,7 @@ font-style: inherit;"># print(xlv, xrv)</span></span></code></pre></div></div>
 </details>
 </div>
 <p>Different levels of significance are defined, to show its influence on the acceptance region and on the inference test later.</p>
-<div id="331304fd-5c4c-4efc-8506-930adae06437" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="31">
+<div id="331304fd-5c4c-4efc-8506-930adae06437" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="9">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
@@ -1188,7 +1191,7 @@ background-color: null;
 font-style: inherit;">.003</span> ])</span></code></pre></div></div>
 </details>
 </div>
-<div id="2d5bd4d5-816c-4958-97ba-45a703246e3c" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="32">
+<div id="2d5bd4d5-816c-4958-97ba-45a703246e3c" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="10">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
@@ -1571,7 +1574,7 @@ font-style: inherit;">/</span>n_flips ]</span>
 <p><img src="https://latex.codecogs.com/png.latex?%5Chat%7Bx%7D%20=%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bj=1%7D%5E%7Bn%7D%20x_n%20%5C%20,"></p>
 <p>tends to a random variable with Gaussian distribution <img src="https://latex.codecogs.com/png.latex?%5Cmathscr%7BN%7D%5Cleft(%20%5Cmu,%20%5Cfrac%7B%5Csigma%5E2%7D%7Bn%7D%20%5Cright)">, for the <a href="https://basics2022.github.io/bbooks-statistics/ch/prob/iid.html?highlight=central+limit+theorem#central-limit-theorem">central limit theorem</a>. This observation seamlessly induces a useful scaling of the test variable</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5Chat%7Bx%7D%20-%20%5Cmu%7D%7B%5Csigma/%5Csqrt%7Bn%7D%7D%20%5Csim%20%5Cmathscr%7BN%7D%5Cleft(%200,%201%20%5Cright)%20%5C%20."></p>
-<div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="33">
+<div id="433dba84-3e1d-448c-839e-7a81caadd715" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="11">
 <details class="code-fold">
 <summary>Show the code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
@@ -2143,7 +2146,7 @@ font-style: inherit;">'$n_s$'</span>)</span>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://basics2022.github.io/myblog/posts/dice-to-health-monitoring/index_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://basics2022.github.io/myblog/posts/coin-tosses/index_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -2151,10 +2154,766 @@ font-style: inherit;">'$n_s$'</span>)</span>
 <p>Acceptance regions for different statistical significance levels are shown in grayscale. The widest, most conservative acceptance region corresponds to <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.003"> (the standard industrial <img src="https://latex.codecogs.com/png.latex?%5Csim3%5Csigma"> control limit). The intermediate region corresponds to <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.05"> (the standard scientific <img src="https://latex.codecogs.com/png.latex?%5Csim2%5Csigma"> limit), and the narrowest, most sensitive region corresponds to <img src="https://latex.codecogs.com/png.latex?%5Calpha%20=%200.3"> (a loose <img src="https://latex.codecogs.com/png.latex?%5Csim%201%5Csigma"> limit).</p>
 <p>The right plot shows that 2000 tosses may not be enough to reject the assumption of fairness for a subtly rigged coin (<img src="https://latex.codecogs.com/png.latex?48%5C%25"> - <img src="https://latex.codecogs.com/png.latex?52%5C%25"> split).</p>
 </section>
-<section id="anomaly-detection" class="level2">
-<h2 class="anchored" data-anchor-id="anomaly-detection">Anomaly detection</h2>
+<section id="the-bayesian-alternative" class="level2">
+<h2 class="anchored" data-anchor-id="the-bayesian-alternative">The Bayesian alternative</h2>
+<p>In this section, Bayesian approach is applied for testing a hypothesis. After a coin is tossed <img src="https://latex.codecogs.com/png.latex?n"> times and the outcome is Head <img src="https://latex.codecogs.com/png.latex?n_H"> times, the question is: with the observed data, what’s the probability of Heads in a single coin toss?</p>
+<p>Here, the coin toss is modeled as a Bernoulli random variable with probability density Equation&nbsp;1, and the value <img src="https://latex.codecogs.com/png.latex?p_H"> of the probability of getting Head needs to be estimated, using available data.</p>
+<p>So, here: * the model is given: the random variable is modeled with a Bernoulli random variable * the parameters of the models need to be determined: the model has only one parameter <img src="https://latex.codecogs.com/png.latex?p_H"></p>
+<p>In this section, the symbol <img src="https://latex.codecogs.com/png.latex?f"> is used for probability densities, just to avoid too many <img src="https://latex.codecogs.com/png.latex?p">s.</p>
+<section id="coin-tosses-with-a-generic-coin" class="level3">
+<h3 class="anchored" data-anchor-id="coin-tosses-with-a-generic-coin">Coin tosses with a generic coin</h3>
+<p>Using a coin with probability of Head outcome equal to <img src="https://latex.codecogs.com/png.latex?p_H">, the probability of observing <img src="https://latex.codecogs.com/png.latex?x"> Heads in <img src="https://latex.codecogs.com/png.latex?n"> tosses is given by the expression Equation&nbsp;2,</p>
+<p><span id="eq-likelihood"><img src="https://latex.codecogs.com/png.latex?f(n_H,%20n%20%7C%20p_H)%20=%20%5Cleft(%20%5Cbegin%7Bmatrix%7D%20n%20%5C%5C%20n_H%20%5Cend%7Bmatrix%7D%20%5Cright)%20p_%7B%5Ctext%7BH%7D%7D%5E%7Bn_H%7D%20(%201%20-%20p_%7B%5Ctext%7BH%7D%7D%20)%5E%7Bn-n_H%7D%20%5C%20.%20%5Ctag%7B3%7D"></span></p>
+</section>
+<section id="bayes-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="bayes-theorem">Bayes theorem</h3>
+<p>In order to apply Bayes’ theorem</p>
+<p><span id="eq-bayes-thm"><img src="https://latex.codecogs.com/png.latex?f(y%7Cx)%20=%20%5Cfrac%7Bf(x%7Cy)%20f(y)%7D%7Bf(x)%7D%20%5C%20,%20%5Ctag%7B4%7D"></span></p>
+<p>to get a probability distribution for the parameters of the model <img src="https://latex.codecogs.com/png.latex?y">, given the observed data <img src="https://latex.codecogs.com/png.latex?x">, i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?p(y%7Cx)">, one needs:</p>
+<ul>
+<li><p>a <strong>prior</strong> <img src="https://latex.codecogs.com/png.latex?f(y)">, i.e.&nbsp;a (plausible) distribution of the parameters <img src="https://latex.codecogs.com/png.latex?y">.</p></li>
+<li><p>a <strong>likelihood function</strong>, i.e.&nbsp;the conditional probability <img src="https://latex.codecogs.com/png.latex?f(x%7Cy)"> of observing data <img src="https://latex.codecogs.com/png.latex?x">, given the value <img src="https://latex.codecogs.com/png.latex?y"> of the parameters of the model</p></li>
+<li><p>the <strong>marginal function</strong>, <img src="https://latex.codecogs.com/png.latex?f(x)">. This function immediately follows from marginalization over <img src="https://latex.codecogs.com/png.latex?y"></p>
+<p><img src="https://latex.codecogs.com/png.latex?f(x)%20=%20%5Cint_%7By%7D%20f(x%7Cy)%20f(y)%20dy%20%5C%20."></p></li>
+</ul>
+<p>Here,</p>
+<ul>
+<li><p>the parameter is <img src="https://latex.codecogs.com/png.latex?y%20=%20p_H"></p></li>
+<li><p>the observed data is the number of tosses and the number of Heads, <img src="https://latex.codecogs.com/png.latex?x%20=%20(%20n_H,%20n%20)"></p></li>
+<li><p>the prior is choosen to be a uniform distribution over feasible parameters of the model, <img src="https://latex.codecogs.com/png.latex?f(p_H)%20=%201">, <img src="https://latex.codecogs.com/png.latex?p_H%20%5Cin%20%5B0,1%5D">, assuming we know nothing about the coin and every value is equally likely</p></li>
+<li><p>the likelihood probability density is the probability Equation&nbsp;3, of the outcomes for given values of the parameter <img src="https://latex.codecogs.com/png.latex?y%20=%20p_H"></p></li>
+<li><p>the marginal probability thus becomes (see <strong>mathematical details</strong> below),</p>
+<p><img src="https://latex.codecogs.com/png.latex?f(n_H,n)%20=%20%5Cint_%7Bp_H%20=%200%7D%5E%7B1%7D%20f(n_H,%20n%7C%20p_H)%20f(p_H)%20d%20p_H%20=%20%5Cdots%20=%20%5Cfrac%7B1%7D%7Bn+1%7D%20%5C%20."></p></li>
+</ul>
+<p>Thus the probability density of the parameter <img src="https://latex.codecogs.com/png.latex?p_H"> of the model, given the observed data reads</p>
+<p><img src="https://latex.codecogs.com/png.latex?f(p_H%7Cn_H,%20n)%20=%20(n%20+%201)%20%5Cleft(%20%5Cbegin%7Bmatrix%7D%20n%20%5C%5C%20n_H%20%5Cend%7Bmatrix%7D%20%5Cright)%20p_H%5E%7Bn_H%7D%20(%201%20-%20p_H%20)%5E%7Bn%20-%20n_H%7D%20%5C%20."></p>
+</section>
+<section id="some-examples-and-results" class="level3">
+<h3 class="anchored" data-anchor-id="some-examples-and-results">Some examples and results</h3>
+<p>When the sample size is tiny, probability distribution of the parameters of the model <img src="https://latex.codecogs.com/png.latex?f(p_H)"> is wided and blunt. As shown in the following figure, from left to right: <img src="https://latex.codecogs.com/png.latex?a)"> observing <img src="https://latex.codecogs.com/png.latex?n_H%20=%203"> Heads in <img src="https://latex.codecogs.com/png.latex?n%20=%203"> tosses produces a probability density with a peak in <img src="https://latex.codecogs.com/png.latex?p_H%20=%201">, but it’s far from ruling out the conditions of moderately biased coin; <img src="https://latex.codecogs.com/png.latex?b)"> observing <img src="https://latex.codecogs.com/png.latex?n_H%20=%202"> Heads in <img src="https://latex.codecogs.com/png.latex?n%20=%203"> tosses makes the posterior probability a cubic function with maximum value in <img src="https://latex.codecogs.com/png.latex?p_H%20=%20%5Cfrac%7B2%7D%7B3%7D"> and no sharp maximum; <img src="https://latex.codecogs.com/png.latex?c)"> observing <img src="https://latex.codecogs.com/png.latex?n_H%20=%202"> Heads in <img src="https://latex.codecogs.com/png.latex?n%20=%203"> tosses makes the posterior probability a quartic function with maximum value in <img src="https://latex.codecogs.com/png.latex?p_H%20=%20%5Cfrac%7B2%7D%7B4%7D%20=%20%5Cfrac%7B1%7D%7B4%7D"> and no sharp maximum.</p>
+<p>The conclusions are quite broad, as low-size observed data makes the evidence too scarce to provide strong inference.</p>
+<div id="f11e0d13-f100-41df-9887-d22829fd1f14" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="23">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> scipy.stats <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> beta</span>
+<span id="cb11-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> scipy.special <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> comb</span>
+<span id="cb11-3"></span>
+<span id="cb11-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># --- FIGURE 1: 1x3 Subplots of Specific Continuous Curves ---</span></span>
+<span id="cb11-5">p_H_line <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span>)</span>
+<span id="cb11-6">cases <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>), (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>), (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)]</span>
+<span id="cb11-7"></span>
+<span id="cb11-8">fig, axs <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.subplots(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>, figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>), sharey<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb11-9">fig.suptitle(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Posterior Probability Densities $f(p_H </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">mid n_H, n)$"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.05</span>)</span>
+<span id="cb11-10"></span>
+<span id="cb11-11"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> idx, (n, n_H) <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">enumerate</span>(cases):</span>
+<span id="cb11-12">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Continuous Beta PDF representing the analytical formula</span></span>
+<span id="cb11-13">    pdf <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> beta.pdf(p_H_line, n_H <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> n_H <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb11-14">    </span>
+<span id="cb11-15">    axs[idx].plot(p_H_line, pdf, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'steelblue'</span>, linewidth<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span>)</span>
+<span id="cb11-16">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axs[idx].fill_between(p_H_line, 0, pdf, color='steelblue', alpha=0.2)</span></span>
+<span id="cb11-17">    axs[idx].set_title(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"n = </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, $n_H$ = </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>n_H<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb11-18">    axs[idx].set_xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Model Parameter, $p_H$"</span>)</span>
+<span id="cb11-19">    axs[idx].grid(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, linestyle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--"</span>, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span>
+<span id="cb11-20">    axs[idx].set_xlim(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb11-21">    axs[idx].set_ylim(bottom<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb11-22"></span>
+<span id="cb11-23">axs[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>].set_ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Probability Density"</span>)</span>
+<span id="cb11-24">plt.tight_layout()</span>
+<span id="cb11-25">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://basics2022.github.io/myblog/posts/coin-tosses/index_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>By stacking every possible outcome, <img src="https://latex.codecogs.com/png.latex?n_H">, on the vertical axis of a colormap plot, the global behavior of the estimator is shown for different values of total tosses <img src="https://latex.codecogs.com/png.latex?n">. For <img src="https://latex.codecogs.com/png.latex?n=5">, the landscape is smeared and blurry; multiple values of <img src="https://latex.codecogs.com/png.latex?p_H"> can reasonably explain the data. As <img src="https://latex.codecogs.com/png.latex?n"> climbs to <img src="https://latex.codecogs.com/png.latex?50">, the probability mass violently condenses along a sharp diagonal ridge where <img src="https://latex.codecogs.com/png.latex?p_H%20%5Capprox%20%5Cfrac%7Bn_H%7D%7Bn%7D">. In the limit of <img src="https://latex.codecogs.com/png.latex?n%20%5Crightarrow%20+%20%5Cinfty">, the pdf behaves more and more like a Dirac’s delta in <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7Bn_H%7D%7Bn%7D">.</p>
+<div id="826ffdc5-ef67-42a1-af59-b00a25e5cd29" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="24">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># --- FIGURE 2: Series of Colormaps for Different Values of n ---</span></span>
+<span id="cb12-2">n_values <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>]</span>
+<span id="cb12-3">p_H_mesh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>)</span>
+<span id="cb12-4"></span>
+<span id="cb12-5">fig, axs <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.subplots(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(n_values), figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb12-6">fig.suptitle(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Posterior Density Map $f(p_H </span><span class="ch" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\\</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">mid n_H, n)$ as Sample Size ($n$) Grows"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.02</span>)</span>
+<span id="cb12-7"></span>
+<span id="cb12-8"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> idx, n <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">enumerate</span>(n_values):</span>
+<span id="cb12-9">    n_H_values <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.arange(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb12-10">    </span>
+<span id="cb12-11">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create a 2D grid of densities: rows = n_H, columns = p_H</span></span>
+<span id="cb12-12">    density_matrix <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.zeros((<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(n_H_values), <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(p_H_mesh)))</span>
+<span id="cb12-13">    </span>
+<span id="cb12-14">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i, n_H <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">enumerate</span>(n_H_values):</span>
+<span id="cb12-15">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Compute the continuous analytical posterior density across the p_H line</span></span>
+<span id="cb12-16">        density_matrix[i, :] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> beta.pdf(p_H_mesh, n_H <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> n_H <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb12-17">        </span>
+<span id="cb12-18">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot using pcolormesh to get a continuous distribution along the x-axis</span></span>
+<span id="cb12-19">    im <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> axs[idx].pcolormesh(p_H_mesh, n_H_values, density_matrix, shading<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'auto'</span>, cmap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'viridis'</span>)</span>
+<span id="cb12-20">    </span>
+<span id="cb12-21">    axs[idx].set_title(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Total Tosses, n = </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb12-22">    axs[idx].set_xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Model Parameter, $p_H$"</span>)</span>
+<span id="cb12-23">    axs[idx].set_ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Number of Heads, $n_H$"</span>)</span>
+<span id="cb12-24">    </span>
+<span id="cb12-25">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add a colorbar for each plot to show density scale</span></span>
+<span id="cb12-26">    cbar <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> fig.colorbar(im, ax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>axs[idx], orientation<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'vertical'</span>)</span>
+<span id="cb12-27">    cbar.ax.tick_params(labelsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>)</span>
+<span id="cb12-28"></span>
+<span id="cb12-29">plt.tight_layout()</span>
+<span id="cb12-30">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://basics2022.github.io/myblog/posts/coin-tosses/index_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Stripping away the smooth gradients reveals the exact boundaries of our confidence. These pixelated bands show the <img src="https://latex.codecogs.com/png.latex?95%5C%25"> and <img src="https://latex.codecogs.com/png.latex?99%5C%25"> “Credible Intervals”. For a given experimental outcome <img src="https://latex.codecogs.com/png.latex?n_H">, reading horizontally across the dark gray band gives the exact range of coin biases you should rationally accept.</p>
+<p>Notice how the bands naturally pinch and become asymmetric near the physical boundaries (<img src="https://latex.codecogs.com/png.latex?0.0"> and <img src="https://latex.codecogs.com/png.latex?1.0">), beautifully showcasing how Bayesian math inherently respects the physical limits of probability without any artificial mathematical fixes.</p>
+<div id="71c17553-ec2b-4df8-919e-ce4584ef9ff3" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="26">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> np</span>
+<span id="cb13-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb13-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> scipy.stats <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> beta</span>
+<span id="cb13-4"></span>
+<span id="cb13-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Define the sample sizes (n) for the subplots</span></span>
+<span id="cb13-6">n_values <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">20</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>]</span>
+<span id="cb13-7">p_H_mesh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.linspace(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">500</span>)</span>
+<span id="cb13-8"></span>
+<span id="cb13-9">fig, axs <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> plt.subplots(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(n_values), figsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb13-10">fig.suptitle(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bayesian Credible Intervals (95% and 99%) as Sample Size, $n$, Grows"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14</span>, y<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.02</span>)</span>
+<span id="cb13-11"></span>
+<span id="cb13-12"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> idx, n <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">enumerate</span>(n_values):</span>
+<span id="cb13-13">    n_H_values <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.arange(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb13-14">    </span>
+<span id="cb13-15">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Initialize a grid filled with 0 (White/Background)</span></span>
+<span id="cb13-16">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Dimensions: rows = n_H, columns = p_H</span></span>
+<span id="cb13-17">    interval_matrix <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> np.zeros((<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(n_H_values), <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">len</span>(p_H_mesh)))</span>
+<span id="cb13-18">    </span>
+<span id="cb13-19">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> i, n_H <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">enumerate</span>(n_H_values):</span>
+<span id="cb13-20">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Under a uniform prior, the posterior is Beta(n_H + 1, n - n_H + 1)</span></span>
+<span id="cb13-21">        posterior <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> beta(n_H <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, n <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> n_H <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb13-22">        </span>
+<span id="cb13-23">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Compute symmetric intervals</span></span>
+<span id="cb13-24">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 95% Interval bounds (leaves 2.5% in each tail)</span></span>
+<span id="cb13-25">        lower_95 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> posterior.ppf(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.025</span>)</span>
+<span id="cb13-26">        upper_95 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> posterior.ppf(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.975</span>)</span>
+<span id="cb13-27">        </span>
+<span id="cb13-28">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 99% Interval bounds (leaves 0.5% in each tail)</span></span>
+<span id="cb13-29">        lower_99 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> posterior.ppf(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.005</span>)</span>
+<span id="cb13-30">        upper_99 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> posterior.ppf(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.995</span>)</span>
+<span id="cb13-31">        </span>
+<span id="cb13-32">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Fill the row based on threshold conditions:</span></span>
+<span id="cb13-33">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Assign 1 for the 99% region (Light Gray)</span></span>
+<span id="cb13-34">        mask_99 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (p_H_mesh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> lower_99) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> (p_H_mesh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> upper_99)</span>
+<span id="cb13-35">        interval_matrix[i, mask_99] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb13-36">        </span>
+<span id="cb13-37">        <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Assign 2 for the 95% region (Darker Gray), overwriting the inner part</span></span>
+<span id="cb13-38">        mask_95 <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> (p_H_mesh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;=</span> lower_95) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> (p_H_mesh <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> upper_95)</span>
+<span id="cb13-39">        interval_matrix[i, mask_95] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb13-40"></span>
+<span id="cb13-41">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Map our integer codes (0, 1, 2) to specific grayscale values</span></span>
+<span id="cb13-42">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 0 -&gt; White, 1 -&gt; Light Gray, 2 -&gt; Darker Gray</span></span>
+<span id="cb13-43">    <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> matplotlib.colors <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> ListedColormap</span>
+<span id="cb13-44">    gray_cmap <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> ListedColormap([<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#ffffff'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#d3d3d3'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#808080'</span>])</span>
+<span id="cb13-45">    </span>
+<span id="cb13-46">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Plot the matrix</span></span>
+<span id="cb13-47">    im <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> axs[idx].pcolormesh(p_H_mesh, n_H_values, interval_matrix, </span>
+<span id="cb13-48">                             shading<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'auto'</span>, cmap<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>gray_cmap, vmin<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, vmax<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)</span>
+<span id="cb13-49">    </span>
+<span id="cb13-50">    axs[idx].set_title(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Total Tosses, n = </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>n<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, fontsize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>)</span>
+<span id="cb13-51">    axs[idx].set_xlabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Model Parameter, $p_H$"</span>)</span>
+<span id="cb13-52">    axs[idx].set_ylabel(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Number of Heads, $n_H$"</span>)</span>
+<span id="cb13-53">    axs[idx].grid(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>, linestyle<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">":"</span>, alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.3</span>, color<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'black'</span>)</span>
+<span id="cb13-54"></span>
+<span id="cb13-55"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Add a custom legend to the last subplot to explain the discrete bands</span></span>
+<span id="cb13-56"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> matplotlib.patches <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> Patch</span>
+<span id="cb13-57">legend_elements <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> [</span>
+<span id="cb13-58">    Patch(facecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#808080'</span>, edgecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'none'</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'95% Credible Interval'</span>),</span>
+<span id="cb13-59">    Patch(facecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#d3d3d3'</span>, edgecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'none'</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'99% Credible Interval'</span>),</span>
+<span id="cb13-60">    Patch(facecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'#ffffff'</span>, edgecolor<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'gray'</span>, label<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Outside Bounds'</span>)</span>
+<span id="cb13-61">]</span>
+<span id="cb13-62">axs[<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>].legend(handles<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>legend_elements, loc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'lower right'</span>, frameon<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>)</span>
+<span id="cb13-63"></span>
+<span id="cb13-64">plt.tight_layout()</span>
+<span id="cb13-65">plt.show()</span></code></pre></div></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://basics2022.github.io/myblog/posts/coin-tosses/index_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Discussion of the fair coin assumption, using Bayesian approach.</strong> The fair coin assumption can be stated as “<img src="https://latex.codecogs.com/png.latex?p_H%20=%200.5">”. Here two “credible intervals” are defined and shown. If the <img src="https://latex.codecogs.com/png.latex?p_H"> value of the assumption lies outside a <img src="https://latex.codecogs.com/png.latex?c%5C%25"> credible interval, there’s only <img src="https://latex.codecogs.com/png.latex?c%5C%25"> of probability that the observed data are compatible with the assumption: discarting the assumption has only <img src="https://latex.codecogs.com/png.latex?c%5C%25"> of probability of being wrong.</p>
+<!--
+* At $n = 5$, it's possible to discard the "fair coin assumption" with $5\%$ error probability if the observed data contains $n_H = 5 \, (100\%)$ Heads or $5 \ , (0\%)$ Tails. It's never possible to discard the assumption with $1\%$ error probability.
+
+As $n$ increases, the credible intervals for given values of $c$ becomes thinner. The larger amount of observation makes it possible to discard the initial assumption for a larger number of ratio of events.
+
+* At $n = 20$, the fair coin asumption can be discarted with $5\%$ error probability if $n_H \le 5 \, (25\%)$ or $n_H \ge 15 \, (75\%)$, with $1\%$ error probability if $n_H \le 4 \, (20\%)$ or $n_H \ge 16 \, (80\%)$
+
+* At $n = 50$, the fair coin asumption can be discarted with $5\%$ error probability if $n_H \le 17 \, (34\%)$ or $n_H \ge 33 \, (66\%)$, with $1\%$ error probability if $n_H \le 14 \, (28\%)$ or $n_H \ge 36 \, (72\%)$
+-->
+<ul>
+<li><p><strong>At <img src="https://latex.codecogs.com/png.latex?n%20=%205"></strong>, it’s possible to discard the “fair coin assumption” with a 5% error probability if the observed data contains <img src="https://latex.codecogs.com/png.latex?n_H%20=%200"> (0%) Heads or <img src="https://latex.codecogs.com/png.latex?n_H%20=%205"> (100%) Heads. With only 5 tosses, it is never possible to discard the assumption with a 1% error probability, as the 99% interval is wide enough to contain <img src="https://latex.codecogs.com/png.latex?p_H%20=%200.5"> for all outcomes.</p></li>
+<li><p><strong>At <img src="https://latex.codecogs.com/png.latex?n%20=%2020"></strong>, the fair coin assumption can be discarded with a 5% error probability if <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cle%205"> (<img src="https://latex.codecogs.com/png.latex?%5Cle%2025%5C%25">) or <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cge%2015"> (<img src="https://latex.codecogs.com/png.latex?%5Cge%2075%5C%25">). It can be discarded with a 1% error probability if the outcome is even more extreme: <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cle%204"> (<img src="https://latex.codecogs.com/png.latex?%5Cle%2020%5C%25">) or <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cge%2016"> (<img src="https://latex.codecogs.com/png.latex?%5Cge%2080%5C%25">).</p></li>
+<li><p><strong>At <img src="https://latex.codecogs.com/png.latex?n%20=%2050"></strong>, the narrower credible intervals allow us to detect much smaller deviations. The fair coin assumption can now be discarded with a 5% error probability if <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cle%2017"> (<img src="https://latex.codecogs.com/png.latex?%5Cle%2034%5C%25">) or <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cge%2033"> (<img src="https://latex.codecogs.com/png.latex?%5Cge%2066%5C%25">). To achieve a strict 1% error probability, the required threshold shifts to <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cle%2014"> (<img src="https://latex.codecogs.com/png.latex?%5Cle%2028%5C%25">) or <img src="https://latex.codecogs.com/png.latex?n_H%20%5Cge%2036"> (<img src="https://latex.codecogs.com/png.latex?%5Cge%2072%5C%25">).</p></li>
+</ul>
+</section>
+<section id="mathematical-details" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-details">Mathematical details</h3>
 
 
+</section>
 </section>
 
 
@@ -2165,7 +2924,7 @@ font-style: inherit;">'$n_s$'</span>)</span>
 </ol>
 </section></div> ]]></description>
   <category>statistics</category>
-  <guid>https://basics2022.github.io/myblog/posts/dice-to-health-monitoring/</guid>
+  <guid>https://basics2022.github.io/myblog/posts/coin-tosses/</guid>
   <pubDate>Sun, 24 May 2026 22:00:00 GMT</pubDate>
 </item>
 <item>
@@ -3372,7 +4131,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```yrukolivsd Example: evaluation of hyperstatics</p>
+<p>```ispqsqyjre Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
