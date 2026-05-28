@@ -10,7 +10,108 @@
 <atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Basics blog</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Sun, 24 May 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 27 May 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Juxtaposition - The art of writing ambiguous content, and the damnation of the engagement bait</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/juxtaposition/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<!--
+draft: true
+-->
+<p>Every few months, it happens again. A post going viral on social media featuring an elementary math expression like this:</p>
+<p><img src="https://latex.codecogs.com/png.latex?6%20%5Cdiv%202(1+2)%20%5C%20,"></p>
+<p>asking for the result of the operation, or showing the same old figure of two different Casio calculators.</p>
+<div id="fig-casio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-casio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://basics2022.github.io/myblog/posts/juxtaposition/casio.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-casio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The (in)famous image, taken from the question <a href="https://math.stackexchange.com/questions/3231556/implied-multiplication-operator-precedence">“Implied multiplication” operator precedence</a> on Mathematics Stack Echange
+</figcaption>
+</figure>
+</div>
+<p>Cue thousands of comments, heated arguments, and friendships ending over whether the answer is <strong>1</strong> or <strong>9</strong>. Creators <em>love</em> this topic. It’s the ultimate engagement engine because the barrier to entry is non-existent—it only involves basic arithmetic—yet it makes everyone feel like a genius defending their camp.</p>
+<p>Let’s put it down clearly: <strong>this isn’t a math problem.</strong> It’s a math expression that may lead to <strong>wrong reading</strong> of the expression (or at most an <strong>ambiguous expression</strong>, for those who believe in juxtaposition) disguised as a puzzle.</p>
+<p>And even more clearer: I’m sure you can use your time in many other more productive and/or more entertaining activities, or just have a relaxing walk or nap.</p>
+<!--
+IMHO, the golden rule should be on one side **just write unambiguous contents**, being them articles, software, documentation; on the other side just avoiding this kind of traps, brand them and the creators as click-baiters 
+-->
+<section id="the-trap-juxtaposition-vs.-strict-serial-logic" class="level2">
+<h2 class="anchored" data-anchor-id="the-trap-juxtaposition-vs.-strict-serial-logic">The Trap: Juxtaposition vs.&nbsp;Strict Serial Logic</h2>
+<p>The entire “debate” relies on a clash of conventions regarding <strong>implicit multiplication</strong> (multiplication by juxtaposition, or simply putting terms side-by-side without a <img src="https://latex.codecogs.com/png.latex?%5Ctimes"> or <img src="https://latex.codecogs.com/png.latex?%5Ccdot"> operator).</p>
+<ul>
+<li><p><strong>The commonly accepted rule (standard <a href="https://en.wikipedia.org/wiki/Order_of_operations#mnemonics">PEMDAS/BODMAS</a>)</strong> This is the priority rule we learned in school: in absence of parentheses, first 1) power and exponents, then 2) multiplication and division, and finally 3) addition and subraction. There’s no priority within operations of the same group, and left-to-right priority between neighboring operations of the same group. If you follow this rule, multiplication and division have equal priority. You resolve the parentheses first <img src="https://latex.codecogs.com/png.latex?(3)">, then divide <img src="https://latex.codecogs.com/png.latex?6"> by <img src="https://latex.codecogs.com/png.latex?2">, and finally multiply the results:</p>
+<p><img src="https://latex.codecogs.com/png.latex?6%20%5Cdiv%202%20%5Ctimes%203%20=%209"></p></li>
+<li><p><strong>The juxtaposition view (IMF, Implicit Multiplication First)</strong> <em>unfortunately</em>, some textbooks, (sloppy) scientists, and “content creators” treat a juxtaposed term like <img src="https://latex.codecogs.com/png.latex?2(3)"> as a single, tightly bound monomial. In their view, the juxtaposition acts as an invisible glue, giving it higher priority than explicit division, <img src="https://latex.codecogs.com/png.latex?6%20%5Cdiv%206%20=%201"></p></li>
+</ul>
+<p>Because there is no international treaty or international standard governing the “priority of juxtaposition”, both sides can dig their heels into different manual rules, software environments, or calculator firmware versions.</p>
+</section>
+<section id="the-golden-rule-if-its-ambiguous-its-garbage" class="level2">
+<h2 class="anchored" data-anchor-id="the-golden-rule-if-its-ambiguous-its-garbage">The Golden Rule: if it’s ambiguous, it’s garbage</h2>
+<p>In professional mathematics, numerical simulation, and software engineering, <strong>unambiguous clarity is the ultimate standard.</strong> If an expression requires a debate among the target audience, the notation has failed. Full stop. I’m sure you can use unambiguous alternatives: just use them, to avoid losing time and patience later.</p>
+<!--
+* **Python / C++:** Wisely treat this as illegal syntax. Writing `2(1+2)` throws a compiler error. You *must* write `2 * (1 + 2)`. Zero room for interpretation.
+* **The Internet:** Exploits the ambiguity to generate millions of angry clicks.
+-->
+</section>
+<section id="so-what-are-we-talking-about" class="level2">
+<h2 class="anchored" data-anchor-id="so-what-are-we-talking-about">So, what are we talking about?</h2>
+<p>This short post deals with juxtaposition, because some calculators and some programming languages rely on this <strong>deprecated</strong> - as it’s ambiguous - priority rule.</p>
+<ul>
+<li><strong>Casio calculators:</strong> as already shown in the (in)famous picture Figure&nbsp;1, different models of Casio calculators use different “conventions”</li>
+<li><strong>Julia:</strong> allows implicit multiplication and applies IMF priority view, as shown in Figure&nbsp;2</li>
+</ul>
+<div id="fig-julia" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-julia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://basics2022.github.io/myblog/posts/juxtaposition/julia.png" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-julia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Screenshot of a Julia output
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-solution" class="level2">
+<h2 class="anchored" data-anchor-id="the-solution">The Solution</h2>
+<p>It’s good to know that this evil exists. We also know that we could meet some evil people in our life, that may use it. But <strong>once we know it, just don’t use it</strong>, and use the golden standard rule: whenever you’re in doubt, <strong>use unambiguous expressions</strong>. The use of some parenthesis or sign is not that effort!</p>
+<p>Relying on the juxtaposition shortcut - across different programming environments or not -, beside its large potential of code ambiguity, behaves exactly like a <strong>silent bug waiting to happen</strong>.</p>
+<p>I don’t want to argue with anyone about PEMDAS for any reason, and you should not either.</p>
+<!--
+$$\frac{6}{2}(1+2) = 9 \quad \text{vs.} \quad \frac{6}{2(1+2)} = 1$$
+-->
+<p>I’ve already spent too much words and time on this post. I’ll leave you this citation from <a href="https://www.themathdoctors.org/implied-multiplication-2-is-there-a-standard/">themathdoctors</a>.</p>
+<p>The next time you see one of these posts clogging your feed, don’t comment, don’t choose a side, and don’t feed the engagement algorithm. Maybe block the creator, if you smell the logic of click-baiting: just do not confuse math/logic tests with bad contents; just don’t lose your time, patience and energy after them; just claim higher quality. It’s <strong>a matter of hygiene</strong>.</p>
+<blockquote class="blockquote">
+<p>Since there are different opinions in reputable sources, and no one authoritative source, the best I can do is to point out the ambiguity and recommend avoidance, which is what I’ve been doing for 25 years.</p>
+<p>The only people who insist on writing such expressions, in my experience, are Internet trolls who want to start arguments. I choose not to join them, nor to agree with people who predict catastrophe if this isn’t fully resolved. This simply isn’t that important. – <cite> </cite></p>
+</blockquote>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://math.stackexchange.com/questions/3231556/implied-multiplication-operator-precedence">“Implied multiplication” operator precedence?“, <em>Mathematics Stack Exchange</em></a>.</li>
+<li><a href="https://www.themathdoctors.org/implied-multiplication-2-is-there-a-standard/">“Implied Multiplication - part 2: Is There a Standard?”, <em>the math doctors</em></a>.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>click bait</category>
+  <category>rant</category>
+  <category>math notation</category>
+  <category>programming</category>
+  <guid>https://basics2022.github.io/myblog/posts/juxtaposition/</guid>
+  <pubDate>Wed, 27 May 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Coin to health monitoring - From prior statistics to inference</title>
   <dc:creator>Basics </dc:creator>
@@ -3271,7 +3372,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```ehcfhwvkxi Example: evaluation of hyperstatics</p>
+<p>```zvrlglynfn Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
