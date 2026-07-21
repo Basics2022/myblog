@@ -1,0 +1,101 @@
+---
+title: "About convergence"
+author: "Basics"
+date: "2026-07-21"
+categories: [convergence, analysis]
+---
+<!--
+draft: true
+-->
+
+This post follows the request of proving that
+
+$$\lim_{y \rightarrow 0^+} \frac{y}{\pi} \int_{x=-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} dx = f(0) \ ,$$
+
+for $f(x)$ continuous and bounded in $\mathbb{R}$, i.e. that the function $\frac{y}{\pi (x^2 + y^2)}$ acts as an approximation of the Dirac's delta as $y \rightarrow 0^+$.
+
+
+## Method 1: Rigorous Domain Splitting ($\varepsilon$-$\delta$ / Squeeze Method)
+
+### 1. Algebraic Transformation 
+Factoring $y^2$ out of the denominator and using $d\left(\frac{x}{y}\right) = \frac{1}{y} \, dx$:
+
+$$ \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} \, dx = \frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{1 + \left(\frac{x}{y}\right)^2} \, d\left(\frac{x}{y}\right) $$
+
+
+### 2. Domain Partitioning
+For a fixed parameter $a > 0$, split the integration domain $(-\infty, +\infty)$ into three regions:
+
+$$ (-\infty, -a] \cup [-a, a] \cup [a, +\infty) $$
+
+Let the corresponding integral be decomposed as:
+
+$$ I(y) = I_1(y) + I_2(y) + I_3(y) $$
+
+
+### 3. Evaluating the integrals
+
+#### 3.1 Outer Integrals ($I_1$ and $I_3$)
+For $I_3 = \frac{1}{\pi} \int_{a}^{+\infty} \frac{f(x)}{1 + (x/y)^2} \, d\left(\frac{x}{y}\right)$, let $m_3 = \inf_{x \ge a} f(x)$ and $M_3 = \sup_{x \ge a} f(x)$:
+
+$$ \frac{m_3}{\pi} \int_{a}^{+\infty} \frac{d(x/y)}{1 + (x/y)^2} \le I_3 \le \frac{M_3}{\pi} \int_{a}^{+\infty} \frac{d(x/y)}{1 + (x/y)^2} $$
+
+Evaluating the primitive:
+
+$$ \int_{a}^{+\infty} \frac{d(x/y)}{1 + (x/y)^2} = \left[ \arctan\left(\frac{x}{y}\right) \right]_{x=a}^{x=+\infty} = \frac{\pi}{2} - \arctan\left(\frac{a}{y}\right) $$
+
+Taking the limit as $y \to 0^+$ (for fixed $a > 0$):
+
+$$ \lim_{y \to 0^+} \arctan\left(\frac{a}{y}\right) = \frac{\pi}{2} \implies \left( \frac{\pi}{2} - \arctan\left(\frac{a}{y}\right) \right) \to 0 $$
+
+Thus, $I_3(y) \to 0$ as $y \to 0^+$. By symmetric argument, $I_1(y) \to 0$ as $y \to 0^+$.
+
+
+#### 3.2 Middle Integral ($I_2$) Around the Origin
+For $I_2 = \frac{1}{\pi} \int_{-a}^{a} \frac{f(x)}{1 + (x/y)^2} \, d\left(\frac{x}{y}\right)$, let $m_2(a) = \inf_{x \in [-a, a]} f(x)$ and $M_2(a) = \sup_{x \in [-a, a]} f(x)$:
+
+$$ \frac{m_2(a)}{\pi} \int_{-a}^{a} \frac{d(x/y)}{1 + (x/y)^2} \le I_2 \le \frac{M_2(a)}{\pi} \int_{-a}^{a} \frac{d(x/y)}{1 + (x/y)^2} $$
+
+Evaluating the primitive:
+
+$$ \int_{-a}^{a} \frac{d(x/y)}{1 + (x/y)^2} = \arctan\left(\frac{a}{y}\right) - \arctan\left(-\frac{a}{y}\right) = 2 \arctan\left(\frac{a}{y}\right) $$
+
+So:
+
+$$ \frac{2 m_2(a)}{\pi} \arctan\left(\frac{a}{y}\right) \le I_2 \le \frac{2 M_2(a)}{\pi} \arctan\left(\frac{a}{y}\right) $$
+
+Taking $y \to 0^+$ for fixed $a > 0$, since $\frac{2}{\pi} \arctan\left(\frac{a}{y}\right) \to 1$:
+
+$$ m_2(a) \le \liminf_{y \to 0^+} I(y) \le \limsup_{y \to 0^+} I(y) \le M_2(a) $$
+
+Finally, taking $a \to 0^+$, by the continuity of $f(x)$ at $x = 0$, we have 
+
+$$\lim_{a \to 0^+} m_2(a) = \lim_{a \to 0^+} M_2(a) = f(0)\ , $$
+
+and by the squeeze theorem
+
+$$ \lim_{y \to 0^+} \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} \, dx = f(0) \ .$$
+
+
+## Method 2: Change of Variables (Dominated Convergence Theorem)
+
+**todo** Treat convergence types (pointwise, and uniform), and consequences on limits, limits and derivatives, limits and integrals.
+
+### 1. Substitution
+Substitute $t = \frac{x}{y}$, so $x = ty$ and $dx = y \, dt$:
+
+$$ \lim_{y \to 0^+} \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} \, dx = \lim_{y \to 0^+} \frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{f(ty)}{1 + t^2} \, dt $$
+
+### 2. Passing the Limit Inside
+Assuming $f$ is bounded ($|f(x)| \le M$), the integrand is dominated by an integrable function:
+
+$$ \left| \frac{f(ty)}{1 + t^2} \right| \le \frac{M}{1 + t^2} \in L^1(\mathbb{R}) $$
+
+By Lebesgue's Dominated Convergence Theorem, we interchange the limit and the integral:
+
+$$ \frac{1}{\pi} \int_{-\infty}^{+\infty} \lim_{y \to 0^+} \frac{f(ty)}{1 + t^2} \, dt = \frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{f(0)}{1 + t^2} \, dt $$
+
+### 3. Evaluation
+$$ = \frac{f(0)}{\pi} \Big[ \arctan(t) \Big]_{-\infty}^{+\infty} = \frac{f(0)}{\pi} \left( \frac{\pi}{2} - \left(-\frac{\pi}{2}\right) \right) = f(0) $$
+
+
