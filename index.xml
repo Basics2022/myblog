@@ -10,7 +10,95 @@
 <atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Basics blog</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Wed, 27 May 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 20 Jul 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>About convergence</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/convergence-types/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<!--
+draft: true
+-->
+<p>This post follows the request of proving that</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Clim_%7By%20%5Crightarrow%200%5E+%7D%20%5Cfrac%7By%7D%7B%5Cpi%7D%20%5Cint_%7Bx=-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(x)%7D%7Bx%5E2%20+%20y%5E2%7D%20dx%20=%20f(0)%20%5C%20,"></p>
+<p>for <img src="https://latex.codecogs.com/png.latex?f(x)"> continuous and bounded in <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D">, i.e.&nbsp;that the function <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7By%7D%7B%5Cpi%20(x%5E2%20+%20y%5E2)%7D"> acts as an approximation of the Dirac’s delta as <img src="https://latex.codecogs.com/png.latex?y%20%5Crightarrow%200%5E+">.</p>
+<section id="method-1-rigorous-domain-splitting-varepsilon-delta-squeeze-method" class="level2">
+<h2 class="anchored" data-anchor-id="method-1-rigorous-domain-splitting-varepsilon-delta-squeeze-method">Method 1: Rigorous Domain Splitting (<img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon">-<img src="https://latex.codecogs.com/png.latex?%5Cdelta"> / Squeeze Method)</h2>
+<section id="algebraic-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="algebraic-transformation">1. Algebraic Transformation</h3>
+<p>Factoring <img src="https://latex.codecogs.com/png.latex?y%5E2"> out of the denominator and using <img src="https://latex.codecogs.com/png.latex?d%5Cleft(%5Cfrac%7Bx%7D%7By%7D%5Cright)%20=%20%5Cfrac%7B1%7D%7By%7D%20%5C,%20dx">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cfrac%7By%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(x)%7D%7Bx%5E2%20+%20y%5E2%7D%20%5C,%20dx%20=%20%5Cfrac%7B1%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(x)%7D%7B1%20+%20%5Cleft(%5Cfrac%7Bx%7D%7By%7D%5Cright)%5E2%7D%20%5C,%20d%5Cleft(%5Cfrac%7Bx%7D%7By%7D%5Cright)%20"></p>
+</section>
+<section id="domain-partitioning" class="level3">
+<h3 class="anchored" data-anchor-id="domain-partitioning">2. Domain Partitioning</h3>
+<p>For a fixed parameter <img src="https://latex.codecogs.com/png.latex?a%20%3E%200">, split the integration domain <img src="https://latex.codecogs.com/png.latex?(-%5Cinfty,%20+%5Cinfty)"> into three regions:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20(-%5Cinfty,%20-a%5D%20%5Ccup%20%5B-a,%20a%5D%20%5Ccup%20%5Ba,%20+%5Cinfty)%20"></p>
+<p>Let the corresponding integral be decomposed as:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20I(y)%20=%20I_1(y)%20+%20I_2(y)%20+%20I_3(y)%20"></p>
+</section>
+<section id="evaluating-the-integrals" class="level3">
+<h3 class="anchored" data-anchor-id="evaluating-the-integrals">3. Evaluating the integrals</h3>
+<section id="outer-integrals-i_1-and-i_3" class="level4">
+<h4 class="anchored" data-anchor-id="outer-integrals-i_1-and-i_3">3.1 Outer Integrals (<img src="https://latex.codecogs.com/png.latex?I_1"> and <img src="https://latex.codecogs.com/png.latex?I_3">)</h4>
+<p>For <img src="https://latex.codecogs.com/png.latex?I_3%20=%20%5Cfrac%7B1%7D%7B%5Cpi%7D%20%5Cint_%7Ba%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(x)%7D%7B1%20+%20(x/y)%5E2%7D%20%5C,%20d%5Cleft(%5Cfrac%7Bx%7D%7By%7D%5Cright)">, let <img src="https://latex.codecogs.com/png.latex?m_3%20=%20%5Cinf_%7Bx%20%5Cge%20a%7D%20f(x)"> and <img src="https://latex.codecogs.com/png.latex?M_3%20=%20%5Csup_%7Bx%20%5Cge%20a%7D%20f(x)">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cfrac%7Bm_3%7D%7B%5Cpi%7D%20%5Cint_%7Ba%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bd(x/y)%7D%7B1%20+%20(x/y)%5E2%7D%20%5Cle%20I_3%20%5Cle%20%5Cfrac%7BM_3%7D%7B%5Cpi%7D%20%5Cint_%7Ba%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bd(x/y)%7D%7B1%20+%20(x/y)%5E2%7D%20"></p>
+<p>Evaluating the primitive:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cint_%7Ba%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bd(x/y)%7D%7B1%20+%20(x/y)%5E2%7D%20=%20%5Cleft%5B%20%5Carctan%5Cleft(%5Cfrac%7Bx%7D%7By%7D%5Cright)%20%5Cright%5D_%7Bx=a%7D%5E%7Bx=+%5Cinfty%7D%20=%20%5Cfrac%7B%5Cpi%7D%7B2%7D%20-%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20"></p>
+<p>Taking the limit as <img src="https://latex.codecogs.com/png.latex?y%20%5Cto%200%5E+"> (for fixed <img src="https://latex.codecogs.com/png.latex?a%20%3E%200">):</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Clim_%7By%20%5Cto%200%5E+%7D%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20=%20%5Cfrac%7B%5Cpi%7D%7B2%7D%20%5Cimplies%20%5Cleft(%20%5Cfrac%7B%5Cpi%7D%7B2%7D%20-%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20%5Cright)%20%5Cto%200%20"></p>
+<p>Thus, <img src="https://latex.codecogs.com/png.latex?I_3(y)%20%5Cto%200"> as <img src="https://latex.codecogs.com/png.latex?y%20%5Cto%200%5E+">. By symmetric argument, <img src="https://latex.codecogs.com/png.latex?I_1(y)%20%5Cto%200"> as <img src="https://latex.codecogs.com/png.latex?y%20%5Cto%200%5E+">.</p>
+</section>
+<section id="middle-integral-i_2-around-the-origin" class="level4">
+<h4 class="anchored" data-anchor-id="middle-integral-i_2-around-the-origin">3.2 Middle Integral (<img src="https://latex.codecogs.com/png.latex?I_2">) Around the Origin</h4>
+<p>For <img src="https://latex.codecogs.com/png.latex?I_2%20=%20%5Cfrac%7B1%7D%7B%5Cpi%7D%20%5Cint_%7B-a%7D%5E%7Ba%7D%20%5Cfrac%7Bf(x)%7D%7B1%20+%20(x/y)%5E2%7D%20%5C,%20d%5Cleft(%5Cfrac%7Bx%7D%7By%7D%5Cright)">, let <img src="https://latex.codecogs.com/png.latex?m_2(a)%20=%20%5Cinf_%7Bx%20%5Cin%20%5B-a,%20a%5D%7D%20f(x)"> and <img src="https://latex.codecogs.com/png.latex?M_2(a)%20=%20%5Csup_%7Bx%20%5Cin%20%5B-a,%20a%5D%7D%20f(x)">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cfrac%7Bm_2(a)%7D%7B%5Cpi%7D%20%5Cint_%7B-a%7D%5E%7Ba%7D%20%5Cfrac%7Bd(x/y)%7D%7B1%20+%20(x/y)%5E2%7D%20%5Cle%20I_2%20%5Cle%20%5Cfrac%7BM_2(a)%7D%7B%5Cpi%7D%20%5Cint_%7B-a%7D%5E%7Ba%7D%20%5Cfrac%7Bd(x/y)%7D%7B1%20+%20(x/y)%5E2%7D%20"></p>
+<p>Evaluating the primitive:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cint_%7B-a%7D%5E%7Ba%7D%20%5Cfrac%7Bd(x/y)%7D%7B1%20+%20(x/y)%5E2%7D%20=%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20-%20%5Carctan%5Cleft(-%5Cfrac%7Ba%7D%7By%7D%5Cright)%20=%202%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20"></p>
+<p>So:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cfrac%7B2%20m_2(a)%7D%7B%5Cpi%7D%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20%5Cle%20I_2%20%5Cle%20%5Cfrac%7B2%20M_2(a)%7D%7B%5Cpi%7D%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20"></p>
+<p>Taking <img src="https://latex.codecogs.com/png.latex?y%20%5Cto%200%5E+"> for fixed <img src="https://latex.codecogs.com/png.latex?a%20%3E%200">, since <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B2%7D%7B%5Cpi%7D%20%5Carctan%5Cleft(%5Cfrac%7Ba%7D%7By%7D%5Cright)%20%5Cto%201">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20m_2(a)%20%5Cle%20%5Climinf_%7By%20%5Cto%200%5E+%7D%20I(y)%20%5Cle%20%5Climsup_%7By%20%5Cto%200%5E+%7D%20I(y)%20%5Cle%20M_2(a)%20"></p>
+<p>Finally, taking <img src="https://latex.codecogs.com/png.latex?a%20%5Cto%200%5E+">, by the continuity of <img src="https://latex.codecogs.com/png.latex?f(x)"> at <img src="https://latex.codecogs.com/png.latex?x%20=%200">, we have</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Clim_%7Ba%20%5Cto%200%5E+%7D%20m_2(a)%20=%20%5Clim_%7Ba%20%5Cto%200%5E+%7D%20M_2(a)%20=%20f(0)%5C%20,%20"></p>
+<p>and by the squeeze theorem</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Clim_%7By%20%5Cto%200%5E+%7D%20%5Cfrac%7By%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(x)%7D%7Bx%5E2%20+%20y%5E2%7D%20%5C,%20dx%20=%20f(0)%20%5C%20."></p>
+</section>
+</section>
+</section>
+<section id="method-2-change-of-variables-dominated-convergence-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="method-2-change-of-variables-dominated-convergence-theorem">Method 2: Change of Variables (Dominated Convergence Theorem)</h2>
+<p><strong>todo</strong> Treat convergence types (pointwise, and uniform), and consequences on limits, limits and derivatives, limits and integrals.</p>
+<section id="substitution" class="level3">
+<h3 class="anchored" data-anchor-id="substitution">1. Substitution</h3>
+<p>Substitute <img src="https://latex.codecogs.com/png.latex?t%20=%20%5Cfrac%7Bx%7D%7By%7D">, so <img src="https://latex.codecogs.com/png.latex?x%20=%20ty"> and <img src="https://latex.codecogs.com/png.latex?dx%20=%20y%20%5C,%20dt">:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Clim_%7By%20%5Cto%200%5E+%7D%20%5Cfrac%7By%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(x)%7D%7Bx%5E2%20+%20y%5E2%7D%20%5C,%20dx%20=%20%5Clim_%7By%20%5Cto%200%5E+%7D%20%5Cfrac%7B1%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(ty)%7D%7B1%20+%20t%5E2%7D%20%5C,%20dt%20"></p>
+</section>
+<section id="passing-the-limit-inside" class="level3">
+<h3 class="anchored" data-anchor-id="passing-the-limit-inside">2. Passing the Limit Inside</h3>
+<p>Assuming <img src="https://latex.codecogs.com/png.latex?f"> is bounded (<img src="https://latex.codecogs.com/png.latex?%7Cf(x)%7C%20%5Cle%20M">), the integrand is dominated by an integrable function:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cleft%7C%20%5Cfrac%7Bf(ty)%7D%7B1%20+%20t%5E2%7D%20%5Cright%7C%20%5Cle%20%5Cfrac%7BM%7D%7B1%20+%20t%5E2%7D%20%5Cin%20L%5E1(%5Cmathbb%7BR%7D)%20"></p>
+<p>By Lebesgue’s Dominated Convergence Theorem, we interchange the limit and the integral:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%20%5Cfrac%7B1%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Clim_%7By%20%5Cto%200%5E+%7D%20%5Cfrac%7Bf(ty)%7D%7B1%20+%20t%5E2%7D%20%5C,%20dt%20=%20%5Cfrac%7B1%7D%7B%5Cpi%7D%20%5Cint_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20%5Cfrac%7Bf(0)%7D%7B1%20+%20t%5E2%7D%20%5C,%20dt%20"></p>
+</section>
+<section id="evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation">3. Evaluation</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%20=%20%5Cfrac%7Bf(0)%7D%7B%5Cpi%7D%20%5CBig%5B%20%5Carctan(t)%20%5CBig%5D_%7B-%5Cinfty%7D%5E%7B+%5Cinfty%7D%20=%20%5Cfrac%7Bf(0)%7D%7B%5Cpi%7D%20%5Cleft(%20%5Cfrac%7B%5Cpi%7D%7B2%7D%20-%20%5Cleft(-%5Cfrac%7B%5Cpi%7D%7B2%7D%5Cright)%20%5Cright)%20=%20f(0)%20"></p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>convergence</category>
+  <category>analysis</category>
+  <guid>https://basics2022.github.io/myblog/posts/convergence-types/</guid>
+  <pubDate>Mon, 20 Jul 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Juxtaposition - The art of writing ambiguous content, and the damnation of the engagement bait</title>
   <dc:creator>Basics </dc:creator>
@@ -4131,7 +4219,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```ispqsqyjre Example: evaluation of hyperstatics</p>
+<p>```hvivhiscpi Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>

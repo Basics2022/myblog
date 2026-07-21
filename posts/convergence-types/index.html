@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Basics">
-<meta name="dcterms.date" content="2025-11-24">
+<meta name="dcterms.date" content="2026-07-21">
 
-<title>Weak formulation of problems in structural mechanics – basics blog</title>
+<title>About convergence – basics blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -156,10 +156,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Weak formulation of problems in structural mechanics</h1>
+      <h1 class="title">About convergence</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">structural mechanics</div>
-                <div class="quarto-category">weak form</div>
+                <div class="quarto-category">convergence</div>
+                <div class="quarto-category">analysis</div>
               </div>
                   </div>
   </div>
@@ -177,7 +177,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 24, 2025</p>
+        <p class="date">July 21, 2026</p>
       </div>
     </div>
     
@@ -201,99 +201,70 @@ window.Quarto = {
 <!--
 draft: true
 -->
-<p>This post grew out of a question about a structural mechanics exercise that appeared in a community of structural engineers. The exercise dealt with a hyperstatic beam system with elastic supports and thermal strains.</p>
-<p>It’s a nice excuse to talk about the role of the weak form — especially compatibility and equilibrium conditions — and to show that the so-called energy theorems follow directly from choosing suitable test functions in the weak formulation.</p>
-<!--
-![](thumbnail.png)
--->
-<p align="center">
-<img src="thumbnail.png">
-</p>
-<section id="linear-elastic-problem" class="level2">
-<h2 class="anchored" data-anchor-id="linear-elastic-problem">Linear elastic problem</h2>
-<p><span class="math display">\[\begin{cases}
-  \boldsymbol\nabla \cdot \boldsymbol\sigma + \overline{\mathbf{f}} = \mathbf{0}  &amp;&amp; \text{in $V$} \\
-  \boldsymbol\varepsilon = \frac{1}{2} \left( \boldsymbol\nabla \mathbf{s} + \boldsymbol\nabla^T \mathbf{s} \right) \\
-  \boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T \\
-  \mathbf{s} = \overline{\mathbf{s}}   &amp;&amp; \text{on $S_D$} \\
-  \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \overline{\mathbf{t}}_n   &amp;&amp; \text{on $S_N$} \\
-  \mathbf{K} \cdot \mathbf{s} + \mathbf{S} \cdot (\hat{\mathbf{n}} \cdot \boldsymbol\sigma ) = \overline{h}   &amp;&amp; \text{on $S_R$} \\
-\end{cases}\]</span></p>
+<p>This post follows the request of proving that</p>
+<p><span class="math display">\[\lim_{y \rightarrow 0^+} \frac{y}{\pi} \int_{x=-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} dx = f(0) \ ,\]</span></p>
+<p>for <span class="math inline">\(f(x)\)</span> continuous and bounded in <span class="math inline">\(\mathbb{R}\)</span>, i.e.&nbsp;that the function <span class="math inline">\(\frac{y}{\pi (x^2 + y^2)}\)</span> acts as an approximation of the Dirac’s delta as <span class="math inline">\(y \rightarrow 0^+\)</span>.</p>
+<section id="method-1-rigorous-domain-splitting-varepsilon-delta-squeeze-method" class="level2">
+<h2 class="anchored" data-anchor-id="method-1-rigorous-domain-splitting-varepsilon-delta-squeeze-method">Method 1: Rigorous Domain Splitting (<span class="math inline">\(\varepsilon\)</span>-<span class="math inline">\(\delta\)</span> / Squeeze Method)</h2>
+<section id="algebraic-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="algebraic-transformation">1. Algebraic Transformation</h3>
+<p>Factoring <span class="math inline">\(y^2\)</span> out of the denominator and using <span class="math inline">\(d\left(\frac{x}{y}\right) = \frac{1}{y} \, dx\)</span>:</p>
+<p><span class="math display">\[ \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} \, dx = \frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{1 + \left(\frac{x}{y}\right)^2} \, d\left(\frac{x}{y}\right) \]</span></p>
 </section>
-<section id="equilibrium-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="equilibrium-conditions">Equilibrium conditions</h2>
-<section id="strong-form" class="level3">
-<h3 class="anchored" data-anchor-id="strong-form">Strong form</h3>
-<p><span class="math display">\[\begin{cases}
-  \boldsymbol\nabla \cdot \boldsymbol\sigma + \overline{\mathbf{f}} = \mathbf{0}  &amp;&amp; \text{in $V$} \\
-  \hat{\mathbf{n}} \cdot \boldsymbol\sigma = \overline{\mathbf{t}}_n   &amp;&amp; \text{on $S_N$} \\
-\end{cases}\]</span></p>
-<p>with <span class="math inline">\(\boldsymbol\sigma = \mathbf{C} : \boldsymbol\varepsilon - \boldsymbol\beta \Delta T\)</span>.</p>
+<section id="domain-partitioning" class="level3">
+<h3 class="anchored" data-anchor-id="domain-partitioning">2. Domain Partitioning</h3>
+<p>For a fixed parameter <span class="math inline">\(a &gt; 0\)</span>, split the integration domain <span class="math inline">\((-\infty, +\infty)\)</span> into three regions:</p>
+<p><span class="math display">\[ (-\infty, -a] \cup [-a, a] \cup [a, +\infty) \]</span></p>
+<p>Let the corresponding integral be decomposed as:</p>
+<p><span class="math display">\[ I(y) = I_1(y) + I_2(y) + I_3(y) \]</span></p>
 </section>
-<section id="weak-form" class="level3">
-<h3 class="anchored" data-anchor-id="weak-form">Weak form</h3>
-<p>For every <em>sufficiently regular</em> test function <span class="math inline">\(\mathbf{w}\)</span>,</p>
-<p><span class="math display">\[\begin{aligned}
-  0
-  &amp; = \int_{V} \mathbf{w} \cdot \left\{ \boldsymbol\nabla \cdot \boldsymbol\sigma + \overline{\mathbf{f}} \right\} = \\
-  &amp; = \oint_{\partial V} \hat{\mathbf{n}} \cdot \boldsymbol\sigma \cdot \mathbf{w} - \int_{V} \boldsymbol\nabla \mathbf{w} : \boldsymbol\sigma + \int_{V} \mathbf{w} \cdot \mathbf{f} = \\
-  &amp; = \oint_{\partial V} \hat{\mathbf{n}} \cdot \boldsymbol\sigma \cdot \mathbf{w} - \int_{V} \dfrac{1}{2} \left( \boldsymbol\nabla \mathbf{w} + \boldsymbol\nabla^T \mathbf{w} \right) : \boldsymbol\sigma + \int_{V} \mathbf{w} \cdot \mathbf{f} \ .
-\end{aligned}\]</span></p>
-<p>having exploited the symmetry of the stress tensor <span class="math inline">\(\boldsymbol\sigma\)</span>.</p>
+<section id="evaluating-the-integrals" class="level3">
+<h3 class="anchored" data-anchor-id="evaluating-the-integrals">3. Evaluating the integrals</h3>
+<section id="outer-integrals-i_1-and-i_3" class="level4">
+<h4 class="anchored" data-anchor-id="outer-integrals-i_1-and-i_3">3.1 Outer Integrals (<span class="math inline">\(I_1\)</span> and <span class="math inline">\(I_3\)</span>)</h4>
+<p>For <span class="math inline">\(I_3 = \frac{1}{\pi} \int_{a}^{+\infty} \frac{f(x)}{1 + (x/y)^2} \, d\left(\frac{x}{y}\right)\)</span>, let <span class="math inline">\(m_3 = \inf_{x \ge a} f(x)\)</span> and <span class="math inline">\(M_3 = \sup_{x \ge a} f(x)\)</span>:</p>
+<p><span class="math display">\[ \frac{m_3}{\pi} \int_{a}^{+\infty} \frac{d(x/y)}{1 + (x/y)^2} \le I_3 \le \frac{M_3}{\pi} \int_{a}^{+\infty} \frac{d(x/y)}{1 + (x/y)^2} \]</span></p>
+<p>Evaluating the primitive:</p>
+<p><span class="math display">\[ \int_{a}^{+\infty} \frac{d(x/y)}{1 + (x/y)^2} = \left[ \arctan\left(\frac{x}{y}\right) \right]_{x=a}^{x=+\infty} = \frac{\pi}{2} - \arctan\left(\frac{a}{y}\right) \]</span></p>
+<p>Taking the limit as <span class="math inline">\(y \to 0^+\)</span> (for fixed <span class="math inline">\(a &gt; 0\)</span>):</p>
+<p><span class="math display">\[ \lim_{y \to 0^+} \arctan\left(\frac{a}{y}\right) = \frac{\pi}{2} \implies \left( \frac{\pi}{2} - \arctan\left(\frac{a}{y}\right) \right) \to 0 \]</span></p>
+<p>Thus, <span class="math inline">\(I_3(y) \to 0\)</span> as <span class="math inline">\(y \to 0^+\)</span>. By symmetric argument, <span class="math inline">\(I_1(y) \to 0\)</span> as <span class="math inline">\(y \to 0^+\)</span>.</p>
 </section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">…</h3>
-</section>
-<section id="pvw" class="level3">
-<h3 class="anchored" data-anchor-id="pvw">PVW</h3>
+<section id="middle-integral-i_2-around-the-origin" class="level4">
+<h4 class="anchored" data-anchor-id="middle-integral-i_2-around-the-origin">3.2 Middle Integral (<span class="math inline">\(I_2\)</span>) Around the Origin</h4>
+<p>For <span class="math inline">\(I_2 = \frac{1}{\pi} \int_{-a}^{a} \frac{f(x)}{1 + (x/y)^2} \, d\left(\frac{x}{y}\right)\)</span>, let <span class="math inline">\(m_2(a) = \inf_{x \in [-a, a]} f(x)\)</span> and <span class="math inline">\(M_2(a) = \sup_{x \in [-a, a]} f(x)\)</span>:</p>
+<p><span class="math display">\[ \frac{m_2(a)}{\pi} \int_{-a}^{a} \frac{d(x/y)}{1 + (x/y)^2} \le I_2 \le \frac{M_2(a)}{\pi} \int_{-a}^{a} \frac{d(x/y)}{1 + (x/y)^2} \]</span></p>
+<p>Evaluating the primitive:</p>
+<p><span class="math display">\[ \int_{-a}^{a} \frac{d(x/y)}{1 + (x/y)^2} = \arctan\left(\frac{a}{y}\right) - \arctan\left(-\frac{a}{y}\right) = 2 \arctan\left(\frac{a}{y}\right) \]</span></p>
+<p>So:</p>
+<p><span class="math display">\[ \frac{2 m_2(a)}{\pi} \arctan\left(\frac{a}{y}\right) \le I_2 \le \frac{2 M_2(a)}{\pi} \arctan\left(\frac{a}{y}\right) \]</span></p>
+<p>Taking <span class="math inline">\(y \to 0^+\)</span> for fixed <span class="math inline">\(a &gt; 0\)</span>, since <span class="math inline">\(\frac{2}{\pi} \arctan\left(\frac{a}{y}\right) \to 1\)</span>:</p>
+<p><span class="math display">\[ m_2(a) \le \liminf_{y \to 0^+} I(y) \le \limsup_{y \to 0^+} I(y) \le M_2(a) \]</span></p>
+<p>Finally, taking <span class="math inline">\(a \to 0^+\)</span>, by the continuity of <span class="math inline">\(f(x)\)</span> at <span class="math inline">\(x = 0\)</span>, we have</p>
+<p><span class="math display">\[\lim_{a \to 0^+} m_2(a) = \lim_{a \to 0^+} M_2(a) = f(0)\ , \]</span></p>
+<p>and by the squeeze theorem</p>
+<p><span class="math display">\[ \lim_{y \to 0^+} \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} \, dx = f(0) \ .\]</span></p>
 </section>
 </section>
-<section id="compatibility-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="compatibility-conditions">Compatibility conditions</h2>
-<section id="strong-form-1" class="level3">
-<h3 class="anchored" data-anchor-id="strong-form-1">Strong form</h3>
-<p><span class="math display">\[\begin{cases}
-  \boldsymbol\varepsilon = \frac{1}{2} \left( \boldsymbol\nabla \mathbf{s} + \boldsymbol\nabla^T \mathbf{s} \right) &amp;&amp; \text{in $V$} \\
-  \mathbf{s} = \overline{\mathbf{s}}   &amp;&amp; \text{on $S_D$} \\
-\end{cases}\]</span></p>
-<p>with <span class="math inline">\(\boldsymbol\varepsilon = \mathbf{D} : \boldsymbol\sigma + \boldsymbol\alpha \Delta T\)</span>.</p>
 </section>
-<section id="weak-form-1" class="level3">
-<h3 class="anchored" data-anchor-id="weak-form-1">Weak form</h3>
-<p>For every <em>sufficiently regular</em> test function <span class="math inline">\(\boldsymbol\Sigma\)</span> (<span class="math inline">\(2^{nd}\)</span>-order tensor)</p>
-<p><span class="math display">\[\begin{aligned}
-  0
-  &amp; = \int_{V} \boldsymbol\Sigma : \left( \boldsymbol\varepsilon - \dfrac{1}{2} \left( \boldsymbol\nabla \mathbf{s} + \boldsymbol\nabla^T \mathbf{s} \right) \right) = \\
-  &amp; = \int_{V} \boldsymbol\Sigma : \boldsymbol\varepsilon - \oint_{\partial V} \hat{\mathbf{n}} \cdot \boldsymbol\Sigma \cdot \mathbf{s} + \int_V \boldsymbol\nabla \cdot \boldsymbol\Sigma \cdot \mathbf{s} = \\
-\end{aligned}\]</span></p>
-<p>if the tensor test function is symmetric <span class="math inline">\(\boldsymbol\Sigma = \boldsymbol\Sigma^T\)</span>.</p>
+<section id="method-2-change-of-variables-dominated-convergence-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="method-2-change-of-variables-dominated-convergence-theorem">Method 2: Change of Variables (Dominated Convergence Theorem)</h2>
+<p><strong>todo</strong> Treat convergence types (pointwise, and uniform), and consequences on limits, limits and derivatives, limits and integrals.</p>
+<section id="substitution" class="level3">
+<h3 class="anchored" data-anchor-id="substitution">1. Substitution</h3>
+<p>Substitute <span class="math inline">\(t = \frac{x}{y}\)</span>, so <span class="math inline">\(x = ty\)</span> and <span class="math inline">\(dx = y \, dt\)</span>:</p>
+<p><span class="math display">\[ \lim_{y \to 0^+} \frac{y}{\pi} \int_{-\infty}^{+\infty} \frac{f(x)}{x^2 + y^2} \, dx = \lim_{y \to 0^+} \frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{f(ty)}{1 + t^2} \, dt \]</span></p>
 </section>
-<section id="force-method" class="level3">
-<h3 class="anchored" data-anchor-id="force-method">Force method</h3>
-<p>Choosing the test function to be an equilibrated stress field — let’s define it as <span class="math inline">\(\boldsymbol\Sigma := \widetilde{\boldsymbol\sigma}\)</span> to recall this condition — i.e.&nbsp;a stress field that satisfies equilibrium conditions</p>
-<p><span class="math display">\[\begin{cases}
-  \boldsymbol\nabla \cdot \widetilde{\boldsymbol\sigma} + \widetilde{\mathbf{f}} = \mathbf{0}  &amp;&amp; \text{in $V$} \\
-  \hat{\mathbf{n}} \cdot \widetilde{\boldsymbol\sigma} = \widetilde{\mathbf{t}}_n   &amp;&amp; \text{on $S_N$} \\
-\end{cases}\]</span></p>
-<!--  
--->
-<p>under some external loads <span class="math inline">\(\widetilde{\mathbf{f}}\)</span> in <span class="math inline">\(V\)</span> and <span class="math inline">\(\widetilde{\mathbf{t}}_n\)</span> on <span class="math inline">\(S_N\)</span>. The weak problem thus becomes</p>
-<p><span class="math display">\[0 = \int_{V} \widetilde{\boldsymbol\sigma} : \boldsymbol\varepsilon - \int_{V} \widetilde{\mathbf{f}} \cdot \mathbf{s} - \int_{S_N} \widetilde{\mathbf{t}}_n \cdot \mathbf{s} - \int_{S_D} \hat{\mathbf{n}} \cdot \widetilde{\boldsymbol\sigma} \cdot \overline{\mathbf{s}} - \int_{S_R} \dots  \]</span></p>
-<p>```hvivhiscpi Example: evaluation of hyperstatics</p>
-<p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
-<p>```</p>
+<section id="passing-the-limit-inside" class="level3">
+<h3 class="anchored" data-anchor-id="passing-the-limit-inside">2. Passing the Limit Inside</h3>
+<p>Assuming <span class="math inline">\(f\)</span> is bounded (<span class="math inline">\(|f(x)| \le M\)</span>), the integrand is dominated by an integrable function:</p>
+<p><span class="math display">\[ \left| \frac{f(ty)}{1 + t^2} \right| \le \frac{M}{1 + t^2} \in L^1(\mathbb{R}) \]</span></p>
+<p>By Lebesgue’s Dominated Convergence Theorem, we interchange the limit and the integral:</p>
+<p><span class="math display">\[ \frac{1}{\pi} \int_{-\infty}^{+\infty} \lim_{y \to 0^+} \frac{f(ty)}{1 + t^2} \, dt = \frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{f(0)}{1 + t^2} \, dt \]</span></p>
 </section>
-<section id="pcvw" class="level3">
-<h3 class="anchored" data-anchor-id="pcvw">PCVW</h3>
-<p>Choosing the test function to be the variation equilibrated stress field — let’s define it as <span class="math inline">\(\boldsymbol\Sigma := \delta \widetilde{\boldsymbol\sigma}\)</span> to recall this condition — i.e.&nbsp;a stress field that satisfies equilibrium conditions</p>
-<p><span class="math display">\[\begin{cases}
-  \boldsymbol\nabla \cdot \delta \widetilde{\boldsymbol\sigma} = \mathbf{0}  &amp;&amp; \text{in $V$} \\
-  \hat{\mathbf{n}} \cdot \delta \widetilde{\boldsymbol\sigma} = \mathbf{0}  &amp;&amp; \text{on $S_N$} \\
-\end{cases}\]</span></p>
-<!--  
--->
-<p>as the variation of given external loads <span class="math inline">\(\widetilde{\mathbf{f}}\)</span> in <span class="math inline">\(V\)</span> and <span class="math inline">\(\widetilde{\mathbf{t}}_n\)</span> on <span class="math inline">\(S_N\)</span> is identically zero. The weak problem thus becomes</p>
-<p><span class="math display">\[0 = \int_{V} \delta \widetilde{\boldsymbol\sigma} : \boldsymbol\varepsilon - \int_{S_D} \hat{\mathbf{n}} \cdot \delta \widetilde{\boldsymbol\sigma} \cdot \overline{\mathbf{s}} - \int_{S_R} \dots  \]</span></p>
+<section id="evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation">3. Evaluation</h3>
+<p><span class="math display">\[ = \frac{f(0)}{\pi} \Big[ \arctan(t) \Big]_{-\infty}^{+\infty} = \frac{f(0)}{\pi} \left( \frac{\pi}{2} - \left(-\frac{\pi}{2}\right) \right) = f(0) \]</span></p>
 
 
 </section>

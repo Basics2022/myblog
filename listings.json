@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/convergence-types/index.html",
       "/posts/juxtaposition/index.html",
       "/posts/coin-tosses/index.html",
       "/posts/central-limit-thm/index.html",
