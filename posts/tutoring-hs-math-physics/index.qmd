@@ -35,33 +35,60 @@ Index and activity log for the university mathematics preparation path. Referenc
 
 ## Topics & Curriculum
 
-::: {.callout-note icon="false" collapse="false"}
+:::: {.callout-note icon="false" collapse="false"}
 ## Analytical geometry
 
-| # | Block | What is Learned | Book Chapters |
-|---|---|---|---|---|
-| 1 |                     | | |
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 | Euclidean space                            | 1 | |
+| 2 | Coordinates to represent space             | 1 | |
+
+::::
+
+:::: {.callout-note icon="false" collapse="false"}
+## Calculus
+
+::: {.callout-note icon="false" collapse="false"}
+## Real-valued functions and limits
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 | Definition of function, and real function | 1 | |
+| 2 | Graph of a real function                  | 1 | |
 
 :::
 
 ::: {.callout-note icon="false" collapse="false"}
-## Calculus
+## Derivatives
 
-| # | Block | What is Learned | Book Chapters |
-|---|---|---|---|---|
-| 1 | Functions            | | |
-| 2 | Limits               | | |
-| 3 | Derivatives          | | |
-| 4 | Integrals            | | |
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 |                      | | |
+| 2 |                      | | |
+|...|                      | | |
 
 :::
+
+::: {.callout-note icon="false" collapse="false"}
+## Integrals
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 |                      | | |
+| 2 |                      | | |
+|...|                      | | |
+
+:::
+
+
+::::
 
 ::: {.callout-note icon="false" collapse="false"}
 ## Vectors
 
-| # | Block | What is Learned | Book Chapters |
-|---|---|---|---|---|
-| 1 |                     | | |
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 | First example: position vectors                  | 1 | |
 
 :::
 

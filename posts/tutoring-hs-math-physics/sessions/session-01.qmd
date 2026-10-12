@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Calculus and Analytical Geometry"
+title: "Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors"
 subtitle: ""
 description: ""
 author: "Basics"
@@ -11,10 +11,42 @@ toc: true
 toc-title: "On this page"
 ---
 
-## Analytical Geometry in Eucliedan spaces
 
 
-## Introduction to Calculus
+## Functions and Real Functions
+
+**Definition of a function.** A function $f: A \rightarrow B$ is a relation between elements of 2 sets. It takes an element $a \in A$, and produces **one and only one** output $b = f(a)$. Sets $A$ and $B$ are respectively defined *domain* and *co-domain*.
+
+**Definition of a real function, $f: \mathbb{R} \rightarrow \mathbb{R}$.** A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers $\mathbb{R}$.
+
+**Definition of the graph of a real function.** Given a real function $f: D \subseteq \mathbb{R} \to \mathbb{R}$, its **graph** is the subset of the Cartesian plane $\mathbb{R}^2$ consisting of all points whose coordinates are $(x, f(x))$ as $x$ varies across the domain $D$:
+
+$$\text{Graph}(f) = \{ (x, f(x)) \in \mathbb{R}^2 \mid x \in D \}$$
+
+Visually, it is the "curve" or geometric shape drawn on the plane that translates the algebraic rule of the function into a picture. A point $(x_0, y_0)$ belongs to the graph if and only if $y_0 = f(x_0)$.
+
+## Introduction to Analytical Geometry
+
+Analytical geometry is a bridge between algebra and geometry. Points in space can be represented set of coordinates of a coordinate system. Geometric entities and properties:
+
+* are idependent (**invariant**) from the arbitrary choice of the coordinate system
+* can be represented with algebraic relations between the coordinates, once a coordinate system is chosen
+
+Just as an example, the points of the same circle with radius $R$ in a plane can be easily represented:
+
+* using a system of Cartesian coordinates $(x,y)$ with the origin in the center of the circle, as $x^2 + y^2 = R^2$
+* using a system of polar coordinates $r, \theta$, with the origin in the center of the circle, as $r = R$, for all $\theta \in [0, 2 \pi]$.
+
+## Introduction to Vectors: Position Vectors
+
+Once a point $O$ in an Euclidean space is set as a reference, the so called **origin**, then a point $P$ in the Euclidean space can be described with its **position vector** w.r.t. $O$, that can be represented[^vector-arrow] as the arrow with extreme points $O$ and $P$, pointing from $O$ to $P$. 
+This is just a first look at vectors. Without too many details, a vector is nothing too strange:
+
+- it's a **mathematical object**, just like numbers are
+- with some mathematical properties
+- that can be used to represent geometrical or physical quantities, that numbers alone can't fully represent. Examples of vector quantities are: velocity, acceleration, force,...**magnitude** of these physical quantities is not enough; we also need **direction**
+- that can be combined with other vectors, through **vector operations (vector algebra)**: it's possible to multiply a vector by a number, it's possible to sum and subtract vectors, it's possible to define different kinds of products using vectors,...
 
 
+[^vector-arrow]: The arrow is just a useful graphical representation of the vector, it's not the vector itself.
 

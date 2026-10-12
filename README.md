@@ -60,6 +60,12 @@ Create branch *gh-pages*, and create GitHub action for updating deplyed website.
 
 > quarto preview &
 
+or
+
+> quarto preview --no-serve &
+
+to avoid updating and reloading every tab of the browser into the last updated page
+
 ### Render
 
 > quarto render
