@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/tutoring-hs-math-physics/sessions/session-01.html",
+      "/posts/tutoring-hs-math-physics/index.html",
       "/posts/convergence-types/index.html",
       "/posts/juxtaposition/index.html",
       "/posts/coin-tosses/index.html",
@@ -12,6 +14,12 @@
       "/posts/hyperstatics-and-weak-form/index.html",
       "/posts/welcome-ipynb/index.html",
       "/posts/welcome/index.html"
+    ]
+  },
+  {
+    "listing": "/posts/tutoring-hs-math-physics/index.html",
+    "items": [
+      "/posts/tutoring-hs-math-physics/sessions/session-01.html"
     ]
   }
 ]

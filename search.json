@@ -102,7 +102,14 @@
     "href": "posts/hyperstatics-and-weak-form/index.html#compatibility-conditions",
     "title": "Weak formulation of problems in structural mechanics",
     "section": "Compatibility conditions",
-    "text": "Compatibility conditions\n\nStrong form\n\\[\\begin{cases}\n  \\boldsymbol\\varepsilon = \\frac{1}{2} \\left( \\boldsymbol\\nabla \\mathbf{s} + \\boldsymbol\\nabla^T \\mathbf{s} \\right) && \\text{in $V$} \\\\\n  \\mathbf{s} = \\overline{\\mathbf{s}}   && \\text{on $S_D$} \\\\\n\\end{cases}\\]\nwith \\(\\boldsymbol\\varepsilon = \\mathbf{D} : \\boldsymbol\\sigma + \\boldsymbol\\alpha \\Delta T\\).\n\n\nWeak form\nFor every sufficiently regular test function \\(\\boldsymbol\\Sigma\\) (\\(2^{nd}\\)-order tensor)\n\\[\\begin{aligned}\n  0\n  & = \\int_{V} \\boldsymbol\\Sigma : \\left( \\boldsymbol\\varepsilon - \\dfrac{1}{2} \\left( \\boldsymbol\\nabla \\mathbf{s} + \\boldsymbol\\nabla^T \\mathbf{s} \\right) \\right) = \\\\\n  & = \\int_{V} \\boldsymbol\\Sigma : \\boldsymbol\\varepsilon - \\oint_{\\partial V} \\hat{\\mathbf{n}} \\cdot \\boldsymbol\\Sigma \\cdot \\mathbf{s} + \\int_V \\boldsymbol\\nabla \\cdot \\boldsymbol\\Sigma \\cdot \\mathbf{s} = \\\\\n\\end{aligned}\\]\nif the tensor test function is symmetric \\(\\boldsymbol\\Sigma = \\boldsymbol\\Sigma^T\\).\n\n\nForce method\nChoosing the test function to be an equilibrated stress field — let’s define it as \\(\\boldsymbol\\Sigma := \\widetilde{\\boldsymbol\\sigma}\\) to recall this condition — i.e. a stress field that satisfies equilibrium conditions\n\\[\\begin{cases}\n  \\boldsymbol\\nabla \\cdot \\widetilde{\\boldsymbol\\sigma} + \\widetilde{\\mathbf{f}} = \\mathbf{0}  && \\text{in $V$} \\\\\n  \\hat{\\mathbf{n}} \\cdot \\widetilde{\\boldsymbol\\sigma} = \\widetilde{\\mathbf{t}}_n   && \\text{on $S_N$} \\\\\n\\end{cases}\\]\n\nunder some external loads \\(\\widetilde{\\mathbf{f}}\\) in \\(V\\) and \\(\\widetilde{\\mathbf{t}}_n\\) on \\(S_N\\). The weak problem thus becomes\n\\[0 = \\int_{V} \\widetilde{\\boldsymbol\\sigma} : \\boldsymbol\\varepsilon - \\int_{V} \\widetilde{\\mathbf{f}} \\cdot \\mathbf{s} - \\int_{S_N} \\widetilde{\\mathbf{t}}_n \\cdot \\mathbf{s} - \\int_{S_D} \\hat{\\mathbf{n}} \\cdot \\widetilde{\\boldsymbol\\sigma} \\cdot \\overline{\\mathbf{s}} - \\int_{S_R} \\dots  \\]\n```hvivhiscpi Example: evaluation of hyperstatics\nOne of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.\n```\n\n\nPCVW\nChoosing the test function to be the variation equilibrated stress field — let’s define it as \\(\\boldsymbol\\Sigma := \\delta \\widetilde{\\boldsymbol\\sigma}\\) to recall this condition — i.e. a stress field that satisfies equilibrium conditions\n\\[\\begin{cases}\n  \\boldsymbol\\nabla \\cdot \\delta \\widetilde{\\boldsymbol\\sigma} = \\mathbf{0}  && \\text{in $V$} \\\\\n  \\hat{\\mathbf{n}} \\cdot \\delta \\widetilde{\\boldsymbol\\sigma} = \\mathbf{0}  && \\text{on $S_N$} \\\\\n\\end{cases}\\]\n\nas the variation of given external loads \\(\\widetilde{\\mathbf{f}}\\) in \\(V\\) and \\(\\widetilde{\\mathbf{t}}_n\\) on \\(S_N\\) is identically zero. The weak problem thus becomes\n\\[0 = \\int_{V} \\delta \\widetilde{\\boldsymbol\\sigma} : \\boldsymbol\\varepsilon - \\int_{S_D} \\hat{\\mathbf{n}} \\cdot \\delta \\widetilde{\\boldsymbol\\sigma} \\cdot \\overline{\\mathbf{s}} - \\int_{S_R} \\dots  \\]"
+    "text": "Compatibility conditions\n\nStrong form\n\\[\\begin{cases}\n  \\boldsymbol\\varepsilon = \\frac{1}{2} \\left( \\boldsymbol\\nabla \\mathbf{s} + \\boldsymbol\\nabla^T \\mathbf{s} \\right) && \\text{in $V$} \\\\\n  \\mathbf{s} = \\overline{\\mathbf{s}}   && \\text{on $S_D$} \\\\\n\\end{cases}\\]\nwith \\(\\boldsymbol\\varepsilon = \\mathbf{D} : \\boldsymbol\\sigma + \\boldsymbol\\alpha \\Delta T\\).\n\n\nWeak form\nFor every sufficiently regular test function \\(\\boldsymbol\\Sigma\\) (\\(2^{nd}\\)-order tensor)\n\\[\\begin{aligned}\n  0\n  & = \\int_{V} \\boldsymbol\\Sigma : \\left( \\boldsymbol\\varepsilon - \\dfrac{1}{2} \\left( \\boldsymbol\\nabla \\mathbf{s} + \\boldsymbol\\nabla^T \\mathbf{s} \\right) \\right) = \\\\\n  & = \\int_{V} \\boldsymbol\\Sigma : \\boldsymbol\\varepsilon - \\oint_{\\partial V} \\hat{\\mathbf{n}} \\cdot \\boldsymbol\\Sigma \\cdot \\mathbf{s} + \\int_V \\boldsymbol\\nabla \\cdot \\boldsymbol\\Sigma \\cdot \\mathbf{s} = \\\\\n\\end{aligned}\\]\nif the tensor test function is symmetric \\(\\boldsymbol\\Sigma = \\boldsymbol\\Sigma^T\\).\n\n\nForce method\nChoosing the test function to be an equilibrated stress field — let’s define it as \\(\\boldsymbol\\Sigma := \\widetilde{\\boldsymbol\\sigma}\\) to recall this condition — i.e. a stress field that satisfies equilibrium conditions\n\\[\\begin{cases}\n  \\boldsymbol\\nabla \\cdot \\widetilde{\\boldsymbol\\sigma} + \\widetilde{\\mathbf{f}} = \\mathbf{0}  && \\text{in $V$} \\\\\n  \\hat{\\mathbf{n}} \\cdot \\widetilde{\\boldsymbol\\sigma} = \\widetilde{\\mathbf{t}}_n   && \\text{on $S_N$} \\\\\n\\end{cases}\\]\n\nunder some external loads \\(\\widetilde{\\mathbf{f}}\\) in \\(V\\) and \\(\\widetilde{\\mathbf{t}}_n\\) on \\(S_N\\). The weak problem thus becomes\n\\[0 = \\int_{V} \\widetilde{\\boldsymbol\\sigma} : \\boldsymbol\\varepsilon - \\int_{V} \\widetilde{\\mathbf{f}} \\cdot \\mathbf{s} - \\int_{S_N} \\widetilde{\\mathbf{t}}_n \\cdot \\mathbf{s} - \\int_{S_D} \\hat{\\mathbf{n}} \\cdot \\widetilde{\\boldsymbol\\sigma} \\cdot \\overline{\\mathbf{s}} - \\int_{S_R} \\dots  \\]\n```ldrhawczvc Example: evaluation of hyperstatics\nOne of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.\n```\n\n\nPCVW\nChoosing the test function to be the variation equilibrated stress field — let’s define it as \\(\\boldsymbol\\Sigma := \\delta \\widetilde{\\boldsymbol\\sigma}\\) to recall this condition — i.e. a stress field that satisfies equilibrium conditions\n\\[\\begin{cases}\n  \\boldsymbol\\nabla \\cdot \\delta \\widetilde{\\boldsymbol\\sigma} = \\mathbf{0}  && \\text{in $V$} \\\\\n  \\hat{\\mathbf{n}} \\cdot \\delta \\widetilde{\\boldsymbol\\sigma} = \\mathbf{0}  && \\text{on $S_N$} \\\\\n\\end{cases}\\]\n\nas the variation of given external loads \\(\\widetilde{\\mathbf{f}}\\) in \\(V\\) and \\(\\widetilde{\\mathbf{t}}_n\\) on \\(S_N\\) is identically zero. The weak problem thus becomes\n\\[0 = \\int_{V} \\delta \\widetilde{\\boldsymbol\\sigma} : \\boldsymbol\\varepsilon - \\int_{S_D} \\hat{\\mathbf{n}} \\cdot \\delta \\widetilde{\\boldsymbol\\sigma} \\cdot \\overline{\\mathbf{s}} - \\int_{S_R} \\dots  \\]"
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/sessions/session-01.html#introduction-to-calculus",
+    "href": "posts/tutoring-hs-math-physics/sessions/session-01.html#introduction-to-calculus",
+    "title": "Introduction to Calculus and Analytical Geometry",
+    "section": "Introduction to Calculus",
+    "text": "Introduction to Calculus"
   },
   {
     "objectID": "posts/coin-tosses/index.html",
@@ -144,7 +151,7 @@
     "href": "index.html",
     "title": "myblog",
     "section": "",
-    "text": "A bit of this and that\n\nLatest posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbout convergence\n\n\n\nconvergence\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nJuxtaposition - The art of writing ambiguous content, and the damnation of the engagement bait\n\n\n\nclick bait\n\nrant\n\nmath notation\n\nprogramming\n\n\n\n\n\n\n\n\n\nMay 28, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nCoin tosses - From prior statistics to inference\n\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nMay 25, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nCentral limit theorem - why and when Gaussian distributions appear\n\n\n\nstatistics\n\ncentral limit theorem\n\n\n\n\n\n\n\n\n\nMay 1, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nCompressible fluid mechanics and finite volume method\n\n\n\nfluid mechanics\n\nhyperbolic equations\n\nfinite volume method\n\n\n\n\n\n\n\n\n\nMar 13, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Equations and Conics\n\n\n\nconics\n\nquadratic equations\n\nanalytic geometry\n\nlinear algebra\n\n\n\n\n\n\n\n\n\nJan 16, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nNatural modes in structures\n\n\n\nstructural mechanics\n\nnatural modes\n\nresonance\n\n\n\n\n\n\n\n\n\nNov 25, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nWeak formulation of problems in structural mechanics\n\n\n\nstructural mechanics\n\nweak form\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello .ipynb on the blog!\n\n\n\nblog\n\njupyter\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello blog!\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\nNo matching items"
+    "text": "A bit of this and that\n\nLatest posts\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntroduction to Calculus and Analytical Geometry\n\n\n\n\n\n\nteaching\n\nmathematics\n\nlog\n\n\n\n\n\n\n\n\n\nOct 12, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nA Remote Tutoring Journey\n\n\nActivity Log and Experience Summary\n\n\n\nteaching\n\nmathematics\n\nlog\n\n\n\nA preparation path for university-level mathematics, physics, or engineering for a linguistics high school senior: topics, schedule, and session logs.\n\n\n\n\n\nOct 12, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nAbout convergence\n\n\n\n\n\n\nconvergence\n\nanalysis\n\n\n\n\n\n\n\n\n\nJul 21, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nJuxtaposition - The art of writing ambiguous content, and the damnation of the engagement bait\n\n\n\n\n\n\nclick bait\n\nrant\n\nmath notation\n\nprogramming\n\n\n\n\n\n\n\n\n\nMay 28, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nCoin tosses - From prior statistics to inference\n\n\n\n\n\n\nstatistics\n\n\n\n\n\n\n\n\n\nMay 25, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nCentral limit theorem - why and when Gaussian distributions appear\n\n\n\n\n\n\nstatistics\n\ncentral limit theorem\n\n\n\n\n\n\n\n\n\nMay 1, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nCompressible fluid mechanics and finite volume method\n\n\n\n\n\n\nfluid mechanics\n\nhyperbolic equations\n\nfinite volume method\n\n\n\n\n\n\n\n\n\nMar 13, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nQuadratic Equations and Conics\n\n\n\n\n\n\nconics\n\nquadratic equations\n\nanalytic geometry\n\nlinear algebra\n\n\n\n\n\n\n\n\n\nJan 16, 2026\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nNatural modes in structures\n\n\n\n\n\n\nstructural mechanics\n\nnatural modes\n\nresonance\n\n\n\n\n\n\n\n\n\nNov 25, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nWeak formulation of problems in structural mechanics\n\n\n\n\n\n\nstructural mechanics\n\nweak form\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello .ipynb on the blog!\n\n\n\n\n\n\nblog\n\njupyter\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\n\n\n\n\n\n\n\nHello blog!\n\n\n\n\n\n\nblog\n\n\n\n\n\n\n\n\n\nNov 24, 2025\n\n\nBasics\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -208,6 +215,55 @@
     "title": "About convergence",
     "section": "Method 2: Change of Variables (Dominated Convergence Theorem)",
     "text": "Method 2: Change of Variables (Dominated Convergence Theorem)\ntodo Treat convergence types (pointwise, and uniform), and consequences on limits, limits and derivatives, limits and integrals.\n\n1. Substitution\nSubstitute \\(t = \\frac{x}{y}\\), so \\(x = ty\\) and \\(dx = y \\, dt\\):\n\\[ \\lim_{y \\to 0^+} \\frac{y}{\\pi} \\int_{-\\infty}^{+\\infty} \\frac{f(x)}{x^2 + y^2} \\, dx = \\lim_{y \\to 0^+} \\frac{1}{\\pi} \\int_{-\\infty}^{+\\infty} \\frac{f(ty)}{1 + t^2} \\, dt \\]\n\n\n2. Passing the Limit Inside\nAssuming \\(f\\) is bounded (\\(|f(x)| \\le M\\)), the integrand is dominated by an integrable function:\n\\[ \\left| \\frac{f(ty)}{1 + t^2} \\right| \\le \\frac{M}{1 + t^2} \\in L^1(\\mathbb{R}) \\]\nBy Lebesgue’s Dominated Convergence Theorem, we interchange the limit and the integral:\n\\[ \\frac{1}{\\pi} \\int_{-\\infty}^{+\\infty} \\lim_{y \\to 0^+} \\frac{f(ty)}{1 + t^2} \\, dt = \\frac{1}{\\pi} \\int_{-\\infty}^{+\\infty} \\frac{f(0)}{1 + t^2} \\, dt \\]\n\n\n3. Evaluation\n\\[ = \\frac{f(0)}{\\pi} \\Big[ \\arctan(t) \\Big]_{-\\infty}^{+\\infty} = \\frac{f(0)}{\\pi} \\left( \\frac{\\pi}{2} - \\left(-\\frac{\\pi}{2}\\right) \\right) = f(0) \\]"
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html",
+    "href": "posts/tutoring-hs-math-physics/index.html",
+    "title": "A Remote Tutoring Journey",
+    "section": "",
+    "text": "Index and activity log for the university mathematics preparation path. Reference material: Mathematics for High Schools."
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html#overview",
+    "href": "posts/tutoring-hs-math-physics/index.html#overview",
+    "title": "A Remote Tutoring Journey",
+    "section": "",
+    "text": "Index and activity log for the university mathematics preparation path. Reference material: Mathematics for High Schools."
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html#session-logs",
+    "href": "posts/tutoring-hs-math-physics/index.html#session-logs",
+    "title": "A Remote Tutoring Journey",
+    "section": "Session Logs",
+    "text": "Session Logs"
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html#topics-curriculum",
+    "href": "posts/tutoring-hs-math-physics/index.html#topics-curriculum",
+    "title": "A Remote Tutoring Journey",
+    "section": "Topics & Curriculum",
+    "text": "Topics & Curriculum\nAnalytical geometry.\n\n\n\n#\nBlock\nWhat is Learned\nBook Chapters\n\n\n\n\n\n1\n\n\n\n\n\n\n\nCalculus.\n\n\n\n#\nBlock\nWhat is Learned\nBook Chapters\n\n\n\n\n\n1\nFunctions\n\n\n\n\n\n2\nLimits\n\n\n\n\n\n3\nDerivatives\n\n\n\n\n\n4\nIntegrals\n\n\n\n\n\n\nVectors.\n\n\n\n#\nBlock\nWhat is Learned\nBook Chapters\n\n\n\n\n\n1"
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html#schedule",
+    "href": "posts/tutoring-hs-math-physics/index.html#schedule",
+    "title": "A Remote Tutoring Journey",
+    "section": "Schedule",
+    "text": "Schedule\nDates are provisional: the Status column and actual dates are updated dynamically as we progress.\n\n\n\n\n\n\n\n\n\n\n\n\n#\nBlock\nTopics\nExpected Period\nWeeks\nStatus\nActual Period\n\n\n\n\n1\n\n\n\n\n\n\n\n\n2\n\n\n\n\n\n\n\n\n\nPossible statuses: pending, in progress, completed, postponed."
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html#session-logs-1",
+    "href": "posts/tutoring-hs-math-physics/index.html#session-logs-1",
+    "title": "A Remote Tutoring Journey",
+    "section": "Session Logs",
+    "text": "Session Logs\nOne entry per session, ordered from most recent."
+  },
+  {
+    "objectID": "posts/tutoring-hs-math-physics/index.html#notes-and-book-corrections",
+    "href": "posts/tutoring-hs-math-physics/index.html#notes-and-book-corrections",
+    "title": "A Remote Tutoring Journey",
+    "section": "Notes and Book Corrections",
+    "text": "Notes and Book Corrections\nErrors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the GitHub repository."
   },
   {
     "objectID": "posts/welcome-ipynb/index.html",
