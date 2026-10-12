@@ -1,0 +1,20 @@
+---
+title: "Introduction to Calculus and Analytical Geometry"
+subtitle: ""
+description: ""
+author: "Basics"
+date: "2026-10-12"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+---
+
+## Analytical Geometry in Eucliedan spaces
+
+
+## Introduction to Calculus
+
+
+

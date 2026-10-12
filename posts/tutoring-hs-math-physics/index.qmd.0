@@ -1,0 +1,84 @@
+---
+title: "University Mathematics: A Remote Tutoring Journey"
+subtitle: "Activity Log and Experience Summary"
+description: "A preparation path for university-level mathematics, physics, or engineering for a linguistics high school senior: topics, schedule, and session logs."
+author: "Basics"
+date: "2026-10-12"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+---
+
+
+## Overview
+
+A senior student from a linguistics high school (*liceo linguistico*) is preparing to enroll in a university degree in **mathematics, physics, or engineering**. Linguistics high schools typically allocate limited curriculum time to trigonometry, limits, and derivatives. Therefore, the main challenge is not just missing calculus topics, but ensuring **algebraic fluency and mathematical rigor** upon which university courses immediately build.
+
+This series of pages serves as the log of our journey: what we cover, in what order, what works, and what needs adjustment. The primary reference material is the open-source book
+[Mathematics for High Schools](https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html) (Jupyter Book), which is refined and completed as needed.
+
+::: {.callout-note}
+## Privacy
+The tutoring process is described anonymously, with the student's consent. This blog focuses on methodology and materials rather than personal details.
+:::
+
+<!--
+## How It Works
+
+The program is **remote and partially asynchronous**:
+
+1. Before each session, the student receives a worksheet (reading + exercises) on a specific topic to tackle independently, noting down any roadblocks.
+2. We hold a weekly online session (about 60 minutes) dedicated to clarifying doubts, reviewing solutions, and working through exercises together. During more challenging blocks, a second shorter practice session is added.
+3. At the end of each block, a short quiz (8–10 exercises) helps decide whether a review is necessary.
+4. After each session, a log entry is added to [this page](#session-log).
+-->
+
+## Topics & Curriculum
+
+| # | Block | What is Learned | Book Chapters |
+|---|---|---|---|
+| 0 | Diagnostics | Baseline assessment and gap identification | — |
+| 1 | Functions & Analytic Geometry | Cartesian plane, lines, conics, concept of function, domain, and graphs | [12](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d.html), [15](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/precalculus/real-functions.html) |
+| 2 | Vectors | Position vectors, components, scalar product, and physical applications | [7](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/vector-algebra.html) |
+| 3 | Advanced Algebra | Powers, roots, polynomials, equations, and inequalities | [4](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/real-algebra.html), [20](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/precalculus/polynomials.html) |
+| 4 | Exponential & Logarithm | Properties, graphs, and logarithmic/exponential equations | [19](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/precalculus/exponential_logarithm.html) |
+| 5 | Trigonometry | Unit circle, trigonometric identities, equations, and inequalities | [18](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/trigonometry.html) |
+| 6 | Limits & Continuity | Limits, indeterminate forms, asymptotes | [24](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/analysis.html) |
+| 7 | Derivatives | Definition, rules, curve sketching | [25](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html) |
+| 8 | Integrals & Complex Numbers (Preview) | Antiderivatives, definite integrals, complex numbers | [26](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/integrals.html), [22](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/complex-algebra.html) |
+
+After block 5, the path can diverge: more proofs and theoretical rigor for mathematics and physics, or more practical computation and vector calculus for engineering.
+
+## Schedule
+
+Dates are **provisional**: the *Status* column and actual dates are updated dynamically as we progress.
+
+| Block | Expected Period | Weeks | Status | Actual Period |
+|---|---|---|---|---|
+| 0. Diagnostics | Mid-October | 1 | pending | |
+| 1. Functions & Analytic Geometry | October | 3 | pending | |
+| 2. Vectors | Late October | 2 | pending | |
+| 3. Advanced Algebra | November | 4 | pending | |
+| 4. Exponential & Logarithm | December | 3 | pending | |
+| 5. Trigonometry | December - January | 4 | pending | |
+| 6. Limits & Continuity | February - March | 6 | pending | |
+| 7. Derivatives | April - May | 5 | pending | |
+| 8. Integrals & Complex Numbers | June - July | (post-graduation) | pending | |
+
+Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
+
+## Session Logs
+
+One entry per session, ordered from most recent.
+
+::: {#session-log}
+:::
+
+## Notes and Book Corrections
+
+Errors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the [GitHub repository](https://github.com/Basics2022/bbooks-math-miscellanea-hs/issues/new).
+
+
+

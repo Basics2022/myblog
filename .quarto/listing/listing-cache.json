@@ -2,6 +2,13 @@
   "listingMap": {
     "index.qmd": [
       "posts"
+    ],
+    "posts/tutoring-hs-math-physics/index.qmd": [
+      "log",
+      "sessions"
+    ],
+    "posts/tutoring-hs-math-physics/sessions/session-01.qmd": [
+      "sessions"
     ]
   }
 }

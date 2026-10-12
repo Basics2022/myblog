@@ -40,5 +40,11 @@
   },
   "posts/convergence-types/index.qmd": {
     "index.html": "c0391f12"
+  },
+  "posts/tutoring-hs-math-physics/index.qmd": {
+    "index.html": "b44e7548"
+  },
+  "posts/tutoring-hs-math-physics/sessions/session-01.qmd": {
+    "session-01.html": "76b711ff"
   }
 }

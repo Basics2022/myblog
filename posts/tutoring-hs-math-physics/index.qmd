@@ -1,0 +1,80 @@
+---
+title: "A Remote Tutoring Journey"
+subtitle: "Activity Log and Experience Summary"
+description: "A preparation path for university-level mathematics, physics, or engineering for a linguistics high school senior: topics, schedule, and session logs."
+author: "Basics"
+date: "2026-10-12"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+# Elenco automatico delle voci del registro, lette dalla cartella log/
+listing:
+  id: registro
+  contents: sessions
+  sort: "date desc"
+  type: table
+  fields: [date, title, description]
+  field-display-names:
+    date: "Date"
+    title: "Title"
+    description: "Summary"
+---
+
+
+## Overview
+
+Index and activity log for the university mathematics preparation path. Reference material: [Mathematics for High Schools](https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html).
+
+## Session Logs
+
+::: {#session-log}
+:::
+
+
+## Topics & Curriculum
+
+**Analytical geometry.**
+
+| # | Block | What is Learned | Book Chapters |
+|---|---|---|---|---|
+| 1 |                     | | |
+
+**Calculus.**
+
+| # | Block | What is Learned | Book Chapters |
+|---|---|---|---|---|
+| 1 | Functions            | | |
+| 2 | Limits               | | |
+| 3 | Derivatives          | | |
+| 4 | Integrals            | | |
+
+**Vectors.**
+
+| # | Block | What is Learned | Book Chapters |
+|---|---|---|---|---|
+| 1 |                     | | |
+
+
+## Schedule
+
+Dates are **provisional**: the *Status* column and actual dates are updated dynamically as we progress.
+
+| # | Block | Topics | Expected Period | Weeks | Status | Actual Period |
+|---|---|---|---|---|---|---|
+| 1 |   |   |   |   |   |   |
+| 2 |   |   |   |   |   |   |
+
+Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
+
+## Session Logs
+
+One entry per session, ordered from most recent.
+
+## Notes and Book Corrections
+
+Errors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the [GitHub repository](https://github.com/Basics2022/bbooks-math-miscellanea-hs/issues/new).
+
+
+

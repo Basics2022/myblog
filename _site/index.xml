@@ -10,7 +10,265 @@
 <atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Basics blog</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Mon, 20 Jul 2026 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 11 Oct 2026 22:00:00 GMT</lastBuildDate>
+<item>
+  <title>Introduction to Calculus and Analytical Geometry</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-01.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="analytical-geometry-in-eucliedan-spaces" class="level2">
+
+</section>
+<section id="introduction-to-calculus" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-calculus">Introduction to Calculus</h2>
+
+
+</section>
+
+ ]]></description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-01.html</guid>
+  <pubDate>Sun, 11 Oct 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>A Remote Tutoring Journey</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>Index and activity log for the university mathematics preparation path. Reference material: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html">Mathematics for High Schools</a>.</p>
+</section>
+<section id="session-logs" class="level2">
+<h2 class="anchored" data-anchor-id="session-logs">Session Logs</h2>
+<div id="session-log">
+
+</div>
+</section>
+<section id="topics-curriculum" class="level2">
+<h2 class="anchored" data-anchor-id="topics-curriculum">Topics &amp; Curriculum</h2>
+<p><strong>Analytical geometry.</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>What is Learned</th>
+<th>Book Chapters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Calculus.</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>What is Learned</th>
+<th>Book Chapters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Functions</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Limits</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Derivatives</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Integrals</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Vectors.</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>What is Learned</th>
+<th>Book Chapters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p>Dates are <strong>provisional</strong>: the <em>Status</em> column and actual dates are updated dynamically as we progress.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>Topics</th>
+<th>Expected Period</th>
+<th>Weeks</th>
+<th>Status</th>
+<th>Actual Period</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Possible statuses: <em>pending</em>, <em>in progress</em>, <em>completed</em>, <em>postponed</em>.</p>
+</section>
+<section id="session-logs-1" class="level2">
+<h2 class="anchored" data-anchor-id="session-logs-1">Session Logs</h2>
+<p>One entry per session, ordered from most recent.</p>
+</section>
+<section id="notes-and-book-corrections" class="level2">
+<h2 class="anchored" data-anchor-id="notes-and-book-corrections">Notes and Book Corrections</h2>
+<p>Errors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the <a href="https://github.com/Basics2022/bbooks-math-miscellanea-hs/issues/new">GitHub repository</a>.</p>
+
+
+
+</section>
+
+<div class="quarto-listing quarto-listing-container-table" id="listing-registro">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-registro-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-registro'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+
+<th>
+Summary
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1791791846319" data-listing-date-modified-sort="1791791846000" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="Introduction to Calculus and Analytical Geometry" data-listing-filename-sort="session-01.qmd">
+<td>
+<span class="listing-date">Oct 12, 2026</span>
+</td>
+<td>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-01.html" class="title listing-title">Introduction to Calculus and Analytical Geometry</a>
+</td>
+<td>
+<span class="listing-description"><!-- desc(5A0113B34292)[max=175]:posts/tutoring-hs-math-physics/sessions/session-01.html --></span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/</guid>
+  <pubDate>Sun, 11 Oct 2026 22:00:00 GMT</pubDate>
+</item>
 <item>
   <title>About convergence</title>
   <dc:creator>Basics </dc:creator>
@@ -4219,7 +4477,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```ayistytchc Example: evaluation of hyperstatics</p>
+<p>```tcnzjjkuli Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
