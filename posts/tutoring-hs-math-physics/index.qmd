@@ -11,7 +11,7 @@ toc: true
 toc-title: "On this page"
 # Elenco automatico delle voci del registro, lette dalla cartella log/
 listing:
-  id: registro
+  id: session-log
   contents: sessions
   sort: "date desc"
   type: table
@@ -35,13 +35,17 @@ Index and activity log for the university mathematics preparation path. Referenc
 
 ## Topics & Curriculum
 
-**Analytical geometry.**
+::: {.callout-note icon="false" collapse="false"}
+## Analytical geometry
 
 | # | Block | What is Learned | Book Chapters |
 |---|---|---|---|---|
 | 1 |                     | | |
 
-**Calculus.**
+:::
+
+::: {.callout-note icon="false" collapse="false"}
+## Calculus
 
 | # | Block | What is Learned | Book Chapters |
 |---|---|---|---|---|
@@ -50,12 +54,16 @@ Index and activity log for the university mathematics preparation path. Referenc
 | 3 | Derivatives          | | |
 | 4 | Integrals            | | |
 
-**Vectors.**
+:::
+
+::: {.callout-note icon="false" collapse="false"}
+## Vectors
 
 | # | Block | What is Learned | Book Chapters |
 |---|---|---|---|---|
 | 1 |                     | | |
 
+:::
 
 ## Schedule
 
@@ -68,9 +76,6 @@ Dates are **provisional**: the *Status* column and actual dates are updated dyna
 
 Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
 
-## Session Logs
-
-One entry per session, ordered from most recent.
 
 ## Notes and Book Corrections
 

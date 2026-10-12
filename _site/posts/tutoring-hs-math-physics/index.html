@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-registro .list');
+    const listingTargetEl = window.document.querySelector('#listing-session-log .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-registro'] = new List('listing-registro', options);
+    window['quarto-listings']['listing-session-log'] = new List('listing-session-log', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -242,7 +242,6 @@ window.Quarto = {
   <li><a href="#session-logs" id="toc-session-logs" class="nav-link" data-scroll-target="#session-logs">Session Logs</a></li>
   <li><a href="#topics-curriculum" id="toc-topics-curriculum" class="nav-link" data-scroll-target="#topics-curriculum">Topics &amp; Curriculum</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#session-logs-1" id="toc-session-logs-1" class="nav-link" data-scroll-target="#session-logs-1">Session Logs</a></li>
   <li><a href="#notes-and-book-corrections" id="toc-notes-and-book-corrections" class="nav-link" data-scroll-target="#notes-and-book-corrections">Notes and Book Corrections</a></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></nav>
@@ -260,161 +259,11 @@ window.Quarto = {
 </section>
 <section id="session-logs" class="level2">
 <h2 class="anchored" data-anchor-id="session-logs">Session Logs</h2>
-<div id="session-log">
-
-</div>
-</section>
-<section id="topics-curriculum" class="level2">
-<h2 class="anchored" data-anchor-id="topics-curriculum">Topics &amp; Curriculum</h2>
-<p><strong>Analytical geometry.</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Block</th>
-<th>What is Learned</th>
-<th>Book Chapters</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Calculus.</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Block</th>
-<th>What is Learned</th>
-<th>Book Chapters</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Functions</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Limits</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Derivatives</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>Integrals</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Vectors.</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Block</th>
-<th>What is Learned</th>
-<th>Book Chapters</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p>Dates are <strong>provisional</strong>: the <em>Status</em> column and actual dates are updated dynamically as we progress.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>#</th>
-<th>Block</th>
-<th>Topics</th>
-<th>Expected Period</th>
-<th>Weeks</th>
-<th>Status</th>
-<th>Actual Period</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Possible statuses: <em>pending</em>, <em>in progress</em>, <em>completed</em>, <em>postponed</em>.</p>
-</section>
-<section id="session-logs-1" class="level2">
-<h2 class="anchored" data-anchor-id="session-logs-1">Session Logs</h2>
-<p>One entry per session, ordered from most recent.</p>
-</section>
-<section id="notes-and-book-corrections" class="level2">
-<h2 class="anchored" data-anchor-id="notes-and-book-corrections">Notes and Book Corrections</h2>
-<p>Errors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the <a href="https://github.com/Basics2022/bbooks-math-miscellanea-hs/issues/new">GitHub repository</a>.</p>
-
-
-
-</section>
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-registro">
+<div id="listing-session-log" class="quarto-listing quarto-listing-container-table">
 <div class="listing-actions-group">
    <div class="input-group input-group-sm quarto-listing-sort">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-registro-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-registro'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+    <select id="listing-session-log-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-session-log'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
       <option value="index" data-direction="asc">Default</option>
       <option value="listing-date-sort" data-direction="asc">
@@ -471,7 +320,193 @@ Summary
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+</section>
+<section id="topics-curriculum" class="level2">
+<h2 class="anchored" data-anchor-id="topics-curriculum">Topics &amp; Curriculum</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Analytical geometry
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>What is Learned</th>
+<th>Book Chapters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Calculus
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>What is Learned</th>
+<th>Book Chapters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Functions</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Limits</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Derivatives</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Integrals</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Vectors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>What is Learned</th>
+<th>Book Chapters</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p>Dates are <strong>provisional</strong>: the <em>Status</em> column and actual dates are updated dynamically as we progress.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>Topics</th>
+<th>Expected Period</th>
+<th>Weeks</th>
+<th>Status</th>
+<th>Actual Period</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Possible statuses: <em>pending</em>, <em>in progress</em>, <em>completed</em>, <em>postponed</em>.</p>
+</section>
+<section id="notes-and-book-corrections" class="level2">
+<h2 class="anchored" data-anchor-id="notes-and-book-corrections">Notes and Book Corrections</h2>
+<p>Errors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the <a href="https://github.com/Basics2022/bbooks-math-miscellanea-hs/issues/new">GitHub repository</a>.</p>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
