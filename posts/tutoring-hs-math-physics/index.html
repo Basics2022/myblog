@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description','listing-week',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
@@ -223,7 +223,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">October 12, 2026</p>
+        <p class="date-modified">October 13, 2026</p>
       </div>
     </div>
       
@@ -239,8 +239,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#session-logs" id="toc-session-logs" class="nav-link" data-scroll-target="#session-logs">Session Logs</a></li>
   <li><a href="#topics-curriculum" id="toc-topics-curriculum" class="nav-link" data-scroll-target="#topics-curriculum">Topics &amp; Curriculum</a></li>
+  <li><a href="#session-logs" id="toc-session-logs" class="nav-link" data-scroll-target="#session-logs">Session Logs</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#notes-and-book-corrections" id="toc-notes-and-book-corrections" class="nav-link" data-scroll-target="#notes-and-book-corrections">Notes and Book Corrections</a></li>
   </ul>
@@ -257,95 +257,20 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Index and activity log for the university mathematics preparation path. Reference material: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html">Mathematics for High Schools</a>.</p>
 </section>
-<section id="session-logs" class="level2">
-<h2 class="anchored" data-anchor-id="session-logs">Session Logs</h2>
-<div id="listing-session-log" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-    <select id="listing-session-log-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-session-log'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-      <option value="" disabled="" selected="" hidden="">Order By</option>
-      <option value="index" data-direction="asc">Default</option>
-      <option value="listing-date-sort" data-direction="asc">
-        Date - Oldest
-      </option>
-      <option value="listing-date-sort" data-direction="desc">
-        Date - Newest
-      </option>
-      <option value="listing-title-sort" data-direction="asc">
-        Title
-      </option>
-    </select>
-  </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
-</th>
-
-<th>
-Summary
-</th>
-
-</tr>
-</thead>
-<tbody class="list">
-
-<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792360800000" data-listing-file-modified-sort="1791879263476" data-listing-date-modified-sort="1791879263000" data-listing-reading-time-sort="3" data-listing-word-count-sort="440" data-listing-title-sort="Session 2. Vector operations." data-listing-filename-sort="session-02.qmd">
-<td>
-<span class="listing-date">Oct 19, 2026</span>
-</td>
-<td>
-<a href="../../posts/tutoring-hs-math-physics/sessions/session-02.html" class="title listing-title">Session 2. Vector operations.</a>
-</td>
-<td>
-<span class="listing-description">Introduce Cartesian basis and vector operations. Use it for defining lines with a point and a direction. Definition of point-to-point distance in Cartesian plane, and its…</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1791876246694" data-listing-date-modified-sort="1791876246000" data-listing-reading-time-sort="4" data-listing-word-count-sort="629" data-listing-title-sort="Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors" data-listing-filename-sort="session-01.qmd">
-<td>
-<span class="listing-date">Oct 12, 2026</span>
-</td>
-<td>
-<a href="../../posts/tutoring-hs-math-physics/sessions/session-01.html" class="title listing-title">Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors</a>
-</td>
-<td>
-<span class="listing-description">Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.</span>
-</td>
-
-</tr>
-
-</tbody>
-</table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-</section>
 <section id="topics-curriculum" class="level2">
 <h2 class="anchored" data-anchor-id="topics-curriculum">Topics &amp; Curriculum</h2>
+<p>Three main topics: analytic geometry, calculus, and vectors. Other side topics need to be touched for the best understanding of the main topics. Among these: properties of trigonometric and exponential functions, complex numbers.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Analytical geometry
+<span class="screen-reader-only">Note</span>Analytic geometry
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -393,7 +318,7 @@ Summary
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -402,10 +327,10 @@ Summary
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -414,7 +339,7 @@ Summary
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -456,7 +381,7 @@ Summary
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -465,7 +390,7 @@ Summary
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -501,7 +426,7 @@ Summary
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -510,7 +435,52 @@ Summary
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Block</th>
+<th>Session</th>
+<th>Book Chapters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Elementary ordinary differential equations
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -549,7 +519,7 @@ Summary
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -558,7 +528,7 @@ Summary
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <table class="caption-top table">
 <thead>
@@ -582,52 +552,104 @@ Summary
 </div>
 </div>
 </section>
-<section id="schedule" class="level2">
-<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p>Dates are <strong>provisional</strong>: the <em>Status</em> column and actual dates are updated dynamically as we progress.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-</colgroup>
+<section id="session-logs" class="level2">
+<h2 class="anchored" data-anchor-id="session-logs">Session Logs</h2>
+<div id="listing-session-log" class="quarto-listing quarto-listing-container-table">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-session-log-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-session-log'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th>#</th>
-<th>Block</th>
-<th>Topics</th>
-<th>Expected Period</th>
-<th>Weeks</th>
-<th>Status</th>
-<th>Actual Period</th>
+<tr>
+
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
+
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+
+<th>
+Summary
+</th>
+
+<th>
+Weeks
+</th>
+
 </tr>
 </thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<tbody class="list">
+
+<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792360800000" data-listing-file-modified-sort="1791894183720" data-listing-date-modified-sort="1791894183000" data-listing-reading-time-sort="3" data-listing-word-count-sort="404" data-listing-title-sort="Session 2. Vector operations. Point distance, lines and conics in the plane" data-listing-filename-sort="session-02.qmd">
+<td>
+<span class="listing-date">Oct 19, 2026</span>
+</td>
+<td>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-02.html" class="title listing-title">Session 2. Vector operations. Point distance, lines and conics in the plane</a>
+</td>
+<td>
+<span class="listing-description">Cartesian basis and vector operations, and it’s application in defining lines with a point and a direction. Definition of point-to-point distance in Cartesian plane, and its application to define lines, and (almost every) conics: circles, ellipses, hyperbola.</span>
+</td>
+<td>
+<span class="listing-week">2</span>
+</td>
+
 </tr>
-<tr class="even">
-<td>2</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
+<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1791894219248" data-listing-date-modified-sort="1791894219000" data-listing-reading-time-sort="4" data-listing-word-count-sort="717" data-listing-title-sort="Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors" data-listing-filename-sort="session-01.qmd">
+<td>
+<span class="listing-date">Oct 12, 2026</span>
+</td>
+<td>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-01.html" class="title listing-title">Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors</a>
+</td>
+<td>
+<span class="listing-description">Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.</span>
+</td>
+<td>
+<span class="listing-week">1</span>
+</td>
+
 </tr>
+
 </tbody>
 </table>
-<p>Possible statuses: <em>pending</em>, <em>in progress</em>, <em>completed</em>, <em>postponed</em>.</p>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<!--
+Dates are **provisional**: the *Status* column and actual dates are updated dynamically as we progress.
+
+| # | Block | Topics | Expected Period | Weeks | Status | Actual Period |
+|---|---|---|---|---|---|---|
+| 1 |   |   |   |   |   |   |
+| 2 |   |   |   |   |   |   |
+
+Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
+-->
 </section>
 <section id="notes-and-book-corrections" class="level2">
 <h2 class="anchored" data-anchor-id="notes-and-book-corrections">Notes and Book Corrections</h2>

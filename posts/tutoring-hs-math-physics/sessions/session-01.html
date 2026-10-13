@@ -8,6 +8,7 @@
 
 <meta name="author" content="Basics">
 <meta name="dcterms.date" content="2026-10-12">
+<meta name="description" content="Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.">
 
 <title>Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors – basics blog</title>
 <style>
@@ -157,7 +158,12 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">teaching</div>
                 <div class="quarto-category">mathematics</div>
                 <div class="quarto-category">log</div>
@@ -213,10 +219,9 @@ window.Quarto = {
 
 
 
-<p>Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.</p>
 <section id="functions-and-real-functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions-and-real-functions">Functions and Real Functions</h2>
-<p><strong>Definition of a function.</strong> A function <span class="math inline">\(f: A \rightarrow B\)</span> is a relation between elements of 2 sets. It takes an element <span class="math inline">\(a \in A\)</span>, and produces <strong>one and only one</strong> output <span class="math inline">\(b = f(a)\)</span>. Sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are respectively defined <em>domain</em> and <em>co-domain</em>.</p>
+<p><strong>Definition of a function</strong>. A function <span class="math inline">\(f: A \rightarrow B\)</span> is a relation between elements of 2 sets. It takes an element <span class="math inline">\(a \in A\)</span>, and produces <strong>one and only one</strong> output <span class="math inline">\(b = f(a)\)</span>. Sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are respectively defined <em>domain</em> and <em>co-domain</em>. See <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/set">Insiemistica e funzioni</a>.</p>
 <div id="fig-function-sets" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-function-sets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -227,8 +232,8 @@ Figure&nbsp;1: Graphical representation of (a) a function and (b) a relation tha
 </figcaption>
 </figure>
 </div>
-<p><strong>Definition of a real function, <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span>.</strong> A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers <span class="math inline">\(\mathbb{R}\)</span>.</p>
-<p><strong>Definition of the graph of a real function.</strong> Given a real function <span class="math inline">\(f: D \subseteq \mathbb{R} \to \mathbb{R}\)</span>, its <strong>graph</strong> is the subset of the Cartesian plane <span class="math inline">\(\mathbb{R}^2\)</span> consisting of all points whose coordinates are <span class="math inline">\((x, f(x))\)</span> as <span class="math inline">\(x\)</span> varies across the domain <span class="math inline">\(D\)</span>:</p>
+<p><strong>Definition of a real function, <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span></strong>. A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers <span class="math inline">\(\mathbb{R}\)</span>. See <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/precalculus/real-functions.html">Funzioni reali a variabile reale, <span class="math inline">\(f: D \subseteq \mathbb{R} \rightarrow \mathbb{R}\)</span></a>.</p>
+<p><strong>Definition of the graph of a real function</strong>. Given a real function <span class="math inline">\(f: D \subseteq \mathbb{R} \to \mathbb{R}\)</span>, its <strong>graph</strong> is the subset of the Cartesian plane <span class="math inline">\(\mathbb{R}^2\)</span> consisting of all points whose coordinates are <span class="math inline">\((x, f(x))\)</span> as <span class="math inline">\(x\)</span> varies across the domain <span class="math inline">\(D\)</span>:</p>
 <p><span class="math display">\[\text{Graph}(f) = \{ (x, f(x)) \in \mathbb{R}^2 \mid x \in D \}\]</span></p>
 <p>Visually, it is the “curve” or geometric shape drawn on the plane that translates the algebraic rule of the function into a picture. A point <span class="math inline">\((x_0, y_0)\)</span> belongs to the graph if and only if <span class="math inline">\(y_0 = f(x_0)\)</span>.</p>
 <div id="fig-function" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -245,21 +250,84 @@ Figure&nbsp;2: Graphical representation in the Cartesian plane of (a) a real fun
 </section>
 <section id="introduction-to-analytical-geometry" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-analytical-geometry">Introduction to Analytical Geometry</h2>
-<p>Analytical geometry is a bridge between algebra and geometry. Points in space can be represented set of coordinates of a coordinate system. Geometric entities and properties:</p>
+<p>See <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d/coordinates.html">Math: Analytic geometry: Points in Plane: Coordinates</a></p>
+<p>Analytical geometry is a bridge between algebra and geometry. Points in space can be represented with a set of coordinates of a coordinate system.</p>
+<p>Geometric entities and properties:</p>
 <ul>
 <li>are idependent (<strong>invariant</strong>) from the arbitrary choice of the coordinate system</li>
 <li>can be represented with algebraic relations between the coordinates, once a coordinate system is chosen</li>
 </ul>
+<p>Coordinate systems are <strong>for free</strong>. It’s possible to use more than one coordinate system in the same problem, if they help in the solution. Any additional coordinate system that’s not helping with the solution only adds unnecessary algebra and increases the probability of making mistakes.</p>
 <p>Just as an example, the points of the same circle with radius <span class="math inline">\(R\)</span> in a plane can be easily represented:</p>
 <ul>
 <li>using a system of Cartesian coordinates <span class="math inline">\((x,y)\)</span> with the origin in the center of the circle, as <span class="math inline">\(x^2 + y^2 = R^2\)</span></li>
 <li>using a system of polar coordinates <span class="math inline">\(r, \theta\)</span>, with the origin in the center of the circle, as <span class="math inline">\(r = R\)</span>, for all <span class="math inline">\(\theta \in [0, 2 \pi]\)</span>.</li>
 </ul>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plane-coordinates" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plane-coordinates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="coordinates-cartesian-1.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plane-coordinates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Representing point in a plane with Cartesian coordinates.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plane-polar-coordinates" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plane-polar-coordinates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="coordinates-polar-1.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plane-polar-coordinates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Representing point in a plane with polar coordinates.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="introduction-to-vectors-position-vectors" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-vectors-position-vectors">Introduction to Vectors: Position Vectors</h2>
-<p>We’ll use geometry in Eulcidean space as a way to introduce <strong>vectors</strong>, very powerful mathematical tools in both math and physics: at the university, you’ll learn that a lot of quantities of interest in math and physics are vector quantities, and (almost?) all the fundamental equations in physics are vector equations.</p>
-<p>Once a point <span class="math inline">\(O\)</span> in an Euclidean space is set as a reference, the so called <strong>origin</strong>, then a point <span class="math inline">\(P\)</span> in the Euclidean space can be described with its <strong>position vector</strong> w.r.t. <span class="math inline">\(O\)</span>, that can be represented<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> as the arrow with extreme points <span class="math inline">\(O\)</span> and <span class="math inline">\(P\)</span>, pointing from <span class="math inline">\(O\)</span> to <span class="math inline">\(P\)</span>. This is just a first look at vectors. Without too many details, a vector is nothing too strange:</p>
+<p>See <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d/vectors.html">Math: Analytic geometry: Points in Plane: Position Vectors</a></p>
+<p>We use geometry in Eulcidean space as a way to introduce <strong>vectors</strong>, very powerful mathematical tools in both math and physics: at the university, you’ll learn that a lot of quantities of interest in math and physics are vector quantities, and (almost?) all the fundamental equations in physics are vector equations.</p>
+<p>Once a point <span class="math inline">\(O\)</span> in an Euclidean space is set as a reference, the so called <strong>origin</strong>, then a point <span class="math inline">\(P\)</span> in the Euclidean space can be described with its <strong>position vector</strong> w.r.t. <span class="math inline">\(O\)</span>,</p>
+<p><span class="math display">\[\vec{r}_P = \overrightarrow{OP} = P-O \, \]</span></p>
+<p>that can be represented<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> as the arrow with extreme points <span class="math inline">\(O\)</span> and <span class="math inline">\(P\)</span>, pointing from <span class="math inline">\(O\)</span> to <span class="math inline">\(P\)</span>.</p>
+<div class="quarto-layout-panel" data-layout="[1,1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plane-coordinates" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plane-coordinates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="coordinates-cartesian-1.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plane-coordinates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Representing point in a plane with Cartesian coordinates.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plane-vectors" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plane-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="coordinates-cartesian-1-vectors.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plane-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Representing point in a plane with position vectors.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>This is just a first look at vectors. Without too many details, a vector is nothing too strange:</p>
 <ul>
 <li>it’s a <strong>mathematical object</strong>, just like numbers are</li>
 <li>with some mathematical properties</li>
