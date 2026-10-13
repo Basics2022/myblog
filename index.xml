@@ -23,12 +23,11 @@
 
 <section id="vectors-using-a-cartesian-basis" class="level2">
 <h2 class="anchored" data-anchor-id="vectors-using-a-cartesian-basis">Vectors using a Cartesian basis</h2>
-<p>Cartesian basis:</p>
-<p>Operations:</p>
+<p>Something more about vectors. After a brief general introduction, 2-dimensional vector spaces are investigated: Cartesian basis is defined, and used to write the component expressions of the main vector operations: 1) Multiplication by a scalar, 2) Sum and difference of vectors, 3) Scalar (or inner) product.</p>
+<p>See:</p>
 <ul>
-<li><p>Multiplication by a scalar</p></li>
-<li><p>Sum and difference of vectors</p></li>
-<li><p>Scalar (or inner) product</p></li>
+<li><a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/vector-algebra.html">Math: Vector Algebra: Introduction and main definitions</a></li>
+<li><a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/vector-algebra-euclidean-space-2d.html">Math: Vector Algebra: 2-dimensional Euclidean spaces</a></li>
 </ul>
 </section>
 <section id="point-to-point-distance" class="level2">
@@ -621,7 +620,7 @@ Weeks
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792360800000" data-listing-file-modified-sort="1791894183720" data-listing-date-modified-sort="1791894183000" data-listing-reading-time-sort="3" data-listing-word-count-sort="404" data-listing-title-sort="Session 2. Vector operations. Point distance, lines and conics in the plane" data-listing-filename-sort="session-02.qmd">
+<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792360800000" data-listing-file-modified-sort="1791903358391" data-listing-date-modified-sort="1791903358000" data-listing-reading-time-sort="3" data-listing-word-count-sort="448" data-listing-title-sort="Session 2. Vector operations. Point distance, lines and conics in the plane" data-listing-filename-sort="session-02.qmd">
 <td>
 <span class="listing-date">Oct 19, 2026</span>
 </td>
@@ -4894,7 +4893,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```hmdlxlnsek Example: evaluation of hyperstatics</p>
+<p>```puvyttkwsd Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
