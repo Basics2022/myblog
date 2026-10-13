@@ -1,7 +1,8 @@
 ---
-title: "Session 2. Vector operations."
+title: "Session 2. Vector operations. Point distance, lines and conics in the plane"
 subtitle: ""
-description: ""
+description: "Cartesian basis and vector operations, and it's application in defining lines with a point and a direction. Definition of point-to-point distance in Cartesian plane, and its application to define lines, and (almost every) conics: circles, ellipses, hyperbola."
+week: "2"
 author: "Basics"
 date: "2026-10-19"
 lang: en
@@ -11,7 +12,7 @@ toc: true
 toc-title: "On this page"
 ---
 
-Introduce Cartesian basis and vector operations. Use it for defining lines with a point and a direction. Definition of point-to-point distance in Cartesian plane, and its application to define lines, and (almost every) conics: circles, ellipses, hyperbola.
+
 
 ## Vectors using a Cartesian basis
 

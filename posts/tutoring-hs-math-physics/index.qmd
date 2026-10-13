@@ -15,11 +15,12 @@ listing:
   contents: sessions
   sort: "date desc"
   type: table
-  fields: [date, title, description]
+  fields: [date, title, description, week]
   field-display-names:
     date: "Date"
     title: "Title"
     description: "Summary"
+    week: "Weeks"
 ---
 
 
@@ -27,16 +28,13 @@ listing:
 
 Index and activity log for the university mathematics preparation path. Reference material: [Mathematics for High Schools](https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html).
 
-## Session Logs
-
-::: {#session-log}
-:::
-
 
 ## Topics & Curriculum
 
-:::: {.callout-note icon="false" collapse="false"}
-## Analytical geometry
+Three main topics: analytic geometry, calculus, and vectors. Other side topics need to be touched for the best understanding of the main topics. Among these: properties of trigonometric and exponential functions, complex numbers.
+
+:::: {.callout-note icon="false" collapse="true"}
+## Analytic geometry
 
 | # | Block | Session | Book Chapters |
 |---|---|---|---|
@@ -51,7 +49,7 @@ Index and activity log for the university mathematics preparation path. Referenc
 :::: {.callout-note icon="false" collapse="false"}
 ## Calculus
 
-::: {.callout-note icon="false" collapse="false"}
+::: {.callout-note icon="false" collapse="true"}
 ## Real-valued functions and limits
 
 | # | Block | Session | Book Chapters |
@@ -63,7 +61,7 @@ Index and activity log for the university mathematics preparation path. Referenc
 
 :::
 
-::: {.callout-note icon="false" collapse="false"}
+::: {.callout-note icon="false" collapse="true"}
 ## Derivatives
 
 | # | Block | Session | Book Chapters |
@@ -74,8 +72,19 @@ Index and activity log for the university mathematics preparation path. Referenc
 
 :::
 
-::: {.callout-note icon="false" collapse="false"}
+::: {.callout-note icon="false" collapse="true"}
 ## Integrals
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 |                      | | |
+| 2 |                      | | |
+|...|                      | | |
+
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## Elementary ordinary differential equations
 
 | # | Block | Session | Book Chapters |
 |---|---|---|---|
@@ -88,7 +97,7 @@ Index and activity log for the university mathematics preparation path. Referenc
 
 ::::
 
-::: {.callout-note icon="false" collapse="false"}
+::: {.callout-note icon="false" collapse="true"}
 ## Vectors
 
 | # | Block | Session | Book Chapters |
@@ -97,8 +106,15 @@ Index and activity log for the university mathematics preparation path. Referenc
 
 :::
 
+
+## Session Logs
+
+::: {#session-log}
+:::
+
 ## Schedule
 
+<!--
 Dates are **provisional**: the *Status* column and actual dates are updated dynamically as we progress.
 
 | # | Block | Topics | Expected Period | Weeks | Status | Actual Period |
@@ -107,7 +123,7 @@ Dates are **provisional**: the *Status* column and actual dates are updated dyna
 | 2 |   |   |   |   |   |   |
 
 Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
-
+-->
 
 ## Notes and Book Corrections
 

@@ -1,7 +1,8 @@
 ---
 title: "Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors"
 subtitle: ""
-description: ""
+description: "Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors."
+week: "1"
 author: "Basics"
 date: "2026-10-12"
 lang: en
@@ -11,18 +12,18 @@ toc: true
 toc-title: "On this page"
 ---
 
-Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.
+
 
 
 ## Functions and Real Functions
 
-**Definition of a function.** A function $f: A \rightarrow B$ is a relation between elements of 2 sets. It takes an element $a \in A$, and produces **one and only one** output $b = f(a)$. Sets $A$ and $B$ are respectively defined *domain* and *co-domain*.
+**Definition of a function**. A function $f: A \rightarrow B$ is a relation between elements of 2 sets. It takes an element $a \in A$, and produces **one and only one** output $b = f(a)$. Sets $A$ and $B$ are respectively defined *domain* and *co-domain*. See [Insiemistica e funzioni](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/set).
 
 ![Graphical representation of (a) a function and (b) a relation that's not a function.](function-sets.svg){ #fig-function-sets fig-align="center" }
 
-**Definition of a real function, $f: \mathbb{R} \rightarrow \mathbb{R}$.** A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers $\mathbb{R}$.
+**Definition of a real function, $f: \mathbb{R} \rightarrow \mathbb{R}$**. A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers $\mathbb{R}$. See [Funzioni reali a variabile reale, $f: D \subseteq \mathbb{R} \rightarrow \mathbb{R}$](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/precalculus/real-functions.html).
 
-**Definition of the graph of a real function.** Given a real function $f: D \subseteq \mathbb{R} \to \mathbb{R}$, its **graph** is the subset of the Cartesian plane $\mathbb{R}^2$ consisting of all points whose coordinates are $(x, f(x))$ as $x$ varies across the domain $D$:
+**Definition of the graph of a real function**. Given a real function $f: D \subseteq \mathbb{R} \to \mathbb{R}$, its **graph** is the subset of the Cartesian plane $\mathbb{R}^2$ consisting of all points whose coordinates are $(x, f(x))$ as $x$ varies across the domain $D$:
 
 $$\text{Graph}(f) = \{ (x, f(x)) \in \mathbb{R}^2 \mid x \in D \}$$
 
@@ -34,21 +35,52 @@ Graph of functions will be useful later, to give a **geometrical interpretation*
 
 ## Introduction to Analytical Geometry
 
-Analytical geometry is a bridge between algebra and geometry. Points in space can be represented set of coordinates of a coordinate system. Geometric entities and properties:
+See [Math: Analytic geometry: Points in Plane: Coordinates](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d/coordinates.html)
+
+Analytical geometry is a bridge between algebra and geometry. Points in space can be represented with a set of coordinates of a coordinate system.
+
+Geometric entities and properties:
 
 * are idependent (**invariant**) from the arbitrary choice of the coordinate system
 * can be represented with algebraic relations between the coordinates, once a coordinate system is chosen
+
+Coordinate systems are **for free**. It's possible to use more than one coordinate system in the same problem, if they help in the solution. Any additional coordinate system that's not helping with the solution only adds unnecessary algebra and increases the probability of making mistakes.
 
 Just as an example, the points of the same circle with radius $R$ in a plane can be easily represented:
 
 * using a system of Cartesian coordinates $(x,y)$ with the origin in the center of the circle, as $x^2 + y^2 = R^2$
 * using a system of polar coordinates $r, \theta$, with the origin in the center of the circle, as $r = R$, for all $\theta \in [0, 2 \pi]$.
 
+::: {layout="[1,1]"}
+
+![Representing point in a plane with Cartesian coordinates.](coordinates-cartesian-1.svg){#fig-plane-coordinates}
+
+![Representing point in a plane with polar coordinates.](coordinates-polar-1.svg){#fig-plane-polar-coordinates}
+
+:::
+
 ## Introduction to Vectors: Position Vectors
 
-We'll use geometry in Eulcidean space as a way to introduce **vectors**, very powerful mathematical tools in both math and physics: at the university, you'll learn that a lot of quantities of interest in math and physics are vector quantities, and (almost?) all the fundamental equations in physics are vector equations.
+See [Math: Analytic geometry: Points in Plane: Position Vectors](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d/vectors.html)
 
-Once a point $O$ in an Euclidean space is set as a reference, the so called **origin**, then a point $P$ in the Euclidean space can be described with its **position vector** w.r.t. $O$, that can be represented[^vector-arrow] as the arrow with extreme points $O$ and $P$, pointing from $O$ to $P$. 
+We use geometry in Eulcidean space as a way to introduce **vectors**, very powerful mathematical tools in both math and physics: at the university, you'll learn that a lot of quantities of interest in math and physics are vector quantities, and (almost?) all the fundamental equations in physics are vector equations.
+
+Once a point $O$ in an Euclidean space is set as a reference, the so called **origin**, then a point $P$ in the Euclidean space can be described with its **position vector** w.r.t. $O$, 
+
+$$\vec{r}_P = \overrightarrow{OP} = P-O \, $$
+
+that can be represented[^vector-arrow] as the arrow with extreme points $O$ and $P$, pointing from $O$ to $P$.
+
+
+::: {layout="[1,1]"}
+
+![Representing point in a plane with Cartesian coordinates.](coordinates-cartesian-1.svg){#fig-plane-coordinates}
+
+![Representing point in a plane with position vectors.](coordinates-cartesian-1-vectors.svg){#fig-plane-vectors}
+
+:::
+
+
 This is just a first look at vectors. Without too many details, a vector is nothing too strange:
 
 - it's a **mathematical object**, just like numbers are
