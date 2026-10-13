@@ -185,7 +185,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">October 12, 2026</p>
+        <p class="date-modified">October 13, 2026</p>
       </div>
     </div>
       
@@ -213,13 +213,35 @@ window.Quarto = {
 
 
 
+<p>Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.</p>
 <section id="functions-and-real-functions" class="level2">
 <h2 class="anchored" data-anchor-id="functions-and-real-functions">Functions and Real Functions</h2>
 <p><strong>Definition of a function.</strong> A function <span class="math inline">\(f: A \rightarrow B\)</span> is a relation between elements of 2 sets. It takes an element <span class="math inline">\(a \in A\)</span>, and produces <strong>one and only one</strong> output <span class="math inline">\(b = f(a)\)</span>. Sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are respectively defined <em>domain</em> and <em>co-domain</em>.</p>
+<div id="fig-function-sets" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-function-sets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="function-sets.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-function-sets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Graphical representation of (a) a function and (b) a relation that’s not a function.
+</figcaption>
+</figure>
+</div>
 <p><strong>Definition of a real function, <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span>.</strong> A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers <span class="math inline">\(\mathbb{R}\)</span>.</p>
 <p><strong>Definition of the graph of a real function.</strong> Given a real function <span class="math inline">\(f: D \subseteq \mathbb{R} \to \mathbb{R}\)</span>, its <strong>graph</strong> is the subset of the Cartesian plane <span class="math inline">\(\mathbb{R}^2\)</span> consisting of all points whose coordinates are <span class="math inline">\((x, f(x))\)</span> as <span class="math inline">\(x\)</span> varies across the domain <span class="math inline">\(D\)</span>:</p>
 <p><span class="math display">\[\text{Graph}(f) = \{ (x, f(x)) \in \mathbb{R}^2 \mid x \in D \}\]</span></p>
 <p>Visually, it is the “curve” or geometric shape drawn on the plane that translates the algebraic rule of the function into a picture. A point <span class="math inline">\((x_0, y_0)\)</span> belongs to the graph if and only if <span class="math inline">\(y_0 = f(x_0)\)</span>.</p>
+<div id="fig-function" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="function.svg" class="img-fluid quarto-figure quarto-figure-center figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-function-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Graphical representation in the Cartesian plane of (a) a real function and (b) a relation that’s not a function. The relation representing a circle with Cartesian coordinate, <span class="math inline">\(x^2 + y^2 = R^2\)</span>, can’t be written as a function as there are two <span class="math inline">\(y\)</span> values associated to every individual value of <span class="math inline">\(x \in [-R, R]\)</span>, i.e.&nbsp;<span class="math inline">\(y = \mp \sqrt{R^2 - x^2}\)</span>.
+</figcaption>
+</figure>
+</div>
+<p>Graph of functions will be useful later, to give a <strong>geometrical interpretation</strong> of <strong>derivatives</strong> and <strong>integrals</strong>.</p>
 </section>
 <section id="introduction-to-analytical-geometry" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-analytical-geometry">Introduction to Analytical Geometry</h2>
@@ -236,12 +258,13 @@ window.Quarto = {
 </section>
 <section id="introduction-to-vectors-position-vectors" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-vectors-position-vectors">Introduction to Vectors: Position Vectors</h2>
+<p>We’ll use geometry in Eulcidean space as a way to introduce <strong>vectors</strong>, very powerful mathematical tools in both math and physics: at the university, you’ll learn that a lot of quantities of interest in math and physics are vector quantities, and (almost?) all the fundamental equations in physics are vector equations.</p>
 <p>Once a point <span class="math inline">\(O\)</span> in an Euclidean space is set as a reference, the so called <strong>origin</strong>, then a point <span class="math inline">\(P\)</span> in the Euclidean space can be described with its <strong>position vector</strong> w.r.t. <span class="math inline">\(O\)</span>, that can be represented<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> as the arrow with extreme points <span class="math inline">\(O\)</span> and <span class="math inline">\(P\)</span>, pointing from <span class="math inline">\(O\)</span> to <span class="math inline">\(P\)</span>. This is just a first look at vectors. Without too many details, a vector is nothing too strange:</p>
 <ul>
 <li>it’s a <strong>mathematical object</strong>, just like numbers are</li>
 <li>with some mathematical properties</li>
 <li>that can be used to represent geometrical or physical quantities, that numbers alone can’t fully represent. Examples of vector quantities are: velocity, acceleration, force,…<strong>magnitude</strong> of these physical quantities is not enough; we also need <strong>direction</strong></li>
-<li>that can be combined with other vectors, through <strong>vector operations (vector algebra)</strong>: it’s possible to multiply a vector by a number, it’s possible to sum and subtract vectors, it’s possible to define different kinds of products using vectors,…</li>
+<li>that can be combined with other vectors, through <strong>vector operations (vector algebra)</strong>. it’s possible to multiply a vector by a number, it’s possible to sum and subtract vectors, it’s possible to define different kinds of products using vectors,…</li>
 </ul>
 
 

@@ -1,0 +1,115 @@
+---
+title: "A Remote Tutoring Journey"
+subtitle: "Activity Log and Experience Summary"
+description: "A preparation path for university-level mathematics, physics, or engineering for a linguistics high school senior: topics, schedule, and session logs."
+author: "Basics"
+date: "2026-10-12"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+# Elenco automatico delle voci del registro, lette dalla cartella log/
+listing:
+  id: session-log
+  contents: sessions
+  sort: "date desc"
+  type: table
+  fields: [date, title, description]
+  field-display-names:
+    date: "Date"
+    title: "Title"
+    description: "Summary"
+---
+
+
+## Overview
+
+Index and activity log for the university mathematics preparation path. Reference material: [Mathematics for High Schools](https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html).
+
+## Session Logs
+
+::: {#session-log}
+:::
+
+
+## Topics & Curriculum
+
+:::: {.callout-note icon="false" collapse="false"}
+## Analytical geometry
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 | Euclidean space                            | 1 | |
+| 2 | Coordinates to represent space             | 1 | |
+| 3 | Point-point distance                       | 2 | |
+
+::::
+
+:::: {.callout-note icon="false" collapse="false"}
+## Calculus
+
+::: {.callout-note icon="false" collapse="false"}
+## Real-valued functions and limits
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 | Definition of function, and real function | 1 | |
+| 2 | Graph of a real function                  | 1 | |
+|...| Definition of limit                       |...| |
+|...| Definition continuous function            |...| |
+
+:::
+
+::: {.callout-note icon="false" collapse="false"}
+## Derivatives
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 |                      | | |
+| 2 |                      | | |
+|...|                      | | |
+
+:::
+
+::: {.callout-note icon="false" collapse="false"}
+## Integrals
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 |                      | | |
+| 2 |                      | | |
+|...|                      | | |
+
+:::
+
+
+::::
+
+::: {.callout-note icon="false" collapse="false"}
+## Vectors
+
+| # | Block | Session | Book Chapters |
+|---|---|---|---|
+| 1 | First example: position vectors                  | 1 | |
+
+:::
+
+## Schedule
+
+Dates are **provisional**: the *Status* column and actual dates are updated dynamically as we progress.
+
+| # | Block | Topics | Expected Period | Weeks | Status | Actual Period |
+|---|---|---|---|---|---|---|
+| 1 |   |   |   |   |   |   |
+| 2 |   |   |   |   |   |   |
+
+Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
+
+
+## Notes and Book Corrections
+
+Errors and missing sections discovered during the tutoring sessions are collected in the log entries and fixed in the source repository. If you find any others, please report them on the [GitHub repository](https://github.com/Basics2022/bbooks-math-miscellanea-hs/issues/new).
+
+
+
