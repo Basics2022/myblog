@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/tutoring-hs-math-physics/sessions/session-02.html",
       "/posts/tutoring-hs-math-physics/sessions/session-01.html",
       "/posts/tutoring-hs-math-physics/index.html",
       "/posts/convergence-types/index.html",
@@ -19,6 +20,7 @@
   {
     "listing": "/posts/tutoring-hs-math-physics/index.html",
     "items": [
+      "/posts/tutoring-hs-math-physics/sessions/session-02.html",
       "/posts/tutoring-hs-math-physics/sessions/session-01.html"
     ]
   }

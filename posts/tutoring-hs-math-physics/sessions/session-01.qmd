@@ -11,11 +11,14 @@ toc: true
 toc-title: "On this page"
 ---
 
+Real functions as the first step in calculus, and their graph in the Cartesian plane, an excuse to recall analytical geometry and introduce vectors.
 
 
 ## Functions and Real Functions
 
 **Definition of a function.** A function $f: A \rightarrow B$ is a relation between elements of 2 sets. It takes an element $a \in A$, and produces **one and only one** output $b = f(a)$. Sets $A$ and $B$ are respectively defined *domain* and *co-domain*.
+
+![Graphical representation of (a) a function and (b) a relation that's not a function.](function-sets.svg){ #fig-function-sets fig-align="center" }
 
 **Definition of a real function, $f: \mathbb{R} \rightarrow \mathbb{R}$.** A real function is nothing but a function, whose domain and co-domamin are subsets of the real numbers $\mathbb{R}$.
 
@@ -24,6 +27,10 @@ toc-title: "On this page"
 $$\text{Graph}(f) = \{ (x, f(x)) \in \mathbb{R}^2 \mid x \in D \}$$
 
 Visually, it is the "curve" or geometric shape drawn on the plane that translates the algebraic rule of the function into a picture. A point $(x_0, y_0)$ belongs to the graph if and only if $y_0 = f(x_0)$.
+
+![Graphical representation in the Cartesian plane of (a) a real function and (b) a relation that's not a function. The relation representing a circle with Cartesian coordinate, $x^2 + y^2 = R^2$, can't be written as a function as there are two $y$ values associated to every individual value of $x \in [-R, R]$, i.e. $y = \mp \sqrt{R^2 - x^2}$.](function.svg){ #fig-function fig-align="center" }
+
+Graph of functions will be useful later, to give a **geometrical interpretation** of **derivatives** and **integrals**.
 
 ## Introduction to Analytical Geometry
 
@@ -39,13 +46,15 @@ Just as an example, the points of the same circle with radius $R$ in a plane can
 
 ## Introduction to Vectors: Position Vectors
 
+We'll use geometry in Eulcidean space as a way to introduce **vectors**, very powerful mathematical tools in both math and physics: at the university, you'll learn that a lot of quantities of interest in math and physics are vector quantities, and (almost?) all the fundamental equations in physics are vector equations.
+
 Once a point $O$ in an Euclidean space is set as a reference, the so called **origin**, then a point $P$ in the Euclidean space can be described with its **position vector** w.r.t. $O$, that can be represented[^vector-arrow] as the arrow with extreme points $O$ and $P$, pointing from $O$ to $P$. 
 This is just a first look at vectors. Without too many details, a vector is nothing too strange:
 
 - it's a **mathematical object**, just like numbers are
 - with some mathematical properties
 - that can be used to represent geometrical or physical quantities, that numbers alone can't fully represent. Examples of vector quantities are: velocity, acceleration, force,...**magnitude** of these physical quantities is not enough; we also need **direction**
-- that can be combined with other vectors, through **vector operations (vector algebra)**: it's possible to multiply a vector by a number, it's possible to sum and subtract vectors, it's possible to define different kinds of products using vectors,...
+- that can be combined with other vectors, through **vector operations (vector algebra)**. it's possible to multiply a vector by a number, it's possible to sum and subtract vectors, it's possible to define different kinds of products using vectors,...
 
 
 [^vector-arrow]: The arrow is just a useful graphical representation of the vector, it's not the vector itself.
