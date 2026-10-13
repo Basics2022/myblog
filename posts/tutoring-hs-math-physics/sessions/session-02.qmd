@@ -79,7 +79,7 @@ $$(x-x_C)^2 + (y-y_C)^2 = R^2 \ .$$
 $$|P - F_1| + |P - F_2| = 2 c  \ .$$
 
 
-**Ellipses.** A hyperbola can be defined as the geometric entity in the plane whose points have constant difference of the distances w.r.t. given points, the foci $F_1$, $F_2$, i.e.
+**Hyperbola.** A hyperbola can be defined as the geometric entity in the plane whose points have constant difference of the distances w.r.t. given points, the foci $F_1$, $F_2$, i.e.
 
 $$\left| |P - F_1| - |P - F_2| \right| = 2 a  \ .$$
 
