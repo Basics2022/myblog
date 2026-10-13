@@ -16,15 +16,12 @@ toc-title: "On this page"
 
 ## Vectors using a Cartesian basis
 
-Cartesian basis:
+Something more about vectors. After a brief general introduction, 2-dimensional vector spaces are investigated: Cartesian basis is defined, and used to write the component expressions of the main vector operations: 1) Multiplication by a scalar, 2) Sum and difference of vectors, 3) Scalar (or inner) product.
 
-Operations:
+See:
 
-* Multiplication by a scalar
-
-* Sum and difference of vectors
-
-* Scalar (or inner) product
+* [Math: Vector Algebra: Introduction and main definitions](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/vector-algebra.html)
+* [Math: Vector Algebra: 2-dimensional Euclidean spaces](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/algebra/vector-algebra-euclidean-space-2d.html)
 
 ## Point-to-point distance
 
