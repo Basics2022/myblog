@@ -14,7 +14,7 @@ toc-title: "On this page"
 
 This session provides a crash introduction to limits and derivatives. Without going into details of a rigorous definition of the limit of a real function, first section should provide an intuitive idea of the limit, provide some examples of pathological cases, and a bridge to the derivative. The second section should provide an illustration of the geometrical interpretation of the derivative, introducing the definition, and showing the way to evaluate the derivative of some fundamental functions.
 
-A list the missing steps for a complete understanding of the topics is presented at the end of this section. These steps will be covered in the following sessions.
+A list of the missing steps for a complete understanding of the topics is presented at the end of this section. These steps will be covered in the following sessions.
 
 The interactive **html** blocks have been designed with the fundamental help of **Gemini**.
 
@@ -26,7 +26,7 @@ Before going into the details of a rigorous definition, this section aims at
 
 1. providing an **intuitive idea** of the concept of limit, in 4 cases listed in the *SELECT LIMIT CASE* dropdown menu. In the finite/finite example for the **continuous function** $f(x) = \tfrac{x^2-1}{2}$, taking the limit for $x \rightarrow 2$ just means evaluating the function $f(x)$ for $x = 2$, and thus $\lim_{x\rightarrow 2} f(x) = f(2) = \tfrac{3}{2}$
 2. showing some **pathological cases**: a function "with jumps" (a discontinuous function), an "increasingly fast" oscillating function ($\sin(1/x)$ for $x \rightarrow 0$)
-3. presenting an example of **indeterminate form** $\tfrac{0}{0}$. The function $f(x) = \tfrac{x^2-4}{x-2}$ is the ratio of two polynomial functions whose values are zero for $x=2$. The existence conditions for $f(x)$ read $x \ne 2$, otherwise the denominator becomes equal to zero (and we know that's not possible to divide by zero). Anyway, the limit operation allows to study the behavior of the function as $x$ approaches $2$. As the numerator can be written as $x^2-4 = (x-2)(x+2)$, the function $f(x)$ is equivalent to $x+2$ for all the $x \ne 2$. Now, $x+2$ is a continuous function that gives no issues at all when evaluated for $x = 2$.
+3. presenting an example of **indeterminate form** $\tfrac{0}{0}$. The function $f(x) = \tfrac{x^2-4}{x-2}$ is the ratio of two polynomial functions whose values are zero for $x=2$. The existence conditions for $f(x)$ read $x \ne 2$, otherwise the denominator becomes equal to zero (and we know that's not possible to divide by zero). Anyway, the limit operation allows to study the behavior of the function as $x$ approaches $2$. Since $x^2-4 = (x-2)(x+2)$, for **all the** $x \ne 2$ the function $f(x) = \tfrac{\cancel{(x-2)}(x+2)}{\cancel{x-2}}$ is equivalent to $x+2$. Now, $x+2$ is a continuous function - as in the first bullet of this item list - that gives no issues at all when evaluated for $x = 2$.
 
    $$\lim_{x \rightarrow 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \rightarrow 2} \left( x + 2 \right) = 4  \ .$$
 
@@ -42,7 +42,7 @@ A geometrical interpretation is presented first, then the definition is provided
 
 ### Geometrical Interpretation
 
-In the previous sessions, we tried to get familiar with [real functions and their graph](./session-01.qmd#functions-and-real-functions). Now, we provide the goemetrical interpretation of the derivative $f'(x)$ of a function $f(x)$. Given a function $f(x)$, the function $f'(x)$ provides the **slope of the tangent line** to the graph of the function in point $(x, f(x))$.
+In the previous sessions, we tried to get familiar with [real functions and their graph](./session-01.qmd#functions-and-real-functions). Now, we provide the geometrical interpretation of the derivative $f'(x)$ of a function $f(x)$. Given a function $f(x)$, the function $f'(x)$ provides the **slope of the tangent line** to the graph of the function in point $(x, f(x))$.
 
 ```{=html}
 <iframe src="_geometric_meaning_of_the_derivative.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
@@ -67,7 +67,7 @@ See: [Matematica: Calcolo infinitesimale: Derivata: Derivata delle funzioni fond
 
 ## Missing steps
 
-**Limits and continous functions.**
+**Limits and continuous functions.**
 
 * Formal definition of limit for revisiting the intuitive introduction
 * Operations and theorems
@@ -85,7 +85,7 @@ See: [Matematica: Calcolo infinitesimale: Derivata: Derivata delle funzioni fond
 **Integrals.** Given the **fundamental theorem of calculus**, the integral is the opposite operation of the derivative. We need to understand that, and take all the **steps taken with derivatives backwards**: integrals of fundamental functions, rules of integration,...
 
 **Ordinary differential equations.** Lots of systems of interest are governed by differential equations, especially in physics, classical mechanics and engineering. A differential equation is nothing but an equation containing a unknown function and its derivatives.
-We'll introduce and solve the **simplest ones**, that nonetheless can be used as the matematical model of lots of systems. Just as an example,
+We'll introduce and solve the **simplest ones**, that nonetheless can be used as the mathematical model of lots of systems. Just as an example,
 
 * under some circumstances, the temperature of a body $T(t)$ with mass $m$, heat capacity $C$, in an environment with temperature $T_e(t)$ and that can exchange heat with the body, is governed by the differential equation 
 
