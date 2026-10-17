@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Basics">
-<meta name="dcterms.date" content="2026-10-17">
-<meta name="description" content="…">
+<meta name="dcterms.date" content="2026-10-26">
+<meta name="description" content="Graphical introduction of limits and derivatives, some pathological cases, and the derivative of some fundamental functions.">
 
-<title>Session 3. Crash introduction to calculus – basics blog</title>
+<title>Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives – basics blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,6 +82,35 @@ gtag('js', new Date());
 gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -128,10 +157,10 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Session 3. Crash introduction to calculus</h1>
+      <h1 class="title">Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives</h1>
                   <div>
         <div class="description">
-          …
+          Graphical introduction of limits and derivatives, some pathological cases, and the derivative of some fundamental functions.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -155,7 +184,7 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 17, 2026</p>
+        <p class="date">October 26, 2026</p>
       </div>
     </div>
     
@@ -180,8 +209,12 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
   <li><a href="#introduction-to-limits" id="toc-introduction-to-limits" class="nav-link active" data-scroll-target="#introduction-to-limits">Introduction to Limits</a></li>
   <li><a href="#introduction-to-derivatives" id="toc-introduction-to-derivatives" class="nav-link" data-scroll-target="#introduction-to-derivatives">Introduction to Derivatives</a>
   <ul class="collapse">
-  <li><a href="#geometrical-meaning" id="toc-geometrical-meaning" class="nav-link" data-scroll-target="#geometrical-meaning">Geometrical Meaning</a></li>
+  <li><a href="#geometrical-interpretation" id="toc-geometrical-interpretation" class="nav-link" data-scroll-target="#geometrical-interpretation">Geometrical Interpretation</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  <li><a href="#derivative-of-fundamental-functions" id="toc-derivative-of-fundamental-functions" class="nav-link" data-scroll-target="#derivative-of-fundamental-functions">Derivative of fundamental functions</a></li>
   </ul></li>
+  <li><a href="#missing-steps" id="toc-missing-steps" class="nav-link" data-scroll-target="#missing-steps">Missing steps</a></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></nav>
     </div>
@@ -192,18 +225,74 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 
 
 
+<p>This session provides a crash introduction to limits and derivatives. Without going into details of a rigorous definition of the limit of a real function, first section should provide an intuitive idea of the limit, provide some examples of pathological cases, and a bridge to the derivative. The second section should provide an illustration of the geometrical interpretation of the derivative, introducing the definition, and showing the way to evaluate the derivative of some fundamental functions.</p>
+<p>A list the missing steps for a complete understanding of the topics is presented at the end of this section. These steps will be covered in the following sessions.</p>
+<p>The interactive <strong>html</strong> blocks have been designed with the fundamental help of <strong>Gemini</strong>.</p>
 <section id="introduction-to-limits" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-limits">Introduction to Limits</h2>
+<p>See: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/analysis.html#limiti">Matematica: Calcolo infinitesimale: Introduzione al Calcolo: Limiti</a></p>
+<p>Before going into the details of a rigorous definition, this section aims at</p>
+<ol type="1">
+<li><p>providing an <strong>intuitive idea</strong> of the concept of limit, in 4 cases listed in the <em>SELECT LIMIT CASE</em> dropdown menu. In the finite/finite example for the <strong>continuous function</strong> <span class="math inline">\(f(x) = \tfrac{x^2-1}{2}\)</span>, taking the limit for <span class="math inline">\(x \rightarrow 2\)</span> just means evaluating the function <span class="math inline">\(f(x)\)</span> for <span class="math inline">\(x = 2\)</span>, and thus <span class="math inline">\(\lim_{x\rightarrow 2} f(x) = f(2) = \tfrac{3}{2}\)</span></p></li>
+<li><p>showing some <strong>pathological cases</strong>: a function “with jumps” (a discontinuous function), an “increasingly fast” oscillating function (<span class="math inline">\(\sin(1/x)\)</span> for <span class="math inline">\(x \rightarrow 0\)</span>)</p></li>
+<li><p>presenting an example of <strong>indeterminate form</strong> <span class="math inline">\(\tfrac{0}{0}\)</span>. The function <span class="math inline">\(f(x) = \tfrac{x^2-4}{x-2}\)</span> is the ratio of two polynomial functions whose values are zero for <span class="math inline">\(x=2\)</span>. The existence conditions for <span class="math inline">\(f(x)\)</span> read <span class="math inline">\(x \ne 2\)</span>, otherwise the denominator becomes equal to zero (and we know that’s not possible to divide by zero). Anyway, the limit operation allows to study the behavior of the function as <span class="math inline">\(x\)</span> approaches <span class="math inline">\(2\)</span>. As the numerator can be written as <span class="math inline">\(x^2-4 = (x-2)(x+2)\)</span>, the function <span class="math inline">\(f(x)\)</span> is equivalent to <span class="math inline">\(x+2\)</span> for all the <span class="math inline">\(x \ne 2\)</span>. Now, <span class="math inline">\(x+2\)</span> is a continuous function that gives no issues at all when evaluated for <span class="math inline">\(x = 2\)</span>.</p>
+<p><span class="math display">\[\lim_{x \rightarrow 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \rightarrow 2} \left( x + 2 \right) = 4  \ .\]</span></p></li>
+</ol>
 <iframe src="_graphical_introduction_to_limits.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
 </section>
 <section id="introduction-to-derivatives" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-to-derivatives">Introduction to Derivatives</h2>
-<section id="geometrical-meaning" class="level3">
-<h3 class="anchored" data-anchor-id="geometrical-meaning">Geometrical Meaning</h3>
+<p>See: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html">Matematica: Calcolo infinitesimale: Derivata</a></p>
+<p>A geometrical interpretation is presented first, then the definition is provided along with the fundamental derivatives.</p>
+<section id="geometrical-interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="geometrical-interpretation">Geometrical Interpretation</h3>
+<p>In the previous sessions, we tried to get familiar with <a href="../../../posts/tutoring-hs-math-physics/sessions/session-01.html#functions-and-real-functions">real functions and their graph</a>. Now, we provide the goemetrical interpretation of the derivative <span class="math inline">\(f'(x)\)</span> of a function <span class="math inline">\(f(x)\)</span>. Given a function <span class="math inline">\(f(x)\)</span>, the function <span class="math inline">\(f'(x)\)</span> provides the <strong>slope of the tangent line</strong> to the graph of the function in point <span class="math inline">\((x, f(x))\)</span>.</p>
 <iframe src="_geometric_meaning_of_the_derivative.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
-
-
 </section>
+<section id="definition" class="level3">
+<h3 class="anchored" data-anchor-id="definition">Definition</h3>
+<p>The derivative <span class="math inline">\(f'(x)\)</span> of function <span class="math inline">\(f(x)\)</span>, evaluated for the generic value <span class="math inline">\(x\)</span> of the independent variable can be interpreted as the slope of the tangent line in <span class="math inline">\((x, f(x))\)</span>. Using the interactive tab, this is equivalent to - for a given point <span class="math inline">\(A \equiv (x, f(x))\)</span>, i.e.&nbsp;for a given value <span class="math inline">\(x\)</span> - to make the point <span class="math inline">\(B \equiv ( x + \Delta x, f(x+\Delta x))\)</span> approach the point <span class="math inline">\(A\)</span>, i.e.&nbsp;to make <span class="math inline">\(\Delta x \rightarrow 0\)</span>. As the slope of the secant line through <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is defined as the <strong>incremental ratio</strong></p>
+<p><span class="math display">\[m_{AB}^{sec} = \frac{y_B - y_A}{x_B-x_A} =  \frac{f(x+\Delta x) - f(x)}{\Delta x} \ ,\]</span></p>
+<p>the slope of the tangent line in <span class="math inline">\(A\)</span> is just the limit for <span class="math inline">\(\Delta x \rightarrow 0\)</span> of the incremental ratio,</p>
+<p><span class="math display">\[m_{A}^{tan} = \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - f(x)}{\Delta x} =: f'(x) \ .\]</span></p>
+<p>As the point <span class="math inline">\(B\)</span> approaches <span class="math inline">\(A\)</span>, the the secant approaches the tangent line (if there’s a tangent line in <span class="math inline">\(A\)</span>, and thus if the derivative in <span class="math inline">\(x\)</span> exists)</p>
+</section>
+<section id="derivative-of-fundamental-functions" class="level3">
+<h3 class="anchored" data-anchor-id="derivative-of-fundamental-functions">Derivative of fundamental functions</h3>
+<p>See: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html#derivate-fondamentali">Matematica: Calcolo infinitesimale: Derivata: Derivata delle funzioni fondamentali</a></p>
+</section>
+</section>
+<section id="missing-steps" class="level2">
+<h2 class="anchored" data-anchor-id="missing-steps">Missing steps</h2>
+<p><strong>Limits and continous functions.</strong></p>
+<ul>
+<li>Formal definition of limit for revisiting the intuitive introduction</li>
+<li>Operations and theorems</li>
+<li>Fundamental limits</li>
+<li>Comparison of infinites and infinitesimals (i.e.&nbsp;functions approaching infinite, or zero)</li>
+</ul>
+<p><strong>Derivatives.</strong></p>
+<ul>
+<li>Derivation rules, allowing to use the derivatives of fundamental functions as the elementary blocks to evaluate the derivative of any arbitrary function</li>
+<li>Theorems</li>
+<li>Applications: approximations, studies of a function (local minima, local maxima, inflection points,…),…</li>
+</ul>
+</section>
+<section id="next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
+<p><strong>Integrals.</strong> Given the <strong>fundamental theorem of calculus</strong>, the integral is the opposite operation of the derivative. We need to understand that, and take all the <strong>steps taken with derivatives backwards</strong>: integrals of fundamental functions, rules of integration,…</p>
+<p><strong>Ordinary differential equations.</strong> Lots of systems of interest are governed by differential equations, especially in physics, classical mechanics and engineering. A differential equation is nothing but an equation containing a unknown function and its derivatives. We’ll introduce and solve the <strong>simplest ones</strong>, that nonetheless can be used as the matematical model of lots of systems. Just as an example,</p>
+<ul>
+<li><p>under some circumstances, the temperature of a body <span class="math inline">\(T(t)\)</span> with mass <span class="math inline">\(m\)</span>, heat capacity <span class="math inline">\(C\)</span>, in an environment with temperature <span class="math inline">\(T_e(t)\)</span> and that can exchange heat with the body, is governed by the differential equation</p>
+<p><span class="math display">\[m C T'(t) + h T(t) = h T_e(t) \ .\]</span></p>
+<p>Here, with all the other parameters and functions given, <span class="math inline">\(T(t)\)</span> is the unknown of the problem.</p></li>
+<li><p>under some circumstances, the position of a mass connected to the ground with a spring and a damper, and subject to an external force <span class="math inline">\(F_e(t)\)</span> is governed by the differential equation</p>
+<p><span class="math display">\[m x''(t) + c x'(t) + k x(t) = F_e(t) \ .\]</span></p>
+<p>Here, with all the other parameters and functions given, <span class="math inline">\(x(t)\)</span> is the unknown of the problem.</p></li>
+</ul>
+<p>As we all learned how to solve algebraic equations, we’ll learn how to solve the simplest ordinary differential equations.</p>
+
+
 </section>
 
 </main> <!-- /main -->

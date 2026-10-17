@@ -1,10 +1,10 @@
 ---
-title: "Session 3. Crash introduction to calculus"
+title: "Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives"
 subtitle: ""
-description: "..."
+description: "Graphical introduction of limits and derivatives, some pathological cases, and the derivative of some fundamental functions."
 week: "3"
 author: "Basics"
-date: "2026-10-17"
+date: "2026-10-26"
 lang: en
 date-modified: last-modified
 categories: [teaching, mathematics, log]
@@ -12,8 +12,23 @@ toc: true
 toc-title: "On this page"
 ---
 
+This session provides a crash introduction to limits and derivatives. Without going into details of a rigorous definition of the limit of a real function, first section should provide an intuitive idea of the limit, provide some examples of pathological cases, and a bridge to the derivative. The second section should provide an illustration of the geometrical interpretation of the derivative, introducing the definition, and showing the way to evaluate the derivative of some fundamental functions.
+
+A list the missing steps for a complete understanding of the topics is presented at the end of this section. These steps will be covered in the following sessions.
+
+The interactive **html** blocks have been designed with the fundamental help of **Gemini**.
 
 ## Introduction to Limits
+
+See: [Matematica: Calcolo infinitesimale: Introduzione al Calcolo: Limiti](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/analysis.html#limiti)
+
+Before going into the details of a rigorous definition, this section aims at
+
+1. providing an **intuitive idea** of the concept of limit, in 4 cases listed in the *SELECT LIMIT CASE* dropdown menu. In the finite/finite example for the **continuous function** $f(x) = \tfrac{x^2-1}{2}$, taking the limit for $x \rightarrow 2$ just means evaluating the function $f(x)$ for $x = 2$, and thus $\lim_{x\rightarrow 2} f(x) = f(2) = \tfrac{3}{2}$
+2. showing some **pathological cases**: a function "with jumps" (a discontinuous function), an "increasingly fast" oscillating function ($\sin(1/x)$ for $x \rightarrow 0$)
+3. presenting an example of **indeterminate form** $\tfrac{0}{0}$. The function $f(x) = \tfrac{x^2-4}{x-2}$ is the ratio of two polynomial functions whose values are zero for $x=2$. The existence conditions for $f(x)$ read $x \ne 2$, otherwise the denominator becomes equal to zero (and we know that's not possible to divide by zero). Anyway, the limit operation allows to study the behavior of the function as $x$ approaches $2$. As the numerator can be written as $x^2-4 = (x-2)(x+2)$, the function $f(x)$ is equivalent to $x+2$ for all the $x \ne 2$. Now, $x+2$ is a continuous function that gives no issues at all when evaluated for $x = 2$.
+
+   $$\lim_{x \rightarrow 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \rightarrow 2} \left( x + 2 \right) = 4  \ .$$
 
 ```{=html}
 <iframe src="_graphical_introduction_to_limits.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
@@ -21,11 +36,69 @@ toc-title: "On this page"
 
 ## Introduction to Derivatives
 
+See: [Matematica: Calcolo infinitesimale: Derivata](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html)
 
+A geometrical interpretation is presented first, then the definition is provided along with the fundamental derivatives.
 
-### Geometrical Meaning
+### Geometrical Interpretation
+
+In the previous sessions, we tried to get familiar with [real functions and their graph](./session-01.qmd#functions-and-real-functions). Now, we provide the goemetrical interpretation of the derivative $f'(x)$ of a function $f(x)$. Given a function $f(x)$, the function $f'(x)$ provides the **slope of the tangent line** to the graph of the function in point $(x, f(x))$.
 
 ```{=html}
 <iframe src="_geometric_meaning_of_the_derivative.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
 ```
+
+### Definition
+
+The derivative $f'(x)$ of function $f(x)$, evaluated for the generic value $x$ of the independent variable can be interpreted as the slope of the tangent line in $(x, f(x))$. Using the interactive tab, this is equivalent to - for a given point $A \equiv (x, f(x))$, i.e. for a given value $x$ - to make the point $B \equiv ( x + \Delta x, f(x+\Delta x))$ approach the point $A$, i.e. to make $\Delta x \rightarrow 0$. As the slope of the secant line through $A$ and $B$ is defined as the **incremental ratio**
+
+$$m_{AB}^{sec} = \frac{y_B - y_A}{x_B-x_A} =  \frac{f(x+\Delta x) - f(x)}{\Delta x} \ ,$$
+
+the slope of the tangent line in $A$ is just the limit for $\Delta x \rightarrow 0$ of the incremental ratio,
+
+$$m_{A}^{tan} = \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x) - f(x)}{\Delta x} =: f'(x) \ .$$
+
+As the point $B$ approaches $A$, the the secant approaches the tangent line (if there's a tangent line in $A$, and thus if the derivative in $x$ exists).
+
+### Derivative of fundamental functions
+
+See: [Matematica: Calcolo infinitesimale: Derivata: Derivata delle funzioni fondamentali](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html#derivate-fondamentali)
+
+
+## Missing steps
+
+**Limits and continous functions.**
+
+* Formal definition of limit for revisiting the intuitive introduction
+* Operations and theorems
+* Fundamental limits
+* Comparison of infinites and infinitesimals (i.e. functions approaching infinite, or zero)
+
+**Derivatives.**
+
+* Derivation rules, allowing to use the derivatives of fundamental functions as the elementary blocks to evaluate the derivative of any arbitrary function
+* Theorems
+* Applications: approximations, studies of a function (local minima, local maxima, inflection points,...),...
+
+## Next steps
+
+**Integrals.** Given the **fundamental theorem of calculus**, the integral is the opposite operation of the derivative. We need to understand that, and take all the **steps taken with derivatives backwards**: integrals of fundamental functions, rules of integration,...
+
+**Ordinary differential equations.** Lots of systems of interest are governed by differential equations, especially in physics, classical mechanics and engineering. A differential equation is nothing but an equation containing a unknown function and its derivatives.
+We'll introduce and solve the **simplest ones**, that nonetheless can be used as the matematical model of lots of systems. Just as an example,
+
+* under some circumstances, the temperature of a body $T(t)$ with mass $m$, heat capacity $C$, in an environment with temperature $T_e(t)$ and that can exchange heat with the body, is governed by the differential equation 
+
+   $$m C T'(t) + h T(t) = h T_e(t) \ .$$
+
+   Here, with all the other parameters and functions given, $T(t)$ is the unknown of the problem.
+
+* under some circumstances, the position of a mass connected to the ground with a spring and a damper, and subject to an external force $F_e(t)$ is governed by the differential equation
+
+   $$m x''(t) + c x'(t) + k x(t) = F_e(t) \ .$$
+
+   Here, with all the other parameters and functions given, $x(t)$ is the unknown of the problem.
+
+As we all learned how to solve algebraic equations, we'll learn how to solve the simplest ordinary differential equations.
+
 
