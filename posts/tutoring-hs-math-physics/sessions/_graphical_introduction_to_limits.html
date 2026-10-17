@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Limits Explorer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- KaTeX for Math Rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+    canvas {
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .canvas-aspect-container {
+      position: relative;
+      width: 100%;
+      padding-top: 50%; /* 2:1 Aspect Ratio */
+      background-color: rgba(15, 23, 42, 0.75);
+      border-radius: 0.75rem;
+      border: 1px solid #1e293b;
+      overflow: hidden;
+    }
+    .canvas-aspect-container canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen p-2 sm:p-4">
+
+  <!-- Main Embeddable Container -->
+  <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+    
+    <!-- Navigation Header -->
+    <header class="bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-0 flex flex-col gap-3">
+      <div class="flex justify-between items-center flex-wrap gap-2">
+        <div class="flex items-center space-x-2.5">
+          <div class="bg-indigo-600 p-1.5 rounded-lg text-white">
+            <i class="fa-solid fa-infinity text-lg"></i>
+          </div>
+          <div>
+            <h1 class="text-base font-bold bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent leading-tight">
+              Interactive Limits Explorer
+            </h1>
+            <p class="text-[11px] text-slate-400">Understanding $\lim_{x \to c} f(x)$, Pathologies, and $\frac{0}{0}$ Indeterminate Forms</p>
+          </div>
+        </div>
+        <button id="reset-view-btn" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-md text-xs font-medium transition flex items-center gap-1 border border-slate-700">
+          <i class="fa-solid fa-rotate-left text-[10px]"></i> Reset View
+        </button>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex space-x-1 border-b border-slate-800 text-xs font-medium overflow-x-auto">
+        <button id="tab-btn-1" onclick="switchTab(1)" class="px-4 py-2 border-b-2 border-indigo-500 text-indigo-400 font-semibold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-chart-line"></i> 1. Concept of Limit
+        </button>
+        <button id="tab-btn-2" onclick="switchTab(2)" class="px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-triangle-exclamation"></i> 2. When Limits Fail
+        </button>
+        <button id="tab-btn-3" onclick="switchTab(3)" class="px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-calculator"></i> 3. $\frac{0}{0}$ & Derivatives
+        </button>
+      </div>
+    </header>
+
+    <!-- Workspace Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 p-4">
+      
+      <!-- Canvas Column (7 Cols on desktop) -->
+      <div class="md:col-span-7 flex flex-col gap-2">
+        <div class="flex justify-between items-center text-xs px-1">
+          <span id="function-display-label" class="font-semibold text-indigo-300 flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span>
+            $f(x) = \frac{x^2 - 1}{2}$
+          </span>
+          <div class="flex items-center gap-1 text-[10px] text-slate-400">
+            <span class="text-slate-500 hidden sm:inline mr-1"><i class="fa-solid fa-hand-pointer text-[9px]"></i> Touch / Drag Canvas</span>
+            <button id="zoom-in-btn" class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded transition"><i class="fa-solid fa-plus"></i></button>
+            <button id="zoom-out-btn" class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded transition"><i class="fa-solid fa-minus"></i></button>
+          </div>
+        </div>
+
+        <!-- Main Plot Canvas -->
+        <div class="canvas-aspect-container shadow-inner">
+          <canvas id="limit-canvas" class="cursor-grab active:cursor-grabbing"></canvas>
+        </div>
+
+        <!-- Dynamic Formula / Evaluation Display -->
+        <div id="formula-math-card" class="bg-slate-950/80 p-2.5 rounded-xl border border-slate-800 text-xs text-center font-mono">
+          <!-- Dynamic formula text populated by JS -->
+        </div>
+      </div>
+
+      <!-- Controls & Readouts Panel (5 Cols on desktop) -->
+      <div class="md:col-span-5 flex flex-col space-y-3">
+        
+        <!-- TAB 1 CONTROLS -->
+        <div id="tab-1-controls" class="space-y-3">
+          <!-- 4 Cases Selection -->
+          <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
+            <label class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Select Limit Case</label>
+            <select id="tab1-case-select" onchange="setTab1Case(this.value)" class="w-full bg-slate-800 border border-slate-700 text-indigo-300 text-xs rounded-lg p-2 focus:ring-1 focus:ring-indigo-500 focus:outline-none">
+              <option value="ff">1. Finite x → c, Finite L (x → 2, L = 1.5)</option>
+              <option value="fi">2. Finite x → c, Infinite L (x → 1, L → ±∞)</option>
+              <option value="if">3. Infinite x → ∞, Finite L (x → +∞, L = 2)</option>
+              <option value="ii">4. Infinite x → ∞, Infinite L (x → +∞, L → +∞)</option>
+            </select>
+            
+            <!-- Hole Toggle for Finite/Finite case -->
+            <div id="hole-toggle-container" class="pt-1.5 flex items-center justify-between border-t border-slate-800/80 text-xs">
+              <span class="text-slate-400">Insert Hole at $x=c$:</span>
+              <input type="checkbox" id="hole-checkbox" onchange="toggleHole(this.checked)" class="accent-indigo-500 rounded cursor-pointer">
+            </div>
+          </div>
+
+          <!-- Slider x -> c -->
+          <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-400">Position $x$:</span>
+              <span id="tab1-x-val" class="font-mono text-indigo-400 font-semibold">1.20</span>
+            </div>
+            <input type="range" id="tab1-x-slider" min="-1" max="4" step="0.01" value="1.20" oninput="updateSliderX(parseFloat(this.value))" class="w-full accent-indigo-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span id="tab1-min-label">Left ($x < c$)</span>
+              <span id="tab1-c-label" class="text-purple-400 font-medium">Target c = 2</span>
+              <span id="tab1-max-label">Right ($x > c$)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2 CONTROLS -->
+        <div id="tab-2-controls" class="hidden space-y-3">
+          <!-- Case Toggle -->
+          <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
+            <label class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Pathology Case</label>
+            <div class="grid grid-cols-3 gap-1">
+              <button id="tab2-jump-btn" onclick="setTab2Case('jump')" class="py-1 px-1.5 bg-indigo-600 text-white rounded-lg text-[11px] font-medium transition">
+                Jump Step
+              </button>
+              <button id="tab2-osc-btn" onclick="setTab2Case('oscillation')" class="py-1 px-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-medium transition">
+                $\sin(1/x)$
+              </button>
+              <button id="tab2-asymp-btn" onclick="setTab2Case('asymptote')" class="py-1 px-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-medium transition">
+                $\frac{1}{x}$ Asymp
+              </button>
+            </div>
+          </div>
+
+          <!-- Slider x -> c -->
+          <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-400">Approach $x$:</span>
+              <span id="tab2-x-val" class="font-mono text-purple-400 font-semibold">0.50</span>
+            </div>
+            <input type="range" id="tab2-x-slider" min="-1" max="3" step="0.005" value="0.5" oninput="updateSliderX(parseFloat(this.value))" class="w-full accent-purple-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer">
+            
+            <!-- Zoom Slider for Oscillation case -->
+            <div id="osc-zoom-container" class="hidden pt-2 border-t border-slate-800 space-y-1">
+              <div class="flex justify-between text-[11px]">
+                <span class="text-amber-400">Microscope Zoom ($1\times - 100\times$):</span>
+                <span id="osc-zoom-val" class="font-mono text-amber-300">10x</span>
+              </div>
+              <input type="range" id="osc-zoom-slider" min="1" max="100" step="1" value="10" oninput="updateOscZoom(parseFloat(this.value))" class="w-full accent-amber-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer">
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3 CONTROLS -->
+        <div id="tab-3-controls" class="hidden space-y-3">
+          <!-- Slider x -> 2 -->
+          <div class="bg-slate-950/70 p-3 rounded-xl border border-slate-800 space-y-2">
+            <div class="flex justify-between text-xs">
+              <span class="text-slate-400">Position $x$:</span>
+              <span id="tab3-x-val" class="font-mono text-emerald-400 font-semibold">1.50</span>
+            </div>
+            <input type="range" id="tab3-x-slider" min="0" max="4" step="0.01" value="1.50" oninput="updateSliderX(parseFloat(this.value))" class="w-full accent-emerald-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer">
+            <div class="flex justify-between text-[10px] text-slate-500">
+              <span>Approach 2 from Left</span>
+              <span class="text-purple-400 font-bold">Hole at x = 2</span>
+              <span>Approach 2 from Right</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculations & One-Sided Limit Readout -->
+        <div class="bg-slate-950/80 p-3 rounded-xl border border-slate-800 space-y-2 flex-1 flex flex-col justify-between">
+          <h3 class="text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-1 flex justify-between items-center">
+            <span>Readout & Evaluation</span>
+            <i class="fa-solid fa-list-check text-slate-500 text-[10px]"></i>
+          </h3>
+
+          <div class="space-y-1.5 text-xs">
+            <div class="flex justify-between items-center bg-blue-950/30 p-1.5 rounded border border-blue-900/40">
+              <span class="text-blue-300 font-medium text-[11px]">Left Limit $\lim_{x \to c^-} f(x)$:</span>
+              <span id="readout-left-lim" class="font-mono text-blue-200 font-semibold text-[11px]">1.500</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-emerald-950/30 p-1.5 rounded border border-emerald-900/40">
+              <span class="text-emerald-300 font-medium text-[11px]">Right Limit $\lim_{x \to c^+} f(x)$:</span>
+              <span id="readout-right-lim" class="font-mono text-emerald-200 font-semibold text-[11px]">1.500</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-purple-950/30 p-1.5 rounded border border-purple-900/40">
+              <span class="text-purple-300 font-medium text-[11px]">Overall Limit $\lim_{x \to c} f(x)$:</span>
+              <span id="readout-overall-lim" class="font-mono text-purple-200 font-bold text-[11px]">1.500</span>
+            </div>
+
+            <div class="flex justify-between items-center bg-slate-900 p-1.5 rounded border border-slate-800">
+              <span class="text-slate-400 text-[11px]">Exact $f(c)$ at target $c$:</span>
+              <span id="readout-exact-val" class="font-mono text-amber-300 font-semibold text-[11px]">1.500</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Educational Bridge Banner (Visible on Tab 3) -->
+    <div id="tab3-bridge-banner" class="hidden border-t border-slate-800 bg-gradient-to-r from-slate-950 via-indigo-950/40 to-slate-950 p-4 text-xs text-slate-300 space-y-2">
+      <div class="font-bold text-emerald-300 flex items-center gap-1.5 text-sm">
+        <i class="fa-solid fa-bridge"></i> Bridge to the Derivative
+      </div>
+      <p class="leading-relaxed text-slate-300">
+        When evaluating the derivative $f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$, direct substitution of $h = 0$ <b>always yields the indeterminate form $\frac{0}{0}$</b>! As shown by the dashed curves above, both the numerator $N(h)$ and denominator $D(h)$ collapse to zero simultaneously. The limit resolves this $\frac{0}{0}$ hole into a well-defined finite number: the exact instantaneous tangent slope.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // --- Application State ---
+    let currentTab = 1;
+    let tab1Case = 'ff'; // 'ff', 'fi', 'if', 'ii'
+    let tab2Case = 'jump'; // 'jump', 'oscillation', 'asymptote'
+    let tab1Hole = false;
+    let oscZoom = 10;
+
+    let currentX = 1.20;
+    let isDragging = false;
+    
+    // Viewport Transformation (Pan/Zoom)
+    let view = {
+      centerX: 2,
+      centerY: 1.5,
+      scale: 60 // Pixels per math unit
+    };
+
+    // Canvas Reference
+    const mainCanvas = document.getElementById('limit-canvas');
+    const ctx = mainCanvas.getContext('2d');
+
+    // UI Readout References
+    const formulaMathCard = document.getElementById('formula-math-card');
+    const readoutLeft = document.getElementById('readout-left-lim');
+    const readoutRight = document.getElementById('readout-right-lim');
+    const readoutOverall = document.getElementById('readout-overall-lim');
+    const readoutExact = document.getElementById('readout-exact-val');
+    const funcLabel = document.getElementById('function-display-label');
+
+    // --- Math Functions per Case ---
+    function evaluateMath(x) {
+      if (currentTab === 1) {
+        if (tab1Case === 'ff') {
+          return {
+            c: 2,
+            targetL: 1.5,
+            f: x => (x * x - 1) / 2,
+            exactAtC: tab1Hole ? undefined : 1.5,
+            limLeft: 1.5,
+            limRight: 1.5,
+            limOverall: 1.5
+          };
+        } else if (tab1Case === 'fi') {
+          return {
+            c: 1,
+            targetL: Infinity,
+            f: x => 1 / (x - 1),
+            exactAtC: undefined,
+            limLeft: -Infinity,
+            limRight: Infinity,
+            limOverall: 'DNE (Diverges)'
+          };
+        } else if (tab1Case === 'if') {
+          return {
+            c: Infinity,
+            targetL: 2.0,
+            f: x => (2 * x + 1) / (x + 1),
+            exactAtC: 'N/A (At ∞)',
+            limLeft: 2.0,
+            limRight: 2.0,
+            limOverall: 2.0
+          };
+        } else {
+          return {
+            c: Infinity,
+            targetL: Infinity,
+            f: x => (x * x) / 3,
+            exactAtC: 'N/A (At ∞)',
+            limLeft: Infinity,
+            limRight: Infinity,
+            limOverall: '+Infinity'
+          };
+        }
+      } else if (currentTab === 2) {
+        if (tab2Case === 'jump') {
+          return {
+            c: 1,
+            targetL: undefined,
+            f: x => x < 1 ? x : x + 1.5,
+            exactAtC: 2.5,
+            limLeft: 1.0,
+            limRight: 2.5,
+            limOverall: 'DNE (Jump)'
+          };
+        } else if (tab2Case === 'oscillation') {
+          return {
+            c: 0,
+            targetL: undefined,
+            f: x => Math.abs(x) < 1e-6 ? 0 : Math.sin(1 / x),
+            exactAtC: 0,
+            limLeft: 'DNE (Oscillates)',
+            limRight: 'DNE (Oscillates)',
+            limOverall: 'DNE (Oscillates)'
+          };
+        } else {
+          return {
+            c: 0,
+            targetL: undefined,
+            f: x => 1 / x,
+            exactAtC: undefined,
+            limLeft: -Infinity,
+            limRight: Infinity,
+            limOverall: 'DNE (Diverges)'
+          };
+        }
+      } else {
+        // Tab 3: f(x) = (x^2 - 4) / (x - 2)
+        return {
+          c: 2,
+          targetL: 4.0,
+          f: x => Math.abs(x - 2) < 1e-6 ? undefined : (x * x - 4) / (x - 2),
+          exactAtC: undefined, // Hole at x = 2
+          limLeft: 4.0,
+          limRight: 4.0,
+          limOverall: 4.0
+        };
+      }
+    }
+
+    // --- Coordinate Transformation Helpers ---
+    function toScreenX(x, w, v = view) {
+      return w / 2 + (x - v.centerX) * v.scale;
+    }
+
+    function toScreenY(y, h, v = view) {
+      return h / 2 - (y - v.centerY) * v.scale;
+    }
+
+    function toMathX(px, w, v = view) {
+      return v.centerX + (px - w / 2) / v.scale;
+    }
+
+    function toMathY(py, h, v = view) {
+      return v.centerY - (py - h / 2) / v.scale;
+    }
+
+    // --- Canvas Sizing ---
+    function resizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      const rect = mainCanvas.getBoundingClientRect();
+      mainCanvas.width = rect.width * dpr;
+      mainCanvas.height = rect.height * dpr;
+      ctx.resetTransform();
+      ctx.scale(dpr, dpr);
+      render();
+    }
+
+    // --- Draw Grid ---
+    function drawGrid(context, w, h, v = view) {
+      context.clearRect(0, 0, w, h);
+
+      const gridStep = v.scale > 90 ? 0.5 : (v.scale < 35 ? 2 : 1);
+      const minX = toMathX(0, w, v);
+      const maxX = toMathX(w, w, v);
+      const minY = toMathY(h, h, v);
+      const maxY = toMathY(0, h, v);
+
+      // Grid Lines
+      context.beginPath();
+      context.strokeStyle = '#1e293b';
+      context.lineWidth = 1;
+
+      const startX = Math.floor(minX / gridStep) * gridStep;
+      for (let x = startX; x <= maxX; x += gridStep) {
+        const sx = toScreenX(x, w, v);
+        context.moveTo(sx, 0);
+        context.lineTo(sx, h);
+      }
+
+      const startY = Math.floor(minY / gridStep) * gridStep;
+      for (let y = startY; y <= maxY; y += gridStep) {
+        const sy = toScreenY(y, h, v);
+        context.moveTo(0, sy);
+        context.lineTo(w, sy);
+      }
+      context.stroke();
+
+      // Axes
+      const originX = toScreenX(0, w, v);
+      const originY = toScreenY(0, h, v);
+
+      context.beginPath();
+      context.strokeStyle = '#475569';
+      context.lineWidth = 1.5;
+
+      context.moveTo(0, originY);
+      context.lineTo(w, originY);
+      context.moveTo(originX, 0);
+      context.lineTo(originX, h);
+      context.stroke();
+
+      // Tick Labels
+      context.fillStyle = '#64748b';
+      context.font = '10px Inter, sans-serif';
+      context.textAlign = 'center';
+      context.textBaseline = 'top';
+
+      for (let x = startX; x <= maxX; x += gridStep) {
+        if (Math.abs(x) < 0.001) continue;
+        const sx = toScreenX(x, w, v);
+        context.fillText(x.toFixed(x % 1 === 0 ? 0 : 1), sx, Math.min(Math.max(originY + 4, 4), h - 16));
+      }
+    }
+
+    // --- Render Main Plot ---
+    function renderMainPlot() {
+      const w = mainCanvas.getBoundingClientRect().width;
+      const h = mainCanvas.getBoundingClientRect().height;
+
+      drawGrid(ctx, w, h);
+
+      const mathData = evaluateMath(currentX);
+      const c = mathData.c;
+      const f = mathData.f;
+
+      // Draw Asymptote or Target Point Indicators
+      if (typeof c === 'number' && isFinite(c)) {
+        const cScreenX = toScreenX(c, w);
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(168, 85, 247, 0.45)'; // Purple dashed line for c
+        ctx.setLineDash([4, 4]);
+        ctx.moveTo(cScreenX, 0);
+        ctx.lineTo(cScreenX, h);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Horizontal Asymptote if L is finite at infinity
+      if (currentTab === 1 && tab1Case === 'if') {
+        const lScreenY = toScreenY(2.0, h);
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(236, 72, 153, 0.5)'; // Pink dashed line for horizontal asymptote L=2
+        ctx.setLineDash([6, 4]);
+        ctx.moveTo(0, lScreenY);
+        ctx.lineTo(w, lScreenY);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Label Horizontal Asymptote
+        ctx.fillStyle = '#ec4899';
+        ctx.font = '11px Inter, sans-serif';
+        ctx.fillText('Horizontal Asymptote L = 2.0', 90, lScreenY - 12);
+      }
+
+      // Target fixed point (c, L) marker for Tab 1 (Finite/Finite)
+      if (currentTab === 1 && tab1Case === 'ff') {
+        const targetX = toScreenX(2, w);
+        const targetY = toScreenY(1.5, h);
+
+        ctx.beginPath();
+        ctx.arc(targetX, targetY, 6, 0, Math.PI * 2);
+        if (tab1Hole) {
+          ctx.fillStyle = '#0f172a';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#a855f7';
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = '#a855f7';
+          ctx.fill();
+          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = '#ffffff';
+          ctx.stroke();
+        }
+
+        // Label Target Point
+        ctx.fillStyle = '#c084fc';
+        ctx.font = '10px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(tab1Hole ? 'Hole (2, 1.5)' : 'Target Point (2, 1.5)', targetX + 10, targetY - 4);
+      }
+
+      // Tab 3: Render Dashed Numerator N(x) and Denominator D(x) on the main canvas
+      if (currentTab === 3) {
+        const N = x => x * x - 4;
+        const D = x => x - 2;
+
+        // Numerator N(x) = x^2 - 4 (Dashed Cyan)
+        ctx.beginPath();
+        ctx.strokeStyle = '#06b6d4';
+        ctx.lineWidth = 1.8;
+        ctx.setLineDash([6, 4]);
+        for (let px = 0; px <= w; px += 2) {
+          const mx = toMathX(px, w);
+          const py = toScreenY(N(mx), h);
+          if (px === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+
+        // Denominator D(x) = x - 2 (Dashed Orange)
+        ctx.beginPath();
+        ctx.strokeStyle = '#f97316';
+        ctx.lineWidth = 1.8;
+        ctx.setLineDash([6, 4]);
+        for (let px = 0; px <= w; px += 2) {
+          const mx = toMathX(px, w);
+          const py = toScreenY(D(mx), h);
+          if (px === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Points for N(x) and D(x) at active currentX
+        const numY = N(currentX);
+        const denY = D(currentX);
+        const ptNumX = toScreenX(currentX, w);
+        const ptNumY = toScreenY(numY, h);
+        const ptDenY = toScreenY(denY, h);
+
+        ctx.beginPath();
+        ctx.arc(ptNumX, ptNumY, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#06b6d4';
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(ptNumX, ptDenY, 4.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#f97316';
+        ctx.fill();
+
+        // Legend overlay on main canvas
+        ctx.font = '10px Inter, sans-serif';
+        ctx.fillStyle = '#06b6d4';
+        ctx.fillText('-- N(x) = x² - 4', 12, 20);
+        ctx.fillStyle = '#f97316';
+        ctx.fillText('-- D(x) = x - 2', 12, 34);
+        ctx.fillStyle = '#6366f1';
+        ctx.fillText('— f(x) = N(x)/D(x)', 12, 48);
+      }
+
+      // Draw Function Curve f(x)
+      ctx.beginPath();
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 2.5;
+
+      let isFirst = true;
+      const stepPx = (currentTab === 2 && tab2Case === 'oscillation') ? 0.5 : 2;
+
+      for (let px = 0; px <= w; px += stepPx) {
+        const mx = toMathX(px, w);
+        let my = f(mx);
+
+        // Jump Step disconnect
+        if (currentTab === 2 && tab2Case === 'jump' && Math.abs(mx - 1) < 0.02) {
+          ctx.stroke();
+          ctx.beginPath();
+          isFirst = true;
+          continue;
+        }
+
+        if (my === undefined || isNaN(my) || Math.abs(my) > 100) {
+          ctx.stroke();
+          ctx.beginPath();
+          isFirst = true;
+          continue;
+        }
+
+        const py = toScreenY(my, h);
+
+        if (isFirst) {
+          ctx.moveTo(px, py);
+          isFirst = false;
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.stroke();
+
+      // Hole at x = 2 for Tab 3
+      if (currentTab === 3) {
+        const holeX = toScreenX(2, w);
+        const holeY = toScreenY(4, h);
+
+        ctx.beginPath();
+        ctx.arc(holeX, holeY, 6, 0, Math.PI * 2);
+        ctx.fillStyle = '#0f172a';
+        ctx.fill();
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = '#a855f7';
+        ctx.stroke();
+
+        ctx.fillStyle = '#c084fc';
+        ctx.font = '10px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Hole (2, 4)', holeX + 10, holeY - 4);
+      }
+
+      // Active Point (x, f(x))
+      const currentY = f(currentX);
+      if (currentY !== undefined && !isNaN(currentY) && Math.abs(currentY) < 50) {
+        const ptX = toScreenX(currentX, w);
+        const ptY = toScreenY(currentY, h);
+
+        // Vertical guide line
+        ctx.beginPath();
+        ctx.strokeStyle = currentX < c ? '#38bdf8' : '#10b981';
+        ctx.setLineDash([2, 2]);
+        ctx.moveTo(ptX, ptY);
+        ctx.lineTo(ptX, toScreenY(0, h));
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Interactive Point Dot
+        ctx.beginPath();
+        ctx.arc(ptX, ptY, 7, 0, Math.PI * 2);
+        ctx.fillStyle = currentX < c ? '#38bdf8' : '#10b981';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+      }
+
+      updateReadouts(mathData);
+    }
+
+    // --- Master Render ---
+    function render() {
+      renderMainPlot();
+    }
+
+    // --- Update Dynamic Readouts & Math Cards ---
+    function updateReadouts(data) {
+      const isCloseToC = Math.abs(currentX - data.c) < 1e-4;
+
+      // Update Slider Numbers
+      if (currentTab === 1) {
+        document.getElementById('tab1-x-val').textContent = currentX.toFixed(2);
+      } else if (currentTab === 2) {
+        document.getElementById('tab2-x-val').textContent = currentX.toFixed(3);
+      } else {
+        document.getElementById('tab3-x-val').textContent = currentX.toFixed(2);
+      }
+
+      // Readouts
+      readoutLeft.textContent = typeof data.limLeft === 'number' ? data.limLeft.toFixed(3) : data.limLeft;
+      readoutRight.textContent = typeof data.limRight === 'number' ? data.limRight.toFixed(3) : data.limRight;
+      readoutOverall.textContent = typeof data.limOverall === 'number' ? data.limOverall.toFixed(3) : data.limOverall;
+
+      if (isCloseToC && data.exactAtC === undefined) {
+        readoutExact.textContent = 'Undefined (0/0 Hole)';
+        readoutExact.className = 'font-mono text-purple-400 font-bold text-[11px]';
+      } else if (typeof data.exactAtC === 'number') {
+        readoutExact.textContent = data.exactAtC.toFixed(3);
+        readoutExact.className = 'font-mono text-amber-300 font-semibold text-[11px]';
+      } else if (data.exactAtC !== undefined) {
+        readoutExact.textContent = data.exactAtC;
+        readoutExact.className = 'font-mono text-amber-300 font-semibold text-[11px]';
+      } else {
+        readoutExact.textContent = 'Undefined';
+        readoutExact.className = 'font-mono text-slate-400 text-[11px]';
+      }
+
+      renderKaTeX();
+    }
+
+    // --- Touch & Pointer Event Drag Handling for Canvas ---
+    function handlePointerPos(e) {
+      const rect = mainCanvas.getBoundingClientRect();
+      const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+      if (!clientX) return;
+
+      const px = clientX - rect.left;
+      const mathX = toMathX(px, rect.width);
+
+      // Clamp X according to current active slider range
+      let minVal, maxVal;
+      if (currentTab === 1) {
+        const slider = document.getElementById('tab1-x-slider');
+        minVal = parseFloat(slider.min);
+        maxVal = parseFloat(slider.max);
+      } else if (currentTab === 2) {
+        const slider = document.getElementById('tab2-x-slider');
+        minVal = parseFloat(slider.min);
+        maxVal = parseFloat(slider.max);
+      } else {
+        const slider = document.getElementById('tab3-x-slider');
+        minVal = parseFloat(slider.min);
+        maxVal = parseFloat(slider.max);
+      }
+
+      const clampedX = Math.max(minVal, Math.min(maxVal, mathX));
+      updateSliderX(clampedX);
+
+      // Sync active slider UI value
+      if (currentTab === 1) document.getElementById('tab1-x-slider').value = clampedX;
+      else if (currentTab === 2) document.getElementById('tab2-x-slider').value = clampedX;
+      else document.getElementById('tab3-x-slider').value = clampedX;
+    }
+
+    function setupCanvasPointerEvents() {
+      mainCanvas.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        mainCanvas.setPointerCapture(e.pointerId);
+        handlePointerPos(e);
+      });
+
+      mainCanvas.addEventListener('pointermove', (e) => {
+        if (isDragging) handlePointerPos(e);
+      });
+
+      const stopDrag = (e) => {
+        if (isDragging) {
+          isDragging = false;
+          try { mainCanvas.releasePointerCapture(e.pointerId); } catch(err) {}
+        }
+      };
+
+      mainCanvas.addEventListener('pointerup', stopDrag);
+      mainCanvas.addEventListener('pointercancel', stopDrag);
+    }
+
+    // --- Tab Switcher ---
+    function switchTab(tabIndex) {
+      currentTab = tabIndex;
+
+      [1, 2, 3].forEach(i => {
+        const btn = document.getElementById(`tab-btn-${i}`);
+        const ctrl = document.getElementById(`tab-${i}-controls`);
+        if (i === tabIndex) {
+          btn.className = "px-4 py-2 border-b-2 border-indigo-500 text-indigo-400 font-semibold transition flex items-center gap-1.5 whitespace-nowrap";
+          ctrl.classList.remove('hidden');
+        } else {
+          btn.className = "px-4 py-2 border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition flex items-center gap-1.5 whitespace-nowrap";
+          ctrl.classList.add('hidden');
+        }
+      });
+
+      const bridgeBanner = document.getElementById('tab3-bridge-banner');
+
+      if (tabIndex === 3) {
+        bridgeBanner.classList.remove('hidden');
+      } else {
+        bridgeBanner.classList.add('hidden');
+      }
+
+      if (tabIndex === 1) {
+        setTab1Case(tab1Case);
+      } else if (tabIndex === 2) {
+        setTab2Case(tab2Case);
+      } else {
+        view = { centerX: 2, centerY: 3, scale: 50 };
+        currentX = 1.50;
+        document.getElementById('tab3-x-slider').value = 1.50;
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> f(x) = \\frac{x^2 - 4}{x - 2}`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} \\frac{(x-2)(x+2)}{x-2} = \\lim_{x \\to 2} (x+2) = 4$$`;
+      }
+
+      setTimeout(resizeCanvas, 20);
+    }
+
+    // --- Tab 1 Cases ---
+    function setTab1Case(type) {
+      tab1Case = type;
+      document.getElementById('tab1-case-select').value = type;
+
+      const holeToggle = document.getElementById('hole-toggle-container');
+      const slider = document.getElementById('tab1-x-slider');
+      const minLbl = document.getElementById('tab1-min-label');
+      const cLbl = document.getElementById('tab1-c-label');
+      const maxLbl = document.getElementById('tab1-max-label');
+
+      if (type === 'ff') {
+        holeToggle.classList.remove('hidden');
+        view = { centerX: 2, centerY: 1.5, scale: 60 };
+        currentX = 1.20;
+        slider.min = -1; slider.max = 4; slider.step = 0.01; slider.value = 1.20;
+        minLbl.textContent = 'Left (x < 2)';
+        cLbl.textContent = 'Target c = 2';
+        maxLbl.textContent = 'Right (x > 2)';
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span> f(x) = \\frac{x^2 - 1}{2}`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to 2} \\frac{x^2 - 1}{2} = \\frac{2^2 - 1}{2} = 1.5$$`;
+      } else if (type === 'fi') {
+        holeToggle.classList.add('hidden');
+        view = { centerX: 1, centerY: 0, scale: 50 };
+        currentX = 0.50;
+        slider.min = -1; slider.max = 3; slider.step = 0.01; slider.value = 0.50;
+        minLbl.textContent = 'Approach c = 1 Left';
+        cLbl.textContent = 'Target c = 1';
+        maxLbl.textContent = 'Approach c = 1 Right';
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span> f(x) = \\frac{1}{x - 1}`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to 1^-} \\frac{1}{x-1} = -\\infty, \\quad \\lim_{x \\to 1^+} \\frac{1}{x-1} = +\\infty$$`;
+      } else if (type === 'if') {
+        holeToggle.classList.add('hidden');
+        view = { centerX: 6, centerY: 2, scale: 35 };
+        currentX = 2.0;
+        slider.min = 0; slider.max = 20; slider.step = 0.1; slider.value = 2.0;
+        minLbl.textContent = 'x = 0';
+        cLbl.textContent = 'Asymmetry L = 2';
+        maxLbl.textContent = 'x → +∞';
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span> f(x) = \\frac{2x + 1}{x + 1}`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to +\\infty} \\frac{2x + 1}{x + 1} = \\lim_{x \\to +\\infty} \\frac{2 + 1/x}{1 + 1/x} = 2.0$$`;
+      } else {
+        // 'ii'
+        holeToggle.classList.add('hidden');
+        view = { centerX: 5, centerY: 8, scale: 25 };
+        currentX = 2.0;
+        slider.min = 0; slider.max = 10; slider.step = 0.1; slider.value = 2.0;
+        minLbl.textContent = 'x = 0';
+        cLbl.textContent = 'x → +∞';
+        maxLbl.textContent = 'x = 10';
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-indigo-500 inline-block"></span> f(x) = \\frac{x^2}{3}`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to +\\infty} \\frac{x^2}{3} = +\\infty$$`;
+      }
+      render();
+    }
+
+    function toggleHole(checked) {
+      tab1Hole = checked;
+      render();
+    }
+
+    // --- Tab 2 Cases ---
+    function setTab2Case(type) {
+      tab2Case = type;
+      const jumpBtn = document.getElementById('tab2-jump-btn');
+      const oscBtn = document.getElementById('tab2-osc-btn');
+      const asympBtn = document.getElementById('tab2-asymp-btn');
+      const oscZoomCtrl = document.getElementById('osc-zoom-container');
+
+      jumpBtn.className = type === 'jump' ? "py-1 px-1.5 bg-indigo-600 text-white rounded-lg text-[11px] font-medium transition" : "py-1 px-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-medium transition";
+      oscBtn.className = type === 'oscillation' ? "py-1 px-1.5 bg-indigo-600 text-white rounded-lg text-[11px] font-medium transition" : "py-1 px-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-medium transition";
+      asympBtn.className = type === 'asymptote' ? "py-1 px-1.5 bg-indigo-600 text-white rounded-lg text-[11px] font-medium transition" : "py-1 px-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-[11px] font-medium transition";
+
+      if (type === 'oscillation') oscZoomCtrl.classList.remove('hidden');
+      else oscZoomCtrl.classList.add('hidden');
+
+      if (type === 'jump') {
+        view = { centerX: 1, centerY: 1.5, scale: 65 };
+        currentX = 0.5;
+        document.getElementById('tab2-x-slider').min = -1;
+        document.getElementById('tab2-x-slider').max = 3;
+        document.getElementById('tab2-x-slider').value = 0.5;
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> Jump Step Function at c = 1`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to 1^-} f(x) = 1.0 \\neq \\lim_{x \\to 1^+} f(x) = 2.5 \\implies \\text{Limit DNE}$$`;
+      } else if (type === 'oscillation') {
+        updateOscZoom(oscZoom);
+        currentX = 0.05;
+        document.getElementById('tab2-x-slider').min = -0.2;
+        document.getElementById('tab2-x-slider').max = 0.2;
+        document.getElementById('tab2-x-slider').value = 0.05;
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> f(x) = \\sin(1/x) \\text{ as } x \\to 0`;
+        formulaMathCard.innerHTML = `$$\\text{Infinite Frantic Oscillations near } x=0 \\implies \\text{Limit DNE}$$`;
+      } else {
+        view = { centerX: 0, centerY: 0, scale: 45 };
+        currentX = 0.5;
+        document.getElementById('tab2-x-slider').min = -2;
+        document.getElementById('tab2-x-slider').max = 2;
+        document.getElementById('tab2-x-slider').value = 0.5;
+
+        funcLabel.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-purple-500 inline-block"></span> f(x) = \\frac{1}{x} \\text{ as } x \\to 0`;
+        formulaMathCard.innerHTML = `$$\\lim_{x \\to 0^-} \\frac{1}{x} = -\\infty, \\quad \\lim_{x \\to 0^+} \\frac{1}{x} = +\\infty \\implies \\text{Limit DNE}$$`;
+      }
+      render();
+    }
+
+    function updateOscZoom(zoom) {
+      oscZoom = zoom;
+      document.getElementById('osc-zoom-val').textContent = `${zoom}x`;
+      view = { centerX: 0, centerY: 0, scale: 50 * (zoom / 5) };
+      render();
+    }
+
+    function updateSliderX(val) {
+      currentX = val;
+      render();
+    }
+
+    // --- KaTeX Auto Renderer ---
+    function renderKaTeX() {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false }
+          ],
+          throwOnError: false
+        });
+      }
+    }
+
+    // --- Initialization ---
+    window.onload = () => {
+      window.addEventListener('resize', resizeCanvas);
+      setupCanvasPointerEvents();
+
+      document.getElementById('zoom-in-btn').addEventListener('click', () => {
+        view.scale = Math.min(300, view.scale * 1.15);
+        render();
+      });
+
+      document.getElementById('zoom-out-btn').addEventListener('click', () => {
+        view.scale = Math.max(12, view.scale / 1.15);
+        render();
+      });
+
+      document.getElementById('reset-view-btn').addEventListener('click', () => {
+        switchTab(currentTab);
+      });
+
+      resizeCanvas();
+      switchTab(1);
+    };
+  </script>
+</body>
+</html>

@@ -15,6 +15,10 @@ toc-title: "On this page"
 
 ## Introduction to Limits
 
+```{=html}
+<iframe src="_graphical_introduction_to_limits.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+
 ## Introduction to Derivatives
 
 
