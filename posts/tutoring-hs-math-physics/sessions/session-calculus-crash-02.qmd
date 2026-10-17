@@ -1,0 +1,46 @@
+---
+title: "Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals"
+subtitle: ""
+description: "Graphical introduction ."
+week: "x"
+author: "Basics"
+date: "2026-10-27"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+---
+
+
+```{=html}
+<div style="width: 100%; height: 100%; position: relative; margin-bottom: 2rem;">
+  <iframe src="_integrals_riemann_sum_visualized.html" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" 
+          scrolling="yes">
+  </iframe>
+</div>
+```
+
+<!--
+```{=html}
+<iframe src="_integrals_riemann_sum_visualized.html" width="100%" height="1300px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+-->
+
+<!--
+```{=html}
+<script src="[https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js](https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js)"></script>
+
+<iframe id="riemann-frame" src="_integrals_riemann_sum_visualized.html" style="width: 1px; min-width: 100%; border: none;" scrolling="no"></iframe>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    iFrameResize({ 
+      log: false,
+      heightCalculationMethod: 'bodyScroll'  // 'taggedElement' // or 'bodyScroll'
+    }, '#riemann-frame');
+  });
+</script>
+```
+-->

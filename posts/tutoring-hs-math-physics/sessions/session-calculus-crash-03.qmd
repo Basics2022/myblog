@@ -1,0 +1,44 @@
+---
+title: "Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations"
+subtitle: ""
+description: "Introduction to ODEs, with examples about 1st and 2nd order linear equations with constant coefficients."
+week: "x"
+author: "Basics"
+date: "2026-10-28"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+---
+
+A qualitative introduction to first and second order linear equations with constant coefficients is followed by the general process for solving linear equations with constant coefficients: the solution can be written as the sum of a *free solution* and a *forced solution*; the free solution immediately follows from the properties of the exponential function; the forced solution is computed exploiting some similarity with the the external forcing.
+
+## Examples of differential equations
+
+```{=html}
+<iframe src="_differential_equations_explorer.html" width="100%" height="1300px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+
+## The idea behind the general solution of linear ODEs with constant coefficients
+
+### Free solution
+
+The free evolution of a system governed by a $n^{th}$-order linear ODE with constant coefficients, is the solution of the homogeneous  (unforced, free) equation
+
+$$y^{(n)}(t) + a_{n-1} y^{(n-1)}(t) + a_1 y'(t) + a_0 y(t) = 0 \ .$$
+
+is a linear combination of (in general, complex) $n$ exponential functions, $e^{s_k t}$, for $k=1:n$. In order to find all the values of the $s_k$s, the solution is assumed to be $y(t) = C e^{s t}$. Its first derivative reads $y'(t) = C s e^{st} = s y(t)$, its second derivative reads $y''(t) = s^2 e^{st} = s^2 y(t)$, and so on. Replacing the expression of the derivatives in the homogeneous equation, and collecting and removing the never-zero factor $y(t)$, an algebraic equation appears,
+
+$$s^n + a_{n-1} s^{n-1} + \dots a_1 s + a_0 = 0 \ ,$$
+
+whose $n$ solutions (it's a polynomial equation of degree $n$, it has $n$ complex solutions) are the values of the $s_k$. The homogenoeus solution of the equation is thus a linear combination of the exponential functions,
+
+$$y_{homo}(t) = \sum_{k=1}^{n} C_k e^{s_k t} \ .$$
+
+### Forced solution
+
+
+
+
+
