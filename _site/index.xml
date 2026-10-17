@@ -24,7 +24,15 @@
 <p>A qualitative introduction to first and second order linear equations with constant coefficients is followed by the general process for solving linear equations with constant coefficients: the solution can be written as the sum of a <em>free solution</em> and a <em>forced solution</em>; the free solution immediately follows from the properties of the exponential function; the forced solution is computed exploiting some similarity with the the external forcing.</p>
 <section id="examples-of-differential-equations" class="level2">
 <h2 class="anchored" data-anchor-id="examples-of-differential-equations">Examples of differential equations</h2>
+<!--
+```{=html}
 <iframe src="_differential_equations_explorer.html" width="100%" height="1300px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+-->
+<div style="width: 100%; height: 100%; position: relative; margin-bottom: 2rem;">
+  <iframe src="_differential_equations_explorer.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" scrolling="yes">
+  </iframe>
+</div>
 </section>
 <section id="the-idea-behind-the-general-solution-of-linear-odes-with-constant-coefficients" class="level2">
 <h2 class="anchored" data-anchor-id="the-idea-behind-the-general-solution-of-linear-odes-with-constant-coefficients">The idea behind the general solution of linear ODEs with constant coefficients</h2>
@@ -65,27 +73,6 @@
   <iframe src="_integrals_riemann_sum_visualized.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" scrolling="yes">
   </iframe>
 </div>
-<!--
-```{=html}
-<iframe src="_integrals_riemann_sum_visualized.html" width="100%" height="1300px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
-```
--->
-<!--
-```{=html}
-<script src="[https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js](https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.min.js)"></script>
-
-<iframe id="riemann-frame" src="_integrals_riemann_sum_visualized.html" style="width: 1px; min-width: 100%; border: none;" scrolling="no"></iframe>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    iFrameResize({ 
-      log: false,
-      heightCalculationMethod: 'bodyScroll'  // 'taggedElement' // or 'bodyScroll'
-    }, '#riemann-frame');
-  });
-</script>
-```
--->
 
 
 
@@ -792,7 +779,7 @@ Weeks
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793142000000" data-listing-file-modified-sort="1792251380442" data-listing-date-modified-sort="1792251380000" data-listing-reading-time-sort="2" data-listing-word-count-sort="264" data-listing-title-sort="Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations" data-listing-filename-sort="session-calculus-crash-03.qmd">
+<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793142000000" data-listing-file-modified-sort="1792256923939" data-listing-date-modified-sort="1792256923000" data-listing-reading-time-sort="2" data-listing-word-count-sort="314" data-listing-title-sort="Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations" data-listing-filename-sort="session-calculus-crash-03.qmd">
 <td>
 <span class="listing-date">Oct 28, 2026</span>
 </td>
@@ -808,7 +795,7 @@ Weeks
 
 </tr>
 
-<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793055600000" data-listing-file-modified-sort="1792253017561" data-listing-date-modified-sort="1792253017000" data-listing-reading-time-sort="1" data-listing-word-count-sort="103" data-listing-title-sort="Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals" data-listing-filename-sort="session-calculus-crash-02.qmd">
+<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793055600000" data-listing-file-modified-sort="1792256890627" data-listing-date-modified-sort="1792256890000" data-listing-reading-time-sort="1" data-listing-word-count-sort="51" data-listing-title-sort="Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals" data-listing-filename-sort="session-calculus-crash-02.qmd">
 <td>
 <span class="listing-date">Oct 27, 2026</span>
 </td>
@@ -5113,7 +5100,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```iogejvexsp Example: evaluation of hyperstatics</p>
+<p>```xaoyojtkui Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
