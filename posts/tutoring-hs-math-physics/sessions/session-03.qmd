@@ -30,8 +30,19 @@ Before going into the details of a rigorous definition, this section aims at
 
    $$\lim_{x \rightarrow 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \rightarrow 2} \left( x + 2 \right) = 4  \ .$$
 
+<!--
 ```{=html}
 <iframe src="_graphical_introduction_to_limits.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+-->
+
+```{=html}
+<div style="width: 100%; min-height: 1000px; position: relative; margin-bottom: 2rem;">
+  <iframe src="_graphical_introduction_to_limits.html" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" 
+          scrolling="yes">
+  </iframe>
+</div>
 ```
 
 ## Introduction to Derivatives
@@ -44,8 +55,19 @@ A geometrical interpretation is presented first, then the definition is provided
 
 In the previous sessions, we tried to get familiar with [real functions and their graph](./session-01.qmd#functions-and-real-functions). Now, we provide the geometrical interpretation of the derivative $f'(x)$ of a function $f(x)$. Given a function $f(x)$, the function $f'(x)$ provides the **slope of the tangent line** to the graph of the function in point $(x, f(x))$.
 
+<!--
 ```{=html}
 <iframe src="_geometric_meaning_of_the_derivative.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+-->
+
+```{=html}
+<div style="width: 100%; min-height: 800px; position: relative; margin-bottom: 2rem;">
+  <iframe src="_geometric_meaning_of_the_derivative.html" 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" 
+          scrolling="yes">
+  </iframe>
+</div>
 ```
 
 ### Definition

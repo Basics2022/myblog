@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Differential Equations Explorer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Glassmorphism styling */
+    .glass-panel {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-panel-subtle {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+    /* Range slider custom styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      cursor: pointer;
+      background: #334155;
+      border-radius: 3px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #6366f1;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -5px;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+      transition: all 0.15s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      background: #818cf8;
+    }
+  </style>
+</head>
+<!-- 
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+-->
+<body class="bg-[#0f172a] text-slate-100 font-sans antialiased flex flex-col overflow-x-hidden">
+
+  <!-- Header Header Header -->
+  <header class="glass-panel sticky top-0 z-50 border-b border-slate-800 px-4 py-3 md:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="p-2 bg-indigo-600/20 text-indigo-400 rounded-xl border border-indigo-500/30">
+          <i class="fa-solid font-mono text-xl">d/dt</i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent">
+            ODE Explorer
+          </h1>
+          <p class="text-xs text-slate-400">Interactive Dynamical Systems Simulator</p>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="flex bg-slate-950/60 p-1 rounded-xl border border-slate-800">
+        <button id="tab1-btn" onclick="switchTab(1)" 
+                class="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30">
+          <i class="fa-solid fa-chart-line text-xs"></i>
+          1st Order System
+        </button>
+        <button id="tab2-btn" onclick="switchTab(2)" 
+                class="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50">
+          <i class="fa-solid fa-atom text-xs"></i>
+          2nd Order System
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl w-full mx-auto p-4 md:p-6 lg:p-8 flex-grow">
+    
+    <!-- ========================================== -->
+    <!-- TAB 1: FIRST ORDER SYSTEMS                 -->
+    <!-- ========================================== -->
+    <div id="tab1-content" class="space-y-6">
+      
+      <!-- Top Overview & Equation Header -->
+      <div class="glass-panel rounded-2xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">First-Order Linear Differential Equation</span>
+          <h2 class="text-xl font-semibold mt-2 text-slate-100">Thermal, RC Circuit, or Fluid Storage Dynamics</h2>
+          <p class="text-sm text-slate-400 mt-1 max-w-2xl">
+            Governed by first-order continuous energy accumulation. The response $y(t)$ smoothly approaches forcing input $u(t)$ with continuous time constant $\tau$.
+          </p>
+        </div>
+        <div class="font-mono text-base md:text-lg bg-slate-950/80 px-4 py-3 rounded-xl border border-indigo-500/30 text-indigo-300 shadow-inner">
+          &tau;  y'(t) + y(t) = u(t)
+        </div>
+      </div>
+
+      <!-- Controls & Metrics Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        
+        <!-- Controls Panel (1 Column) -->
+        <div class="glass-panel rounded-2xl p-4 md:p-5 space-y-4">
+          <h3 class="text-md font-semibold text-slate-200 flex items-center gap-2 border-b border-slate-800 pb-3">
+            <i class="fa-solid fa-sliders text-indigo-400"></i> Parameters & Input
+          </h3>
+
+          <!-- Time Constant tau -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t1-tau" class="text-slate-300 font-medium">Time Constant (&tau;):</label>
+              <span id="t1-tau-val" class="font-mono text-indigo-400 font-semibold">1.00 s</span>
+            </div>
+            <input type="range" id="t1-tau" min="0.1" max="5.0" step="0.1" value="1.0" class="w-full" oninput="updateTab1Params()">
+            <p class="text-xs text-slate-500 mt-1">Controls system inertia and response speed</p>
+          </div>
+
+          <!-- Initial Condition y0 -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t1-y0" class="text-slate-300 font-medium">Initial Condition (y&#x2080;):</label>
+              <span id="t1-y0-val" class="font-mono text-indigo-400 font-semibold">0.00</span>
+            </div>
+            <input type="range" id="t1-y0" min="-5.0" max="5.0" step="0.2" value="0.0" class="w-full" oninput="updateTab1Params()">
+          </div>
+
+          <!-- Input Selector -->
+          <div>
+            <label for="t1-input-type" class="block text-sm font-medium text-slate-300 mb-2">Input Forcing Function u(t):</label>
+            <select id="t1-input-type" onchange="updateTab1Params()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-indigo-500">
+              <option value="step">Step Input</option>
+              <option value="sine">Sine Wave</option>
+              <option value="ramp">Ramp Input</option>
+              <option value="exponential">Decaying Exponential</option>
+              <option value="impulse">Impulse Approximation</option>
+            </select>
+          </div>
+
+          <!-- Input Amplitude -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t1-amp" class="text-slate-300 font-medium">Input Amplitude (A):</label>
+              <span id="t1-amp-val" class="font-mono text-indigo-400 font-semibold">1.00</span>
+            </div>
+            <input type="range" id="t1-amp" min="0.0" max="5.0" step="0.2" value="1.0" class="w-full" oninput="updateTab1Params()">
+          </div>
+
+          <!-- Input Frequency (hidden/shown for sine) -->
+          <div id="t1-freq-container">
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t1-freq" class="text-slate-300 font-medium">Frequency (&omega; rad/s):</label>
+              <span id="t1-freq-val" class="font-mono text-indigo-400 font-semibold">1.00</span>
+            </div>
+            <input type="range" id="t1-freq" min="0.1" max="10.0" step="0.1" value="1.0" class="w-full" oninput="updateTab1Params()">
+          </div>
+
+          <!-- T Max -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t1-tmax" class="text-slate-300 font-medium">Simulation Time (T_max):</label>
+              <span id="t1-tmax-val" class="font-mono text-indigo-400 font-semibold">10.0 s</span>
+            </div>
+            <input type="range" id="t1-tmax" min="2.0" max="30.0" step="1.0" value="10.0" class="w-full" oninput="updateTab1Params()">
+          </div>
+
+        </div>
+
+        <!-- Right Side: Calculated Metrics & Chart (2 Columns) -->
+        <div class="md:col-span-2 space-y-4 md:space-y-6 flex flex-col justify-between">
+          
+          <!-- Key Dynamic Metrics Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="glass-panel-subtle p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 block mb-1">Time Constant (&tau;)</span>
+              <span id="metric-t1-tau" class="text-xl font-bold font-mono text-indigo-400">1.00 s</span>
+              <p class="text-[11px] text-slate-500 mt-1">63.2% Response Time</p>
+            </div>
+            <div class="glass-panel-subtle p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 block mb-1">Settling Time (~4&tau;)</span>
+              <span id="metric-t1-settling" class="text-xl font-bold font-mono text-cyan-400">4.00 s</span>
+              <p class="text-[11px] text-slate-500 mt-1">Reaches 98% Steady-State</p>
+            </div>
+            <div class="glass-panel-subtle p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 block mb-1">Current Value y(t)</span>
+              <span id="metric-t1-curr" class="text-xl font-bold font-mono text-teal-400">0.00</span>
+              <p class="text-[11px] text-slate-500 mt-1">At synchronized cursor</p>
+            </div>
+          </div>
+
+          <!-- Full Width Visualizer Canvas -->
+          <div class="glass-panel rounded-2xl p-4 flex-grow flex flex-col">
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="text-sm font-semibold text-slate-300 flex items-center gap-2">
+                <i class="fa-solid fa-chart-area text-indigo-400"></i> Time Domain Response
+              </h4>
+              <div class="flex items-center gap-4 text-xs font-mono">
+                <span class="flex items-center gap-1.5 text-indigo-400">
+                  <span class="w-3 h-0.5 bg-indigo-400 inline-block rounded"></span> Input u(t)
+                </span>
+                <span class="flex items-center gap-1.5 text-cyan-300">
+                  <span class="w-3 h-0.5 bg-cyan-400 inline-block rounded"></span> Output y(t)
+                </span>
+              </div>
+            </div>
+
+            <!-- Canvas container -->
+            <div class="relative w-full h-80 bg-slate-950/80 rounded-xl overflow-hidden border border-slate-800/80 flex-grow">
+              <canvas id="t1-time-canvas" class="w-full h-full block"></canvas>
+            </div>
+          </div>
+
+          <!-- Simulation Scrubbing Controls -->
+          <div class="glass-panel rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4">
+            <div class="flex items-center gap-2">
+              <button id="t1-play-btn" onclick="togglePlayTab1()" class="p-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg w-10 h-10 flex items-center justify-center transition shadow-md shadow-indigo-600/30">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <button onclick="resetTab1()" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg w-10 h-10 flex items-center justify-center transition">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+            </div>
+
+            <div class="flex-grow w-full flex items-center gap-3">
+              <span class="text-xs font-mono text-slate-400 min-w-[45px]">t = <span id="t1-time-display">0.00</span>s</span>
+              <input type="range" id="t1-time-slider" min="0" max="1000" value="0" class="w-full" oninput="scrubTab1(this.value)">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- TAB 2: SECOND ORDER SYSTEMS                -->
+    <!-- ========================================== -->
+    <div id="tab2-content" class="space-y-6 hidden">
+
+      <!-- Header & Equation Header -->
+      <div class="glass-panel rounded-2xl p-4 md:p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-teal-400 bg-teal-500/10 px-2.5 py-1 rounded-md border border-teal-500/20">Second-Order System Dynamics</span>
+          <h2 class="text-xl font-semibold mt-2 text-slate-100">Mass-Spring-Damper, RLC Circuit, & Mechanical Oscillators</h2>
+          <p class="text-sm text-slate-400 mt-1 max-w-2xl">
+            Exhibits inertia, dissipation, and elastic store. Exhibits complex transient regimes ranging from harmonic oscillation to heavy overdamping.
+          </p>
+        </div>
+        <div class="font-mono text-base md:text-lg bg-slate-950/80 px-4 py-3 rounded-xl border border-teal-500/30 text-teal-300 shadow-inner">
+          m y''(t) + c y'(t) + k y = F(t)
+        </div>
+      </div>
+
+      <!-- Controls & Dynamic Metric Badges -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+
+        <!-- Controls Column -->
+        <div class="glass-panel rounded-2xl p-4 md:p-5 space-y-4">
+          <h3 class="text-md font-semibold text-slate-200 flex items-center gap-2 border-b border-slate-800 pb-3">
+            <i class="fa-solid fa-sliders text-teal-400"></i> System Parameters
+          </h3>
+
+          <!-- Mass m -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t2-m" class="text-slate-300 font-medium">Mass (m):</label>
+              <span id="t2-m-val" class="font-mono text-teal-400 font-semibold">1.00 kg</span>
+            </div>
+            <input type="range" id="t2-m" min="0.2" max="10.0" step="0.2" value="1.0" class="w-full" oninput="updateTab2Params()">
+          </div>
+
+          <!-- Damping c -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t2-c" class="text-slate-300 font-medium">Damping Coefficient (c):</label>
+              <span id="t2-c-val" class="font-mono text-teal-400 font-semibold">0.50 Ns/m</span>
+            </div>
+            <input type="range" id="t2-c" min="0.0" max="10.0" step="0.1" value="0.5" class="w-full" oninput="updateTab2Params()">
+          </div>
+
+          <!-- Stiffness k -->
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <label for="t2-k" class="text-slate-300 font-medium">Spring Constant (k):</label>
+              <span id="t2-k-val" class="font-mono text-teal-400 font-semibold">4.00 N/m</span>
+            </div>
+            <input type="range" id="t2-k" min="0.5" max="25.0" step="0.5" value="4.0" class="w-full" oninput="updateTab2Params()">
+          </div>
+
+          <div class="border-t border-slate-800 pt-3">
+            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Initial State Variables</h4>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label for="t2-y0" class="text-xs text-slate-300 mb-1 block">y&#x2080; (Position):</label>
+                <input type="number" id="t2-y0" value="1.0" step="0.2" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-teal-400 font-mono" onchange="updateTab2Params()">
+              </div>
+              <div>
+                <label for="t2-v0" class="text-xs text-slate-300 mb-1 block">v&#x2080; (Velocity):</label>
+                <input type="number" id="t2-v0" value="0.0" step="0.2" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-teal-400 font-mono" onchange="updateTab2Params()">
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-slate-800 pt-3 space-y-3">
+            <h4 class="text-xs font-semibold text-slate-400 uppercase tracking-wider">External Forcing Function F(t)</h4>
+            <div>
+              <select id="t2-input-type" onchange="updateTab2Params()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-teal-500">
+                <option value="none">Free Unforced (F = 0)</option>
+                <option value="step">Step Force</option>
+                <option value="sine">Harmonic Force (Sine)</option>
+              </select>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Force Amplitude (F&#x2080;):</span>
+                <span id="t2-amp-val" class="font-mono text-teal-400">2.0</span>
+              </div>
+              <input type="range" id="t2-amp" min="0.0" max="10.0" step="0.5" value="2.0" class="w-full" oninput="updateTab2Params()">
+            </div>
+            <div id="t2-freq-container">
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Forcing Frequency (&omega;):</span>
+                <span id="t2-freq-val" class="font-mono text-teal-400">2.0 rad/s</span>
+              </div>
+              <input type="range" id="t2-freq" min="0.1" max="10.0" step="0.1" value="2.0" class="w-full" oninput="updateTab2Params()">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2 Columns: Calculated System Metrics + Interactive Canvas & Visualizers -->
+        <div class="md:col-span-2 space-y-4 md:space-y-6">
+
+          <!-- Dynamic Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="glass-panel-subtle p-3.5 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 block">Natural Freq (&omega;&#x2093;)</span>
+              <span id="metric-t2-wn" class="text-lg font-bold font-mono text-teal-400">2.00 rad/s</span>
+            </div>
+            <div class="glass-panel-subtle p-3.5 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 block">Damping Ratio (&zeta;)</span>
+              <span id="metric-t2-zeta" class="text-lg font-bold font-mono text-cyan-400">0.125</span>
+            </div>
+            <div class="glass-panel-subtle p-3.5 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 block">Damped Freq (&omega;&#x2091;)</span>
+              <span id="metric-t2-wd" class="text-lg font-bold font-mono text-indigo-400">1.98 rad/s</span>
+            </div>
+            <div class="glass-panel-subtle p-3.5 rounded-xl border border-slate-800 flex flex-col justify-center">
+              <span class="text-xs text-slate-400 block mb-0.5">Damping Regime</span>
+              <span id="metric-t2-regime" class="text-xs font-bold uppercase tracking-wide text-amber-400 px-2 py-0.5 bg-amber-500/10 rounded w-max border border-amber-500/20">
+                Underdamped
+              </span>
+            </div>
+          </div>
+
+          <!-- Interactive Physical Mass-Spring-Damper Simulation Canvas -->
+          <div class="glass-panel rounded-2xl p-4">
+            <div class="flex justify-between items-center mb-2">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                <i class="fa-solid fa-dharmachakra text-teal-400"></i> Physical System Animation
+              </h4>
+              <span class="text-xs font-mono text-slate-400">Mass-Spring-Damper Mechanism</span>
+            </div>
+            <div class="w-full h-36 bg-slate-950/90 rounded-xl overflow-hidden border border-slate-800">
+              <canvas id="t2-mech-canvas" class="w-full h-full block"></canvas>
+            </div>
+          </div>
+
+          <!-- Dual Visualizers: Time Domain & Phase Portrait side-by-side -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Time Domain Response Chart -->
+            <div class="glass-panel rounded-2xl p-4 flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                  <i class="fa-solid fa-chart-line text-teal-400"></i> Response y(t) & v(t)
+                </h4>
+                <div class="flex items-center gap-2 text-[10px] font-mono">
+                  <span class="text-teal-400">y(t)</span>
+                  <span class="text-purple-400">v(t)</span>
+                </div>
+              </div>
+              <div class="w-full h-56 bg-slate-950/80 rounded-xl overflow-hidden border border-slate-800">
+                <canvas id="t2-time-canvas" class="w-full h-full block"></canvas>
+              </div>
+            </div>
+
+            <!-- Phase Portrait Curve Canvas -->
+            <div class="glass-panel rounded-2xl p-4 flex flex-col">
+              <div class="flex justify-between items-center mb-2">
+                <h4 class="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+                  <i class="fa-solid fa-circle-nodes text-cyan-400"></i> 2D Phase Portrait (v vs y)
+                </h4>
+                <span class="text-[10px] font-mono text-slate-400">State Trajectory</span>
+              </div>
+              <div class="w-full h-56 bg-slate-950/80 rounded-xl overflow-hidden border border-slate-800">
+                <canvas id="t2-phase-canvas" class="w-full h-full block"></canvas>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Synchronized Scrubbing Controls -->
+          <div class="glass-panel rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4">
+            <div class="flex items-center gap-2">
+              <button id="t2-play-btn" onclick="togglePlayTab2()" class="p-2.5 bg-teal-600 hover:bg-teal-500 text-white rounded-lg w-10 h-10 flex items-center justify-center transition shadow-md shadow-teal-600/30">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <button onclick="resetTab2()" class="p-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg w-10 h-10 flex items-center justify-center transition">
+                <i class="fa-solid fa-rotate-left"></i>
+              </button>
+            </div>
+
+            <div class="flex-grow w-full flex items-center gap-3">
+              <span class="text-xs font-mono text-slate-400 min-w-[45px]">t = <span id="t2-time-display">0.00</span>s</span>
+              <input type="range" id="t2-time-slider" min="0" max="1000" value="0" class="w-full" oninput="scrubTab2(this.value)">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-4 px-6 text-center text-xs text-slate-500">
+    Interactive Ordinary Differential Equations Visualizer &bull; Formulated with High-Precision Runge-Kutta 4 Numerical Solver
+  </footer>
+
+  <!-- JS Logic -->
+  <script>
+    // =========================================================================
+    // GLOBAL STATE & TAB NAVIGATION
+    // =========================================================================
+    let activeTab = 1;
+
+    function switchTab(tabNum) {
+      activeTab = tabNum;
+      const tab1Btn = document.getElementById('tab1-btn');
+      const tab2Btn = document.getElementById('tab2-btn');
+      const tab1Content = document.getElementById('tab1-content');
+      const tab2Content = document.getElementById('tab2-content');
+
+      if (tabNum === 1) {
+        tab1Btn.className = "flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-indigo-600 text-white shadow-lg shadow-indigo-600/30";
+        tab2Btn.className = "flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50";
+        tab1Content.classList.remove('hidden');
+        tab2Content.classList.add('hidden');
+        if (t2IsPlaying) togglePlayTab2();
+      } else {
+        tab2Btn.className = "flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 bg-teal-600 text-white shadow-lg shadow-teal-600/30";
+        tab1Btn.className = "flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-slate-400 hover:text-slate-200 hover:bg-slate-800/50";
+        tab2Content.classList.remove('hidden');
+        tab1Content.classList.add('hidden');
+        if (t1IsPlaying) togglePlayTab1();
+      }
+      resizeAllCanvases();
+    }
+
+    // High-precision RK4 Numerical Integrator
+    function rk4Step(f, t, y, dt) {
+      const k1 = f(t, y);
+      const k2 = f(t + dt / 2, addVec(y, scaleVec(k1, dt / 2)));
+      const k3 = f(t + dt / 2, addVec(y, scaleVec(k2, dt / 2)));
+      const k4 = f(t + dt, addVec(y, scaleVec(k3, dt)));
+      
+      const res = [];
+      for (let i = 0; i < y.length; i++) {
+        res.push(y[i] + (dt / 6) * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]));
+      }
+      return res;
+    }
+
+    function addVec(v1, v2) {
+      return v1.map((val, idx) => val + v2[idx]);
+    }
+
+    function scaleVec(v, factor) {
+      return v.map(val => val * factor);
+    }
+
+
+    // =========================================================================
+    // TAB 1 LOGIC & SIMULATION (FIRST ORDER SYSTEM)
+    // =========================================================================
+    let t1Data = {
+      tau: 1.0,
+      y0: 0.0,
+      inputType: 'step',
+      amp: 1.0,
+      freq: 1.0,
+      tMax: 30.0,
+      tValues: [],
+      uValues: [],
+      yValues: []
+    };
+
+    let t1CurrentTime = 0.0;
+    let t1IsPlaying = false;
+    let t1AnimFrame = null;
+
+    function getT1Input(t) {
+      const A = t1Data.amp;
+      const w = t1Data.freq;
+      switch (t1Data.inputType) {
+        case 'step':
+          return t >= 0 ? A : 0;
+        case 'sine':
+          return A * Math.sin(w * t);
+        case 'ramp':
+          return A * t;
+        case 'exponential':
+          return A * (1 - Math.exp(-t));
+        case 'impulse':
+          // Approximation of unit impulse around t = 0
+          return (t >= 0 && t <= 0.2) ? A / 0.2 : 0;
+        default:
+          return A;
+      }
+    }
+
+    function recomputeTab1() {
+      const numSteps = 800;
+      const dt = t1Data.tMax / numSteps;
+
+      t1Data.tValues = [];
+      t1Data.uValues = [];
+      t1Data.yValues = [];
+
+      let t = 0;
+      let state = [t1Data.y0];
+
+      const ode = (tVal, yVec) => {
+        const uVal = getT1Input(tVal);
+        const dydt = (uVal - yVec[0]) / t1Data.tau;
+        return [dydt];
+      };
+
+      for (let i = 0; i <= numSteps; i++) {
+        t1Data.tValues.push(t);
+        t1Data.uValues.push(getT1Input(t));
+        t1Data.yValues.push(state[0]);
+
+        state = rk4Step(ode, t, state, dt);
+        t += dt;
+      }
+
+      // Update metrics UI
+      document.getElementById('metric-t1-tau').innerText = t1Data.tau.toFixed(2) + ' s';
+      document.getElementById('metric-t1-settling').innerText = (4 * t1Data.tau).toFixed(2) + ' s';
+
+      renderTab1();
+    }
+
+    function updateTab1Params() {
+      t1Data.tau = parseFloat(document.getElementById('t1-tau').value);
+      t1Data.y0 = parseFloat(document.getElementById('t1-y0').value);
+      t1Data.inputType = document.getElementById('t1-input-type').value;
+      t1Data.amp = parseFloat(document.getElementById('t1-amp').value);
+      t1Data.freq = parseFloat(document.getElementById('t1-freq').value);
+      t1Data.tMax = parseFloat(document.getElementById('t1-tmax').value);
+
+      document.getElementById('t1-tau-val').innerText = t1Data.tau.toFixed(2) + ' s';
+      document.getElementById('t1-y0-val').innerText = t1Data.y0.toFixed(2);
+      document.getElementById('t1-amp-val').innerText = t1Data.amp.toFixed(2);
+      document.getElementById('t1-freq-val').innerText = t1Data.freq.toFixed(2);
+      document.getElementById('t1-tmax-val').innerText = t1Data.tMax.toFixed(1) + ' s';
+
+      // Hide/Show Frequency control
+      const freqCont = document.getElementById('t1-freq-container');
+      if (t1Data.inputType === 'sine') {
+        freqCont.style.display = 'block';
+      } else {
+        freqCont.style.display = 'none';
+      }
+
+      if (t1CurrentTime > t1Data.tMax) t1CurrentTime = t1Data.tMax;
+
+      recomputeTab1();
+    }
+
+    function togglePlayTab1() {
+      t1IsPlaying = !t1IsPlaying;
+      const btn = document.getElementById('t1-play-btn');
+      if (t1IsPlaying) {
+        btn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+        btn.classList.replace('bg-indigo-600', 'bg-amber-600');
+        animateTab1();
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+        btn.classList.replace('bg-amber-600', 'bg-indigo-600');
+        if (t1AnimFrame) cancelAnimationFrame(t1AnimFrame);
+      }
+    }
+
+    function resetTab1() {
+      if (t1IsPlaying) togglePlayTab1();
+      t1CurrentTime = 0.0;
+      document.getElementById('t1-time-slider').value = 0;
+      renderTab1();
+    }
+
+    function scrubTab1(val) {
+      t1CurrentTime = (val / 1000) * t1Data.tMax;
+      renderTab1();
+    }
+
+    function animateTab1() {
+      if (!t1IsPlaying) return;
+      t1CurrentTime += 0.016; // ~60fps
+      if (t1CurrentTime >= t1Data.tMax) {
+        t1CurrentTime = 0.0;
+      }
+      document.getElementById('t1-time-slider').value = (t1CurrentTime / t1Data.tMax) * 1000;
+      renderTab1();
+      t1AnimFrame = requestAnimationFrame(animateTab1);
+    }
+
+    function renderTab1() {
+      document.getElementById('t1-time-display').innerText = t1CurrentTime.toFixed(2);
+
+      // Find current y value for metric
+      const idx = Math.min(
+        Math.floor((t1CurrentTime / t1Data.tMax) * t1Data.tValues.length),
+        t1Data.tValues.length - 1
+      );
+      const currY = t1Data.yValues[idx] || 0;
+      document.getElementById('metric-t1-curr').innerText = currY.toFixed(2);
+
+      // Render Canvas
+      const canvas = document.getElementById('t1-time-canvas');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Determine Y scale dynamically
+      let minY = Math.min(...t1Data.yValues, ...t1Data.uValues, -1);
+      let maxY = Math.max(...t1Data.yValues, ...t1Data.uValues, 1);
+      const marginY = (maxY - minY) * 0.15 || 0.5;
+      minY -= marginY;
+      maxY += marginY;
+
+      const mapX = (t) => (t / t1Data.tMax) * (w - 60) + 45;
+      const mapY = (val) => h - 30 - ((val - minY) / (maxY - minY)) * (h - 50);
+
+      // Draw Grid
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 1;
+      
+      // Horizontal zero line
+      const zeroY = mapY(0);
+      ctx.beginPath();
+      ctx.strokeStyle = '#334155';
+      ctx.moveTo(45, zeroY);
+      ctx.lineTo(w - 15, zeroY);
+      ctx.stroke();
+
+      // Axis ticks
+      ctx.fillStyle = '#64748b';
+      ctx.font = '10px JetBrains Mono';
+      ctx.textAlign = 'right';
+      ctx.fillText(maxY.toFixed(1), 40, mapY(maxY) + 10);
+      ctx.fillText(minY.toFixed(1), 40, mapY(minY));
+      ctx.fillText('0.0', 40, zeroY + 3);
+
+      ctx.textAlign = 'center';
+      ctx.fillText('0s', mapX(0), h - 10);
+      ctx.fillText((t1Data.tMax / 2).toFixed(1) + 's', mapX(t1Data.tMax / 2), h - 10);
+      ctx.fillText(t1Data.tMax.toFixed(1) + 's', mapX(t1Data.tMax), h - 10);
+
+      // Draw Input u(t)
+      ctx.beginPath();
+      ctx.strokeStyle = '#6366f1'; // Indigo
+      ctx.lineWidth = 1.8;
+      ctx.setLineDash([4, 4]);
+      for (let i = 0; i < t1Data.tValues.length; i++) {
+        const x = mapX(t1Data.tValues[i]);
+        const y = mapY(t1Data.uValues[i]);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Draw Output y(t)
+      ctx.beginPath();
+      ctx.strokeStyle = '#22d3ee'; // Cyan
+      ctx.lineWidth = 2.5;
+      for (let i = 0; i < t1Data.tValues.length; i++) {
+        const x = mapX(t1Data.tValues[i]);
+        const y = mapY(t1Data.yValues[i]);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Synchronized Indicator Marker (Glowing Dot & Vertical Bar)
+      const currentX = mapX(t1CurrentTime);
+      const currentY = mapY(currY);
+
+      // Vertical cursor bar
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+      ctx.lineWidth = 1;
+      ctx.moveTo(currentX, 15);
+      ctx.lineTo(currentX, h - 30);
+      ctx.stroke();
+
+      // Outer Glow
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 8, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(34, 211, 238, 0.3)';
+      ctx.fill();
+
+      // Inner Marker Dot
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      ctx.strokeStyle = '#06b6d4';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+
+    // =========================================================================
+    // TAB 2 LOGIC & SIMULATION (SECOND ORDER SYSTEM)
+    // =========================================================================
+    let t2Data = {
+      m: 1.0,
+      c: 0.5,
+      k: 4.0,
+      y0: 1.0,
+      v0: 0.0,
+      inputType: 'none',
+      amp: 2.0,
+      freq: 2.0,
+      tMax: 30.0,
+      tValues: [],
+      yValues: [],
+      vValues: []
+    };
+
+    let t2CurrentTime = 0.0;
+    let t2IsPlaying = false;
+    let t2AnimFrame = null;
+
+    function getT2Force(t) {
+      const F0 = t2Data.amp;
+      const w = t2Data.freq;
+      switch (t2Data.inputType) {
+        case 'none':
+          return 0;
+        case 'step':
+          return t >= 0 ? F0 : 0;
+        case 'sine':
+          return F0 * Math.sin(w * t);
+        default:
+          return 0;
+      }
+    }
+
+    function recomputeTab2() {
+      const numSteps = 1000;
+      const dt = t2Data.tMax / numSteps;
+
+      t2Data.tValues = [];
+      t2Data.yValues = [];
+      t2Data.vValues = [];
+
+      let t = 0;
+      let state = [t2Data.y0, t2Data.v0]; // [position y, velocity v]
+
+      const ode = (tVal, Y) => {
+        const y = Y[0];
+        const v = Y[1];
+        const F = getT2Force(tVal);
+        const dydt = v;
+        const dvdt = (F - t2Data.c * v - t2Data.k * y) / t2Data.m;
+        return [dydt, dvdt];
+      };
+
+      for (let i = 0; i <= numSteps; i++) {
+        t2Data.tValues.push(t);
+        t2Data.yValues.push(state[0]);
+        t2Data.vValues.push(state[1]);
+
+        state = rk4Step(ode, t, state, dt);
+        t += dt;
+      }
+
+      // Compute Analytical Metrics
+      const wn = Math.sqrt(t2Data.k / t2Data.m);
+      const zeta = t2Data.c / (2 * Math.sqrt(t2Data.m * t2Data.k));
+      let wd = 0;
+      let regimeStr = '';
+
+      if (zeta === 0) {
+        regimeStr = 'Undamped';
+      } else if (zeta < 1.0) {
+        regimeStr = 'Underdamped';
+        wd = wn * Math.sqrt(1 - zeta * zeta);
+      } else if (Math.abs(zeta - 1.0) < 1e-4) {
+        regimeStr = 'Critically Damped';
+      } else {
+        regimeStr = 'Overdamped';
+      }
+
+      document.getElementById('metric-t2-wn').innerText = wn.toFixed(2) + ' rad/s';
+      document.getElementById('metric-t2-zeta').innerText = zeta.toFixed(3);
+      document.getElementById('metric-t2-wd').innerText = wd > 0 ? wd.toFixed(2) + ' rad/s' : 'N/A';
+      
+      const regBadge = document.getElementById('metric-t2-regime');
+      regBadge.innerText = regimeStr;
+
+      renderTab2();
+    }
+
+    function updateTab2Params() {
+      t2Data.m = parseFloat(document.getElementById('t2-m').value);
+      t2Data.c = parseFloat(document.getElementById('t2-c').value);
+      t2Data.k = parseFloat(document.getElementById('t2-k').value);
+      t2Data.y0 = parseFloat(document.getElementById('t2-y0').value) || 0;
+      t2Data.v0 = parseFloat(document.getElementById('t2-v0').value) || 0;
+      t2Data.inputType = document.getElementById('t2-input-type').value;
+      t2Data.amp = parseFloat(document.getElementById('t2-amp').value);
+      t2Data.freq = parseFloat(document.getElementById('t2-freq').value);
+
+      document.getElementById('t2-m-val').innerText = t2Data.m.toFixed(2) + ' kg';
+      document.getElementById('t2-c-val').innerText = t2Data.c.toFixed(2) + ' Ns/m';
+      document.getElementById('t2-k-val').innerText = t2Data.k.toFixed(2) + ' N/m';
+      document.getElementById('t2-amp-val').innerText = t2Data.amp.toFixed(1);
+      document.getElementById('t2-freq-val').innerText = t2Data.freq.toFixed(1) + ' rad/s';
+
+      const freqCont = document.getElementById('t2-freq-container');
+      if (t2Data.inputType === 'sine') {
+        freqCont.style.display = 'block';
+      } else {
+        freqCont.style.display = 'none';
+      }
+
+      recomputeTab2();
+    }
+
+    function togglePlayTab2() {
+      t2IsPlaying = !t2IsPlaying;
+      const btn = document.getElementById('t2-play-btn');
+      if (t2IsPlaying) {
+        btn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+        btn.classList.replace('bg-teal-600', 'bg-amber-600');
+        animateTab2();
+      } else {
+        btn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+        btn.classList.replace('bg-amber-600', 'bg-teal-600');
+        if (t2AnimFrame) cancelAnimationFrame(t2AnimFrame);
+      }
+    }
+
+    function resetTab2() {
+      if (t2IsPlaying) togglePlayTab2();
+      t2CurrentTime = 0.0;
+      document.getElementById('t2-time-slider').value = 0;
+      renderTab2();
+    }
+
+    function scrubTab2(val) {
+      t2CurrentTime = (val / 1000) * t2Data.tMax;
+      renderTab2();
+    }
+
+    function animateTab2() {
+      if (!t2IsPlaying) return;
+      t2CurrentTime += 0.016;
+      if (t2CurrentTime >= t2Data.tMax) {
+        t2CurrentTime = 0.0;
+      }
+      document.getElementById('t2-time-slider').value = (t2CurrentTime / t2Data.tMax) * 1000;
+      renderTab2();
+      t2AnimFrame = requestAnimationFrame(animateTab2);
+    }
+
+    function renderTab2() {
+      document.getElementById('t2-time-display').innerText = t2CurrentTime.toFixed(2);
+
+      // Get interpolated current state (y, v)
+      const idx = Math.min(
+        Math.floor((t2CurrentTime / t2Data.tMax) * t2Data.tValues.length),
+        t2Data.tValues.length - 1
+      );
+      const currY = t2Data.yValues[idx] || 0;
+      const currV = t2Data.vValues[idx] || 0;
+
+      // 1. Render Physical Mechanical Canvas
+      renderMechanicalCanvas(currY, currV);
+
+      // 2. Render Time-Domain Response Chart
+      renderTab2TimeCanvas(currY, currV);
+
+      // 3. Render Phase Portrait Canvas
+      renderPhaseCanvas(currY, currV);
+    }
+
+    // Physical Mass-Spring-Damper Rendering
+    function renderMechanicalCanvas(currY, currV) {
+      const canvas = document.getElementById('t2-mech-canvas');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      const wallX = 40;
+      const centerY = h / 2 - 10;
+      
+      // Scale displacement y to pixels
+      const scaleX = 45; // 1m = 45px
+      const equilibriumX = w / 2;
+      const massX = equilibriumX + currY * scaleX;
+
+      // Draw Wall
+      ctx.fillStyle = '#334155';
+      ctx.fillRect(10, 20, 30, h - 40);
+      // Wall Hatch Marks
+      ctx.strokeStyle = '#475569';
+      ctx.lineWidth = 2;
+      for (let y = 25; y < h - 35; y += 8) {
+        ctx.beginPath();
+        ctx.moveTo(10, y + 8);
+        ctx.lineTo(25, y);
+        ctx.stroke();
+      }
+
+      // Ground Line
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(20, centerY + 30);
+      ctx.lineTo(w - 20, centerY + 30);
+      ctx.stroke();
+
+      // Equilibrium Mark Line
+      ctx.strokeStyle = 'rgba(100, 116, 139, 0.4)';
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(equilibriumX, 15);
+      ctx.lineTo(equilibriumX, h - 15);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#64748b';
+      ctx.font = '9px JetBrains Mono';
+      ctx.fillText('Equilibrium (y=0)', equilibriumX - 35, 12);
+
+      // Draw Coiled Spring (Top path)
+      const springStartY = centerY - 12;
+      ctx.strokeStyle = '#22d3ee'; // Cyan
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(wallX, springStartY);
+      const springLength = massX - 30 - wallX;
+      const coils = 12;
+      for (let i = 0; i <= coils; i++) {
+        const x = wallX + (springLength / coils) * i;
+        const y = springStartY + (i % 2 === 0 ? -10 : 10);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(massX - 30, springStartY);
+      ctx.stroke();
+
+      // Draw Dashpot Damper (Bottom path)
+      const damperStartY = centerY + 12;
+      ctx.strokeStyle = '#94a3b8';
+      ctx.lineWidth = 2;
+      // Cylinder
+      const cylWidth = 35;
+      const cylX = wallX + springLength * 0.4;
+      ctx.beginPath();
+      ctx.moveTo(wallX, damperStartY);
+      ctx.lineTo(cylX, damperStartY);
+      ctx.stroke();
+      ctx.strokeRect(cylX, damperStartY - 8, cylWidth, 16);
+      // Piston inside cylinder
+      ctx.beginPath();
+      ctx.moveTo(cylX + 10, damperStartY);
+      ctx.lineTo(massX - 30, damperStartY);
+      ctx.stroke();
+
+      // Draw Mass Box
+      const massW = 60;
+      const massH = 45;
+      ctx.fillStyle = '#1e293b';
+      ctx.strokeStyle = '#22d3ee';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(massX - massW / 2, centerY - massH / 2, massW, massH, 8);
+      ctx.fill();
+      ctx.stroke();
+
+      // Mass Label
+      ctx.fillStyle = '#f8fafc';
+      ctx.font = 'bold 11px Inter';
+      ctx.textAlign = 'center';
+      ctx.fillText(`m = ${t2Data.m}kg`, massX, centerY + 4);
+
+      // Velocity Arrow Vector
+      if (Math.abs(currV) > 0.05) {
+        const vecLen = currV * 18;
+        ctx.strokeStyle = '#c084fc'; // Purple arrow
+        ctx.fillStyle = '#c084fc';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(massX, centerY - massH / 2 - 8);
+        ctx.lineTo(massX + vecLen, centerY - massH / 2 - 8);
+        ctx.stroke();
+
+        // Arrow Head
+        const headDir = Math.sign(vecLen);
+        ctx.beginPath();
+        ctx.moveTo(massX + vecLen, centerY - massH / 2 - 8);
+        ctx.lineTo(massX + vecLen - headDir * 6, centerY - massH / 2 - 12);
+        ctx.lineTo(massX + vecLen - headDir * 6, centerY - massH / 2 - 4);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    // Time Domain Canvas Render
+    function renderTab2TimeCanvas(currY, currV) {
+      const canvas = document.getElementById('t2-time-canvas');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      let minY = Math.min(...t2Data.yValues, ...t2Data.vValues, -1.5);
+      let maxY = Math.max(...t2Data.yValues, ...t2Data.vValues, 1.5);
+      const marginY = (maxY - minY) * 0.15 || 0.5;
+      minY -= marginY;
+      maxY += marginY;
+
+      const mapX = (t) => (t / t2Data.tMax) * (w - 50) + 40;
+      const mapY = (val) => h - 25 - ((val - minY) / (maxY - minY)) * (h - 40);
+
+      // Grid Axis
+      const zeroY = mapY(0);
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(40, zeroY);
+      ctx.lineTo(w - 10, zeroY);
+      ctx.stroke();
+
+      // Axis Ticks
+      ctx.fillStyle = '#64748b';
+      ctx.font = '9px JetBrains Mono';
+      ctx.textAlign = 'right';
+      ctx.fillText(maxY.toFixed(1), 35, mapY(maxY) + 8);
+      ctx.fillText(minY.toFixed(1), 35, mapY(minY));
+
+      // Plot Displacement y(t)
+      ctx.beginPath();
+      ctx.strokeStyle = '#22d3ee'; // Cyan
+      ctx.lineWidth = 2;
+      for (let i = 0; i < t2Data.tValues.length; i++) {
+        const x = mapX(t2Data.tValues[i]);
+        const y = mapY(t2Data.yValues[i]);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Plot Velocity v(t)
+      ctx.beginPath();
+      ctx.strokeStyle = '#c084fc'; // Purple
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      for (let i = 0; i < t2Data.tValues.length; i++) {
+        const x = mapX(t2Data.tValues[i]);
+        const y = mapY(t2Data.vValues[i]);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Synchronized Indicator Point
+      const currentX = mapX(t2CurrentTime);
+      const currentY = mapY(currY);
+
+      // Vertical Bar
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.moveTo(currentX, 10);
+      ctx.lineTo(currentX, h - 25);
+      ctx.stroke();
+
+      // Glowing Indicator Dot
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 7, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(34, 211, 238, 0.4)';
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+    }
+
+    // 2D Phase Space Portrait Canvas (v vs y)
+    function renderPhaseCanvas(currY, currV) {
+      const canvas = document.getElementById('t2-phase-canvas');
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width;
+      const h = canvas.height;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Set Phase Limits
+      let maxY = Math.max(...t2Data.yValues.map(Math.abs), 1.5);
+      let maxV = Math.max(...t2Data.vValues.map(Math.abs), 1.5);
+      
+      const lim = Math.max(maxY, maxV) * 1.25;
+
+      const mapX = (y) => (w / 2) + (y / lim) * (w / 2 - 25);
+      const mapY = (v) => (h / 2) - (v / lim) * (h / 2 - 25);
+
+      // Axes
+      ctx.strokeStyle = '#334155';
+      ctx.lineWidth = 1;
+      
+      // X-Axis (Position y)
+      ctx.beginPath();
+      ctx.moveTo(15, h / 2);
+      ctx.lineTo(w - 15, h / 2);
+      ctx.stroke();
+
+      // Y-Axis (Velocity v)
+      ctx.beginPath();
+      ctx.moveTo(w / 2, 15);
+      ctx.lineTo(w / 2, h - 15);
+      ctx.stroke();
+
+      // Labels
+      ctx.fillStyle = '#64748b';
+      ctx.font = '9px JetBrains Mono';
+      ctx.textAlign = 'right';
+      ctx.fillText('y', w - 18, h / 2 - 5);
+      ctx.fillText('v', w / 2 + 12, 22);
+
+      // Draw Full Trajectory Curve
+      ctx.beginPath();
+      ctx.strokeStyle = '#38bdf8'; // Sky blue
+      ctx.lineWidth = 2;
+
+      for (let i = 0; i < t2Data.tValues.length; i++) {
+        const x = mapX(t2Data.yValues[i]);
+        const y = mapY(t2Data.vValues[i]);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Active Sync Cursor Dot on Phase Plane
+      const activeX = mapX(currY);
+      const activeY = mapY(currV);
+
+      ctx.beginPath();
+      ctx.arc(activeX, activeY, 8, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(244, 63, 94, 0.4)'; // Rose glow
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(activeX, activeY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#ffffff';
+      ctx.fill();
+      ctx.strokeStyle = '#f43f5e';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+
+    // =========================================================================
+    // RESPONSIVE CANVAS RESIZING
+    // =========================================================================
+    function resizeCanvas(canvas) {
+      if (!canvas) return;
+      const rect = canvas.parentElement.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+
+    function resizeAllCanvases() {
+      resizeCanvas(document.getElementById('t1-time-canvas'));
+      resizeCanvas(document.getElementById('t2-mech-canvas'));
+      resizeCanvas(document.getElementById('t2-time-canvas'));
+      resizeCanvas(document.getElementById('t2-phase-canvas'));
+
+      if (activeTab === 1) renderTab1();
+      else renderTab2();
+    }
+
+    window.addEventListener('resize', resizeAllCanvases);
+
+    // Initial Setup on Load
+    window.onload = function () {
+      resizeAllCanvases();
+      updateTab1Params();
+      updateTab2Params();
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
+</body>
+</html>
