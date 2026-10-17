@@ -1,7 +1,7 @@
 ---
 title: "Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations"
 subtitle: ""
-description: "Introduction to ODEs, with examples about 1st and 2nd order linear equations with constant coefficients."
+description: "Introduction to ODEs, with examples about 1st and 2nd order linear equations with constant coefficients, that often appear in physics."
 week: "x"
 author: "Basics"
 date: "2026-10-28"
@@ -10,6 +10,14 @@ date-modified: last-modified
 categories: [teaching, mathematics, log]
 toc: true
 toc-title: "On this page"
+---
+
+**Crash introduction to infinitesimal calculus.**
+
+1. [Limits and Derivatives](session-03.html)
+2. [Integrals](session-calculus-crash-02.html) 
+3.  Ordinary Differential Equations - **this file**
+
 ---
 
 A qualitative introduction to first and second order linear equations with constant coefficients is followed by the general process for solving linear equations with constant coefficients: the solution can be written as the sum of a *free solution* and a *forced solution*; the free solution immediately follows from the properties of the exponential function; the forced solution is computed exploiting some similarity with the the external forcing.

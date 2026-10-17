@@ -1,7 +1,7 @@
 ---
 title: "Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals"
 subtitle: ""
-description: "Graphical introduction ."
+description: "Graphical introduction to definite integrals as the limit of a Riemann sum."
 week: "x"
 author: "Basics"
 date: "2026-10-27"
@@ -12,7 +12,29 @@ toc: true
 toc-title: "On this page"
 ---
 
-Introduction to integral.
+**Crash introduction to infinitesimal calculus.**
+
+1. [Limits and Derivatives](session-03.html)
+2. Integrals - **this file**
+3. [Ordinary Differential Equations](session-calculus-crash-03.html)
+
+---
+
+See: [Matematica: Calcolo infinitesimale: Integrali](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/integrals.html)
+
+*Definite integrals* are first introduced with its geometrical interpretation. The formal definition as the limit of a Riemann sum follows. **Fundamental theorem of calculus** provides the relation between integral and derivative.
+
+## Geometrical Interpretation
+
+The value of the *definite* integral 
+
+$$\int_{x=a}^{b} f(x) \, dx \ ,$$
+
+equals the area (with sign) in the Cartesian plane between the $x$-axis and the graph of the function $y = f(x)$, and the vertical lines with coordinates $x = a$, and $x = b$. This value can be approximated with the sum of the area of rectangles or trapezoids (see APPROXIMATION RULEs): as the number of the elementary geometrical shapes of the approximation increases, and their height (in $x$ direction) decreases, the approaximation becomes better and better. As the number of elements goes to $\infty$, and the maximum height of the elementary shapes goes to zero, the definition of the definite Riemann integral follows
+
+$$\int_{x=a}^{b} f(x) \, dx = \lim_{\max h_k \rightarrow 0} \sum_{k} \text{Area}_k \ .$$
+
+If this limit exists, then the integral of the function $f(x)$ between $x=a$ and $x=b$ exists. This definition is independent from the approximation (as long as it's a definite approximation...): you can easily check that the value of the *Riemann Sum Approximation* tends to the value of the *Exact Definite Integral*, while the absolute error and the relative error percentage go to zero.
 
 ```{=html}
 <div style="width: 100%; min-height: 1000px; position: relative; margin-bottom: 2rem;">
