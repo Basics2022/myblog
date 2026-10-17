@@ -121,6 +121,36 @@ Figure&nbsp;3: Explicit definition
   <pubDate>Sun, 18 Oct 2026 22:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>Session 3. Crash introduction to calculus</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="introduction-to-limits" class="level2">
+
+</section>
+<section id="introduction-to-derivatives" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-derivatives">Introduction to Derivatives</h2>
+<section id="geometrical-meaning" class="level3">
+<h3 class="anchored" data-anchor-id="geometrical-meaning">Geometrical Meaning</h3>
+<iframe src="_geometric_meaning_of_the_derivative.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03.html</guid>
+  <pubDate>Fri, 16 Oct 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
   <title>Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors</title>
   <dc:creator>Basics </dc:creator>
   <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-01.html</link>
@@ -620,7 +650,23 @@ Weeks
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792360800000" data-listing-file-modified-sort="1791903598431" data-listing-date-modified-sort="1791903598000" data-listing-reading-time-sort="3" data-listing-word-count-sort="448" data-listing-title-sort="Session 2. Vector operations. Point distance, lines and conics in the plane" data-listing-filename-sort="session-02.qmd">
+<tr data-index="0" data-listing-file-modified-sort="1792139008051" data-listing-reading-time-sort="11" data-listing-word-count-sort="2155" data-listing-title-sort="Analisi: raccontare il cambiamento" data-listing-filename-sort="01-analisi-intro.qmd">
+<td>
+<span class="listing-date">&nbsp;</span>
+</td>
+<td>
+<a href="../../posts/tutoring-hs-math-physics/sessions/01-analisi-intro.html" class="title listing-title">Analisi: raccontare il cambiamento</a>
+</td>
+<td>
+<span class="listing-description"><!-- desc(5A0113B34292)[max=175]:posts/tutoring-hs-math-physics/sessions/01-analisi-intro.html --></span>
+</td>
+<td>
+<span class="listing-week">&nbsp;</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792360800000" data-listing-file-modified-sort="1791903598431" data-listing-date-modified-sort="1791903598000" data-listing-reading-time-sort="3" data-listing-word-count-sort="448" data-listing-title-sort="Session 2. Vector operations. Point distance, lines and conics in the plane" data-listing-filename-sort="session-02.qmd">
 <td>
 <span class="listing-date">Oct 19, 2026</span>
 </td>
@@ -636,7 +682,23 @@ Weeks
 
 </tr>
 
-<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1791894219248" data-listing-date-modified-sort="1791894219000" data-listing-reading-time-sort="4" data-listing-word-count-sort="717" data-listing-title-sort="Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors" data-listing-filename-sort="session-01.qmd">
+<tr data-index="2" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792188000000" data-listing-file-modified-sort="1792234971170" data-listing-date-modified-sort="1792234971000" data-listing-reading-time-sort="1" data-listing-word-count-sort="12" data-listing-title-sort="Session 3. Crash introduction to calculus" data-listing-filename-sort="session-03.qmd">
+<td>
+<span class="listing-date">Oct 17, 2026</span>
+</td>
+<td>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-03.html" class="title listing-title">Session 3. Crash introduction to calculus</a>
+</td>
+<td>
+<span class="listing-description">…</span>
+</td>
+<td>
+<span class="listing-week">3</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1791894219248" data-listing-date-modified-sort="1791894219000" data-listing-reading-time-sort="4" data-listing-word-count-sort="717" data-listing-title-sort="Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors" data-listing-filename-sort="session-01.qmd">
 <td>
 <span class="listing-date">Oct 12, 2026</span>
 </td>
@@ -4893,7 +4955,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```lnomhmgfnl Example: evaluation of hyperstatics</p>
+<p>```ocsmpxbdht Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
@@ -5003,6 +5065,349 @@ Since this post doesn't specify an explicit `image`, the first image in the post
   <category>blog</category>
   <guid>https://basics2022.github.io/myblog/posts/welcome/</guid>
   <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title></title>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/01-analisi-intro.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="analisi-raccontare-il-cambiamento" class="level1">
+<h1>Analisi: raccontare il cambiamento</h1>
+<p>Quasi tutto ciò che ci interessa descrivere cambia: una posizione che varia nel tempo, una popolazione che cresce, una corrente che si scarica, un costo che aumenta con la produzione. L’<strong>analisi matematica</strong> è il linguaggio che abbiamo costruito per parlare di cambiamento in modo preciso: quanto velocemente cambia una grandezza (la <strong>derivata</strong>), e quanto si accumula nel tempo (l’<strong>integrale</strong>). Da queste due idee, sorprendentemente collegate tra loro, nascono anche le <strong>equazioni differenziali</strong>, che descrivono un sistema a partire da come cambia, non da dove si trova.</p>
+<p>Questa pagina è una mappa: vedremo da dove nascono questi strumenti e a cosa servono, prima di entrare nel dettaglio tecnico nelle prossime sessioni.</p>
+<section id="funzioni-reali-di-variabile-reale" class="level2">
+<h2 class="anchored" data-anchor-id="funzioni-reali-di-variabile-reale">Funzioni reali di variabile reale</h2>
+<p>Una <strong>funzione reale di variabile reale</strong> è una regola <img src="https://latex.codecogs.com/png.latex?f"> che associa a ogni numero reale <img src="https://latex.codecogs.com/png.latex?x"> di un insieme <img src="https://latex.codecogs.com/png.latex?D"> (il <strong>dominio</strong>) uno e un solo numero reale <img src="https://latex.codecogs.com/png.latex?f(x)">. Il suo <strong>grafico</strong> è l’insieme dei punti del piano <img src="https://latex.codecogs.com/png.latex?%5C%7B(x,%20f(x))%20:%20x%20%5Cin%20D%5C%7D">: è il modo in cui “vediamo” una funzione invece di immaginarla. Trascina il punto sulla curva per leggere le coordinate.</p>
+<p><code>tzich html &lt;div class="w-c1" id="w-c1"&gt;   &lt;svg viewBox="0 0 380 320" id="w-c1-svg"&gt;&lt;/svg&gt;   &lt;div class="out" id="w-c1-out"&gt;&lt;/div&gt; &lt;/div&gt; &lt;style&gt; .w-c1{max-width:380px;margin:16px auto 22px} .w-c1 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px;touch-action:none} .w-c1 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:6px;font-size:15px;color:#333} .w-c1 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1} .w-c1 .ax{stroke:#555;stroke-width:1.4} .w-c1 .cv{fill:none;stroke:#118ab2;stroke-width:2.6} .w-c1 .pt{fill:#ef476f;stroke:#fff;stroke-width:1.5;cursor:grab} .w-c1 .lb{font-size:11px;fill:#777} &lt;/style&gt; &lt;script&gt; (function(){   var W=380,H=320,cx=190,cy=170,S=55;   function X(x){return cx+x*S;} function Y(y){return cy-y*S;}   function f(x){return x*x-1;}   var svg=document.getElementById('w-c1-svg'), out=document.getElementById('w-c1-out');   svg.setAttribute('viewBox','0 0 '+W+' '+H);   var h='';   for(var i=-3;i&lt;=3;i++) h+='&lt;line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/&gt;';   for(var j=-1;j&lt;=3;j++) h+='&lt;line class="gr" x1="0" y1="'+Y(j)+'" x2="'+W+'" y2="'+Y(j)+'"/&gt;';   h+='&lt;line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/&gt;';   h+='&lt;line class="ax" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/&gt;';   h+='&lt;text class="lb" x="'+(W-14)+'" y="'+(Y(0)-6)+'"&gt;x&lt;/text&gt;&lt;text class="lb" x="'+(X(0)+6)+'" y="12"&gt;f(x)&lt;/text&gt;';   var d='',first=true;   for(var xx=-3;xx&lt;=3.001;xx+=0.05){ d+=(first?'M':'L')+X(xx).toFixed(1)+' '+Y(f(xx)).toFixed(1); first=false; }   h+='&lt;path class="cv" d="'+d+'"/&gt;';   svg.innerHTML=h;   var NS='http://www.w3.org/2000/svg';   var pt=document.createElementNS(NS,'circle'); pt.setAttribute('r',7); pt.setAttribute('class','pt');   svg.appendChild(pt);   var x0=1.4;   function place(){     var y0=f(x0);     pt.setAttribute('cx',X(x0)); pt.setAttribute('cy',Y(y0));     out.textContent='P = ('+x0.toFixed(2)+', '+y0.toFixed(2)+'),  f(x) = x² − 1';   }   place();   var dragging=false;   function toX(e){     var p=svg.createSVGPoint(); p.x=e.clientX; p.y=e.clientY;     var loc=p.matrixTransform(svg.getScreenCTM().inverse());     return (loc.x-cx)/S;   }   pt.addEventListener('pointerdown',function(e){dragging=true;pt.setPointerCapture(e.pointerId);});   pt.addEventListener('pointermove',function(e){ if(!dragging)return; x0=Math.max(-2.9,Math.min(2.9,toX(e))); place(); });   pt.addEventListener('pointerup',function(){dragging=false;});   pt.addEventListener('pointercancel',function(){dragging=false;}); })(); &lt;/script&gt;</code></p>
+<p>Capire una funzione significa saperne descrivere dominio, andamento, simmetrie, zeri: è il vocabolario minimo su cui si appoggia tutto il resto dell’analisi.</p>
+</section>
+<section id="dal-rapporto-incrementale-al-limite" class="level2">
+<h2 class="anchored" data-anchor-id="dal-rapporto-incrementale-al-limite">Dal rapporto incrementale al limite</h2>
+<p>La domanda da cui nasce l’analisi è semplice: <em>quanto velocemente cambia <img src="https://latex.codecogs.com/png.latex?f"> vicino a un punto?</em> Il modo più naturale per rispondere è confrontare due punti vicini, <img src="https://latex.codecogs.com/png.latex?x_0"> e <img src="https://latex.codecogs.com/png.latex?x_0%20+%20h">, e calcolare il <strong>rapporto incrementale</strong></p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7Bf(x_0+h)%20-%20f(x_0)%7D%7Bh%7D,%0A"></p>
+<p>cioè la pendenza della retta secante che unisce i due punti del grafico. Il problema è che ci interessa la pendenza “in un punto solo”, mentre questa formula ha bisogno di due punti. L’idea risolutiva è il <strong>limite</strong>: far avvicinare <img src="https://latex.codecogs.com/png.latex?h"> a <img src="https://latex.codecogs.com/png.latex?0"> senza mai raggiungerlo, e vedere a cosa si avvicina il rapporto incrementale. Muovi i cursori — più <img src="https://latex.codecogs.com/png.latex?h"> si rimpicciolisce, più la secante si confonde con la tangente.</p>
+```tzich html
+<div id="w-c2" class="w-c2">
+<svg viewbox="0 0 380 380" id="w-c2-svg"></svg>
+<div class="ctrl">
+<pre><code>&lt;label&gt;x&lt;sub&gt;0&lt;/sub&gt; = &lt;span id="w-c2-x0v"&gt;&lt;/span&gt;
+  &lt;input type="range" id="w-c2-x0" min="0" max="2" step="0.05" value="1"&gt;&lt;/label&gt;
+&lt;label&gt;h = &lt;span id="w-c2-hv"&gt;&lt;/span&gt;
+  &lt;input type="range" id="w-c2-h" min="0.05" max="1.8" step="0.01" value="1"&gt;&lt;/label&gt;</code></pre>
+</div>
+<div id="w-c2-out" class="out">
+
+</div>
+</div>
+<style>
+.w-c2{max-width:400px;margin:16px auto 22px}
+.w-c2 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c2 .ctrl{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:14px;margin-top:8px}
+.w-c2 .ctrl input{vertical-align:middle;width:140px}
+.w-c2 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333;line-height:1.5}
+.w-c2 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c2 .ax{stroke:#555;stroke-width:1.4}
+.w-c2 .cv{fill:none;stroke:#118ab2;stroke-width:2.6}
+.w-c2 .sec{stroke:#f78c40;stroke-width:2.2}
+.w-c2 .tan{stroke:#06b98a;stroke-width:2.2;stroke-dasharray:6 5}
+.w-c2 .pt{fill:#333}
+</style>
+<script>
+(function(){
+  var W=380,H=380,cx=90,cy=350,S=50;
+  function X(x){return cx+x*S;} function Y(y){return cy-y*S;}
+  function f(x){return x*x;}
+  var svg=document.getElementById('w-c2-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var x0in=document.getElementById('w-c2-x0'), hin=document.getElementById('w-c2-h');
+  var x0v=document.getElementById('w-c2-x0v'), hv=document.getElementById('w-c2-hv');
+  var out=document.getElementById('w-c2-out');
+  var base='';
+  for(var i=0;i<=3;i++) base+='<line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/>';
+  for(var j=0;j<=7;j++) base+='<line class="gr" x1="0" y1="'+Y(j)+'" x2="'+W+'" y2="'+Y(j)+'"/>';
+  base+='<line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/>';
+  base+='<line class="ax" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/>';
+  var d='',first=true;
+  for(var xx=-0.3;xx<=2.8;xx+=0.04){ d+=(first?'M':'L')+X(xx).toFixed(1)+' '+Y(f(xx)).toFixed(1); first=false; }
+  base+='<path class="cv" d="'+d+'"/>';
+
+  function redraw(){
+    var x0=parseFloat(x0in.value), h=parseFloat(hin.value);
+    x0v.textContent=x0.toFixed(2); hv.textContent=h.toFixed(2);
+    var y0=f(x0), y1=f(x0+h);
+    var m=(y1-y0)/h, mt=2*x0;
+    var xa=-0.3, xb=2.8;
+    var secLine='<line class="sec" x1="'+X(xa)+'" y1="'+Y(y0+m*(xa-x0))+'" x2="'+X(xb)+'" y2="'+Y(y0+m*(xb-x0))+'"/>';
+    var tanLine='<line class="tan" x1="'+X(xa)+'" y1="'+Y(y0+mt*(xa-x0))+'" x2="'+X(xb)+'" y2="'+Y(y0+mt*(xb-x0))+'"/>';
+    var pts='<circle class="pt" cx="'+X(x0)+'" cy="'+Y(y0)+'" r="5.5"/><circle class="pt" cx="'+X(x0+h)+'" cy="'+Y(y1)+'" r="5.5"/>';
+    svg.innerHTML=base+secLine+tanLine+pts;
+    var close = h<0.15 ? ' — ormai quasi indistinguibile dalla tangente' : '';
+    out.innerHTML='pendenza secante = ('+y1.toFixed(2)+'−'+y0.toFixed(2)+')/'+h.toFixed(2)+' = <b>'+m.toFixed(3)+'</b>'+close+
+      '<br>pendenza tangente (esatta) = 2·x₀ = <b>'+mt.toFixed(2)+'</b>';
+  }
+  x0in.addEventListener('input',redraw);
+  hin.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+<pre><code>
+## La derivata
+
+Quando quel limite esiste, lo chiamiamo **derivata** di $f$ in $x_0$ e lo indichiamo $f'(x_0)$:
+
+$$
+f'(x_0) = \lim_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h}.
+$$
+
+Ha due letture, una geometrica e una fisica, che vale la pena tenere entrambe a mente:
+
+- **geometrica**: $f'(x_0)$ è la pendenza della retta tangente al grafico in $x_0$;
+- **fisica**: se $f(t)$ è la posizione di un oggetto al tempo $t$, $f'(t)$ è la sua **velocità
+  istantanea**; se $f$ è una quantità qualunque, $f'$ ne è il **tasso di variazione**.
+
+```{admonition} Esempio — la derivata di $x^2$
+:class: tip
+Usando la definizione, con $f(x) = x^2$:
+
+$$
+f'(x_0) = \lim_{h \to 0} \frac{(x_0+h)^2 - x_0^2}{h}
+= \lim_{h \to 0} \frac{2x_0 h + h^2}{h}
+= \lim_{h \to 0} (2x_0 + h) = 2x_0.
+$$
+
+Coerente con il widget sopra: la pendenza "esatta" mostrata è sempre $2x_0$.</code></pre>
+<p>Calcolare ogni volta il limite sarebbe scomodo: per questo si imparano <strong>regole di derivazione</strong> (somma, prodotto, quoziente, funzione composta) che permettono di derivare quasi ogni funzione elementare meccanicamente, una volta per tutte. Le vedremo nelle prossime sessioni.</p>
+<p><code>rmhayuigkbop Applicazione — ottimizzare qualcosa :class: note Nei punti di massimo o minimo di una funzione derivabile, la tangente è orizzontale: $f'(x) = 0$. È il principio dietro moltissimi problemi di ottimizzazione — massimizzare un'area a perimetro fissato, minimizzare un costo, trovare il punto di equilibrio di un sistema — e lo useremo spesso come primo strumento pratico.</code></p>
+</section>
+<section id="lintegrale" class="level2">
+<h2 class="anchored" data-anchor-id="lintegrale">L’integrale</h2>
+<p>Il problema “gemello” della derivata è calcolare un’<strong>area</strong>: quanto vale la superficie compresa tra il grafico di <img src="https://latex.codecogs.com/png.latex?f">, l’asse <img src="https://latex.codecogs.com/png.latex?x"> e due rette verticali <img src="https://latex.codecogs.com/png.latex?x=a">, <img src="https://latex.codecogs.com/png.latex?x=b">? L’idea è approssimarla con tanti rettangoli sottili e vedere cosa succede quando diventano infinitamente stretti — una <strong>somma di Riemann</strong>:</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cint_a%5Eb%20f(x)%5C,%20dx%20=%20%5Clim_%7Bn%20%5Cto%20%5Cinfty%7D%20%5Csum_%7Bi=1%7D%5E%7Bn%7D%20f(x_i%5E*)%5C,%20%5CDelta%20x.%0A"></p>
+<p>Sposta il cursore per aumentare il numero di rettangoli e guarda la somma avvicinarsi al valore esatto.</p>
+```tzich html
+<div id="w-c3" class="w-c3">
+<svg viewbox="0 0 380 300" id="w-c3-svg"></svg>
+<div class="ctrl">
+<pre><code>&lt;label&gt;n = &lt;span id="w-c3-nv"&gt;&lt;/span&gt;
+  &lt;input type="range" id="w-c3-n" min="1" max="60" step="1" value="6"&gt;&lt;/label&gt;</code></pre>
+</div>
+<div id="w-c3-out" class="out">
+
+</div>
+</div>
+<style>
+.w-c3{max-width:400px;margin:16px auto 22px}
+.w-c3 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c3 .ctrl{display:flex;justify-content:center;font-size:14px;margin-top:8px}
+.w-c3 .ctrl input{vertical-align:middle;width:200px;margin-left:8px}
+.w-c3 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c3 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c3 .ax{stroke:#555;stroke-width:1.4}
+.w-c3 .cv{fill:none;stroke:#118ab2;stroke-width:2.6}
+.w-c3 .bar{fill:#f78c40;fill-opacity:.55;stroke:#fff;stroke-width:1}
+</style>
+<script>
+(function(){
+  var W=380,H=300,cx=40,cy=270,S=280;
+  function X(x){return cx+x*S;} function Y(y){return cy-y*S;}
+  function f(x){return x*x;}
+  var svg=document.getElementById('w-c3-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var nin=document.getElementById('w-c3-n'), nv=document.getElementById('w-c3-nv'), out=document.getElementById('w-c3-out');
+  var base='';
+  for(var j=0;j<=4;j++) base+='<line class="gr" x1="'+X(0)+'" y1="'+Y(j/4)+'" x2="'+X(1.05)+'" y2="'+Y(j/4)+'"/>';
+  base+='<line class="ax" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(1.08)+'" y2="'+Y(0)+'"/>';
+  base+='<line class="ax" x1="'+X(0)+'" y1="'+Y(-0.05)+'" x2="'+X(0)+'" y2="'+Y(1.05)+'"/>';
+  var d='',first=true;
+  for(var xx=0;xx<=1.001;xx+=0.02){ d+=(first?'M':'L')+X(xx).toFixed(1)+' '+Y(f(xx)).toFixed(1); first=false; }
+  base+='<path class="cv" d="'+d+'"/>';
+
+  function redraw(){
+    var n=parseInt(nin.value,10); nv.textContent=n;
+    var bars='', sum=0, dx=1/n;
+    for(var i=0;i<n;i++){
+      var xi=i*dx, yi=f(xi);
+      sum += yi*dx;
+      bars+='<rect class="bar" x="'+X(xi).toFixed(1)+'" y="'+Y(yi).toFixed(1)+'" width="'+(S*dx).toFixed(1)+'" height="'+((cy-Y(yi))).toFixed(1)+'"/>';
+    }
+    svg.innerHTML=base+bars;
+    var err=Math.abs(sum-1/3);
+    out.innerHTML='somma ≈ <b>'+sum.toFixed(4)+'</b> &nbsp;|&nbsp; valore esatto = 1/3 ≈ 0.3333 &nbsp;|&nbsp; errore ≈ '+err.toFixed(4);
+  }
+  nin.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+<pre><code>
+Il risultato sorprendente — il **teorema fondamentale del calcolo integrale** — è che quest'area
+si calcola *senza sommare infiniti rettangoli*, se si conosce una funzione $F$ la cui derivata è
+$f$ (una **primitiva**):
+
+$$
+\int_a^b f(x)\,dx = F(b) - F(a), \qquad \text{dove } F' = f.
+$$
+
+```{admonition} Esempio
+:class: tip
+Per $f(x) = x^2$, una primitiva è $F(x) = \dfrac{x^3}{3}$, quindi
+
+$$
+\int_0^1 x^2\,dx = F(1) - F(0) = \frac{1}{3}.
+$$
+
+È esattamente il valore verso cui converge la somma nel widget sopra, aumentando $n$.</code></pre>
+<p>Derivata e integrale sono quindi due facce della stessa medaglia: una “spacchetta” il cambiamento istante per istante, l’altra lo “ricompone” per accumulazione.</p>
+<p><code>rmhayuigkbop Applicazione — dalla velocità allo spostamento :class: note Se $v(t)$ è la velocità di un oggetto, l'area sotto il grafico di $v$ tra $t_1$ e $t_2$, cioè $\int_{t_1}^{t_2} v(t)\,dt$, è lo spostamento percorso. Lo stesso schema (tasso $\to$ quantità accumulata) descrive il lavoro di una forza, la carica accumulata da una corrente, o un capitale che cresce nel tempo.</code></p>
+</section>
+<section id="equazioni-differenziali-ordinarie-descrivere-un-sistema-dal-suo-cambiamento" class="level2">
+<h2 class="anchored" data-anchor-id="equazioni-differenziali-ordinarie-descrivere-un-sistema-dal-suo-cambiamento">Equazioni differenziali ordinarie: descrivere un sistema dal suo cambiamento</h2>
+<p>Spesso non conosciamo direttamente <img src="https://latex.codecogs.com/png.latex?f(t)">, ma sappiamo come cambia: un’equazione che lega una funzione alle sue derivate si chiama <strong>equazione differenziale ordinaria (ODE)</strong>. Risolverla significa ritrovare la funzione a partire dalla regola che ne governa il cambiamento — è forse l’idea più potente di tutta l’analisi applicata, perché quasi ogni legge fisica si scrive così.</p>
+<p><strong>Equazioni lineari del primo ordine a coefficienti costanti.</strong> La più semplice è</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ay'(t)%20=%20k%5C,%20y(t),%0A"></p>
+<p>che dice: <em>la funzione cresce (o decresce) a una velocità proporzionale al suo stesso valore</em>. La soluzione è un’esponenziale, <img src="https://latex.codecogs.com/png.latex?y(t)%20=%20y(0)%5C,%20e%5E%7Bkt%7D">. Muovi <img src="https://latex.codecogs.com/png.latex?k">: positivo per la crescita, negativo per il decadimento.</p>
+```tzich html
+<div id="w-c4" class="w-c4">
+<svg viewbox="0 0 380 300" id="w-c4-svg"></svg>
+<div class="ctrl">
+<pre><code>&lt;label&gt;k = &lt;span id="w-c4-kv"&gt;&lt;/span&gt;
+  &lt;input type="range" id="w-c4-k" min="-1.2" max="1.2" step="0.02" value="0.6"&gt;&lt;/label&gt;</code></pre>
+</div>
+<div id="w-c4-out" class="out">
+
+</div>
+</div>
+<style>
+.w-c4{max-width:400px;margin:16px auto 22px}
+.w-c4 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c4 .ctrl{display:flex;justify-content:center;font-size:14px;margin-top:8px}
+.w-c4 .ctrl input{vertical-align:middle;width:220px;margin-left:8px}
+.w-c4 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c4 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c4 .ax{stroke:#555;stroke-width:1.4}
+.w-c4 .cv{fill:none;stroke-width:2.6}
+</style>
+<script>
+(function(){
+  var W=380,H=300,cx=35,cy=270,YMAX=121.5,T=4;
+  var Sx=(W-45)/T, Sy=(H-30)/YMAX;
+  function X(t){return cx+t*Sx;} function Y(y){return cy-y*Sy;}
+  var svg=document.getElementById('w-c4-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var kin=document.getElementById('w-c4-k'), kv=document.getElementById('w-c4-kv'), out=document.getElementById('w-c4-out');
+  var base='<line class="ax" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(T)+'" y2="'+Y(0)+'"/>'+
+            '<line class="ax" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(0)+'" y2="'+Y(YMAX)+'"/>';
+  for(var i=1;i<=T;i++) base+='<line class="gr" x1="'+X(i)+'" y1="'+Y(0)+'" x2="'+X(i)+'" y2="'+Y(YMAX)+'"/>';
+
+  function redraw(){
+    var k=parseFloat(kin.value); kv.textContent=k.toFixed(2);
+    var d='',first=true;
+    for(var t=0;t<=T;t+=0.03){
+      var y=Math.min(YMAX,Math.exp(k*t));
+      d+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(y).toFixed(1); first=false;
+    }
+    var col = k>=0 ? '#06b98a' : '#ef476f';
+    svg.innerHTML=base+'<path class="cv" d="'+d+'" style="stroke:'+col+'"/>';
+    var lab = k>0.01 ? 'crescita esponenziale' : (k<-0.01 ? 'decadimento esponenziale' : 'costante');
+    out.innerHTML='y(t) = e<sup>'+k.toFixed(2)+' t</sup> &nbsp;—&nbsp; <b>'+lab+'</b> &nbsp;|&nbsp; y(4) ≈ '+Math.exp(k*4).toFixed(2);
+  }
+  kin.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+<pre><code>
+Questo stesso schema descrive il decadimento radioattivo, la carica o scarica di un condensatore
+in un circuito RC, l'interesse composto continuo, o — con $k$ che cambia segno a seconda della
+popolazione — modelli di crescita più realistici.
+
+**Equazioni lineari del secondo ordine a coefficienti costanti.** Compaiono quando conta anche
+*come cambia la velocità di cambiamento* — cioè l'accelerazione. La forma generale è
+
+$$
+a\, y''(t) + b\, y'(t) + c\, y(t) = 0,
+$$
+
+e l'esempio fisico più naturale è un oggetto attaccato a una molla, con un po' di attrito:
+
+$$
+m\, y'' + \gamma\, y' + k\, y = 0.
+$$
+
+Il comportamento della soluzione dipende dal segno del discriminante dell'equazione
+caratteristica associata $a\lambda^2 + b\lambda + c = 0$: radici reali danno un ritorno
+all'equilibrio senza oscillare, radici complesse coniugate danno un'**oscillazione** (smorzata se
+c'è attrito, perenne se non c'è). Regola l'attrito $\gamma$ e la frequenza propria $\omega$.
+
+```{raw} html
+&lt;div class="w-c5" id="w-c5"&gt;
+  &lt;svg viewBox="0 0 380 260" id="w-c5-svg"&gt;&lt;/svg&gt;
+  &lt;div class="ctrl"&gt;
+    &lt;label&gt;γ (attrito) = &lt;span id="w-c5-gv"&gt;&lt;/span&gt;
+      &lt;input type="range" id="w-c5-g" min="0" max="0.9" step="0.02" value="0.25"&gt;&lt;/label&gt;
+    &lt;label&gt;ω (frequenza) = &lt;span id="w-c5-wv"&gt;&lt;/span&gt;
+      &lt;input type="range" id="w-c5-w" min="1" max="3" step="0.05" value="2"&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="out" id="w-c5-out"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+.w-c5{max-width:420px;margin:16px auto 22px}
+.w-c5 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c5 .ctrl{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:14px;margin-top:8px}
+.w-c5 .ctrl input{vertical-align:middle;width:140px}
+.w-c5 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c5 .ax{stroke:#555;stroke-width:1.4}
+.w-c5 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c5 .cv{fill:none;stroke:#118ab2;stroke-width:2.4}
+.w-c5 .env{fill:none;stroke:#e8590c;stroke-width:1.3;stroke-dasharray:4 4}
+&lt;/style&gt;
+&lt;script&gt;
+(function(){
+  var W=380,H=260,cx=10,cy=130,T=10,Sx=(W-20)/T,Sy=100;
+  function X(t){return cx+t*Sx;} function Y(y){return cy-y*Sy;}
+  var svg=document.getElementById('w-c5-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var gin=document.getElementById('w-c5-g'), win=document.getElementById('w-c5-w');
+  var gv=document.getElementById('w-c5-gv'), wv=document.getElementById('w-c5-wv'), out=document.getElementById('w-c5-out');
+  var base='&lt;line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/&gt;'+
+           '&lt;line class="gr" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/&gt;';
+  for(var i=2;i&lt;=T;i+=2) base+='&lt;line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/&gt;';
+
+  function redraw(){
+    var g=parseFloat(gin.value), w=parseFloat(win.value);
+    gv.textContent=g.toFixed(2); wv.textContent=w.toFixed(2);
+    var wd=Math.sqrt(Math.max(w*w-g*g,0.01));
+    var d='',e1='',e2='',first=true;
+    for(var t=0;t&lt;=T;t+=0.03){
+      var y=Math.exp(-g*t)*Math.cos(wd*t);
+      d+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(y).toFixed(1);
+      e1+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(Math.exp(-g*t)).toFixed(1);
+      e2+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(-Math.exp(-g*t)).toFixed(1);
+      first=false;
+    }
+    svg.innerHTML=base+'&lt;path class="env" d="'+e1+'"/&gt;&lt;path class="env" d="'+e2+'"/&gt;&lt;path class="cv" d="'+d+'"/&gt;';
+    var lab = g&lt;0.01 ? 'oscillazione perenne (nessun attrito)' : 'oscillazione smorzata';
+    out.innerHTML='y(t) = e&lt;sup&gt;−'+g.toFixed(2)+' t&lt;/sup&gt; cos('+wd.toFixed(2)+' t) &amp;nbsp;—&amp;nbsp; &lt;b&gt;'+lab+'&lt;/b&gt;';
+  }
+  gin.addEventListener('input',redraw);
+  win.addEventListener('input',redraw);
+  redraw();
+})();
+&lt;/script&gt;</code></pre>
+<p>Non ci serve ancora saperle risolvere a mano: per ora basta riconoscere la forma e il tipo di comportamento che produce — un’esponenziale che cresce o si smorza, oppure un’oscillazione. Il procedimento di soluzione lo costruiremo con calma, una volta solide le derivate.</p>
+</section>
+<section id="dove-andiamo" class="level2">
+<h2 class="anchored" data-anchor-id="dove-andiamo">Dove andiamo</h2>
+<p>Nelle prossime sessioni costruiremo con ordine ciò che qui abbiamo solo intravisto: regole di derivazione, tecniche di integrazione, e infine il modo sistematico di risolvere le equazioni differenziali lineari che abbiamo appena incontrato come esempi.</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/01-analisi-intro.html</guid>
+  <pubDate>Sat, 17 Oct 2026 11:04:47 GMT</pubDate>
 </item>
 </channel>
 </rss>
