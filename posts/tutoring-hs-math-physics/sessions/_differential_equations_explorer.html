@@ -140,7 +140,7 @@
           </p>
         </div>
         <div class="font-mono text-base md:text-lg bg-slate-950/80 px-4 py-3 rounded-xl border border-indigo-500/30 text-indigo-300 shadow-inner">
-          &tau; &middot; &#x2202;y/&#x2202;t + y(t) = u(t)
+          &tau;  y'(t) + y(t) = u(t)
         </div>
       </div>
 
@@ -296,7 +296,7 @@
           </p>
         </div>
         <div class="font-mono text-base md:text-lg bg-slate-950/80 px-4 py-3 rounded-xl border border-teal-500/30 text-teal-300 shadow-inner">
-          m &middot; &#x2202;&sup2;y/&#x2202;t&sup2; + c &middot; &#x2202;y/&#x2202;t + k &middot; y = F(t)
+          m y''(t) + c y'(t) + k y = F(t)
         </div>
       </div>
 
@@ -541,7 +541,7 @@
       inputType: 'step',
       amp: 1.0,
       freq: 1.0,
-      tMax: 10.0,
+      tMax: 30.0,
       tValues: [],
       uValues: [],
       yValues: []
@@ -789,7 +789,7 @@
       inputType: 'none',
       amp: 2.0,
       freq: 2.0,
-      tMax: 15.0,
+      tMax: 30.0,
       tValues: [],
       yValues: [],
       vValues: []
@@ -1262,5 +1262,6 @@
       updateTab2Params();
     };
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.3.2/iframeResizer.contentWindow.min.js"></script>
 </body>
 </html>
