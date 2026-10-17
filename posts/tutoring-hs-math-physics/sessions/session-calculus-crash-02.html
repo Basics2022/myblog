@@ -8,7 +8,7 @@
 
 <meta name="author" content="Basics">
 <meta name="dcterms.date" content="2026-10-27">
-<meta name="description" content="Graphical introduction .">
+<meta name="description" content="Graphical introduction to definite integrals as the limit of a Riemann sum.">
 
 <title>Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals – basics blog</title>
 <style>
@@ -82,6 +82,35 @@ gtag('js', new Date());
 gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -131,7 +160,7 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
       <h1 class="title">Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals</h1>
                   <div>
         <div class="description">
-          Graphical introduction .
+          Graphical introduction to definite integrals as the limit of a Riemann sum.
         </div>
       </div>
                           <div class="quarto-categories">
@@ -173,8 +202,14 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#geometrical-interpretation" id="toc-geometrical-interpretation" class="nav-link active" data-scroll-target="#geometrical-interpretation">Geometrical Interpretation</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -182,13 +217,29 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 
 
 
-<p>Introduction to integral.</p>
+<p><strong>Crash introduction to infinitesimal calculus.</strong></p>
+<ol type="1">
+<li><a href="session-03.html">Limits and Derivatives</a></li>
+<li>Integrals - <strong>this file</strong></li>
+<li><a href="session-calculus-crash-03.html">Ordinary Differential Equations</a></li>
+</ol>
+<hr>
+<p>See: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/integrals.html">Matematica: Calcolo infinitesimale: Integrali</a></p>
+<p><em>Definite integrals</em> are first introduced with its geometrical interpretation. The formal definition as the limit of a Riemann sum follows. <strong>Fundamental theorem of calculus</strong> provides the relation between integral and derivative.</p>
+<section id="geometrical-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="geometrical-interpretation">Geometrical Interpretation</h2>
+<p>The value of the <em>definite</em> integral</p>
+<p><span class="math display">\[\int_{x=a}^{b} f(x) \, dx \ ,\]</span></p>
+<p>equals the area (with sign) in the Cartesian plane between the <span class="math inline">\(x\)</span>-axis and the graph of the function <span class="math inline">\(y = f(x)\)</span>, and the vertical lines with coordinates <span class="math inline">\(x = a\)</span>, and <span class="math inline">\(x = b\)</span>. This value can be approximated with the sum of the area of rectangles or trapezoids (see APPROXIMATION RULEs): as the number of the elementary geometrical shapes of the approximation increases, and their height (in <span class="math inline">\(x\)</span> direction) decreases, the approaximation becomes better and better. As the number of elements goes to <span class="math inline">\(\infty\)</span>, and the maximum height of the elementary shapes goes to zero, the definition of the definite Riemann integral follows</p>
+<p><span class="math display">\[\int_{x=a}^{b} f(x) \, dx = \lim_{\max h_k \rightarrow 0} \sum_{k} \text{Area}_k \ .\]</span></p>
+<p>If this limit exists, then the integral of the function <span class="math inline">\(f(x)\)</span> between <span class="math inline">\(x=a\)</span> and <span class="math inline">\(x=b\)</span> exists. This definition is independent from the approximation (as long as it’s a definite approximation…): you can easily check that the value of the <em>Riemann Sum Approximation</em> tends to the value of the <em>Exact Definite Integral</em>, while the absolute error and the relative error percentage go to zero.</p>
 <div style="width: 100%; min-height: 1000px; position: relative; margin-bottom: 2rem;">
   <iframe src="_integrals_riemann_sum_visualized.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" scrolling="yes">
   </iframe>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
