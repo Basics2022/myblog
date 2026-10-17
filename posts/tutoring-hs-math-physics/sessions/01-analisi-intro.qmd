@@ -1,0 +1,449 @@
+# Analisi: raccontare il cambiamento
+
+Quasi tutto ciò che ci interessa descrivere cambia: una posizione che varia nel tempo, una
+popolazione che cresce, una corrente che si scarica, un costo che aumenta con la produzione.
+L'**analisi matematica** è il linguaggio che abbiamo costruito per parlare di cambiamento in modo
+preciso: quanto velocemente cambia una grandezza (la **derivata**), e quanto si accumula nel
+tempo (l'**integrale**). Da queste due idee, sorprendentemente collegate tra loro, nascono anche le
+**equazioni differenziali**, che descrivono un sistema a partire da come cambia, non da dove si trova.
+
+Questa pagina è una mappa: vedremo da dove nascono questi strumenti e a cosa servono, prima di
+entrare nel dettaglio tecnico nelle prossime sessioni.
+
+## Funzioni reali di variabile reale
+
+Una **funzione reale di variabile reale** è una regola $f$ che associa a ogni numero reale $x$ di
+un insieme $D$ (il **dominio**) uno e un solo numero reale $f(x)$. Il suo **grafico** è l'insieme
+dei punti del piano $\{(x, f(x)) : x \in D\}$: è il modo in cui "vediamo" una funzione invece di
+immaginarla. Trascina il punto sulla curva per leggere le coordinate.
+
+```{raw} html
+<div class="w-c1" id="w-c1">
+  <svg viewBox="0 0 380 320" id="w-c1-svg"></svg>
+  <div class="out" id="w-c1-out"></div>
+</div>
+<style>
+.w-c1{max-width:380px;margin:16px auto 22px}
+.w-c1 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px;touch-action:none}
+.w-c1 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:6px;font-size:15px;color:#333}
+.w-c1 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c1 .ax{stroke:#555;stroke-width:1.4}
+.w-c1 .cv{fill:none;stroke:#118ab2;stroke-width:2.6}
+.w-c1 .pt{fill:#ef476f;stroke:#fff;stroke-width:1.5;cursor:grab}
+.w-c1 .lb{font-size:11px;fill:#777}
+</style>
+<script>
+(function(){
+  var W=380,H=320,cx=190,cy=170,S=55;
+  function X(x){return cx+x*S;} function Y(y){return cy-y*S;}
+  function f(x){return x*x-1;}
+  var svg=document.getElementById('w-c1-svg'), out=document.getElementById('w-c1-out');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var h='';
+  for(var i=-3;i<=3;i++) h+='<line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/>';
+  for(var j=-1;j<=3;j++) h+='<line class="gr" x1="0" y1="'+Y(j)+'" x2="'+W+'" y2="'+Y(j)+'"/>';
+  h+='<line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/>';
+  h+='<line class="ax" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/>';
+  h+='<text class="lb" x="'+(W-14)+'" y="'+(Y(0)-6)+'">x</text><text class="lb" x="'+(X(0)+6)+'" y="12">f(x)</text>';
+  var d='',first=true;
+  for(var xx=-3;xx<=3.001;xx+=0.05){ d+=(first?'M':'L')+X(xx).toFixed(1)+' '+Y(f(xx)).toFixed(1); first=false; }
+  h+='<path class="cv" d="'+d+'"/>';
+  svg.innerHTML=h;
+  var NS='http://www.w3.org/2000/svg';
+  var pt=document.createElementNS(NS,'circle'); pt.setAttribute('r',7); pt.setAttribute('class','pt');
+  svg.appendChild(pt);
+  var x0=1.4;
+  function place(){
+    var y0=f(x0);
+    pt.setAttribute('cx',X(x0)); pt.setAttribute('cy',Y(y0));
+    out.textContent='P = ('+x0.toFixed(2)+', '+y0.toFixed(2)+'),  f(x) = x² − 1';
+  }
+  place();
+  var dragging=false;
+  function toX(e){
+    var p=svg.createSVGPoint(); p.x=e.clientX; p.y=e.clientY;
+    var loc=p.matrixTransform(svg.getScreenCTM().inverse());
+    return (loc.x-cx)/S;
+  }
+  pt.addEventListener('pointerdown',function(e){dragging=true;pt.setPointerCapture(e.pointerId);});
+  pt.addEventListener('pointermove',function(e){ if(!dragging)return; x0=Math.max(-2.9,Math.min(2.9,toX(e))); place(); });
+  pt.addEventListener('pointerup',function(){dragging=false;});
+  pt.addEventListener('pointercancel',function(){dragging=false;});
+})();
+</script>
+```
+
+Capire una funzione significa saperne descrivere dominio, andamento, simmetrie, zeri: è il
+vocabolario minimo su cui si appoggia tutto il resto dell'analisi.
+
+## Dal rapporto incrementale al limite
+
+La domanda da cui nasce l'analisi è semplice: *quanto velocemente cambia $f$ vicino a un punto?*
+Il modo più naturale per rispondere è confrontare due punti vicini, $x_0$ e $x_0 + h$, e calcolare
+il **rapporto incrementale**
+
+$$
+\frac{f(x_0+h) - f(x_0)}{h},
+$$
+
+cioè la pendenza della retta secante che unisce i due punti del grafico. Il problema è che ci
+interessa la pendenza "in un punto solo", mentre questa formula ha bisogno di due punti. L'idea
+risolutiva è il **limite**: far avvicinare $h$ a $0$ senza mai raggiungerlo, e vedere a cosa si
+avvicina il rapporto incrementale. Muovi i cursori — più $h$ si rimpicciolisce, più la secante si
+confonde con la tangente.
+
+```{raw} html
+<div class="w-c2" id="w-c2">
+  <svg viewBox="0 0 380 380" id="w-c2-svg"></svg>
+  <div class="ctrl">
+    <label>x<sub>0</sub> = <span id="w-c2-x0v"></span>
+      <input type="range" id="w-c2-x0" min="0" max="2" step="0.05" value="1"></label>
+    <label>h = <span id="w-c2-hv"></span>
+      <input type="range" id="w-c2-h" min="0.05" max="1.8" step="0.01" value="1"></label>
+  </div>
+  <div class="out" id="w-c2-out"></div>
+</div>
+<style>
+.w-c2{max-width:400px;margin:16px auto 22px}
+.w-c2 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c2 .ctrl{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:14px;margin-top:8px}
+.w-c2 .ctrl input{vertical-align:middle;width:140px}
+.w-c2 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333;line-height:1.5}
+.w-c2 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c2 .ax{stroke:#555;stroke-width:1.4}
+.w-c2 .cv{fill:none;stroke:#118ab2;stroke-width:2.6}
+.w-c2 .sec{stroke:#f78c40;stroke-width:2.2}
+.w-c2 .tan{stroke:#06b98a;stroke-width:2.2;stroke-dasharray:6 5}
+.w-c2 .pt{fill:#333}
+</style>
+<script>
+(function(){
+  var W=380,H=380,cx=90,cy=350,S=50;
+  function X(x){return cx+x*S;} function Y(y){return cy-y*S;}
+  function f(x){return x*x;}
+  var svg=document.getElementById('w-c2-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var x0in=document.getElementById('w-c2-x0'), hin=document.getElementById('w-c2-h');
+  var x0v=document.getElementById('w-c2-x0v'), hv=document.getElementById('w-c2-hv');
+  var out=document.getElementById('w-c2-out');
+  var base='';
+  for(var i=0;i<=3;i++) base+='<line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/>';
+  for(var j=0;j<=7;j++) base+='<line class="gr" x1="0" y1="'+Y(j)+'" x2="'+W+'" y2="'+Y(j)+'"/>';
+  base+='<line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/>';
+  base+='<line class="ax" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/>';
+  var d='',first=true;
+  for(var xx=-0.3;xx<=2.8;xx+=0.04){ d+=(first?'M':'L')+X(xx).toFixed(1)+' '+Y(f(xx)).toFixed(1); first=false; }
+  base+='<path class="cv" d="'+d+'"/>';
+
+  function redraw(){
+    var x0=parseFloat(x0in.value), h=parseFloat(hin.value);
+    x0v.textContent=x0.toFixed(2); hv.textContent=h.toFixed(2);
+    var y0=f(x0), y1=f(x0+h);
+    var m=(y1-y0)/h, mt=2*x0;
+    var xa=-0.3, xb=2.8;
+    var secLine='<line class="sec" x1="'+X(xa)+'" y1="'+Y(y0+m*(xa-x0))+'" x2="'+X(xb)+'" y2="'+Y(y0+m*(xb-x0))+'"/>';
+    var tanLine='<line class="tan" x1="'+X(xa)+'" y1="'+Y(y0+mt*(xa-x0))+'" x2="'+X(xb)+'" y2="'+Y(y0+mt*(xb-x0))+'"/>';
+    var pts='<circle class="pt" cx="'+X(x0)+'" cy="'+Y(y0)+'" r="5.5"/><circle class="pt" cx="'+X(x0+h)+'" cy="'+Y(y1)+'" r="5.5"/>';
+    svg.innerHTML=base+secLine+tanLine+pts;
+    var close = h<0.15 ? ' — ormai quasi indistinguibile dalla tangente' : '';
+    out.innerHTML='pendenza secante = ('+y1.toFixed(2)+'−'+y0.toFixed(2)+')/'+h.toFixed(2)+' = <b>'+m.toFixed(3)+'</b>'+close+
+      '<br>pendenza tangente (esatta) = 2·x₀ = <b>'+mt.toFixed(2)+'</b>';
+  }
+  x0in.addEventListener('input',redraw);
+  hin.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+```
+
+## La derivata
+
+Quando quel limite esiste, lo chiamiamo **derivata** di $f$ in $x_0$ e lo indichiamo $f'(x_0)$:
+
+$$
+f'(x_0) = \lim_{h \to 0} \frac{f(x_0+h) - f(x_0)}{h}.
+$$
+
+Ha due letture, una geometrica e una fisica, che vale la pena tenere entrambe a mente:
+
+- **geometrica**: $f'(x_0)$ è la pendenza della retta tangente al grafico in $x_0$;
+- **fisica**: se $f(t)$ è la posizione di un oggetto al tempo $t$, $f'(t)$ è la sua **velocità
+  istantanea**; se $f$ è una quantità qualunque, $f'$ ne è il **tasso di variazione**.
+
+```{admonition} Esempio — la derivata di $x^2$
+:class: tip
+Usando la definizione, con $f(x) = x^2$:
+
+$$
+f'(x_0) = \lim_{h \to 0} \frac{(x_0+h)^2 - x_0^2}{h}
+= \lim_{h \to 0} \frac{2x_0 h + h^2}{h}
+= \lim_{h \to 0} (2x_0 + h) = 2x_0.
+$$
+
+Coerente con il widget sopra: la pendenza "esatta" mostrata è sempre $2x_0$.
+```
+
+Calcolare ogni volta il limite sarebbe scomodo: per questo si imparano **regole di derivazione**
+(somma, prodotto, quoziente, funzione composta) che permettono di derivare quasi ogni funzione
+elementare meccanicamente, una volta per tutte. Le vedremo nelle prossime sessioni.
+
+```{admonition} Applicazione — ottimizzare qualcosa
+:class: note
+Nei punti di massimo o minimo di una funzione derivabile, la tangente è orizzontale: $f'(x) = 0$.
+È il principio dietro moltissimi problemi di ottimizzazione — massimizzare un'area a perimetro
+fissato, minimizzare un costo, trovare il punto di equilibrio di un sistema — e lo useremo spesso
+come primo strumento pratico.
+```
+
+## L'integrale
+
+Il problema "gemello" della derivata è calcolare un'**area**: quanto vale la superficie compresa
+tra il grafico di $f$, l'asse $x$ e due rette verticali $x=a$, $x=b$? L'idea è approssimarla con
+tanti rettangoli sottili e vedere cosa succede quando diventano infinitamente stretti — una
+**somma di Riemann**:
+
+$$
+\int_a^b f(x)\, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\, \Delta x.
+$$
+
+Sposta il cursore per aumentare il numero di rettangoli e guarda la somma avvicinarsi al valore
+esatto.
+
+```{raw} html
+<div class="w-c3" id="w-c3">
+  <svg viewBox="0 0 380 300" id="w-c3-svg"></svg>
+  <div class="ctrl">
+    <label>n = <span id="w-c3-nv"></span>
+      <input type="range" id="w-c3-n" min="1" max="60" step="1" value="6"></label>
+  </div>
+  <div class="out" id="w-c3-out"></div>
+</div>
+<style>
+.w-c3{max-width:400px;margin:16px auto 22px}
+.w-c3 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c3 .ctrl{display:flex;justify-content:center;font-size:14px;margin-top:8px}
+.w-c3 .ctrl input{vertical-align:middle;width:200px;margin-left:8px}
+.w-c3 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c3 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c3 .ax{stroke:#555;stroke-width:1.4}
+.w-c3 .cv{fill:none;stroke:#118ab2;stroke-width:2.6}
+.w-c3 .bar{fill:#f78c40;fill-opacity:.55;stroke:#fff;stroke-width:1}
+</style>
+<script>
+(function(){
+  var W=380,H=300,cx=40,cy=270,S=280;
+  function X(x){return cx+x*S;} function Y(y){return cy-y*S;}
+  function f(x){return x*x;}
+  var svg=document.getElementById('w-c3-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var nin=document.getElementById('w-c3-n'), nv=document.getElementById('w-c3-nv'), out=document.getElementById('w-c3-out');
+  var base='';
+  for(var j=0;j<=4;j++) base+='<line class="gr" x1="'+X(0)+'" y1="'+Y(j/4)+'" x2="'+X(1.05)+'" y2="'+Y(j/4)+'"/>';
+  base+='<line class="ax" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(1.08)+'" y2="'+Y(0)+'"/>';
+  base+='<line class="ax" x1="'+X(0)+'" y1="'+Y(-0.05)+'" x2="'+X(0)+'" y2="'+Y(1.05)+'"/>';
+  var d='',first=true;
+  for(var xx=0;xx<=1.001;xx+=0.02){ d+=(first?'M':'L')+X(xx).toFixed(1)+' '+Y(f(xx)).toFixed(1); first=false; }
+  base+='<path class="cv" d="'+d+'"/>';
+
+  function redraw(){
+    var n=parseInt(nin.value,10); nv.textContent=n;
+    var bars='', sum=0, dx=1/n;
+    for(var i=0;i<n;i++){
+      var xi=i*dx, yi=f(xi);
+      sum += yi*dx;
+      bars+='<rect class="bar" x="'+X(xi).toFixed(1)+'" y="'+Y(yi).toFixed(1)+'" width="'+(S*dx).toFixed(1)+'" height="'+((cy-Y(yi))).toFixed(1)+'"/>';
+    }
+    svg.innerHTML=base+bars;
+    var err=Math.abs(sum-1/3);
+    out.innerHTML='somma ≈ <b>'+sum.toFixed(4)+'</b> &nbsp;|&nbsp; valore esatto = 1/3 ≈ 0.3333 &nbsp;|&nbsp; errore ≈ '+err.toFixed(4);
+  }
+  nin.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+```
+
+Il risultato sorprendente — il **teorema fondamentale del calcolo integrale** — è che quest'area
+si calcola *senza sommare infiniti rettangoli*, se si conosce una funzione $F$ la cui derivata è
+$f$ (una **primitiva**):
+
+$$
+\int_a^b f(x)\,dx = F(b) - F(a), \qquad \text{dove } F' = f.
+$$
+
+```{admonition} Esempio
+:class: tip
+Per $f(x) = x^2$, una primitiva è $F(x) = \dfrac{x^3}{3}$, quindi
+
+$$
+\int_0^1 x^2\,dx = F(1) - F(0) = \frac{1}{3}.
+$$
+
+È esattamente il valore verso cui converge la somma nel widget sopra, aumentando $n$.
+```
+
+Derivata e integrale sono quindi due facce della stessa medaglia: una "spacchetta" il cambiamento
+istante per istante, l'altra lo "ricompone" per accumulazione.
+
+```{admonition} Applicazione — dalla velocità allo spostamento
+:class: note
+Se $v(t)$ è la velocità di un oggetto, l'area sotto il grafico di $v$ tra $t_1$ e $t_2$,
+cioè $\int_{t_1}^{t_2} v(t)\,dt$, è lo spostamento percorso. Lo stesso schema (tasso $\to$
+quantità accumulata) descrive il lavoro di una forza, la carica accumulata da una corrente, o
+un capitale che cresce nel tempo.
+```
+
+## Equazioni differenziali ordinarie: descrivere un sistema dal suo cambiamento
+
+Spesso non conosciamo direttamente $f(t)$, ma sappiamo come cambia: un'equazione che lega una
+funzione alle sue derivate si chiama **equazione differenziale ordinaria (ODE)**. Risolverla
+significa ritrovare la funzione a partire dalla regola che ne governa il cambiamento — è forse
+l'idea più potente di tutta l'analisi applicata, perché quasi ogni legge fisica si scrive così.
+
+**Equazioni lineari del primo ordine a coefficienti costanti.** La più semplice è
+
+$$
+y'(t) = k\, y(t),
+$$
+
+che dice: *la funzione cresce (o decresce) a una velocità proporzionale al suo stesso valore*. La
+soluzione è un'esponenziale, $y(t) = y(0)\, e^{kt}$. Muovi $k$: positivo per la crescita, negativo
+per il decadimento.
+
+```{raw} html
+<div class="w-c4" id="w-c4">
+  <svg viewBox="0 0 380 300" id="w-c4-svg"></svg>
+  <div class="ctrl">
+    <label>k = <span id="w-c4-kv"></span>
+      <input type="range" id="w-c4-k" min="-1.2" max="1.2" step="0.02" value="0.6"></label>
+  </div>
+  <div class="out" id="w-c4-out"></div>
+</div>
+<style>
+.w-c4{max-width:400px;margin:16px auto 22px}
+.w-c4 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c4 .ctrl{display:flex;justify-content:center;font-size:14px;margin-top:8px}
+.w-c4 .ctrl input{vertical-align:middle;width:220px;margin-left:8px}
+.w-c4 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c4 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c4 .ax{stroke:#555;stroke-width:1.4}
+.w-c4 .cv{fill:none;stroke-width:2.6}
+</style>
+<script>
+(function(){
+  var W=380,H=300,cx=35,cy=270,YMAX=121.5,T=4;
+  var Sx=(W-45)/T, Sy=(H-30)/YMAX;
+  function X(t){return cx+t*Sx;} function Y(y){return cy-y*Sy;}
+  var svg=document.getElementById('w-c4-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var kin=document.getElementById('w-c4-k'), kv=document.getElementById('w-c4-kv'), out=document.getElementById('w-c4-out');
+  var base='<line class="ax" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(T)+'" y2="'+Y(0)+'"/>'+
+            '<line class="ax" x1="'+X(0)+'" y1="'+Y(0)+'" x2="'+X(0)+'" y2="'+Y(YMAX)+'"/>';
+  for(var i=1;i<=T;i++) base+='<line class="gr" x1="'+X(i)+'" y1="'+Y(0)+'" x2="'+X(i)+'" y2="'+Y(YMAX)+'"/>';
+
+  function redraw(){
+    var k=parseFloat(kin.value); kv.textContent=k.toFixed(2);
+    var d='',first=true;
+    for(var t=0;t<=T;t+=0.03){
+      var y=Math.min(YMAX,Math.exp(k*t));
+      d+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(y).toFixed(1); first=false;
+    }
+    var col = k>=0 ? '#06b98a' : '#ef476f';
+    svg.innerHTML=base+'<path class="cv" d="'+d+'" style="stroke:'+col+'"/>';
+    var lab = k>0.01 ? 'crescita esponenziale' : (k<-0.01 ? 'decadimento esponenziale' : 'costante');
+    out.innerHTML='y(t) = e<sup>'+k.toFixed(2)+' t</sup> &nbsp;—&nbsp; <b>'+lab+'</b> &nbsp;|&nbsp; y(4) ≈ '+Math.exp(k*4).toFixed(2);
+  }
+  kin.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+```
+
+Questo stesso schema descrive il decadimento radioattivo, la carica o scarica di un condensatore
+in un circuito RC, l'interesse composto continuo, o — con $k$ che cambia segno a seconda della
+popolazione — modelli di crescita più realistici.
+
+**Equazioni lineari del secondo ordine a coefficienti costanti.** Compaiono quando conta anche
+*come cambia la velocità di cambiamento* — cioè l'accelerazione. La forma generale è
+
+$$
+a\, y''(t) + b\, y'(t) + c\, y(t) = 0,
+$$
+
+e l'esempio fisico più naturale è un oggetto attaccato a una molla, con un po' di attrito:
+
+$$
+m\, y'' + \gamma\, y' + k\, y = 0.
+$$
+
+Il comportamento della soluzione dipende dal segno del discriminante dell'equazione
+caratteristica associata $a\lambda^2 + b\lambda + c = 0$: radici reali danno un ritorno
+all'equilibrio senza oscillare, radici complesse coniugate danno un'**oscillazione** (smorzata se
+c'è attrito, perenne se non c'è). Regola l'attrito $\gamma$ e la frequenza propria $\omega$.
+
+```{raw} html
+<div class="w-c5" id="w-c5">
+  <svg viewBox="0 0 380 260" id="w-c5-svg"></svg>
+  <div class="ctrl">
+    <label>γ (attrito) = <span id="w-c5-gv"></span>
+      <input type="range" id="w-c5-g" min="0" max="0.9" step="0.02" value="0.25"></label>
+    <label>ω (frequenza) = <span id="w-c5-wv"></span>
+      <input type="range" id="w-c5-w" min="1" max="3" step="0.05" value="2"></label>
+  </div>
+  <div class="out" id="w-c5-out"></div>
+</div>
+<style>
+.w-c5{max-width:420px;margin:16px auto 22px}
+.w-c5 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c5 .ctrl{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:14px;margin-top:8px}
+.w-c5 .ctrl input{vertical-align:middle;width:140px}
+.w-c5 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c5 .ax{stroke:#555;stroke-width:1.4}
+.w-c5 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c5 .cv{fill:none;stroke:#118ab2;stroke-width:2.4}
+.w-c5 .env{fill:none;stroke:#e8590c;stroke-width:1.3;stroke-dasharray:4 4}
+</style>
+<script>
+(function(){
+  var W=380,H=260,cx=10,cy=130,T=10,Sx=(W-20)/T,Sy=100;
+  function X(t){return cx+t*Sx;} function Y(y){return cy-y*Sy;}
+  var svg=document.getElementById('w-c5-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var gin=document.getElementById('w-c5-g'), win=document.getElementById('w-c5-w');
+  var gv=document.getElementById('w-c5-gv'), wv=document.getElementById('w-c5-wv'), out=document.getElementById('w-c5-out');
+  var base='<line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/>'+
+           '<line class="gr" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/>';
+  for(var i=2;i<=T;i+=2) base+='<line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/>';
+
+  function redraw(){
+    var g=parseFloat(gin.value), w=parseFloat(win.value);
+    gv.textContent=g.toFixed(2); wv.textContent=w.toFixed(2);
+    var wd=Math.sqrt(Math.max(w*w-g*g,0.01));
+    var d='',e1='',e2='',first=true;
+    for(var t=0;t<=T;t+=0.03){
+      var y=Math.exp(-g*t)*Math.cos(wd*t);
+      d+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(y).toFixed(1);
+      e1+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(Math.exp(-g*t)).toFixed(1);
+      e2+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(-Math.exp(-g*t)).toFixed(1);
+      first=false;
+    }
+    svg.innerHTML=base+'<path class="env" d="'+e1+'"/><path class="env" d="'+e2+'"/><path class="cv" d="'+d+'"/>';
+    var lab = g<0.01 ? 'oscillazione perenne (nessun attrito)' : 'oscillazione smorzata';
+    out.innerHTML='y(t) = e<sup>−'+g.toFixed(2)+' t</sup> cos('+wd.toFixed(2)+' t) &nbsp;—&nbsp; <b>'+lab+'</b>';
+  }
+  gin.addEventListener('input',redraw);
+  win.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
+```
+
+Non ci serve ancora saperle risolvere a mano: per ora basta riconoscere la forma e il tipo di
+comportamento che produce — un'esponenziale che cresce o si smorza, oppure un'oscillazione. Il
+procedimento di soluzione lo costruiremo con calma, una volta solide le derivate.
+
+## Dove andiamo
+
+Nelle prossime sessioni costruiremo con ordine ciò che qui abbiamo solo intravisto: regole di
+derivazione, tecniche di integrazione, e infine il modo sistematico di risolvere le equazioni
+differenziali lineari che abbiamo appena incontrato come esempi.

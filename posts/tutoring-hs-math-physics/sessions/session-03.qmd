@@ -1,0 +1,27 @@
+---
+title: "Session 3. Crash introduction to calculus"
+subtitle: ""
+description: "..."
+week: "3"
+author: "Basics"
+date: "2026-10-17"
+lang: en
+date-modified: last-modified
+categories: [teaching, mathematics, log]
+toc: true
+toc-title: "On this page"
+---
+
+
+## Introduction to Limits
+
+## Introduction to Derivatives
+
+
+
+### Geometrical Meaning
+
+```{=html}
+<iframe src="_geometric_meaning_of_the_derivative.html" width="100%" height="650px" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+```
+

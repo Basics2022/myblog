@@ -1,0 +1,54 @@
+<div class="w-c5" id="w-c5">
+  <svg viewBox="0 0 380 260" id="w-c5-svg"></svg>
+  <div class="ctrl">
+    <label>γ (attrito) = <span id="w-c5-gv"></span>
+      <input type="range" id="w-c5-g" min="0" max="0.9" step="0.02" value="0.25"></label>
+    <label>ω (frequenza) = <span id="w-c5-wv"></span>
+      <input type="range" id="w-c5-w" min="1" max="3" step="0.05" value="2"></label>
+  </div>
+  <div class="out" id="w-c5-out"></div>
+</div>
+<style>
+.w-c5{max-width:420px;margin:16px auto 22px}
+.w-c5 svg{width:100%;height:auto;display:block;background:#f7f6f2;border:1px solid #ddd;border-radius:10px}
+.w-c5 .ctrl{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;font-size:14px;margin-top:8px}
+.w-c5 .ctrl input{vertical-align:middle;width:140px}
+.w-c5 .out{text-align:center;font-family:Georgia,"Times New Roman",serif;font-style:italic;margin-top:8px;font-size:14.5px;color:#333}
+.w-c5 .ax{stroke:#555;stroke-width:1.4}
+.w-c5 .gr{stroke:#000;stroke-opacity:.08;stroke-width:1}
+.w-c5 .cv{fill:none;stroke:#118ab2;stroke-width:2.4}
+.w-c5 .env{fill:none;stroke:#e8590c;stroke-width:1.3;stroke-dasharray:4 4}
+</style>
+<script>
+(function(){
+  var W=380,H=260,cx=10,cy=130,T=10,Sx=(W-20)/T,Sy=100;
+  function X(t){return cx+t*Sx;} function Y(y){return cy-y*Sy;}
+  var svg=document.getElementById('w-c5-svg');
+  svg.setAttribute('viewBox','0 0 '+W+' '+H);
+  var gin=document.getElementById('w-c5-g'), win=document.getElementById('w-c5-w');
+  var gv=document.getElementById('w-c5-gv'), wv=document.getElementById('w-c5-wv'), out=document.getElementById('w-c5-out');
+  var base='<line class="ax" x1="0" y1="'+Y(0)+'" x2="'+W+'" y2="'+Y(0)+'"/>'+
+           '<line class="gr" x1="'+X(0)+'" y1="0" x2="'+X(0)+'" y2="'+H+'"/>';
+  for(var i=2;i<=T;i+=2) base+='<line class="gr" x1="'+X(i)+'" y1="0" x2="'+X(i)+'" y2="'+H+'"/>';
+
+  function redraw(){
+    var g=parseFloat(gin.value), w=parseFloat(win.value);
+    gv.textContent=g.toFixed(2); wv.textContent=w.toFixed(2);
+    var wd=Math.sqrt(Math.max(w*w-g*g,0.01));
+    var d='',e1='',e2='',first=true;
+    for(var t=0;t<=T;t+=0.03){
+      var y=Math.exp(-g*t)*Math.cos(wd*t);
+      d+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(y).toFixed(1);
+      e1+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(Math.exp(-g*t)).toFixed(1);
+      e2+=(first?'M':'L')+X(t).toFixed(1)+' '+Y(-Math.exp(-g*t)).toFixed(1);
+      first=false;
+    }
+    svg.innerHTML=base+'<path class="env" d="'+e1+'"/><path class="env" d="'+e2+'"/><path class="cv" d="'+d+'"/>';
+    var lab = g<0.01 ? 'oscillazione perenne (nessun attrito)' : 'oscillazione smorzata';
+    out.innerHTML='y(t) = e<sup>−'+g.toFixed(2)+' t</sup> cos('+wd.toFixed(2)+' t) &nbsp;—&nbsp; <b>'+lab+'</b>';
+  }
+  gin.addEventListener('input',redraw);
+  win.addEventListener('input',redraw);
+  redraw();
+})();
+</script>
