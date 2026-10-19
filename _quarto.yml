@@ -37,6 +37,8 @@ comments:
     mapping: title          # Matches post title to discussion thread
     reactions-enabled: true
     theme: light            # Options: light, dark, preferred_color_scheme
-
+  hypothesis:
+    openSidebar: false
+    showHighlights: whenSidebarOpen
 
 
