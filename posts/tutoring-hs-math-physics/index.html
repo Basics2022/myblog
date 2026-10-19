@@ -617,7 +617,7 @@ Weeks
 
 </tr>
 
-<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793055600000" data-listing-file-modified-sort="1792260871622" data-listing-date-modified-sort="1792260871000" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals" data-listing-filename-sort="session-calculus-crash-02.qmd">
+<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793055600000" data-listing-file-modified-sort="1792402875440" data-listing-date-modified-sort="1792402875000" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals" data-listing-filename-sort="session-calculus-crash-02.qmd">
 <td>
 <span class="listing-date">Oct 27, 2026</span>
 </td>
@@ -1108,6 +1108,35 @@ Possible statuses: *pending*, *in progress*, *completed*, *postponed*.
     }
   });
   </script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="light">
+<script>
+  function loadGiscus() {
+    // Function to get the theme based on body class
+    const getTheme = () => {
+      let baseTheme = document.getElementById('giscus-base-theme').value;
+      let altTheme = document.getElementById('giscus-alt-theme').value;
+      return document.body.classList.contains('quarto-dark') ? altTheme : baseTheme;
+    };
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.dataset.repo = "Basics2022/myblog";
+    script.dataset.repoId = "R_kgDOQb4-pw";
+    script.dataset.category = "Announcements";
+    script.dataset.categoryId = "DIC_kwDOQb4-p84DI_c-";
+    script.dataset.mapping = "title";
+    script.dataset.reactionsEnabled = "1";
+    script.dataset.emitMetadata = "0";
+    script.dataset.inputPosition = "top";
+    script.dataset.theme = getTheme();
+    script.dataset.lang = "en";
+    script.crossOrigin = "anonymous";
+    // Append the script to the desired div instead of at the end of the body
+    document.getElementById("quarto-content").appendChild(script);
+  }
+  loadGiscus();
+</script>
 </div> <!-- /content -->
 
 
