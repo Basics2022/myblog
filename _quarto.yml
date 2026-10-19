@@ -28,6 +28,15 @@ format:
       - cosmo
       - brand
     css: styles.css
+comments:
+  giscus:
+    repo: Basics2022/myblog
+    repo-id: R_kgDOQb4-pw
+    category: Announcements
+    category-id: DIC_kwDOQb4-p84DI_c-
+    mapping: title          # Matches post title to discussion thread
+    reactions-enabled: true
+    theme: light            # Options: light, dark, preferred_color_scheme
 
 
 
