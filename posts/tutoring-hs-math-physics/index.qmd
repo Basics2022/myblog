@@ -49,6 +49,13 @@ Three main topics: analytic geometry, calculus, and vectors. Other side topics n
 :::: {.callout-note icon="false" collapse="false"}
 ## Calculus
 
+**Crash introduction to infinitesimal calculus.**
+
+1. Real-valued functions, limits and derivatives
+2. Integrals
+3. Ordinary differential equations
+
+
 ::: {.callout-note icon="false" collapse="true"}
 ## Real-valued functions and limits
 
@@ -84,7 +91,7 @@ Three main topics: analytic geometry, calculus, and vectors. Other side topics n
 :::
 
 ::: {.callout-note icon="false" collapse="true"}
-## Elementary ordinary differential equations
+## Ordinary differential equations (ODEs)
 
 | # | Block | Session | Book Chapters |
 |---|---|---|---|

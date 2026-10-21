@@ -14,8 +14,8 @@ toc-title: "On this page"
 
 **Crash introduction to infinitesimal calculus.**
 
-1. [Limits and Derivatives](session-03.html)
-2. [Integrals](session-calculus-crash-02.html) 
+1. [Limits and Derivatives](session-03-calculus-crash-01.html)
+2. [Integrals](session-XX-calculus-crash-02.html) 
 3.  Ordinary Differential Equations - **this file**
 
 ---

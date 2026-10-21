@@ -15,8 +15,8 @@ toc-title: "On this page"
 **Crash introduction to infinitesimal calculus.**
 
 1. Limits and Derivatives - **this file**
-2. [Integrals](session-calculus-crash-02.html)
-3. [Ordinary Differential Equations](session-calculus-crash-03.html)
+2. [Integrals](session-XX-calculus-crash-02.html)
+3. [Ordinary Differential Equations](session-XX-calculus-crash-03.html)
 
 ---
 
@@ -52,6 +52,17 @@ Before going into the details of a rigorous definition, this section aims at
   </iframe>
 </div>
 ```
+
+
+::: {.callout-note appearance="simple" icon=false}
+### 📝 Practice Exercises
+
+<!-- 👉 -->
+
+* [**First exercises about limits**](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/analysis-problems.html#primi-esercizi-sul-calcolo-di-limiti). Limits mainly with polynomial and rational functions, with no indeterminate forms or indeterminate forms that are easy to solve.
+
+:::
+
 
 ## Introduction to Derivatives
 
@@ -94,6 +105,21 @@ As the point $B$ approaches $A$, the the secant approaches the tangent line (if 
 
 See: [Matematica: Calcolo infinitesimale: Derivata: Derivata delle funzioni fondamentali](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html#derivate-fondamentali)
 
+
+::: {.callout-note appearance="simple" icon=false}
+### 📝 Practice Exercises
+
+<!-- 👉 -->
+
+Let's mainly focus on the polynomial functions here.
+
+* [**Computation of your first derivatives**](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives-problems.html#calcolo-derivate), using the definition. Just focus on the **polynomial functions** (Exercise 25.1, n.1., 2.) and have fun with the square root n.6 (*Hint*: rationalization after inserting the function $\sqrt{x}$ in the definiton), and the rational function n.7 (*Hint*: common denominator)
+
+* [**First studies of a function**](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives-problems.html#studio-di-funzione-massimi-minimi-e-flessi-concavita). You should be able to compute the derivatives of the exercise 25.7, (and thus 24.10), n.0., and 1., and draw the graph of these functions, after having found (possible) local extremes, with the help of the derivative and its sign.
+
+* [**First optimization problmes**](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives-problems.html#problemi-di-ottimizzazione). Exercise n.0 involves a polynomial function, so it adds no extra difficulty. Just compute the derivative of the function, find local extremes, and evaluate the function in local extremes and at the boundary of the domain, in order to find global extremes.
+
+:::
 
 ## Missing steps
 

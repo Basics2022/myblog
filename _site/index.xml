@@ -14,8 +14,9 @@
 <item>
   <title>Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations</title>
   <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-calculus-crash-03.html</link>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -23,8 +24,8 @@
 
 <p><strong>Crash introduction to infinitesimal calculus.</strong></p>
 <ol type="1">
-<li><a href="session-03.html">Limits and Derivatives</a></li>
-<li><a href="session-calculus-crash-02.html">Integrals</a></li>
+<li><a href="session-03-calculus-crash-01.html">Limits and Derivatives</a></li>
+<li><a href="session-XX-calculus-crash-02.html">Integrals</a></li>
 <li>Ordinary Differential Equations - <strong>this file</strong></li>
 </ol>
 <hr>
@@ -63,14 +64,15 @@
   <category>teaching</category>
   <category>mathematics</category>
   <category>log</category>
-  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-calculus-crash-03.html</guid>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html</guid>
   <pubDate>Tue, 27 Oct 2026 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals</title>
   <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-calculus-crash-02.html</link>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -78,9 +80,9 @@
 
 <p><strong>Crash introduction to infinitesimal calculus.</strong></p>
 <ol type="1">
-<li><a href="session-03.html">Limits and Derivatives</a></li>
+<li><a href="session-03-calculus-crash-01.html">Limits and Derivatives</a></li>
 <li>Integrals - <strong>this file</strong></li>
-<li><a href="session-calculus-crash-03.html">Ordinary Differential Equations</a></li>
+<li><a href="session-XX-calculus-crash-03.html">Ordinary Differential Equations</a></li>
 </ol>
 <hr>
 <p>See: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/integrals.html">Matematica: Calcolo infinitesimale: Integrali</a></p>
@@ -104,14 +106,15 @@
   <category>teaching</category>
   <category>mathematics</category>
   <category>log</category>
-  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-calculus-crash-02.html</guid>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html</guid>
   <pubDate>Mon, 26 Oct 2026 23:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives</title>
   <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03.html</link>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -120,8 +123,8 @@
 <p><strong>Crash introduction to infinitesimal calculus.</strong></p>
 <ol type="1">
 <li>Limits and Derivatives - <strong>this file</strong></li>
-<li><a href="session-calculus-crash-02.html">Integrals</a></li>
-<li><a href="session-calculus-crash-03.html">Ordinary Differential Equations</a></li>
+<li><a href="session-XX-calculus-crash-02.html">Integrals</a></li>
+<li><a href="session-XX-calculus-crash-03.html">Ordinary Differential Equations</a></li>
 </ol>
 <hr>
 <p>This session provides a crash introduction to limits and derivatives. Without going into details of a rigorous definition of the limit of a real function, first section should provide an intuitive idea of the limit, provide some examples of pathological cases, and a bridge to the derivative. The second section should provide an illustration of the geometrical interpretation of the derivative, introducing the definition, and showing the way to evaluate the derivative of some fundamental functions.</p>
@@ -145,6 +148,22 @@
 <div style="width: 100%; min-height: 1000px; position: relative; margin-bottom: 2rem;">
   <iframe src="_graphical_introduction_to_limits.html" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 1rem; overflow: hidden;" scrolling="yes">
   </iframe>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📝 Practice Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<!-- 👉 -->
+<ul>
+<li><a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/analysis-problems.html#primi-esercizi-sul-calcolo-di-limiti"><strong>First exercises about limits</strong></a>. Limits mainly with polynomial and rational functions, with no indeterminate forms or indeterminate forms that are easy to solve.</li>
+</ul>
+</div>
 </div>
 </section>
 <section id="introduction-to-derivatives" class="level2">
@@ -175,6 +194,25 @@
 <section id="derivative-of-fundamental-functions" class="level3">
 <h3 class="anchored" data-anchor-id="derivative-of-fundamental-functions">Derivative of fundamental functions</h3>
 <p>See: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives.html#derivate-fondamentali">Matematica: Calcolo infinitesimale: Derivata: Derivata delle funzioni fondamentali</a></p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>📝 Practice Exercises
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<!-- 👉 -->
+<p>Let’s mainly focus on the polynomial functions here.</p>
+<ul>
+<li><p><a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives-problems.html#calcolo-derivate"><strong>Computation of your first derivatives</strong></a>, using the definition. Just focus on the <strong>polynomial functions</strong> (Exercise 25.1, n.1., 2.) and have fun with the square root n.6 (<em>Hint</em>: rationalization after inserting the function <img src="https://latex.codecogs.com/png.latex?%5Csqrt%7Bx%7D"> in the definiton), and the rational function n.7 (<em>Hint</em>: common denominator)</p></li>
+<li><p><a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives-problems.html#studio-di-funzione-massimi-minimi-e-flessi-concavita"><strong>First studies of a function</strong></a>. You should be able to compute the derivatives of the exercise 25.7, (and thus 24.10), n.0., and 1., and draw the graph of these functions, after having found (possible) local extremes, with the help of the derivative and its sign.</p></li>
+<li><p><a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/infinitesimal_calculus/derivatives-problems.html#problemi-di-ottimizzazione"><strong>First optimization problmes</strong></a>. Exercise n.0 involves a polynomial function, so it adds no extra difficulty. Just compute the derivative of the function, find local extremes, and evaluate the function in local extremes and at the boundary of the domain, in order to find global extremes.</p></li>
+</ul>
+</div>
+</div>
 </section>
 </section>
 <section id="missing-steps" class="level2">
@@ -214,7 +252,7 @@
   <category>teaching</category>
   <category>mathematics</category>
   <category>log</category>
-  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03.html</guid>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html</guid>
   <pubDate>Sun, 25 Oct 2026 23:00:00 GMT</pubDate>
 </item>
 <item>
@@ -478,6 +516,7 @@ Figure&nbsp;6: Representing point in a plane with position vectors.
 
 
 
+
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Index and activity log for the university mathematics preparation path. Reference material: <a href="https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html">Mathematics for High Schools</a>.</p>
@@ -554,6 +593,12 @@ Figure&nbsp;6: Representing point in a plane with position vectors.
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
+<p><strong>Crash introduction to infinitesimal calculus.</strong></p>
+<ol type="1">
+<li>Real-valued functions, limits and derivatives</li>
+<li>Integrals</li>
+<li>Ordinary differential equations</li>
+</ol>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -701,7 +746,7 @@ Figure&nbsp;6: Representing point in a plane with position vectors.
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Elementary ordinary differential equations
+<span class="screen-reader-only">Note</span>Ordinary differential equations (ODEs)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -826,12 +871,12 @@ Weeks
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793142000000" data-listing-file-modified-sort="1792260071140" data-listing-date-modified-sort="1792260071000" data-listing-reading-time-sort="2" data-listing-word-count-sort="330" data-listing-title-sort="Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations" data-listing-filename-sort="session-calculus-crash-03.qmd">
+<tr data-index="0" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793142000000" data-listing-file-modified-sort="1792574762116" data-listing-date-modified-sort="1792574762000" data-listing-reading-time-sort="2" data-listing-word-count-sort="330" data-listing-title-sort="Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations" data-listing-filename-sort="session-XX-calculus-crash-03.qmd">
 <td>
 <span class="listing-date">Oct 28, 2026</span>
 </td>
 <td>
-<a href="../../posts/tutoring-hs-math-physics/sessions/session-calculus-crash-03.html" class="title listing-title">Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations</a>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html" class="title listing-title">Session XXX-03. Crash Introduction to Calculus, Part 3: Ordinary Differential Equations</a>
 </td>
 <td>
 <span class="listing-description">Introduction to ODEs, with examples about 1st and 2nd order linear equations with constant coefficients, that often appear in physics.</span>
@@ -842,12 +887,12 @@ Weeks
 
 </tr>
 
-<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793055600000" data-listing-file-modified-sort="1792402875440" data-listing-date-modified-sort="1792402875000" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals" data-listing-filename-sort="session-calculus-crash-02.qmd">
+<tr data-index="1" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1793055600000" data-listing-file-modified-sort="1792574723300" data-listing-date-modified-sort="1792574723000" data-listing-reading-time-sort="2" data-listing-word-count-sort="287" data-listing-title-sort="Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals" data-listing-filename-sort="session-XX-calculus-crash-02.qmd">
 <td>
 <span class="listing-date">Oct 27, 2026</span>
 </td>
 <td>
-<a href="../../posts/tutoring-hs-math-physics/sessions/session-calculus-crash-02.html" class="title listing-title">Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals</a>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html" class="title listing-title">Session XXX-02. Crash Introduction to Calculus, Part 2: Integrals</a>
 </td>
 <td>
 <span class="listing-description">Graphical introduction to definite integrals as the limit of a Riemann sum.</span>
@@ -858,12 +903,12 @@ Weeks
 
 </tr>
 
-<tr data-index="2" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792969200000" data-listing-file-modified-sort="1792259507490" data-listing-date-modified-sort="1792259507000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1039" data-listing-title-sort="Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives" data-listing-filename-sort="session-03.qmd">
+<tr data-index="2" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1792969200000" data-listing-file-modified-sort="1792591454792" data-listing-date-modified-sort="1792591454000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1219" data-listing-title-sort="Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives" data-listing-filename-sort="session-03-calculus-crash-01.qmd">
 <td>
 <span class="listing-date">Oct 26, 2026</span>
 </td>
 <td>
-<a href="../../posts/tutoring-hs-math-physics/sessions/session-03.html" class="title listing-title">Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives</a>
+<a href="../../posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html" class="title listing-title">Session 3. Crash Introduction to Calculus, Part 1: Limits and Derivatives</a>
 </td>
 <td>
 <span class="listing-description">Graphical introduction of limits and derivatives, some pathological cases, and the derivative of some fundamental functions.</span>
@@ -5147,7 +5192,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```panlkhfujg Example: evaluation of hyperstatics</p>
+<p>```opbmkipguf Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
