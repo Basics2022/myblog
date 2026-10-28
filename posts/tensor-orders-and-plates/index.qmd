@@ -21,13 +21,21 @@ supplemented with proper boundary conditions. The fourth-order differential equa
 
    $$\boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla w \ .$$
 
-* **Second derivative and internal momentum (tensor).** The moment tensor $\mathbb{M}$ collecting all the information to get the internal moment acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $\mathbf{M}_{\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{M}$ reads
+* **Second derivative and internal moment (tensor).** The Laplacian of the displacement field is the opposite of the $z$-component of the curl of the infinitesimal rotation
+
+   $$\Delta w = - \hat{\mathbf{z}} \cdot \nabla \times \boldsymbol\theta \ .$$
+
+   The moment tensor $\mathbb{M}$ - collecting all the information to get the internal moment acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $\mathbf{M}_{\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{M}$ - reads
 
    $$\begin{aligned} 
      \mathbb{M} 
      & = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta = \\
-     & = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \nabla\nabla w - m D \nabla \nabla w \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \ .
+     & = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \nabla\nabla w - m D \nabla \nabla w \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \ ,
    \end{aligned}$$
+
+   and thus the Laplacian of the out-of-plane displacement field is related to the internal moments as
+
+   $$\Delta = \frac{M_{yx} - M_{xy}}{(1-m) D} \ .$$
 
 * **Third derivative and internal force in $z$-direction (vector).** The $z$-force vector $\mathbf{F}_z$ collecting all the information to get the internal force in $z$-direction acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z$ reads
 
