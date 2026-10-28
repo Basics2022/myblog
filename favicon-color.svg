@@ -47,8 +47,8 @@
      id="namedview4"
      showgrid="false"
      inkscape:zoom="1.125"
-     inkscape:cx="-77.267997"
-     inkscape:cy="70.390201"
+     inkscape:cx="77.39867"
+     inkscape:cy="66.834645"
      inkscape:window-x="72"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -82,29 +82,30 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;font-family:'TeX Gyre Cursor';-inkscape-font-specification:'TeX Gyre Cursor';fill:#000000;stroke:#000000" /></flowRegion><flowPara
        id="flowPara823"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:66.66666412px;font-family:arial;-inkscape-font-specification:arial;fill:#000000;stroke:#000000" /></flowRoot>  <rect
-     style="opacity:1;fill:#800080;fill-opacity:1;fill-rule:evenodd;stroke:#800080;stroke-width:0.37795275;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+     style="opacity:1;fill:#216778;fill-opacity:1;fill-rule:evenodd;stroke:#216778;stroke-width:0.37795275;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
      id="rect919"
      width="128"
      height="128"
      x="0"
      y="0" />
   <g
-     id="g917">
+     id="g917"
+     style="fill:#dbe2e3;stroke:#dbe2e3">
     <circle
        transform="rotate(-50)"
        r="38.400002"
        cy="90.401489"
        cx="-7.7379079"
        id="path908-3"
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.09070866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+       style="opacity:1;fill:#dbe2e3;fill-opacity:1;fill-rule:evenodd;stroke:#dbe2e3;stroke-width:0.09070866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
     <path
        inkscape:connector-curvature="0"
        id="rect873"
        d="M 26.079685,0.15239516 V 64.037871 H 44.603953 V 0.15239516 Z"
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.49584115;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+       style="opacity:1;fill:#dbe2e3;fill-opacity:1;fill-rule:evenodd;stroke:#dbe2e3;stroke-width:0.49584115;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
   </g>
   <circle
-     style="opacity:1;fill:#800080;fill-opacity:1;fill-rule:evenodd;stroke:#800080;stroke-width:0.04535433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+     style="opacity:1;fill:#216778;fill-opacity:1;fill-rule:evenodd;stroke:#216778;stroke-width:0.04535433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
      id="path908-3-6-5"
      cx="-7.8884373"
      cy="90.165253"
