@@ -35,7 +35,7 @@ supplemented with proper boundary conditions. The fourth-order differential equa
 
    and thus the Laplacian of the out-of-plane displacement field is related to the internal moments as
 
-   $$\Delta = \frac{M_{yx} - M_{xy}}{(1-m) D} \ .$$
+   $$\Delta w = \frac{M_{yx} - M_{xy}}{(1-m) D} \ .$$
 
 * **Third derivative and internal force in $z$-direction (vector).** The $z$-force vector $\mathbf{F}_z$ collecting all the information to get the internal force in $z$-direction acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z$ reads
 
