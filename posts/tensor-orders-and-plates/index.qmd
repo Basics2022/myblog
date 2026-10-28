@@ -1,0 +1,42 @@
+---
+title: "Tensor Fields and Plates"
+author: "Basics"
+date: "2026-10-28"
+categories: [tensors, structural mechanics, math notation, mathematics]
+---
+
+This article follows a post I've found on LinkedIn tomorrow, with a naive (better say **wrong**) use of tensor calculus operators to provide - let's say, try to provide - a detailed discussion of a Kirchhoff plate subject to pure bending load.
+
+All the formulas are collected in the notes about continuum mechanics: [Timoshenko and Kirchhoff plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html).
+
+# Pure bending in Kirchhoff plate
+
+The transverse displacement $w(x,y)$ of the a Kirchhoff plate subject to pure bending due to a transverse load $f_z(x,y)$ is governed by the differential equation
+
+$$D \Delta \Delta w = f_z \ ,$$
+
+supplemented with proper boundary conditions. The fourth-order differential equation is a Laplacian applied twice. As shown in the notes, the right interpretation of the space derivatives of the displacement field $w(\mathbf{r})$ is:
+
+* **First derivative and infinitesimal rotation.** The small rotation vector $\boldsymbol\theta$ is related to the gradient $\nabla w$
+
+   $$\boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla w \ .$$
+
+* **Second derivative and internal momentum (tensor).** The moment tensor $\mathbb{M}$ collecting all the information to get the internal moment acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $\mathbf{M}_{\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{M}$ reads
+
+   $$\begin{aligned} 
+     \mathbb{M} 
+     & = D \nabla \boldsymbol\theta - m D \nabla^T \boldsymbol\theta = \\
+     & = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \nabla\nabla w - m D \nabla \nabla w \begin{bmatrix} \cdot & -1 \\ 1 & \cdot \end{bmatrix} \ .
+   \end{aligned}$$
+
+* **Third derivative and internal force in $z$-direction (vector).** The $z$-force vector $\mathbf{F}_z$ collecting all the information to get the internal force in $z$-direction acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z$ reads
+
+   $$\mathbf{F}_z = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \Delta \boldsymbol\theta = - D \nabla \Delta w \ .$$
+
+* **Fourth derivative and external load.** The external distributed load $f_z$ is proportional to the double Laplacian, as shown in the governing equation,
+
+  $$f_z = - D \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .$$
+
+
+
+
