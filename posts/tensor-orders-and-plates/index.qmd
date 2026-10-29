@@ -5,11 +5,14 @@ date: "2026-10-28"
 categories: [tensors, structural mechanics, math notation, mathematics]
 ---
 
-This article follows a post I've found on LinkedIn tomorrow, with a naive (better say **wrong**) use of tensor calculus operators to provide - let's say, try to provide - a detailed discussion of a Kirchhoff plate subject to pure bending load.
+This article follows a post I've found on LinkedIn today, with a naive (better say **wrong**) use of tensor calculus operators to provide - let's say, try to provide - a detailed discussion of a Kirchhoff plate subject to transverse load, and the relation of other physical quantities to the spatial derivatives of the out-of-plane displacement field.
 
-All the formulas are collected in the notes about continuum mechanics: [Timoshenko and Kirchhoff plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html).
+All the formulas are collected in the notes about continuum mechanics:
 
-# Pure bending in Kirchhoff plate
+* [Kirchhoff  plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html)
+* [Timoshenko plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/timoshenko.html)
+
+# Bending of a Kirchhoff plate
 
 The transverse displacement $w(x,y)$ of the a Kirchhoff plate subject to pure bending due to a transverse load $f_z(x,y)$ is governed by the differential equation
 
@@ -35,7 +38,7 @@ supplemented with proper boundary conditions. The fourth-order differential equa
 
    and thus the Laplacian of the out-of-plane displacement field is related to the internal moments as
 
-   $$\Delta w = \frac{M_{yx} - M_{xy}}{(1-m) D} \ .$$
+   $$\Delta w = \frac{M_{yx} - M_{xy}}{(1+m) D} \ .$$
 
 * **Third derivative and internal force in $z$-direction (vector).** The $z$-force vector $\mathbf{F}_z$ collecting all the information to get the internal force in $z$-direction acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z$ reads
 
@@ -43,7 +46,7 @@ supplemented with proper boundary conditions. The fourth-order differential equa
 
 * **Fourth derivative and external load.** The external distributed load $f_z$ is proportional to the double Laplacian, as shown in the governing equation,
 
-  $$f_z = - D \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .$$
+  $$f_z = - \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .$$
 
 
 

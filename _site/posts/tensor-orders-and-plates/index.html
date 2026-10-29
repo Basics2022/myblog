@@ -380,10 +380,14 @@ window.Quarto = {
 
 
 
-<p>This article follows a post I’ve found on LinkedIn tomorrow, with a naive (better say <strong>wrong</strong>) use of tensor calculus operators to provide - let’s say, try to provide - a detailed discussion of a Kirchhoff plate subject to pure bending load.</p>
-<p>All the formulas are collected in the notes about continuum mechanics: <a href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html">Timoshenko and Kirchhoff plate</a>.</p>
-<section id="pure-bending-in-kirchhoff-plate" class="level1">
-<h1>Pure bending in Kirchhoff plate</h1>
+<p>This article follows a post I’ve found on LinkedIn today, with a naive (better say <strong>wrong</strong>) use of tensor calculus operators to provide - let’s say, try to provide - a detailed discussion of a Kirchhoff plate subject to transverse load, and the relation of other physical quantities to the spatial derivatives of the out-of-plane displacement field.</p>
+<p>All the formulas are collected in the notes about continuum mechanics:</p>
+<ul>
+<li><a href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html">Kirchhoff plate</a></li>
+<li><a href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/timoshenko.html">Timoshenko plate</a></li>
+</ul>
+<section id="bending-of-a-kirchhoff-plate" class="level1">
+<h1>Bending of a Kirchhoff plate</h1>
 <p>The transverse displacement <span class="math inline">\(w(x,y)\)</span> of the a Kirchhoff plate subject to pure bending due to a transverse load <span class="math inline">\(f_z(x,y)\)</span> is governed by the differential equation</p>
 <p><span class="math display">\[D \Delta \Delta w = f_z \ ,\]</span></p>
 <p>supplemented with proper boundary conditions. The fourth-order differential equation is a Laplacian applied twice. As shown in the notes, the right interpretation of the space derivatives of the displacement field <span class="math inline">\(w(\mathbf{r})\)</span> is:</p>
@@ -399,11 +403,11 @@ window.Quarto = {
    &amp; = D \begin{bmatrix} \cdot &amp; 1 \\ -1 &amp; \cdot \end{bmatrix} \nabla\nabla w - m D \nabla \nabla w \begin{bmatrix} \cdot &amp; -1 \\ 1 &amp; \cdot \end{bmatrix} \ ,
 \end{aligned}\]</span></p>
 <p>and thus the Laplacian of the out-of-plane displacement field is related to the internal moments as</p>
-<p><span class="math display">\[\Delta w = \frac{M_{yx} - M_{xy}}{(1-m) D} \ .\]</span></p></li>
+<p><span class="math display">\[\Delta w = \frac{M_{yx} - M_{xy}}{(1+m) D} \ .\]</span></p></li>
 <li><p><strong>Third derivative and internal force in <span class="math inline">\(z\)</span>-direction (vector).</strong> The <span class="math inline">\(z\)</span>-force vector <span class="math inline">\(\mathbf{F}_z\)</span> collecting all the information to get the internal force in <span class="math inline">\(z\)</span>-direction acting on the elementary surface with (in-plane) unit vector <span class="math inline">\(\hat{\mathbf{t}}\)</span> as <span class="math inline">\(F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z\)</span> reads</p>
 <p><span class="math display">\[\mathbf{F}_z = D \begin{bmatrix} \cdot &amp; 1 \\ -1 &amp; \cdot \end{bmatrix} \Delta \boldsymbol\theta = - D \nabla \Delta w \ .\]</span></p></li>
 <li><p><strong>Fourth derivative and external load.</strong> The external distributed load <span class="math inline">\(f_z\)</span> is proportional to the double Laplacian, as shown in the governing equation,</p>
-<p><span class="math display">\[f_z = - D \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .\]</span></p></li>
+<p><span class="math display">\[f_z = - \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .\]</span></p></li>
 </ul>
 
 
