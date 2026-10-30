@@ -391,9 +391,43 @@ window.Quarto = {
 <p>The transverse displacement <span class="math inline">\(w(x,y)\)</span> of the a Kirchhoff plate subject to pure bending due to a transverse load <span class="math inline">\(f_z(x,y)\)</span> is governed by the differential equation</p>
 <p><span class="math display">\[D \Delta \Delta w = f_z \ ,\]</span></p>
 <p>supplemented with proper boundary conditions. The fourth-order differential equation is a Laplacian applied twice. As shown in the notes, the right interpretation of the space derivatives of the displacement field <span class="math inline">\(w(\mathbf{r})\)</span> is:</p>
+<div class="quarto-layout-panel" data-layout="[1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-kirchhoff-w" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kirchhoff-w-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="kirchhoff-hinged-w.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kirchhoff-w-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Out-of-plane displacement <span class="math inline">\(w(x,y)\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <ul>
-<li><p><strong>First derivative and infinitesimal rotation.</strong> The small rotation vector <span class="math inline">\(\boldsymbol\theta\)</span> is related to the gradient <span class="math inline">\(\nabla w\)</span></p>
+<li><p><strong>First derivative and small rotation.</strong> The small rotation vector <span class="math inline">\(\boldsymbol\theta\)</span> is related to the gradient <span class="math inline">\(\nabla w\)</span></p>
 <p><span class="math display">\[\boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla w \ .\]</span></p></li>
+</ul>
+<div class="quarto-layout-panel" data-layout="[1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-kirchhoff-theta" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kirchhoff-theta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="kirchhoff-hinged-theta.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kirchhoff-theta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Small rotations <span class="math inline">\(\boldsymbol\theta(x,y)\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
 <li><p><strong>Second derivative and internal moment (tensor).</strong> The Laplacian of the displacement field is the opposite of the <span class="math inline">\(z\)</span>-component of the curl of the infinitesimal rotation</p>
 <p><span class="math display">\[\Delta w = - \hat{\mathbf{z}} \cdot \nabla \times \boldsymbol\theta \ .\]</span></p>
 <p>The moment tensor <span class="math inline">\(\mathbb{M}\)</span> - collecting all the information to get the internal moment acting on the elementary surface with (in-plane) unit vector <span class="math inline">\(\hat{\mathbf{t}}\)</span> as <span class="math inline">\(\mathbf{M}_{\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{M}\)</span> - reads</p>
@@ -404,11 +438,64 @@ window.Quarto = {
 \end{aligned}\]</span></p>
 <p>and thus the Laplacian of the out-of-plane displacement field is related to the internal moments as</p>
 <p><span class="math display">\[\Delta w = \frac{M_{yx} - M_{xy}}{(1+m) D} \ .\]</span></p></li>
+</ul>
+<div class="quarto-layout-panel" data-layout="[1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-kirchhoff-m" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kirchhoff-m-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="kirchhoff-hinged-m.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kirchhoff-m-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Moment tensor <span class="math inline">\(\mathbb{M}(x,y)\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
 <li><p><strong>Third derivative and internal force in <span class="math inline">\(z\)</span>-direction (vector).</strong> The <span class="math inline">\(z\)</span>-force vector <span class="math inline">\(\mathbf{F}_z\)</span> collecting all the information to get the internal force in <span class="math inline">\(z\)</span>-direction acting on the elementary surface with (in-plane) unit vector <span class="math inline">\(\hat{\mathbf{t}}\)</span> as <span class="math inline">\(F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z\)</span> reads</p>
 <p><span class="math display">\[\mathbf{F}_z = D \begin{bmatrix} \cdot &amp; 1 \\ -1 &amp; \cdot \end{bmatrix} \Delta \boldsymbol\theta = - D \nabla \Delta w \ .\]</span></p></li>
+</ul>
+<div class="quarto-layout-panel" data-layout="[1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-kirchhoff-f" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kirchhoff-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="kirchhoff-hinged-f.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kirchhoff-f-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Force vector <span class="math inline">\(\mathbf{F}(x,y)\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
 <li><p><strong>Fourth derivative and external load.</strong> The external distributed load <span class="math inline">\(f_z\)</span> is proportional to the double Laplacian, as shown in the governing equation,</p>
 <p><span class="math display">\[f_z = - \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .\]</span></p></li>
 </ul>
+<div class="quarto-layout-panel" data-layout="[1]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-kirchhoff-q-fourier-approx" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kirchhoff-q-fourier-approx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="kirchhoff-hinged-q-fourier.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kirchhoff-q-fourier-approx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Fourier approximation of the uniform load <span class="math inline">\(\sim D \Delta^2 w(x,y) = f_z = \sum_{mn} f_{mn} \sin\left( \frac{m \pi x}{L_x} \right) \sin\left( \frac{n \pi y}{L_y} \right)\)</span>, and Laplacian of the out-of-plane displacement, <span class="math inline">\(\Delta w(x,y)\)</span>
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Fourier basis for the hinged plate can’t exactly relresent a uniform load, as the functions of the basis are identically zero on the boundary of the domain. While the approximation improves in most of the domain as the number of used basis functions increases, <strong>Gibbs phenomenon</strong> occurs at the boundary: sharp oscillations appears in a thin layer close to the domain.</p>
 
 
 </section>

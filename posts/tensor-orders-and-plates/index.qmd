@@ -20,9 +20,21 @@ $$D \Delta \Delta w = f_z \ ,$$
 
 supplemented with proper boundary conditions. The fourth-order differential equation is a Laplacian applied twice. As shown in the notes, the right interpretation of the space derivatives of the displacement field $w(\mathbf{r})$ is:
 
-* **First derivative and infinitesimal rotation.** The small rotation vector $\boldsymbol\theta$ is related to the gradient $\nabla w$
+::: {layout="[1]"}
+
+![Out-of-plane displacement $w(x,y)$](kirchhoff-hinged-w.png){#fig-kirchhoff-w}
+
+:::
+
+* **First derivative and small rotation.** The small rotation vector $\boldsymbol\theta$ is related to the gradient $\nabla w$
 
    $$\boldsymbol\theta = - \hat{\mathbf{z}} \times \nabla w \ .$$
+
+::: {layout="[1]"}
+
+![Small rotations $\boldsymbol\theta(x,y)$](kirchhoff-hinged-theta.png){#fig-kirchhoff-theta}
+
+:::
 
 * **Second derivative and internal moment (tensor).** The Laplacian of the displacement field is the opposite of the $z$-component of the curl of the infinitesimal rotation
 
@@ -40,14 +52,33 @@ supplemented with proper boundary conditions. The fourth-order differential equa
 
    $$\Delta w = \frac{M_{yx} - M_{xy}}{(1+m) D} \ .$$
 
+::: {layout="[1]"}
+
+![Moment tensor $\mathbb{M}(x,y)$](kirchhoff-hinged-m.png){#fig-kirchhoff-m}
+
+:::
+
 * **Third derivative and internal force in $z$-direction (vector).** The $z$-force vector $\mathbf{F}_z$ collecting all the information to get the internal force in $z$-direction acting on the elementary surface with (in-plane) unit vector $\hat{\mathbf{t}}$ as $F_{z,\hat{\mathbf{t}}} = \hat{\mathbf{t}} \cdot \mathbb{F}_z$ reads
 
    $$\mathbf{F}_z = D \begin{bmatrix} \cdot & 1 \\ -1 & \cdot \end{bmatrix} \Delta \boldsymbol\theta = - D \nabla \Delta w \ .$$
+
+::: {layout="[1]"}
+
+![Force vector $\mathbf{F}(x,y)$](kirchhoff-hinged-f.png){#fig-kirchhoff-f}
+
+:::
 
 * **Fourth derivative and external load.** The external distributed load $f_z$ is proportional to the double Laplacian, as shown in the governing equation,
 
   $$f_z = - \nabla \cdot \mathbf{F}_z = D \Delta^2 w \ .$$
 
+::: {layout="[1]"}
+
+![Fourier approximation of the uniform load $\sim D \Delta^2 w(x,y) = f_z = \sum_{mn} f_{mn} \sin\left( \frac{m \pi x}{L_x} \right) \sin\left( \frac{n \pi y}{L_y} \right)$, and Laplacian of the out-of-plane displacement, $\Delta w(x,y)$](kirchhoff-hinged-q-fourier.png){#fig-kirchhoff-q-fourier-approx}
+
+:::
+
+Fourier basis for the hinged plate can't exactly relresent a uniform load, as the functions of the basis are identically zero on the boundary of the domain. While the approximation improves in most of the domain as the number of used basis functions increases, **Gibbs phenomenon** occurs at the boundary: sharp oscillations appears in a thin layer close to the domain.
 
 
 
