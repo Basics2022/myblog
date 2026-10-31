@@ -12,6 +12,8 @@ All the formulas are collected in the notes about continuum mechanics:
 * [Kirchhoff  plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html)
 * [Timoshenko plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/timoshenko.html)
 
+Pictures are taken from the [analytical solution of the hinged rectangular plate](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff-analytic-sln.html) with a uniform distributed load, using Fourier basis. This analytical solution may be also an opportunity to discuss **Gibbs oscillations** close to the boundary.
+
 # Bending of a Kirchhoff plate
 
 The transverse displacement $w(x,y)$ of the a Kirchhoff plate subject to pure bending due to a transverse load $f_z(x,y)$ is governed by the differential equation

@@ -28,6 +28,7 @@
 <li><a href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff.html">Kirchhoff plate</a></li>
 <li><a href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/timoshenko.html">Timoshenko plate</a></li>
 </ul>
+<p>Pictures are taken from the <a href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/plates-shells/kirchhoff-analytic-sln.html">analytical solution of the hinged rectangular plate</a> with a uniform distributed load, using Fourier basis. This analytical solution may be also an opportunity to discuss <strong>Gibbs oscillations</strong> close to the boundary.</p>
 <section id="bending-of-a-kirchhoff-plate" class="level1">
 <h1>Bending of a Kirchhoff plate</h1>
 <p>The transverse displacement <img src="https://latex.codecogs.com/png.latex?w(x,y)"> of the a Kirchhoff plate subject to pure bending due to a transverse load <img src="https://latex.codecogs.com/png.latex?f_z(x,y)"> is governed by the differential equation</p>
@@ -5337,7 +5338,7 @@ draft: true
 -->
 <p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
 <p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```ntjeiatrrg Example: evaluation of hyperstatics</p>
+<p>```wfnjwgoueg Example: evaluation of hyperstatics</p>
 <p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
 <p>```</p>
 </section>
