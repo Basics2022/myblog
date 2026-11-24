@@ -1,0 +1,15 @@
+---
+title: "Earth-Moon Dynamics and Tidal Forces"
+subtitle: "..."
+description: "Dynamics of the Earth-Moon system, as the origin of the tidal forces in the non-inertial reference frame."
+section: 1
+author: "Basics"
+date: "2026-11-24"
+lang: en
+date-modified: last-modified
+categories: [tides, tidal forces, classical mechanics, celestial mechanics, gravitation]
+toc: true
+toc-title: "On this page"
+---
+
+...

@@ -10,7 +10,250 @@
 <atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
 <description>Basics blog</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Sun, 08 Nov 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 23 Nov 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Earth-Moon Dynamics and Tidal Forces</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/earth-dynamics-and-tidal-forces.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>…</p>
+
+
+
+ ]]></description>
+  <category>tides</category>
+  <category>tidal forces</category>
+  <category>classical mechanics</category>
+  <category>celestial mechanics</category>
+  <category>gravitation</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/earth-dynamics-and-tidal-forces.html</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Dynamics of a realistic basin</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-03-adriatic-sea.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>…</p>
+
+
+
+ ]]></description>
+  <category>shallow water equations</category>
+  <category>hyperbolic problems</category>
+  <category>wave equations</category>
+  <category>frequency response</category>
+  <category>non-inertial reference frames</category>
+  <category>tidal forces</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-03-adriatic-sea.html</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Dynamics of an aquaplanet Earth in an Earth-Moon system</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-02-aquaplanet.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>…</p>
+
+
+
+ ]]></description>
+  <category>shallow water equations</category>
+  <category>hyperbolic problems</category>
+  <category>wave equations</category>
+  <category>frequency response</category>
+  <category>non-inertial reference frames</category>
+  <category>tidal forces</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-02-aquaplanet.html</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Dynamics of a straight channel</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-01-straight-channel.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>Description of: * governing equations * toy problem * effects appearing in this model</p>
+<section id="governing-equations" class="level2">
+<h2 class="anchored" data-anchor-id="governing-equations">Governing equations</h2>
+<p>Shallow water equations are used here to model the dynamics of the water in the channel. <strong>Link</strong></p>
+<section id="non-linear-equations-in-a-multi-dimensional-domain" class="level3">
+<h3 class="anchored" data-anchor-id="non-linear-equations-in-a-multi-dimensional-domain">Non-linear equations in a multi-dimensional domain</h3>
+<p>In conservative form</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%20%5Cbegin%7Baligned%7D%0A&amp;%20%5Cpartial_t%20%5Czeta%20+%20%5Cnabla%20%5Ccdot%20%5Cleft(%20%5Czeta%20%5Cmathbf%7Bu%7D%20%5Cright)%20=%200%20%5C%5C%0A&amp;%20%5Cpartial_t%20%5Cleft(%20%5Czeta%20%5Cmathbf%7Bu%7D%20%5Cright)%20+%20%5Cnabla%20%5Ccdot%20%5Cleft(%20%5Czeta%20%5Cmathbf%7Bu%7D%20%5Cotimes%20%5Cmathbf%7Bu%7D%20+%20%5Cfrac%7Bg%20%5Czeta%5E2%7D%7B2%7D%20%5Cmathbf%7BI%7D%20%5Cright)%20=%20%5Cmathbf%7B0%7D%20%5C%20,%0A%5Cend%7Baligned%7D%5Cright."></p>
+<p>or in convective form</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%20%5Cbegin%7Baligned%7D%0A&amp;%20%5Cpartial_t%20%5Czeta%20+%20%5Cnabla%20%5Ccdot%20%5Cleft(%20%5Czeta%20%5Cmathbf%7Bu%7D%20%5Cright)%20=%200%20%5C%5C%0A&amp;%20%5Czeta%20%5Cpartial_t%20%5Cmathbf%7Bu%7D%20+%20%20%5Czeta%20%5Cmathbf%7Bu%7D%20%5Ccdot%20%5Cnabla%20%20%5Cmathbf%7Bu%7D%20+%20g%20%5Czeta%20%5Cnabla%20%5Czeta%20=%20%5Cmathbf%7B0%7D%20%5C%20,%0A%5Cend%7Baligned%7D%5Cright."></p>
+</section>
+<section id="linearized-equations-in-a-1-dimensional-domain" class="level3">
+<h3 class="anchored" data-anchor-id="linearized-equations-in-a-1-dimensional-domain">Linearized equations in a 1-dimensional domain</h3>
+<p>The linearized equations around the reference state <img src="https://latex.codecogs.com/png.latex?(%5Czeta,%20u)%20=%20(h,%200)"> read</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%20%5Cbegin%7Baligned%7D%0A&amp;%20%5Cpartial_t%20%5Czeta%20+%20h%20%5Cpartial_x%20u%20=%200%20%5C%5C%0A&amp;%20%5Cpartial_t%20u%20+%20g%20%5Cpartial_x%20%5Czeta%20=%200%20%5C%20.%0A%5Cend%7Baligned%7D%5Cright."></p>
+<p>In this model a linear friction contribution (<img src="https://latex.codecogs.com/png.latex?r%20%5Cge%200">) is introduced to the momentum equation</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cpartial_t%20u%20+%20g%20%5Cpartial_x%20%5Czeta%20+%20r%20u%20=%200%20%5C%20,"></p>
+<p>adding a reactive term to the convection modeled in the hyperbolic system.</p>
+</section>
+<section id="wave-equation-with-dissipation" class="level3">
+<h3 class="anchored" data-anchor-id="wave-equation-with-dissipation">Wave equation, with dissipation</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%200%0A%20%20&amp;%20=%20%5Cpartial_%7Btt%7D%20%5Czeta%20+%20h%20%5Cpartial_%7Bxt%7D%20u%20=%20%5C%5C%0A%20%20&amp;%20=%20%5Cpartial_%7Btt%7D%20%5Czeta%20-%20h%20%5Cpartial_x%20%5Cleft(%20g%20%5Cpartial_x%20%5Czeta%20+%20r%20u%20%5Cright)%20=%20%20%5C%5C%0A%20%20&amp;%20=%20%5Cpartial_%7Btt%7D%20%5Czeta%20-%20gh%20%5Cpartial_%7Bxx%7D%20%5Czeta%20-%20h%20r%20%5Cpartial_x%20u%20=%20%5C%5C%0A%20%20&amp;%20=%20%5Cpartial_%7Btt%7D%20%5Czeta%20-%20gh%20%5Cpartial_%7Bxx%7D%20%5Czeta%20+%20r%20%5Cpartial_t%20%5Czeta%20%5C%20.%0A%5Cend%7Baligned%7D"></p>
+</section>
+</section>
+<section id="toy-problem" class="level2">
+<h2 class="anchored" data-anchor-id="toy-problem">Toy problem</h2>
+<p>The equations in the domain are supplied with boundary conditions</p>
+</section>
+<section id="frequency-response" class="level2">
+<h2 class="anchored" data-anchor-id="frequency-response">Frequency response</h2>
+
+
+</section>
+
+ ]]></description>
+  <category>shallow water equations</category>
+  <category>hyperbolic problems</category>
+  <category>wave equations</category>
+  <category>frequency response</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-01-straight-channel.html</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>The Origin of Tides</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+<p>This series of posts is inspired by a recent video from <em>“La Fisica che non ti aspetti”</em> on tides and tidal forces. Because the material grew far larger than I initially expected when approaching the problem, I have split it into separate articles.</p>
+<p>First, the dynamics of the Earth is formulated in the Earth–Moon system, taking its center of mass as the origin of an inertial reference frame. For a non-inertial observer on Earth, the combination of fictitious forces and the Moon’s gravitational pull gives rise to the tidal force, which is first analyzed under the—quite rough—assumption of a static ocean, reducing the problem to fluid statics.</p>
+<p>Dynamics is then introduced through a hierarchy of models of increasing complexity based on the shallow-water equations: first, the frequency response of a straight channel under external forcing is studied; next, the dynamics of an ocean covering the entire surface of an <em>aquaplanet</em> Earth in the Earth–Moon system is examined; finally, the evolution of an approximate model of a real basin is analyzed.</p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-table" id="listing-section-log">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-section-log-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-section-log'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
+
+<th>
+Section
+</th>
+
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
+
+<th>
+Summary
+</th>
+
+</tr>
+</thead>
+<tbody class="list">
+
+<tr data-index="0" data-categories="dGlkZXMlMkN0aWRhbCUyMGZvcmNlcyUyQ2NsYXNzaWNhbCUyMG1lY2hhbmljcyUyQ2NlbGVzdGlhbCUyMG1lY2hhbmljcyUyQ2dyYXZpdGF0aW9u" data-listing-date-sort="1795474800000" data-listing-file-modified-sort="1795544262860" data-listing-date-modified-sort="1795544262000" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Earth-Moon Dynamics and Tidal Forces" data-listing-filename-sort="earth-dynamics-and-tidal-forces.qmd">
+<td>
+<span class="listing-section">1</span>
+</td>
+<td>
+<a href="../../posts/tides/sections/earth-dynamics-and-tidal-forces.html" class="title listing-title">Earth-Moon Dynamics and Tidal Forces</a>
+</td>
+<td>
+<span class="listing-description">Dynamics of the Earth-Moon system, as the origin of the tidal forces in the non-inertial reference frame.</span>
+</td>
+
+</tr>
+
+<tr data-index="1" data-categories="c2hhbGxvdyUyMHdhdGVyJTIwZXF1YXRpb25zJTJDaHlwZXJib2xpYyUyMHByb2JsZW1zJTJDd2F2ZSUyMGVxdWF0aW9ucyUyQ2ZyZXF1ZW5jeSUyMHJlc3BvbnNl" data-listing-date-sort="1795474800000" data-listing-file-modified-sort="1795545978081" data-listing-date-modified-sort="1795545978000" data-listing-reading-time-sort="2" data-listing-word-count-sort="269" data-listing-title-sort="Dynamics of a straight channel" data-listing-filename-sort="dynamics-01-straight-channel.ipynb">
+<td>
+<span class="listing-section">2</span>
+</td>
+<td>
+<a href="../../posts/tides/sections/dynamics-01-straight-channel.html" class="title listing-title">Dynamics of a straight channel</a>
+</td>
+<td>
+<span class="listing-description">Dynamics of the water in a straight channel with closed end, subject to different level of the sea at the open end.</span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-categories="c2hhbGxvdyUyMHdhdGVyJTIwZXF1YXRpb25zJTJDaHlwZXJib2xpYyUyMHByb2JsZW1zJTJDd2F2ZSUyMGVxdWF0aW9ucyUyQ2ZyZXF1ZW5jeSUyMHJlc3BvbnNlJTJDbm9uLWluZXJ0aWFsJTIwcmVmZXJlbmNlJTIwZnJhbWVzJTJDdGlkYWwlMjBmb3JjZXM=" data-listing-date-sort="1795474800000" data-listing-file-modified-sort="1795545007467" data-listing-date-modified-sort="1795545007000" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Dynamics of an *aquaplanet* Earth in an Earth-Moon system" data-listing-filename-sort="dynamics-02-aquaplanet.ipynb">
+<td>
+<span class="listing-section">3</span>
+</td>
+<td>
+<a href="../../posts/tides/sections/dynamics-02-aquaplanet.html" class="title listing-title">Dynamics of an <em>aquaplanet</em> Earth in an Earth-Moon system</a>
+</td>
+<td>
+<span class="listing-description">Dynamics of the water covering the entire surface of a planet in a two-body system.</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="c2hhbGxvdyUyMHdhdGVyJTIwZXF1YXRpb25zJTJDaHlwZXJib2xpYyUyMHByb2JsZW1zJTJDd2F2ZSUyMGVxdWF0aW9ucyUyQ2ZyZXF1ZW5jeSUyMHJlc3BvbnNlJTJDbm9uLWluZXJ0aWFsJTIwcmVmZXJlbmNlJTIwZnJhbWVzJTJDdGlkYWwlMjBmb3JjZXM=" data-listing-date-sort="1795474800000" data-listing-file-modified-sort="1795545136458" data-listing-date-modified-sort="1795545136000" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="Dynamics of a realistic basin" data-listing-filename-sort="dynamics-03-adriatic-sea.ipynb">
+<td>
+<span class="listing-section">4</span>
+</td>
+<td>
+<a href="../../posts/tides/sections/dynamics-03-adriatic-sea.html" class="title listing-title">Dynamics of a realistic basin</a>
+</td>
+<td>
+<span class="listing-description">Dynamics of a model of the Adriatic sea.</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+<div class="listing-no-matching d-none">No matching items</div>
+</div> ]]></description>
+  <category>tides</category>
+  <category>tidal forces</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Distribution of normal reaction</title>
   <dc:creator>Basics </dc:creator>
@@ -1153,7 +1396,7 @@ Weeks
 
 </tr>
 
-<tr data-index="4" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1791894219248" data-listing-date-modified-sort="1791894219000" data-listing-reading-time-sort="4" data-listing-word-count-sort="717" data-listing-title-sort="Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors" data-listing-filename-sort="session-01.qmd">
+<tr data-index="4" data-categories="dGVhY2hpbmclMkNtYXRoZW1hdGljcyUyQ2xvZw==" data-listing-date-sort="1791756000000" data-listing-file-modified-sort="1795543914891" data-listing-date-modified-sort="1795543914000" data-listing-reading-time-sort="4" data-listing-word-count-sort="717" data-listing-title-sort="Session 1. Real Functions, Introduction to Analytical Geometry, and Position Vectors" data-listing-filename-sort="session-01.qmd">
 <td>
 <span class="listing-date">Oct 12, 2026</span>
 </td>
@@ -5350,186 +5593,6 @@ font-style: inherit;">phi$'</span>)</span></code></pre></div></div>
   <category>resonance</category>
   <guid>https://basics2022.github.io/myblog/posts/modes-in-structures/</guid>
   <pubDate>Mon, 24 Nov 2025 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Weak formulation of problems in structural mechanics</title>
-  <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<!--
-draft: true
--->
-<p>This post grew out of a question about a structural mechanics exercise that appeared in a community of structural engineers. The exercise dealt with a hyperstatic beam system with elastic supports and thermal strains.</p>
-<p>It’s a nice excuse to talk about the role of the weak form — especially compatibility and equilibrium conditions — and to show that the so-called energy theorems follow directly from choosing suitable test functions in the weak formulation.</p>
-<!--
-![](thumbnail.png)
--->
-<p align="center">
-<img src="https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/thumbnail.png">
-</p>
-<section id="linear-elastic-problem" class="level2">
-<h2 class="anchored" data-anchor-id="linear-elastic-problem">Linear elastic problem</h2>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bcases%7D%0A%20%20%5Cboldsymbol%5Cnabla%20%5Ccdot%20%5Cboldsymbol%5Csigma%20+%20%5Coverline%7B%5Cmathbf%7Bf%7D%7D%20=%20%5Cmathbf%7B0%7D%20%20&amp;&amp;%20%5Ctext%7Bin%20$V$%7D%20%5C%5C%0A%20%20%5Cboldsymbol%5Cvarepsilon%20=%20%5Cfrac%7B1%7D%7B2%7D%20%5Cleft(%20%5Cboldsymbol%5Cnabla%20%5Cmathbf%7Bs%7D%20+%20%5Cboldsymbol%5Cnabla%5ET%20%5Cmathbf%7Bs%7D%20%5Cright)%20%5C%5C%0A%20%20%5Cboldsymbol%5Csigma%20=%20%5Cmathbf%7BC%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cboldsymbol%5Cbeta%20%5CDelta%20T%20%5C%5C%0A%20%20%5Cmathbf%7Bs%7D%20=%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_D$%7D%20%5C%5C%0A%20%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cboldsymbol%5Csigma%20=%20%5Coverline%7B%5Cmathbf%7Bt%7D%7D_n%20%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_N$%7D%20%5C%5C%0A%20%20%5Cmathbf%7BK%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20+%20%5Cmathbf%7BS%7D%20%5Ccdot%20(%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cboldsymbol%5Csigma%20)%20=%20%5Coverline%7Bh%7D%20%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_R$%7D%20%5C%5C%0A%5Cend%7Bcases%7D"></p>
-</section>
-<section id="equilibrium-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="equilibrium-conditions">Equilibrium conditions</h2>
-<section id="strong-form" class="level3">
-<h3 class="anchored" data-anchor-id="strong-form">Strong form</h3>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bcases%7D%0A%20%20%5Cboldsymbol%5Cnabla%20%5Ccdot%20%5Cboldsymbol%5Csigma%20+%20%5Coverline%7B%5Cmathbf%7Bf%7D%7D%20=%20%5Cmathbf%7B0%7D%20%20&amp;&amp;%20%5Ctext%7Bin%20$V$%7D%20%5C%5C%0A%20%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cboldsymbol%5Csigma%20=%20%5Coverline%7B%5Cmathbf%7Bt%7D%7D_n%20%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_N$%7D%20%5C%5C%0A%5Cend%7Bcases%7D"></p>
-<p>with <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5Csigma%20=%20%5Cmathbf%7BC%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cboldsymbol%5Cbeta%20%5CDelta%20T">.</p>
-</section>
-<section id="weak-form" class="level3">
-<h3 class="anchored" data-anchor-id="weak-form">Weak form</h3>
-<p>For every <em>sufficiently regular</em> test function <img src="https://latex.codecogs.com/png.latex?%5Cmathbf%7Bw%7D">,</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%200%0A%20%20&amp;%20=%20%5Cint_%7BV%7D%20%5Cmathbf%7Bw%7D%20%5Ccdot%20%5Cleft%5C%7B%20%5Cboldsymbol%5Cnabla%20%5Ccdot%20%5Cboldsymbol%5Csigma%20+%20%5Coverline%7B%5Cmathbf%7Bf%7D%7D%20%5Cright%5C%7D%20=%20%5C%5C%0A%20%20&amp;%20=%20%5Coint_%7B%5Cpartial%20V%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cboldsymbol%5Csigma%20%5Ccdot%20%5Cmathbf%7Bw%7D%20-%20%5Cint_%7BV%7D%20%5Cboldsymbol%5Cnabla%20%5Cmathbf%7Bw%7D%20:%20%5Cboldsymbol%5Csigma%20+%20%5Cint_%7BV%7D%20%5Cmathbf%7Bw%7D%20%5Ccdot%20%5Cmathbf%7Bf%7D%20=%20%5C%5C%0A%20%20&amp;%20=%20%5Coint_%7B%5Cpartial%20V%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cboldsymbol%5Csigma%20%5Ccdot%20%5Cmathbf%7Bw%7D%20-%20%5Cint_%7BV%7D%20%5Cdfrac%7B1%7D%7B2%7D%20%5Cleft(%20%5Cboldsymbol%5Cnabla%20%5Cmathbf%7Bw%7D%20+%20%5Cboldsymbol%5Cnabla%5ET%20%5Cmathbf%7Bw%7D%20%5Cright)%20:%20%5Cboldsymbol%5Csigma%20+%20%5Cint_%7BV%7D%20%5Cmathbf%7Bw%7D%20%5Ccdot%20%5Cmathbf%7Bf%7D%20%5C%20.%0A%5Cend%7Baligned%7D"></p>
-<p>having exploited the symmetry of the stress tensor <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5Csigma">.</p>
-</section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section">…</h3>
-</section>
-<section id="pvw" class="level3">
-<h3 class="anchored" data-anchor-id="pvw">PVW</h3>
-</section>
-</section>
-<section id="compatibility-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="compatibility-conditions">Compatibility conditions</h2>
-<section id="strong-form-1" class="level3">
-<h3 class="anchored" data-anchor-id="strong-form-1">Strong form</h3>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bcases%7D%0A%20%20%5Cboldsymbol%5Cvarepsilon%20=%20%5Cfrac%7B1%7D%7B2%7D%20%5Cleft(%20%5Cboldsymbol%5Cnabla%20%5Cmathbf%7Bs%7D%20+%20%5Cboldsymbol%5Cnabla%5ET%20%5Cmathbf%7Bs%7D%20%5Cright)%20&amp;&amp;%20%5Ctext%7Bin%20$V$%7D%20%5C%5C%0A%20%20%5Cmathbf%7Bs%7D%20=%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_D$%7D%20%5C%5C%0A%5Cend%7Bcases%7D"></p>
-<p>with <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5Cvarepsilon%20=%20%5Cmathbf%7BD%7D%20:%20%5Cboldsymbol%5Csigma%20+%20%5Cboldsymbol%5Calpha%20%5CDelta%20T">.</p>
-</section>
-<section id="weak-form-1" class="level3">
-<h3 class="anchored" data-anchor-id="weak-form-1">Weak form</h3>
-<p>For every <em>sufficiently regular</em> test function <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5CSigma"> (<img src="https://latex.codecogs.com/png.latex?2%5E%7Bnd%7D">-order tensor)</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%200%0A%20%20&amp;%20=%20%5Cint_%7BV%7D%20%5Cboldsymbol%5CSigma%20:%20%5Cleft(%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cdfrac%7B1%7D%7B2%7D%20%5Cleft(%20%5Cboldsymbol%5Cnabla%20%5Cmathbf%7Bs%7D%20+%20%5Cboldsymbol%5Cnabla%5ET%20%5Cmathbf%7Bs%7D%20%5Cright)%20%5Cright)%20=%20%5C%5C%0A%20%20&amp;%20=%20%5Cint_%7BV%7D%20%5Cboldsymbol%5CSigma%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Coint_%7B%5Cpartial%20V%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cboldsymbol%5CSigma%20%5Ccdot%20%5Cmathbf%7Bs%7D%20+%20%5Cint_V%20%5Cboldsymbol%5Cnabla%20%5Ccdot%20%5Cboldsymbol%5CSigma%20%5Ccdot%20%5Cmathbf%7Bs%7D%20=%20%5C%5C%0A%5Cend%7Baligned%7D"></p>
-<p>if the tensor test function is symmetric <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5CSigma%20=%20%5Cboldsymbol%5CSigma%5ET">.</p>
-</section>
-<section id="force-method" class="level3">
-<h3 class="anchored" data-anchor-id="force-method">Force method</h3>
-<p>Choosing the test function to be an equilibrated stress field — let’s define it as <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5CSigma%20:=%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D"> to recall this condition — i.e.&nbsp;a stress field that satisfies equilibrium conditions</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bcases%7D%0A%20%20%5Cboldsymbol%5Cnabla%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20+%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20=%20%5Cmathbf%7B0%7D%20%20&amp;&amp;%20%5Ctext%7Bin%20$V$%7D%20%5C%5C%0A%20%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20=%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_N$%7D%20%5C%5C%0A%5Cend%7Bcases%7D"></p>
-<!--  
--->
-<p>under some external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N">. The weak problem thus becomes</p>
-<p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BV%7D%20%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_N%7D%20%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n%20%5Ccdot%20%5Cmathbf%7Bs%7D%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-<p>```baxmiigdvz Example: evaluation of hyperstatics</p>
-<p>One of the most common example of applications of force method is the evaluation of hyperstatic actions in over-determined structures.</p>
-<p>```</p>
-</section>
-<section id="pcvw" class="level3">
-<h3 class="anchored" data-anchor-id="pcvw">PCVW</h3>
-<p>Choosing the test function to be the variation equilibrated stress field — let’s define it as <img src="https://latex.codecogs.com/png.latex?%5Cboldsymbol%5CSigma%20:=%20%5Cdelta%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D"> to recall this condition — i.e.&nbsp;a stress field that satisfies equilibrium conditions</p>
-<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Bcases%7D%0A%20%20%5Cboldsymbol%5Cnabla%20%5Ccdot%20%5Cdelta%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20=%20%5Cmathbf%7B0%7D%20%20&amp;&amp;%20%5Ctext%7Bin%20$V$%7D%20%5C%5C%0A%20%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cdelta%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20=%20%5Cmathbf%7B0%7D%20%20&amp;&amp;%20%5Ctext%7Bon%20$S_N$%7D%20%5C%5C%0A%5Cend%7Bcases%7D"></p>
-<!--  
--->
-<p>as the variation of given external loads <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bf%7D%7D"> in <img src="https://latex.codecogs.com/png.latex?V"> and <img src="https://latex.codecogs.com/png.latex?%5Cwidetilde%7B%5Cmathbf%7Bt%7D%7D_n"> on <img src="https://latex.codecogs.com/png.latex?S_N"> is identically zero. The weak problem thus becomes</p>
-<p><img src="https://latex.codecogs.com/png.latex?0%20=%20%5Cint_%7BV%7D%20%5Cdelta%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20:%20%5Cboldsymbol%5Cvarepsilon%20-%20%5Cint_%7BS_D%7D%20%5Chat%7B%5Cmathbf%7Bn%7D%7D%20%5Ccdot%20%5Cdelta%20%5Cwidetilde%7B%5Cboldsymbol%5Csigma%7D%20%5Ccdot%20%5Coverline%7B%5Cmathbf%7Bs%7D%7D%20-%20%5Cint_%7BS_R%7D%20%5Cdots%20%20"></p>
-
-
-</section>
-</section>
-
- ]]></description>
-  <category>structural mechanics</category>
-  <category>weak form</category>
-  <guid>https://basics2022.github.io/myblog/posts/hyperstatics-and-weak-form/</guid>
-  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hello .ipynb on the blog!</title>
-  <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/welcome-ipynb/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p>Just the first try of a notebook post.</p>
-<div id="47eb7d6d-0617-4c3c-8c0d-bd1419af76b1" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[]" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">#&gt; Import libraries</span></span>
-<span id="cb1-2"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> numpy <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> np</span>
-<span id="cb1-3"><span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
-background-color: null;
-font-style: inherit;">as</span> plt</span></code></pre></div></div>
-</div>
-<div id="d9dea04d-e654-4b93-bf6d-da38522c1a77" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">x <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.linspace(<span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">-</span>np.pi, np.pi, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">101</span>)</span>
-<span id="cb2-2">y <span class="op" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">=</span> np.sin(x)</span></code></pre></div></div>
-</div>
-<div id="30a1d12a-d178-455f-90eb-aa71ef27eb41" class="cell" data-editable="true" data-quarto-private-1="{&quot;key&quot;:&quot;slideshow&quot;,&quot;value&quot;:{&quot;slide_type&quot;:&quot;&quot;}}" data-tags="[&quot;hide-input&quot;]" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">plt.figure()</span>
-<span id="cb3-2">plt.plot(x,y)</span>
-<span id="cb3-3">plt.grid()</span></code></pre></div></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://basics2022.github.io/myblog/posts/welcome-ipynb/index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-
-
-
- ]]></description>
-  <category>blog</category>
-  <category>jupyter</category>
-  <guid>https://basics2022.github.io/myblog/posts/welcome-ipynb/</guid>
-  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>Hello blog!</title>
-  <dc:creator>Basics </dc:creator>
-  <link>https://basics2022.github.io/myblog/posts/welcome/</link>
-  <description><![CDATA[ 
-
-
-
-
-
-
-<p><img src="https://basics2022.github.io/myblog/posts/welcome/thumbnail.jpg" class="img-fluid"></p>
-<p>Hello, blog!</p>
-<p>This is just the first post of the <strong>basics blog</strong>, exploiting Quarto. Could it be the answer to the need for a simple tool, providing similar experience to Jupyter Books with minimal fancy tools for blogging, like tags, automatic layout of the main page (e.g.&nbsp;with latest post), built with .md and .ipynb, to be publicly hosted on GitHub, and allowing comments with the smallest amount of pain as possible? I’ll find out.</p>
-<p>I’ve come across Quarto just this morning, through some nice examples <a href="https://bitsofanalytics.org/">Mark Isken, Bits of Abalytics</a>, who looks like having some experience with blogging and moved to Quarto after using several other platforms: his blog looks good and clean, it looks like he has my same needs, he looks quite satisfied with Quarto and he’s explaining why in details in his post <a href="https://bitsofanalytics.org/posts/port-to-quarto/">Firts impressions of blogging with Quarto</a>, written in 2023. There are no later posts about porting, while the last post came out only few days ago: it looks like the blog is alive and he keeps using Quarto. So, why shouldn’t I trust him?</p>
-<!--
-This is the first post in a Quarto blog. Welcome!
-
-Let's edit it.
-
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
--->
-
-
-
- ]]></description>
-  <category>blog</category>
-  <guid>https://basics2022.github.io/myblog/posts/welcome/</guid>
-  <pubDate>Sun, 23 Nov 2025 23:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-01.html</loc>
-    <lastmod>2026-10-13T12:23:39.248Z</lastmod>
+    <lastmod>2026-11-24T18:11:54.891Z</lastmod>
   </url>
   <url>
     <loc>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html</loc>
@@ -37,12 +37,16 @@
     <lastmod>2026-05-01T20:36:44.993Z</lastmod>
   </url>
   <url>
+    <loc>https://basics2022.github.io/myblog/index.html</loc>
+    <lastmod>2025-11-24T16:15:17.023Z</lastmod>
+  </url>
+  <url>
     <loc>https://basics2022.github.io/myblog/about.html</loc>
     <lastmod>2025-11-24T10:04:03.619Z</lastmod>
   </url>
   <url>
-    <loc>https://basics2022.github.io/myblog/index.html</loc>
-    <lastmod>2025-11-24T16:15:17.023Z</lastmod>
+    <loc>https://basics2022.github.io/myblog/posts/normal-reaction-distribution/index.html</loc>
+    <lastmod>2026-11-09T16:32:59.894Z</lastmod>
   </url>
   <url>
     <loc>https://basics2022.github.io/myblog/posts/tensor-orders-and-plates/index.html</loc>
@@ -77,7 +81,23 @@
     <lastmod>2025-11-28T12:49:34.121Z</lastmod>
   </url>
   <url>
-    <loc>https://basics2022.github.io/myblog/posts/normal-reaction-distribution/index.html</loc>
-    <lastmod>2026-11-09T16:32:59.894Z</lastmod>
+    <loc>https://basics2022.github.io/myblog/posts/tides/index.html</loc>
+    <lastmod>2026-11-24T18:32:57.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://basics2022.github.io/myblog/posts/tides/sections/earth-dynamics-and-tidal-forces.html</loc>
+    <lastmod>2026-11-24T18:17:42.860Z</lastmod>
+  </url>
+  <url>
+    <loc>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-01-straight-channel.html</loc>
+    <lastmod>2026-11-24T18:46:18.081Z</lastmod>
+  </url>
+  <url>
+    <loc>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-02-aquaplanet.html</loc>
+    <lastmod>2026-11-24T18:30:07.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-03-adriatic-sea.html</loc>
+    <lastmod>2026-11-24T18:32:16.458Z</lastmod>
   </url>
 </urlset>

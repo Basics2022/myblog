@@ -1,0 +1,125 @@
+---
+title: "Tidal forces and tides"
+author: "Basics"
+date: "2026-11-22"
+categories: [classical mechanics, tidal force, tides]
+---
+<!--
+draft: true
+-->
+
+This series of posts is inspired by a recent video from *“La Fisica che non ti aspetti”* on tides and tidal forces. Because the material grew far larger than I initially expected when approaching the problem, I have split it into separate articles. First, the dynamics of the Earth is formulated in the Earth–Moon system, taking its center of mass as the origin of an inertial reference frame. For a non-inertial observer on Earth, the combination of fictitious forces and the Moon's gravitational pull gives rise to the tidal force, which is first analyzed under the—quite rough—assumption of a static ocean, reducing the problem to fluid statics.
+
+Dynamics is then introduced through a hierarchy of models of increasing complexity based on the shallow-water equations: first, the frequency response of a straight channel under external forcing is studied; next, the dynamics of an ocean covering the entire surface of an *aquaplanet* Earth in the Earth–Moon system is examined; finally, the evolution of an approximate model of a real basin is analyzed.
+
+| Topics | Main contents | Primary link |
+| :--- | :--- | :--- |
+| Dynamics of the Earth–Moon system and tidal forces | ... | ... |
+| Dynamics of a straight channel | ... | ... |
+| Dynamics of an aquaplanet Earth in an Earth–Moon system | ... | ... |
+| Dynamics of a real basin | ... | ... |
+
+
+This series of posts follows a new video by "La Fisica che non ti aspetti" about tides and tidal forces. As the contents have become much larger than initially I may have thought approaching this problem, they are split in different articles. First, the dynamics of the Earth is described in the Earth-Moon system, whose center of mass is assumed to be the origin of an inertial reference frame. An observer on the Earth is thus non-inertial. The combination of fictitious forces and gravitational attraction from the Moon is found to be the cause of the tides, and this term is represented here under the - quite rough - assumption of stationary sea, solving a problem of fluid statics.
+Then dynamics is introduced with increasing levels of complexity, using the equations of shallow waters: first the frequency response of a straight channel under the action of an external forcing is studied; then the dynamics of the sea covering the whole surface of an *aquaplanet* Earth in the Earth-Moon system is discussed; eventually, the evolution of an approximate model of real basin is discussed.
+
+| Topics | Main contents |  Primary link |
+| :--- | :--- | :--- | 
+| Dynamics of the Earth-Moon system and tidal forces      | ... | ... |
+| Dynamics of a straight channel                          | ... | ... |
+| Dynamics of an aquaplanet Earth in a Earth-Moon system  | ... | ... |
+| Dynamics of real basic                                  | ... | ... |
+
+<!--
+| Topics | Main contents |  Primary link |
+| :--- | :--- | :--- | 
+| Dynamics of the Earth-Moon system and tidal forces        | ... | [Fluid Mechanics: Compressible Fluid Mechanics](https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/intro.html) |
+| Mathematics of Hyperbolic PDEs        | Eigenstructure and characteristics of differential equation; discontinuities from integral equations | [Math: PDEs: Hyperbolic Equations](https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/hyperbolic.html) |
+| Numerical methods for Hyperbolic PDEs | Physics-based schemes in FVM: non-linear Riemann solvers (Godunov) and linearized solvers (Roe) | [Math: Numerical Methods for PDEs: Finite Volume Method](https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fvm-hyperbolic-pde.html) |
+-->
+
+
+
+
+<!--
+This post follows a new video by "La Fisica che non ti aspetti" about tides and tidal forces.
+
+**Attraction from the Moon to the points of the Earth - inertial reference frame.**
+
+A point $P$ with mass $m$ is subject to the gravitational force due to the Moon and the Earth $\mathbf{F} = m \mathbf{g}$, with the force per unit mass $\mathbf{g}$ given by
+
+$$\mathbf{g}^{(0)}(P) = G M_E \frac{C_E - P}{|C_E - P|^3} + G M_M \frac{C_M - P}{|C_M - P|^3}$$
+
+**Non-inertial Earth reference frame.** Using the laws of [relative kinematics](https://basics2022.github.io/bbooks-physics-mechanics/ch/kinematics-relative.html), from the point of view of a non-inertial reference frame rotating with the Earth, the description of the problem involves *apparent forces* due to the motion of the non-inertial reference frame. The total force perceived in this reference frame is
+
+$$\mathbf{g}^{(1)} = \mathbf{g}^{(0)} - \mathbf{a}^{(0)}_{Q/O} - \boldsymbol\alpha_{1/0} \times \mathbf{r}_{QP} - 2 \boldsymbol\omega_{1/0} \times \mathbf{v}^{(1)}_{P/Q} - \boldsymbol\omega_{1/0} \times \boldsymbol\omega_{1/0} \times \mathbf{r}_{QP} \ .$$
+
+## Simplified model
+
+Here the motion of the Earth around the Sun is neglected, and only the rotation around its axis is taken into account. Thus, the acceleration of the center of the Earth w.r.t. an inertial reference frame is approximately zero, $\mathbf{a}_{C_E O} \sim \mathbf{0}$.
+Now, let's furhter assume:
+
+* the angular velocity of the Earth is constant, $\boldsymbol\alpha_{1/0} = \mathbf{0}$
+* the axis of rotation of the Earth is orthogonal to the plane of the orbit of the Moon around the Earth, $\boldsymbol\Omega_{1/0} = \Omega \hat{\mathbf{z}}$
+* a point $P$ on Earth surface approximately moves with the surface itself.  The relative velocity is thus $\mathbf{v}^{(1)}_{P/Q} \sim \mathbf{0}$, while its position w.r.t. the center of the Earth $C_E$ is $\mathbf{r}_{E P} = R_E \hat{\mathbf{r}}_P$
+* the relative position of the center of the Moon w.r.t. the center of the Earth is defined as $\mathbf{R}_{EM} = R_{EM} \hat{\mathbf{R}}$
+
+Thus, the acceleration perceived in the non-inertial reference frame is
+
+$$\begin{aligned}
+  \mathbf{g}^{(1)}
+  & \sim \mathbf{g}^{(0)} - \boldsymbol\Omega_{1/0} \times \boldsymbol\Omega_{1/0} \times \mathbf{r}_{E P} = \\
+  & = \mathbf{g}^{(0)}_E + \mathbf{g}^{(0)}_M - \boldsymbol\Omega_{1/0} \times \boldsymbol\Omega_{1/0} \times \mathbf{r}_{E P} \ ,
+\end{aligned}$$
+
+distinguishing between the radial contribution $\mathbf{g}^{(0)}$ due to the gravitational attraction from the Earth from the other non-uniform contributions. The non-uniform contributions read
+
+* Centrifugal force
+
+  $$\begin{aligned}
+    - \boldsymbol\Omega \times \boldsymbol\Omega \times \mathbf{r}_{EP} 
+    & = - \Omega^2 R_{E} \hat{\mathbf{z}} \times \hat{\mathbf{z}} \times \mathbf{r}_{P} = \\
+    & = - \Omega^2 R_{E} \sin \phi \, \hat{\mathbf{z}} \times \boldsymbol\theta_P  = \\
+    & =   \Omega^2 R_{E} \sin \phi \, \boldsymbol\rho_P \ .
+  \end{aligned}$$
+
+* Gravitational attraction from the Moon
+
+   $$\begin{aligned}
+     \mathbf{g}^{(0)}_{M} 
+       = G M_M \frac{P - C_M}{| P - C_M |^3} 
+       = \frac{G M_M}{R_{EM}^2} \frac{ \hat{\mathbf{R}} + \frac{R_E}{R_{EM}} \hat{\mathbf{r}}_P }{\left| \hat{\mathbf{R}} + \frac{R_E}{R_{EM}} \hat{\mathbf{r}}_P \right|^3}
+       \sim \frac{G M_M}{R_{EM}^2} \left\{ \hat{\mathbf{R}} - 3 \frac{R_E}{R_{EM}} \hat{\mathbf{R}} \hat{\mathbf{R}} \cdot \hat{\mathbf{r}}_P \right\}
+   \end{aligned}$$
+
+
+
+
+## Some algebra
+
+### Power series expansion of the gravitational force from the Moon
+
+Expanding for small $a := \tfrac{R_{E}}{R_{EM}}$,
+
+$$\begin{aligned}
+  \left.\mathbf{f}(a)\right|_{a=0} & = \hat{\mathbf{R}} \\
+  \left.\mathbf{f}'(a)\right|_{a=0} & = \left. \frac{\hat{\mathbf{r}}_P | \dots |^3 - 3 | \hat{\mathbf{R}} + a \hat{\mathbf{r}}_P | \left( \hat{\mathbf{R}} + a \hat{\mathbf{r}}_P \right) \left( \hat{\mathbf{R}} + a \hat{\mathbf{r}}_P \right) \cdot \hat{\mathbf{r}}_P }{| \dots |^6} \right|_{a=0} = \\
+  & = \hat{\mathbf{r}}_P - 3 \hat{\mathbf{R}} \hat{\mathbf{R}} \cdot \hat{\mathbf{r}}_P
+\end{aligned}$$
+
+since
+
+$$\begin{aligned}
+  \frac{d}{d a} | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} |^3 & = 3 | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} |^2 \frac{d}{da} | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} |  \\
+  & = 3 \hat{\mathbf{r}} \cdot \left( \hat{\mathbf{R}} + a \hat{\mathbf{r}} \right) | \hat{\mathbf{R}} + a \hat{\mathbf{r}} |
+\end{aligned}$$
+
+as
+
+$$\begin{aligned}
+  \frac{d}{d a} | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} |^2 & = 2 | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} | \frac{d}{da} | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} | 
+    = 2 \hat{\mathbf{r}} \cdot \left( \hat{\mathbf{R}} + a \hat{\mathbf{r}} \right) \\
+  \frac{d}{d a} | \hat{\mathbf{R}} \cdot a \hat{\mathbf{r}} | & = \hat{\mathbf{r}} \cdot \frac{\hat{\mathbf{R}} + a \hat{\mathbf{r}}}{\left| \hat{\mathbf{R}} + a \hat{\mathbf{r}} \right|}
+\end{aligned}$$
+
+-->

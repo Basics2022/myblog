@@ -14,7 +14,6 @@ toc-title: "On this page"
 
 
 
-
 ## Functions and Real Functions
 
 **Definition of a function**. A function $f: A \rightarrow B$ is a relation between elements of 2 sets. It takes an element $a \in A$, and produces **one and only one** output $b = f(a)$. Sets $A$ and $B$ are respectively defined *domain* and *co-domain*. See [Insiemistica e funzioni](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/set).

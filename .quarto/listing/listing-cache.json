@@ -5,6 +5,10 @@
     ],
     "posts/tutoring-hs-math-physics/index.qmd": [
       "sessions"
+    ],
+    "posts/tides/index.qmd": [
+      "sessions",
+      "sections"
     ]
   }
 }

@@ -76,5 +76,20 @@
   },
   "posts/normal-reaction-distribution/index.qmd": {
     "index.html": "7b0dcc23"
+  },
+  "posts/tides/index.qmd": {
+    "index.html": "5a229518"
+  },
+  "posts/tides/sections/earth-dynamics-and-tidal-forces.qmd": {
+    "earth-dynamics-and-tidal-forces.html": "ec739e4d"
+  },
+  "posts/tides/sections/dynamics-01-straight-channel.ipynb": {
+    "dynamics-01-straight-channel.html": "63013929"
+  },
+  "posts/tides/sections/dynamics-02-aquaplanet.ipynb": {
+    "dynamics-02-aquaplanet.html": "5a26ee90"
+  },
+  "posts/tides/sections/dynamics-03-adriatic-sea.ipynb": {
+    "dynamics-03-adriatic-sea.html": "f3f856ed"
   }
 }
