@@ -98,35 +98,6 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
   });
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -337,7 +308,7 @@ window.Quarto = {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Earth-Moon Dynamics and Tidal Forces</h1>
-            <p class="subtitle lead">Subtitle</p>
+            <p class="subtitle lead">…</p>
                   <div>
         <div class="description">
           Dynamics of the Earth-Moon system, as the origin of the tidal forces in the non-inertial reference frame.
@@ -384,35 +355,8 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#kinematics" id="toc-kinematics" class="nav-link active" data-scroll-target="#kinematics"><span class="header-section-number">1</span> Kinematics</a></li>
-  <li><a href="#relative-dynamics-in-earth-fram-earth-frame" id="toc-relative-dynamics-in-earth-fram-earth-frame" class="nav-link" data-scroll-target="#relative-dynamics-in-earth-fram-earth-frame"><span class="header-section-number">2</span> Relative Dynamics in Earth fram Earth frame</a>
-  <ul class="collapse">
-  <li><a href="#real-forces-acting-on-p" id="toc-real-forces-acting-on-p" class="nav-link" data-scroll-target="#real-forces-acting-on-p"><span class="header-section-number">2.1</span> Real Forces Acting on <span class="math inline">\(P\)</span></a></li>
-  <li><a href="#combined-equation-of-motion" id="toc-combined-equation-of-motion" class="nav-link" data-scroll-target="#combined-equation-of-motion"><span class="header-section-number">2.2</span> Combined Equation of Motion</a>
-  <ul class="collapse">
-  <li><a href="#assumptions-orders-of-magnitude" id="toc-assumptions-orders-of-magnitude" class="nav-link" data-scroll-target="#assumptions-orders-of-magnitude"><span class="header-section-number">2.2.1</span> Assumptions &amp; Orders of Magnitude</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#spherical-coordinates-and-vector-projections" id="toc-spherical-coordinates-and-vector-projections" class="nav-link" data-scroll-target="#spherical-coordinates-and-vector-projections"><span class="header-section-number">3</span> Spherical Coordinates and Vector Projections</a>
-  <ul class="collapse">
-  <li><a href="#local-orthonormal-basis-hatmathbfr-hatboldsymboltheta-hatboldsymbolvarphi" id="toc-local-orthonormal-basis-hatmathbfr-hatboldsymboltheta-hatboldsymbolvarphi" class="nav-link" data-scroll-target="#local-orthonormal-basis-hatmathbfr-hatboldsymboltheta-hatboldsymbolvarphi"><span class="header-section-number">3.1</span> Local Orthonormal Basis <span class="math inline">\((\hat{\mathbf{R}}, \hat{\boldsymbol{\theta}}, \hat{\boldsymbol{\varphi}})\)</span></a></li>
-  <li><a href="#centrifugal-term-evaluation" id="toc-centrifugal-term-evaluation" class="nav-link" data-scroll-target="#centrifugal-term-evaluation"><span class="header-section-number">3.2</span> Centrifugal Term Evaluation</a></li>
-  <li><a href="#tidal-term-projection-hatmathbfx_1-cdot-hatmathbfr_p" id="toc-tidal-term-projection-hatmathbfx_1-cdot-hatmathbfr_p" class="nav-link" data-scroll-target="#tidal-term-projection-hatmathbfx_1-cdot-hatmathbfr_p"><span class="header-section-number">3.3</span> Tidal Term Projection (<span class="math inline">\(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P\)</span>)</a></li>
-  </ul></li>
-  <li><a href="#hydrostatic-equilibrium-and-free-surface-elevation-zeta" id="toc-hydrostatic-equilibrium-and-free-surface-elevation-zeta" class="nav-link" data-scroll-target="#hydrostatic-equilibrium-and-free-surface-elevation-zeta"><span class="header-section-number">4</span> Hydrostatic Equilibrium and Free Surface Elevation (<span class="math inline">\(\zeta\)</span>)</a>
-  <ul class="collapse">
-  <li><a href="#component-equations" id="toc-component-equations" class="nav-link" data-scroll-target="#component-equations"><span class="header-section-number">4.1</span> Component Equations</a></li>
-  <li><a href="#radial-integration" id="toc-radial-integration" class="nav-link" data-scroll-target="#radial-integration"><span class="header-section-number">4.2</span> Radial Integration</a></li>
-  <li><a href="#boundary-condition-on-the-free-surface" id="toc-boundary-condition-on-the-free-surface" class="nav-link" data-scroll-target="#boundary-condition-on-the-free-surface"><span class="header-section-number">4.3</span> Boundary Condition on the Free Surface</a></li>
-  <li><a href="#equilibrium-tide-solution" id="toc-equilibrium-tide-solution" class="nav-link" data-scroll-target="#equilibrium-tide-solution"><span class="header-section-number">4.4</span> Equilibrium Tide Solution</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></nav>
-    </div>
+        
+    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -421,244 +365,9 @@ window.Quarto = {
 
 
 
-<p>Assumptions:</p>
-<ul>
-<li>negligible influence of the Sun and other planets: Earth-Moon system is a two-body problem;
-<ul>
-<li>the center of mass of the system can be set as the origin of an inertial reference frame</li>
-<li>the orbit is planar</li>
-</ul></li>
-<li>negligible eccentricity: circular orbit (constant radius and angular velocity)</li>
-</ul>
-<section id="kinematics" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Kinematics</h1>
-<p>Let <span class="math inline">\(B\)</span> be the center of mass (CM) of the Earth-Moon system, which we assume is an inertial reference frame, and let’s introduce some useful reference frames:</p>
-<ul>
-<li><strong>Frame <span class="math inline">\((0)\)</span></strong>: Inertial frame centered at <span class="math inline">\(B\)</span> with axes <span class="math inline">\((\hat{\mathbf{x}}_0, \hat{\mathbf{y}}_0, \hat{\mathbf{z}}_0)\)</span>.</li>
-<li><strong>Frame <span class="math inline">\((1)\)</span></strong>: Centered at <span class="math inline">\(B\)</span>, rotating with the orbital angular velocity of the Earth-Moon system <span class="math inline">\(\theta_1(t)\)</span> around <span class="math inline">\(\hat{\mathbf{z}}_0\)</span>. The angular velocity of <span class="math inline">\((1)\)</span> w.r.t. <span class="math inline">\((0)\)</span> is constant <span class="math inline">\(\Omega_1 = \dot{\theta}_1\)</span> is the orbit is circular.</li>
-<li><strong>Frame <span class="math inline">\((2)\)</span></strong>: Centered at the Earth’s center <span class="math inline">\(E\)</span>, tilted by the obliquity angle <span class="math inline">\(\varepsilon\)</span> around <span class="math inline">\(\hat{\mathbf{y}}_0\)</span> (or <span class="math inline">\(\hat{\mathbf{y}}_1\)</span>). The obliquity is assumed to be constant.</li>
-<li><strong>Frame <span class="math inline">\((3)\)</span></strong>: Centered at <span class="math inline">\(E\)</span>, rotating with the Earth’s daily rotation <span class="math inline">\(\theta_3(t)\)</span> around <span class="math inline">\(\hat{\mathbf{z}}_2\)</span>. The rotation angular velocity of the Earth around its axis <span class="math inline">\(\Omega_3 = \dot{\theta}_3\)</span> is assumed to be constant.</li>
-</ul>
-<hr>
-<p>Add a figure: reference frames and kinematics</p>
-<hr>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Change of bases
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><p><strong><span class="math inline">\(0 \to 1\)</span>: Rotation by <span class="math inline">\(\theta_1(t)\)</span> around <span class="math inline">\(\hat{\mathbf{z}}_0\)</span></strong> <span class="math display">\[
-\begin{cases}
-\hat{\mathbf{x}}_1 = \hat{\mathbf{x}}_0 \cos\theta_1 + \hat{\mathbf{y}}_0 \sin\theta_1 \\
-\hat{\mathbf{y}}_1 = -\hat{\mathbf{x}}_0 \sin\theta_1 + \hat{\mathbf{y}}_0 \cos\theta_1 \\
-\hat{\mathbf{z}}_1 = \hat{\mathbf{z}}_0
-\end{cases}
-\]</span></p></li>
-<li><p><strong><span class="math inline">\(0 \to 2\)</span>: Tilt by <span class="math inline">\(\varepsilon\)</span> around <span class="math inline">\(\hat{\mathbf{y}}_0\)</span></strong> <span class="math display">\[
-\begin{cases}
-\hat{\mathbf{x}}_2 = \hat{\mathbf{x}}_0 \cos\varepsilon - \hat{\mathbf{z}}_0 \sin\varepsilon \\
-\hat{\mathbf{y}}_2 = \hat{\mathbf{y}}_0 \\
-\hat{\mathbf{z}}_2 = \hat{\mathbf{x}}_0 \sin\varepsilon + \hat{\mathbf{z}}_0 \cos\varepsilon
-\end{cases}
-\]</span></p></li>
-<li><p><strong><span class="math inline">\(2 \to 3\)</span>: Rotation by <span class="math inline">\(\theta_3(t)\)</span> around <span class="math inline">\(\hat{\mathbf{z}}_2\)</span></strong> <span class="math display">\[
-\begin{cases}
-\hat{\mathbf{x}}_3 = \hat{\mathbf{x}}_2 \cos\theta_3 + \hat{\mathbf{y}}_2 \sin\theta_3 \\
-\hat{\mathbf{y}}_3 = -\hat{\mathbf{x}}_2 \sin\theta_3 + \hat{\mathbf{y}}_2 \cos\theta_3 \\
-\hat{\mathbf{z}}_3 = \hat{\mathbf{z}}_2
-\end{cases}
-\]</span></p></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Velocity and acceleration of the center of the Earth <span class="math inline">\((E)\)</span> w.r.t. the center of mass <span class="math inline">\((B)\)</span>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The angular velocity of frame <span class="math inline">\((3)\)</span> with respect to the inertial frame <span class="math inline">\((0)\)</span> is: <span class="math display">\[
-\boldsymbol{\omega}_{3/0} = \dot{\theta}_3 \hat{\mathbf{z}}_2
-\]</span></p>
-<p>Let <span class="math inline">\(R_{E,1}\)</span> be the distance from the barycenter <span class="math inline">\(B\)</span> to the Earth’s center <span class="math inline">\(E\)</span>. The velocity and acceleration of <span class="math inline">\(E\)</span> with respect to frame <span class="math inline">\((0)\)</span> are: <span class="math display">\[
-\mathbf{v}^{(0)}_{E/B} = R_{E,1} \dot{\theta}_1 \hat{\mathbf{y}}_1
-\]</span> <span class="math display">\[
-\mathbf{a}^{(0)}_{E/B} = -R_{E,1} \dot{\theta}_1^2 \hat{\mathbf{x}}_1
-\]</span></p>
-<p>From the equation of motion of the Earth around the barycenter (due to the Moon’s gravity): <span class="math display">\[
--M_E R_{E,1} \dot{\theta}_1^2 = -\frac{G M_E M_M}{R_{EM}^2} \implies \dot{\theta}_1^2 = \frac{G M_M}{R_{EM}^2 R_{E,1}}
-\]</span> Therefore, the acceleration of the Earth’s center is: <span class="math display">\[
-\mathbf{a}^{(0)}_{E/B} = -\frac{G M_M}{R_{EM}^2} \hat{\mathbf{x}}_1
-\]</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="relative-dynamics-in-earth-fram-earth-frame" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Relative Dynamics in Earth fram Earth frame</h1>
-<p>For a point mass <span class="math inline">\(m\)</span> at position <span class="math inline">\(P\)</span> on the Earth’s surface, Newton’s second law in the inertial frame is: <span class="math display">\[
-m \mathbf{a}^{(0)}_{P/B} = \mathbf{F}
-\]</span></p>
-<p>Using relative kinematics between frame <span class="math inline">\((0)\)</span> and frame <span class="math inline">\((3)\)</span>: <span class="math display">\[
-\mathbf{a}^{(0)}_{P/B} = \mathbf{a}^{(0)}_{E/B} + \mathbf{a}^{(3)}_{P/E} + \boldsymbol{\alpha}_{3/0} \times \mathbf{r}_{EP} + 2\boldsymbol{\omega}_{3/0} \times \mathbf{v}^{(3)}_{P/E} + \boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP})
-\]</span></p>
-<p>Solving for the acceleration <span class="math inline">\(\mathbf{a}^{(3)}_{P/E}\)</span> observed in the Earth-fixed frame <span class="math inline">\((3)\)</span>: <span class="math display">\[
-\mathbf{a}^{(3)}_{P/E} = \frac{\mathbf{F}}{m} - \mathbf{a}^{(0)}_{E/B} - \boldsymbol{\alpha}_{3/0} \times \mathbf{r}_{EP} - 2\boldsymbol{\omega}_{3/0} \times \mathbf{v}^{(3)}_{P/E} - \boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP})
-\]</span></p>
-<section id="real-forces-acting-on-p" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="real-forces-acting-on-p"><span class="header-section-number">2.1</span> Real Forces Acting on <span class="math inline">\(P\)</span></h2>
-<ol type="1">
-<li><p><strong>Gravitational force from the Earth:</strong> <span class="math display">\[
-\mathbf{F}_E = -\frac{G M_E m}{R_E^2} \hat{\mathbf{R}}_P
-\]</span> where <span class="math inline">\(\hat{\mathbf{R}}_P\)</span> is the unit radial vector from the center of the Earth <span class="math inline">\(E\)</span> to <span class="math inline">\(P\)</span>.</p></li>
-<li><p><strong>Gravitational force from the Moon:</strong> Since the vector from the Moon to <span class="math inline">\(P\)</span> is <span class="math inline">\(R_{EM}\hat{\mathbf{x}}_1 + R_E\hat{\mathbf{R}}_P\)</span>: <span class="math display">\[
-\mathbf{F}_M = -G M_M m \frac{R_{EM}\hat{\mathbf{x}}_1 + R_E\hat{\mathbf{R}}_P}{|R_{EM}\hat{\mathbf{x}}_1 + R_E\hat{\mathbf{R}}_P|^3} = -\frac{G M_M m}{R_{EM}^2} \frac{\hat{\mathbf{x}}_1 + \frac{R_E}{R_{EM}}\hat{\mathbf{R}}_P}{\left|\hat{\mathbf{x}}_1 + \frac{R_E}{R_{EM}}\hat{\mathbf{R}}_P\right|^3}
-\]</span> Using a first-order Taylor expansion for <span class="math inline">\(\frac{R_E}{R_{EM}} \ll 1\)</span>: <span class="math display">\[
-\mathbf{F}_M \approx -\frac{G M_M m}{R_{EM}^2} \left\{ \hat{\mathbf{x}}_1 + \frac{R_E}{R_{EM}} \left( \hat{\mathbf{R}}_P - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)\hat{\mathbf{x}}_1 \right) \right\}
-\]</span></p></li>
-<li><p><strong>Non-gravitational forces (<span class="math inline">\(\mathbf{F}_{\text{non-g}}\)</span>):</strong> Pressure gradients (<span class="math inline">\(\nabla P\)</span>) in fluids, friction, etc.</p></li>
-</ol>
-</section>
-<section id="combined-equation-of-motion" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="combined-equation-of-motion"><span class="header-section-number">2.2</span> Combined Equation of Motion</h2>
-<p>Substituting <span class="math inline">\(\mathbf{F}_E\)</span>, <span class="math inline">\(\mathbf{F}_M\)</span>, and <span class="math inline">\(\mathbf{a}^{(0)}_{E/B}\)</span> into the relative acceleration equation (noting that the <span class="math inline">\(-\frac{G M_M}{R_{EM}^2}\hat{\mathbf{x}}_1\)</span> terms cancel out): <span class="math display">\[
-\mathbf{a}^{(3)}_{P/E} \approx -\frac{G M_E}{R_E^2} \hat{\mathbf{R}}_P - \frac{G M_M}{R_{EM}^2} \frac{R_E}{R_{EM}} \left( \hat{\mathbf{R}}_P - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)\hat{\mathbf{x}}_1 \right) - \boldsymbol{\alpha}_{3/0} \times \mathbf{r}_{EP} - 2\boldsymbol{\omega}_{3/0} \times \mathbf{v}^{(3)}_{P/E} - \boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP}) + \frac{\mathbf{F}_{\text{non-g}}}{m}
-\]</span></p>
-<section id="assumptions-orders-of-magnitude" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="assumptions-orders-of-magnitude"><span class="header-section-number">2.2.1</span> Assumptions &amp; Orders of Magnitude</h3>
-<ul>
-<li><strong>Assumptions:</strong> Earth’s rotation rate is constant (<span class="math inline">\(\boldsymbol{\alpha}_{3/0} = \mathbf{0}\)</span> and <span class="math inline">\(\boldsymbol{\omega}_{3/0} = \Omega_E \hat{\mathbf{z}}_2\)</span>).</li>
-<li><strong>Constants:</strong>
-<ul>
-<li><span class="math inline">\(G \approx 6.67 \times 10^{-11} \text{ m}^3 \text{kg}^{-1} \text{s}^{-2}\)</span></li>
-<li><span class="math inline">\(M_E \approx 5.97 \times 10^{24} \text{ kg}\)</span>, <span class="math inline">\(M_M \approx 7.35 \times 10^{22} \text{ kg}\)</span></li>
-<li><span class="math inline">\(R_{EM} \approx 3.84 \times 10^8 \text{ m}\)</span>, <span class="math inline">\(R_E \approx 6.3 \times 10^6 \text{ m}\)</span></li>
-<li><span class="math inline">\(\Omega_E \approx \frac{1 \text{ rad}}{1 \text{ day}} \approx 1.1 \times 10^{-5} \text{ s}^{-1}\)</span> (or <span class="math inline">\(2\pi / 86400 \approx 7.27 \times 10^{-5} \text{ rad/s}\)</span>)</li>
-</ul></li>
-<li><strong>Accelerations:</strong>
-<ul>
-<li>Earth’s surface gravity: <span class="math inline">\(g_0 = \frac{G M_E}{R_E^2} \approx 10 \text{ m/s}^2\)</span></li>
-<li>Tidal acceleration scale: <span class="math inline">\(\frac{G M_M}{R_{EM}^2} \frac{R_E}{R_{EM}} \approx (4 \times 10^{-5}) \times (2 \times 10^{-2}) \approx 8 \times 10^{-7} \text{ m/s}^2\)</span></li>
-<li>Centrifugal acceleration: <span class="math inline">\(\Omega_E^2 R_E \approx 8.5 \times 10^{-4} \text{ m/s}^2\)</span></li>
-<li>Coriolis acceleration: <span class="math inline">\(2 \Omega_E v^{(3)}_{P/E}\)</span> (negligible if <span class="math inline">\(v^{(3)}_{P/E} \ll 10^{-1} \text{ m/s}\)</span>)</li>
-</ul></li>
-</ul>
-<hr>
-</section>
-</section>
-</section>
-<section id="spherical-coordinates-and-vector-projections" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Spherical Coordinates and Vector Projections</h1>
-<p>We describe point <span class="math inline">\(P\)</span> in spherical coordinates <span class="math inline">\((r, \varphi, \Delta\theta)\)</span> stationary with respect to frame <span class="math inline">\((3)\)</span>, where <span class="math inline">\(\varphi\)</span> is the colatitude (angle from <span class="math inline">\(\hat{\mathbf{z}}_3 = \hat{\mathbf{z}}_2\)</span>) and <span class="math inline">\(\Delta\theta\)</span> is the longitude relative to <span class="math inline">\(\hat{\mathbf{x}}_3\)</span>.</p>
-<section id="local-orthonormal-basis-hatmathbfr-hatboldsymboltheta-hatboldsymbolvarphi" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="local-orthonormal-basis-hatmathbfr-hatboldsymboltheta-hatboldsymbolvarphi"><span class="header-section-number">3.1</span> Local Orthonormal Basis <span class="math inline">\((\hat{\mathbf{R}}, \hat{\boldsymbol{\theta}}, \hat{\boldsymbol{\varphi}})\)</span></h2>
-<p><span class="math display">\[
-\begin{cases}
-\hat{\mathbf{R}} = \hat{\mathbf{z}}_3 \cos\varphi + \hat{\mathbf{x}}_3 \sin\varphi \cos\Delta\theta + \hat{\mathbf{y}}_3 \sin\varphi \sin\Delta\theta \\
-\hat{\boldsymbol{\theta}} = -\hat{\mathbf{x}}_3 \sin\Delta\theta + \hat{\mathbf{y}}_3 \cos\Delta\theta \\
-\hat{\boldsymbol{\varphi}} = -\hat{\mathbf{z}}_3 \sin\varphi + \hat{\mathbf{x}}_3 \cos\varphi \cos\Delta\theta + \hat{\mathbf{y}}_3 \cos\varphi \sin\Delta\theta
-\end{cases}
-\]</span></p>
-</section>
-<section id="centrifugal-term-evaluation" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="centrifugal-term-evaluation"><span class="header-section-number">3.2</span> Centrifugal Term Evaluation</h2>
-<p>With <span class="math inline">\(\boldsymbol{\omega}_{3/0} = \Omega_E \hat{\mathbf{z}}_2\)</span> and <span class="math inline">\(\mathbf{r}_{EP} = R_E \hat{\mathbf{R}}_P\)</span>: <span class="math display">\[
-\begin{aligned}
--\boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP}) &amp;= -\Omega_E \hat{\mathbf{z}}_2 \times \left[ \Omega_E \hat{\mathbf{z}}_2 \times R_E \left( \hat{\mathbf{z}}_2 \cos\varphi + \hat{\mathbf{x}}_2 \sin\varphi \cos(\theta_3 + \Delta\theta) + \hat{\mathbf{y}}_2 \sin\varphi \sin(\theta_3 + \Delta\theta) \right) \right] \\
-&amp;= +R_E \Omega_E^2 \sin\varphi \, \hat{\rho}_P
-\end{aligned}
-\]</span> where <span class="math inline">\(\hat{\rho}_P = \hat{\mathbf{x}}_3 \cos\Delta\theta + \hat{\mathbf{y}}_3 \sin\Delta\theta = \hat{\mathbf{R}} \sin\varphi + \hat{\boldsymbol{\varphi}} \cos\varphi\)</span>. Thus: <span class="math display">\[
--\boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP}) = R_E \Omega_E^2 \left( \sin^2\varphi \, \hat{\mathbf{R}} + \sin\varphi \cos\varphi \, \hat{\boldsymbol{\varphi}} \right)
-\]</span></p>
-</section>
-<section id="tidal-term-projection-hatmathbfx_1-cdot-hatmathbfr_p" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="tidal-term-projection-hatmathbfx_1-cdot-hatmathbfr_p"><span class="header-section-number">3.3</span> Tidal Term Projection (<span class="math inline">\(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P\)</span>)</h2>
-<p>Expressing <span class="math inline">\(\hat{\mathbf{x}}_1\)</span> in frame <span class="math inline">\((2)\)</span>: <span class="math display">\[
-\hat{\mathbf{x}}_1 = (\hat{\mathbf{x}}_2 \cos\varepsilon - \hat{\mathbf{z}}_2 \sin\varepsilon)\cos\theta_1 + \hat{\mathbf{y}}_2 \sin\theta_1
-\]</span> Taking the dot product with <span class="math inline">\(\hat{\mathbf{R}}_P = \hat{\mathbf{z}}_2 \cos\varphi + \hat{\mathbf{x}}_2 \sin\varphi \cos(\theta_3 + \Delta\theta) + \hat{\mathbf{y}}_2 \sin\varphi \sin(\theta_3 + \Delta\theta)\)</span>: <span class="math display">\[
-\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P = \cos\varepsilon \cos\theta_1 \sin\varphi \cos(\theta_3 + \Delta\theta) + \sin\theta_1 \sin\varphi \sin(\theta_3 + \Delta\theta) - \sin\varepsilon \cos\theta_1 \cos\varphi
-\]</span></p>
-<p><em>(Note: If the obliquity <span class="math inline">\(\varepsilon = 0\)</span>, this simplifies to <span class="math inline">\(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P = \sin\varphi \cos(\theta_3 + \Delta\theta - \theta_1)\)</span>.)</em></p>
-<p>We can decompose <span class="math inline">\(\hat{\mathbf{x}}_1\)</span> in the local basis as: <span class="math display">\[
-\hat{\mathbf{x}}_1 = (\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}})\hat{\mathbf{R}} + (\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\varphi}})\hat{\boldsymbol{\varphi}} + (\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\theta}})\hat{\boldsymbol{\theta}}
-\]</span> where: * <span class="math inline">\(\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\theta}} = -\cos\varepsilon \cos\theta_1 \sin(\theta_3 + \Delta\theta) + \sin\theta_1 \cos(\theta_3 + \Delta\theta)\)</span> * <span class="math inline">\(\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\varphi}} = \cos\varepsilon \cos\theta_1 \cos\varphi \cos(\theta_3 + \Delta\theta) + \sin\theta_1 \cos\varphi \sin(\theta_3 + \Delta\theta) + \sin\varepsilon \cos\theta_1 \sin\varphi\)</span></p>
-<hr>
-</section>
-</section>
-<section id="hydrostatic-equilibrium-and-free-surface-elevation-zeta" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Hydrostatic Equilibrium and Free Surface Elevation (<span class="math inline">\(\zeta\)</span>)</h1>
-<p>Assuming a fluid particle is approximately at rest with respect to the Earth (<span class="math inline">\(\mathbf{a}^{(3)}_{P/E} \approx \mathbf{0}\)</span>, <span class="math inline">\(\mathbf{v}^{(3)}_{P/E} \approx \mathbf{0}\)</span>) and <span class="math inline">\(\frac{\mathbf{F}_{\text{non-g}}}{m} = -\frac{1}{\rho}\nabla P\)</span>:</p>
-<section id="component-equations" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="component-equations"><span class="header-section-number">4.1</span> Component Equations</h2>
-<ol type="1">
-<li><p><strong>Radial direction (<span class="math inline">\(\hat{\mathbf{R}}\)</span>):</strong> <span class="math display">\[
-0 = -g^E_r - g^M_r + 3\frac{G M_M}{R_{EM}^2} \frac{r}{R_{EM}} (\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)^2 + r \Omega_E^2 \sin^2\varphi - \frac{1}{\rho}\partial_r P
-\]</span> where <span class="math inline">\(g^E_r = \frac{G M_E}{r^2}\)</span> and <span class="math inline">\(g^M_r = \frac{G M_M}{R_{EM}^2}\frac{r}{R_{EM}}\)</span>.</p></li>
-<li><p><strong>Azimuthal direction (<span class="math inline">\(\hat{\boldsymbol{\theta}}\)</span>):</strong> <span class="math display">\[
-\frac{1}{\rho r \sin\varphi} \partial_\theta P = g_{\theta, \text{tidal}}
-\]</span></p></li>
-<li><p><strong>Polar/Colatitude direction (<span class="math inline">\(\hat{\boldsymbol{\varphi}}\)</span>):</strong> <span class="math display">\[
-\frac{1}{\rho r} \partial_\varphi P = g_{\varphi, \text{tidal}} + r \Omega_E^2 \sin\varphi \cos\varphi
-\]</span></p></li>
-</ol>
-</section>
-<section id="radial-integration" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="radial-integration"><span class="header-section-number">4.2</span> Radial Integration</h2>
-<p>Let <span class="math inline">\(r_0\)</span> be the unperturbed spherical radius and <span class="math inline">\(\zeta(\varphi, \theta_3 + \Delta\theta)\)</span> be the free surface elevation. Integrating the radial equation from <span class="math inline">\(r = r_0\)</span> to <span class="math inline">\(r = r_0 + \zeta\)</span> (assuming <span class="math inline">\(\zeta \ll r_0\)</span>):</p>
-<ul>
-<li><p><strong>Earth’s gravity term:</strong> <span class="math display">\[
--\int_{r_0}^{r_0+\zeta} \frac{G M_E}{r^2} dr = \left. \frac{G M_E}{r} \right|_{r_0}^{r_0+\zeta} = G M_E \left( \frac{1}{r_0 + \zeta} - \frac{1}{r_0} \right) \approx -\frac{G M_E}{r_0^2}\zeta
-\]</span></p></li>
-<li><p><strong>Tidal term:</strong> <span class="math display">\[
--\int_{r_0}^{r_0+\zeta} \frac{G M_M}{R_{EM}^3} r \left( 1 - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)^2 \right) dr \approx -\frac{G M_M}{R_{EM}^3} \left( 1 - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)^2 \right) r_0 \zeta
-\]</span></p></li>
-</ul>
-<p>Combining the integrated terms gives the pressure difference across the layer: <span class="math display">\[
-\frac{1}{\rho} \int_{r_0}^{r_0+\zeta} \partial_r P \, dr = \frac{P_{\text{atm}} - P(r_0, \mathbf{x})}{\rho} = f(\mathbf{x})\zeta
-\]</span></p>
-</section>
-<section id="boundary-condition-on-the-free-surface" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="boundary-condition-on-the-free-surface"><span class="header-section-number">4.3</span> Boundary Condition on the Free Surface</h2>
-<p>On the free surface <span class="math inline">\(r_s = r_0 + \zeta(\varphi, \theta)\)</span>, the pressure is constant: <span class="math inline">\(P(r_0 + \zeta, \varphi, \theta) = P_{\text{atm}}\)</span>. Taking total derivatives along the surface: <span class="math display">\[
-\left.\frac{\partial P}{\partial r}\right|_{r_s} \frac{\partial \zeta}{\partial \varphi} + \left.\frac{\partial P}{\partial \varphi}\right|_{r_s} = 0, \qquad \left.\frac{\partial P}{\partial r}\right|_{r_s} \frac{\partial \zeta}{\partial \theta} + \left.\frac{\partial P}{\partial \theta}\right|_{r_s} = 0
-\]</span></p>
-<p>Using the first-order hydrostatic approximation <span class="math inline">\(\left.\frac{1}{\rho}\frac{\partial P}{\partial r}\right|_{r_s} \approx -\frac{G M_E}{r_0^2}\)</span>: <span class="math display">\[
-\begin{cases}
-\dfrac{\partial \zeta}{\partial \theta} \approx \dfrac{r_0^3}{G M_E} \, g_{\theta, \text{tidal}} \sin\varphi \\[10pt]
-\dfrac{\partial \zeta}{\partial \varphi} \approx \dfrac{r_0^3}{G M_E} \left( g_{\varphi, \text{tidal}} + r_0 \Omega_E^2 \sin\varphi \cos\varphi \right)
-\end{cases}
-\]</span></p>
-</section>
-<section id="equilibrium-tide-solution" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="equilibrium-tide-solution"><span class="header-section-number">4.4</span> Equilibrium Tide Solution</h2>
-<p>Recognizing that the tidal accelerations derive from a potential proportional to <span class="math inline">\(|\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2\)</span>, these partial differential equations become: <span class="math display">\[
-\begin{aligned}
-0 &amp;= \frac{\partial}{\partial \theta} \left\{ -\zeta + \frac{r_0^4}{G M_E} \frac{M_M}{R_{EM}^3} \frac{3}{2} |\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2 + \dots \right\} \\
-0 &amp;= \frac{\partial}{\partial \varphi} \left\{ -\zeta + \frac{r_0^4}{G M_E} \frac{M_M}{R_{EM}^3} \frac{3}{2} |\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2 + \frac{1}{2} \frac{r_0^4 \Omega_E^2}{G M_E} \sin^2\varphi \right\}
-\end{aligned}
-\]</span></p>
-<p>Integrating yields the equilibrium surface elevation <span class="math inline">\(\zeta(\theta, \varphi)\)</span> (including both the lunar tidal bulge and the rotational equatorial bulge): <span class="math display">\[
-\zeta(\theta, \varphi) = \zeta_0 + \frac{3}{2} \frac{r_0^4}{R_{EM}^3} \frac{M_M}{M_E} |\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2(\theta, \varphi) + \frac{1}{2} \frac{r_0^4 \Omega_E^2}{G M_E} \sin^2\varphi
-\]</span></p>
+<p>…</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

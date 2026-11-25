@@ -98,6 +98,35 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -358,7 +387,14 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#governing-equations" id="toc-governing-equations" class="nav-link active" data-scroll-target="#governing-equations">Governing equations</a>
+  <ul class="collapse">
+  <li><a href="#non-linear-equations-in-a-multi-dimensional-domain" id="toc-non-linear-equations-in-a-multi-dimensional-domain" class="nav-link" data-scroll-target="#non-linear-equations-in-a-multi-dimensional-domain">Non-linear equations in a multi-dimensional domain</a></li>
+  <li><a href="#linearized-equations-in-a-1-dimensional-domain" id="toc-linearized-equations-in-a-1-dimensional-domain" class="nav-link" data-scroll-target="#linearized-equations-in-a-1-dimensional-domain">Linearized equations in a 1-dimensional domain</a></li>
+  <li><a href="#wave-equation-with-dissipation" id="toc-wave-equation-with-dissipation" class="nav-link" data-scroll-target="#wave-equation-with-dissipation">Wave equation, with dissipation</a></li>
+  </ul></li>
+  <li><a href="#toy-problem" id="toc-toy-problem" class="nav-link" data-scroll-target="#toy-problem">Toy problem</a></li>
+  <li><a href="#frequency-response" id="toc-frequency-response" class="nav-link" data-scroll-target="#frequency-response">Frequency response</a></li>
   </ul>
 <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></nav>
     </div>
@@ -370,8 +406,51 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 
 
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Description of: * governing equations * toy problem * effects appearing in this model</p>
+<section id="governing-equations" class="level2">
+<h2 class="anchored" data-anchor-id="governing-equations">Governing equations</h2>
+<p>Shallow water equations are used here to model the dynamics of the water in the channel. <strong>Link</strong></p>
+<section id="non-linear-equations-in-a-multi-dimensional-domain" class="level3">
+<h3 class="anchored" data-anchor-id="non-linear-equations-in-a-multi-dimensional-domain">Non-linear equations in a multi-dimensional domain</h3>
+<p>In conservative form</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+&amp; \partial_t \zeta + \nabla \cdot \left( \zeta \mathbf{u} \right) = 0 \\
+&amp; \partial_t \left( \zeta \mathbf{u} \right) + \nabla \cdot \left( \zeta \mathbf{u} \otimes \mathbf{u} + \frac{g \zeta^2}{2} \mathbf{I} \right) = \mathbf{0} \ ,
+\end{aligned}\right.\]</span></p>
+<p>or in convective form</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+&amp; \partial_t \zeta + \nabla \cdot \left( \zeta \mathbf{u} \right) = 0 \\
+&amp; \zeta \partial_t \mathbf{u} +  \zeta \mathbf{u} \cdot \nabla  \mathbf{u} + g \zeta \nabla \zeta = \mathbf{0} \ ,
+\end{aligned}\right.\]</span></p>
+</section>
+<section id="linearized-equations-in-a-1-dimensional-domain" class="level3">
+<h3 class="anchored" data-anchor-id="linearized-equations-in-a-1-dimensional-domain">Linearized equations in a 1-dimensional domain</h3>
+<p>The linearized equations around the reference state <span class="math inline">\((\zeta, u) = (h, 0)\)</span> read</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+&amp; \partial_t \zeta + h \partial_x u = 0 \\
+&amp; \partial_t u + g \partial_x \zeta = 0 \ .
+\end{aligned}\right.\]</span></p>
+<p>In this model a linear friction contribution (<span class="math inline">\(r \ge 0\)</span>) is introduced to the momentum equation</p>
+<p><span class="math display">\[\partial_t u + g \partial_x \zeta + r u = 0 \ ,\]</span></p>
+<p>adding a reactive term to the convection modeled in the hyperbolic system.</p>
+</section>
+<section id="wave-equation-with-dissipation" class="level3">
+<h3 class="anchored" data-anchor-id="wave-equation-with-dissipation">Wave equation, with dissipation</h3>
+<p><span class="math display">\[\begin{aligned}
+  0
+  &amp; = \partial_{tt} \zeta + h \partial_{xt} u = \\
+  &amp; = \partial_{tt} \zeta - h \partial_x \left( g \partial_x \zeta + r u \right) =  \\
+  &amp; = \partial_{tt} \zeta - gh \partial_{xx} \zeta - h r \partial_x u = \\
+  &amp; = \partial_{tt} \zeta - gh \partial_{xx} \zeta + r \partial_t \zeta \ .
+\end{aligned}\]</span></p>
+</section>
+</section>
+<section id="toy-problem" class="level2">
+<h2 class="anchored" data-anchor-id="toy-problem">Toy problem</h2>
+<p>The equations in the domain are supplied with boundary conditions</p>
+</section>
+<section id="frequency-response" class="level2">
+<h2 class="anchored" data-anchor-id="frequency-response">Frequency response</h2>
 
 
 </section>
