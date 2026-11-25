@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>basics blog</title>
+<link>https://basics2022.github.io/myblog/</link>
+<atom:link href="https://basics2022.github.io/myblog/index.xml" rel="self" type="application/rss+xml"/>
+<description>Basics blog</description>
+<generator>quarto-1.8.26</generator>
+<lastBuildDate>Wed, 25 Nov 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>{B4F502887207:/posts/tides/sections/dynamics-03-adriatic-sea.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-03-adriatic-sea.html</link>
+  <description>{B4F502887207:/posts/tides/sections/dynamics-03-adriatic-sea.html}</description>
+  <category>shallow water equations</category>
+  <category>hyperbolic problems</category>
+  <category>wave equations</category>
+  <category>frequency response</category>
+  <category>non-inertial reference frames</category>
+  <category>tidal forces</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-03-adriatic-sea.html</guid>
+  <pubDate>Wed, 25 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tides/sections/tides.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/tides.html</link>
+  <description>{B4F502887207:/posts/tides/sections/tides.html}</description>
+  <category>classical mechanics</category>
+  <category>tidal force</category>
+  <category>tides</category>
+  <category>fluid statics</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/tides.html</guid>
+  <pubDate>Tue, 24 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tides/sections/dynamics-01-straight-channel.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-01-straight-channel.html</link>
+  <description>{B4F502887207:/posts/tides/sections/dynamics-01-straight-channel.html}</description>
+  <category>shallow water equations</category>
+  <category>hyperbolic problems</category>
+  <category>wave equations</category>
+  <category>frequency response</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/dynamics-01-straight-channel.html</guid>
+  <pubDate>Tue, 24 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tides/sections/earth-dynamics-and-tidal-forces.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/sections/earth-dynamics-and-tidal-forces.html</link>
+  <description>{B4F502887207:/posts/tides/sections/earth-dynamics-and-tidal-forces.html}</description>
+  <category>tides</category>
+  <category>tidal forces</category>
+  <category>classical mechanics</category>
+  <category>celestial mechanics</category>
+  <category>gravitation</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/sections/earth-dynamics-and-tidal-forces.html</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tides/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tides/</link>
+  <description>{B4F502887207:/posts/tides/index.html}</description>
+  <category>tides</category>
+  <category>tidal forces</category>
+  <guid>https://basics2022.github.io/myblog/posts/tides/</guid>
+  <pubDate>Mon, 23 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/normal-reaction-distribution/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/normal-reaction-distribution/</link>
+  <description>{B4F502887207:/posts/normal-reaction-distribution/index.html}</description>
+  <category>mechanics</category>
+  <category>structural mechanics</category>
+  <category>energy methods</category>
+  <category>constrained optimization</category>
+  <guid>https://basics2022.github.io/myblog/posts/normal-reaction-distribution/</guid>
+  <pubDate>Sun, 08 Nov 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tensor-orders-and-plates/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tensor-orders-and-plates/</link>
+  <description>{B4F502887207:/posts/tensor-orders-and-plates/index.html}</description>
+  <category>tensors</category>
+  <category>structural mechanics</category>
+  <category>math notation</category>
+  <category>mathematics</category>
+  <guid>https://basics2022.github.io/myblog/posts/tensor-orders-and-plates/</guid>
+  <pubDate>Tue, 27 Oct 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html</link>
+  <description>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html}</description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html</guid>
+  <pubDate>Tue, 27 Oct 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html</link>
+  <description>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html}</description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html</guid>
+  <pubDate>Mon, 26 Oct 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html</link>
+  <description>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html}</description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html</guid>
+  <pubDate>Sun, 25 Oct 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-02.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-02.html</link>
+  <description>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-02.html}</description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-02.html</guid>
+  <pubDate>Sun, 18 Oct 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-01.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-01.html</link>
+  <description>{B4F502887207:/posts/tutoring-hs-math-physics/sessions/session-01.html}</description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/sessions/session-01.html</guid>
+  <pubDate>Sun, 11 Oct 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/tutoring-hs-math-physics/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/</link>
+  <description>{B4F502887207:/posts/tutoring-hs-math-physics/index.html}</description>
+  <category>teaching</category>
+  <category>mathematics</category>
+  <category>log</category>
+  <guid>https://basics2022.github.io/myblog/posts/tutoring-hs-math-physics/</guid>
+  <pubDate>Sun, 11 Oct 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/convergence-types/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/convergence-types/</link>
+  <description>{B4F502887207:/posts/convergence-types/index.html}</description>
+  <category>convergence</category>
+  <category>analysis</category>
+  <guid>https://basics2022.github.io/myblog/posts/convergence-types/</guid>
+  <pubDate>Mon, 20 Jul 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/juxtaposition/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/juxtaposition/</link>
+  <description>{B4F502887207:/posts/juxtaposition/index.html}</description>
+  <category>click bait</category>
+  <category>rant</category>
+  <category>math notation</category>
+  <category>programming</category>
+  <guid>https://basics2022.github.io/myblog/posts/juxtaposition/</guid>
+  <pubDate>Wed, 27 May 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/coin-tosses/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/coin-tosses/</link>
+  <description>{B4F502887207:/posts/coin-tosses/index.html}</description>
+  <category>statistics</category>
+  <guid>https://basics2022.github.io/myblog/posts/coin-tosses/</guid>
+  <pubDate>Sun, 24 May 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/central-limit-thm/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/central-limit-thm/</link>
+  <description>{B4F502887207:/posts/central-limit-thm/index.html}</description>
+  <category>statistics</category>
+  <category>central limit theorem</category>
+  <guid>https://basics2022.github.io/myblog/posts/central-limit-thm/</guid>
+  <pubDate>Thu, 30 Apr 2026 22:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/hyperbolic-equations/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/hyperbolic-equations/</link>
+  <description>{B4F502887207:/posts/hyperbolic-equations/index.html}</description>
+  <category>fluid mechanics</category>
+  <category>hyperbolic equations</category>
+  <category>finite volume method</category>
+  <guid>https://basics2022.github.io/myblog/posts/hyperbolic-equations/</guid>
+  <pubDate>Thu, 12 Mar 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/conics-quadratic-forms/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/conics-quadratic-forms/</link>
+  <description>{B4F502887207:/posts/conics-quadratic-forms/index.html}</description>
+  <category>conics</category>
+  <category>quadratic equations</category>
+  <category>analytic geometry</category>
+  <category>linear algebra</category>
+  <guid>https://basics2022.github.io/myblog/posts/conics-quadratic-forms/</guid>
+  <pubDate>Thu, 15 Jan 2026 23:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>{B4F502887207:/posts/modes-in-structures/index.html}</title>
+  <dc:creator>Basics </dc:creator>
+  <link>https://basics2022.github.io/myblog/posts/modes-in-structures/</link>
+  <description>{B4F502887207:/posts/modes-in-structures/index.html}</description>
+  <category>structural mechanics</category>
+  <category>natural modes</category>
+  <category>resonance</category>
+  <guid>https://basics2022.github.io/myblog/posts/modes-in-structures/</guid>
+  <pubDate>Mon, 24 Nov 2025 23:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
