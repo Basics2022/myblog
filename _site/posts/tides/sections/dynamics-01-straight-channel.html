@@ -454,9 +454,15 @@ window.Quarto = {
 
 <p>Description of:</p>
 <ul>
-<li>governing equations</li>
-<li>toy problem</li>
-<li>effects appearing in this model</li>
+<li>governing equations: dissipative wave equation</li>
+<li>toy problem: 1-dimensional long channel, with horizontal bed</li>
+<li>frequency response of the toy problem to discuss resonance can occur in such a kind of system</li>
+</ul>
+<p>Useful links:</p>
+<ul>
+<li>Hyperbolic equations and shallow waters. Motivate the choice in the time solver (FDM?)</li>
+<li>Modal methods in linear structural dynamics, including fast-slow decomposition, direct truncation and static recovery</li>
+<li>Small dissipation in mechanical systems, and small sensitivity of the eigenfunctions (natural modes of the dissipative system are the same as the natural modes of the ideal system)</li>
 </ul>
 <div id="531593fb-9ff6-421d-b772-3f6df97731f5" class="cell" data-execution_count="1">
 <details class="code-fold">
@@ -863,6 +869,7 @@ natural (quarter-wave) period T0 = 4L/sqrt(gh) = 12.71 h   (M2 = 12.42 h, K1 = 2
 <h3 data-number="3.1" class="anchored" data-anchor-id="transfer-function-of-the-mode-amplitude-g_nomega"><span class="header-section-number">3.1</span> Transfer function of the mode amplitude <span class="math inline">\(\ G_n(\omega)\)</span></h3>
 <p>The solution in Fourier domain of the equation <strong>ref</strong> provides the transfer function between the forcing at the boundary condition and the amplitude of the <span class="math inline">\(n^{\rm th}\)</span> natural mode,</p>
 <p><span class="math display">\[\frac{\hat{g}_{n}(\omega)}{\hat{f}(\omega)} := G_n(\omega) = - \frac{2 Z}{\left(n-\frac{1}{2}\right) \pi} \cdot \frac{-\omega^2 + i r \omega}{-\omega^2 + i r \omega + \omega_n^2}  \ .\]</span></p>
+<p>In this section the frequency response is plotted in unusual Bode diagrams, as a function of the period of the harmonic function <span class="math inline">\(T = \frac{2 \pi}{\omega}\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -953,6 +960,14 @@ if (outputEl) {{
                         })                };            </script>        </div>
 </div>
 </div>
+<section id="solution-of-the-dissipative-wave-equation-in-frequency-space-domain" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="solution-of-the-dissipative-wave-equation-in-frequency-space-domain"><span class="header-section-number">3.1.1</span> Solution of the dissipative wave equation in frequency-space domain</h4>
+<p>The frequency response of the system can be evaluated solving the dissipative wave equation in frequency-space domain. The solution reads</p>
+<p><span class="math display">\[\begin{aligned}
+  \hat{\zeta}(x,\omega) = Z \hat{f}(\omega) \frac{\cos(k(L-x))}{\cos(k L)} \ ,
+\end{aligned}\]</span></p>
+<p>with <span class="math inline">\(k\)</span> a complex wave number, s.t. <span class="math inline">\(k^2 =  \frac{\omega^2 - i \omega r}{c^2}\)</span>. But what’s the cosine of a complex argument? See the box below to find the answer and realize how the imaginary part introduce modulation due to dispersion.</p>
+<p>The frequency response at the head of the channel obtained as truncated solution using the uniform function <span class="math inline">\(\zeta_0(x,t)\)</span> and the first <span class="math inline">\(5\)</span> natural modes is compared to the exact solution, showing good agreement and thus good convergence of the modal series - at least in the range of frequencies shown.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1000,6 +1015,21 @@ if (outputEl) {{
   &amp; = Z \hat{f}(\omega) \left\{ \frac{ e^{i k_1 (x-L)} +  e^{-i k_1 (x-L)} }{e^{-i k_1 L} + e^{i k_1 L}} \right\} = \\
   &amp; = Z \hat{f}(\omega) \frac{\cos(k_1(L-x))}{\cos(k_1 L)} \\
 \end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cosine of a complex argument
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>In general <span class="math inline">\(k_1\)</span> is complex, <span class="math inline">\(k_1 = k_r + i k_i\)</span>, so that</p>
 <p><span class="math display">\[\begin{aligned}
   \cos(k_1 x)
@@ -1017,7 +1047,7 @@ if (outputEl) {{
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1026,7 +1056,7 @@ if (outputEl) {{
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Height at the head of the channel.</strong> The height at the head of the channel is <span class="math inline">\(\zeta(L,t)\)</span>. The frequency response follows</p>
 <p><span class="math display">\[\hat{\zeta}(L, \omega) = Z \hat{f}(\omega) \frac{1}{\cos(k_1 L)} \ ,\]</span></p>
@@ -1111,6 +1141,7 @@ if (outputEl) {{
 </div>
 
 
+</section>
 </section>
 </section>
 
