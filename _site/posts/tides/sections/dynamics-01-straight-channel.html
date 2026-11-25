@@ -547,10 +547,269 @@ window.Quarto = {
 </section>
 <section id="toy-problem" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="toy-problem"><span class="header-section-number">2</span> Toy problem</h2>
-<p>The equations in the domain are supplied with boundary conditions</p>
+<p>The problem can be recast as a modified wave equation with dissipation</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \frac{1}{gh} \partial_{tt} \zeta - \partial_{xx} \zeta + \frac{r}{gh} \partial_t \zeta = 0 \\
+  &amp; \zeta(0,t) = Z f(t) \\
+  &amp; \partial_x \zeta(L,t) = 0
+\end{aligned}\right.\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The equations in the domain are supplied with boundary conditions. Convective form of the non-linear equation in 1-dimensional domain w.r.t. an inertial reference frame,</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+&amp; \partial_t \zeta + \zeta \partial_x u + u \partial_x \zeta = 0 \\
+&amp; \partial_t u + u \partial_x u + g \partial_x \zeta = 0 \ .
+\end{aligned}\right.\]</span></p>
+<p><strong>Linearized equations.</strong> Around the reference condition <span class="math inline">\((\zeta_0, u_0) = (h, 0)\)</span>.</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+&amp; \partial_t \zeta + h \partial_x u = 0 \\
+&amp; \partial_t u + g \partial_x \zeta = 0 \ .
+\end{aligned}\right.\]</span></p>
+<p>In the simulation a linear friction contribution (<span class="math inline">\(r \ge 0\)</span>) is added to the momentum equation</p>
+<p><span class="math display">\[\partial_t u + g \partial_x \zeta + r u = 0 \ ,\]</span></p>
+<p>adding a reactive term to the convection modeled in the hyperbolic system.</p>
+<p><strong>Boundary conditions.</strong></p>
+<p><span class="math display">\[\begin{aligned}
+  \zeta(0,t) &amp; = Z f(t) \quad , \quad
+  u(L,t) = 0
+\end{aligned}\]</span></p>
+<p>Since the second condition holds for all the time-steps then <span class="math inline">\(\partial_t u(L,t) = 0\)</span>, and linearized momentum equation implies <span class="math inline">\(\partial_x \zeta = - \frac{1}{g} \partial_t u\)</span>, then the second boundary conditions can be written as a function of <span class="math inline">\(\zeta\)</span>,</p>
+<p><span class="math display">\[\partial_x \zeta( L, t) = 0 \ .\]</span></p>
+<p>A wave equation for <span class="math inline">\(\zeta\)</span> follows from the linearized hyperbolic system, so that the problem can be written as a function of <span class="math inline">\(\zeta(x,t)\)</span> only</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \frac{1}{gh} \partial_{tt} \zeta - \partial_{xx} \zeta = 0 \\
+  &amp; \zeta(0,t) = Z f(t) \\
+  &amp; \partial_x \zeta(L,t) = 0
+\end{aligned}\right.\]</span></p>
+<p><strong>Modified wave equation for the system with friction.</strong></p>
+<p><span class="math display">\[\begin{aligned}
+  0
+  &amp; = \partial_{tt} \zeta + h \partial_{xt} u = \\
+  &amp; = \partial_{tt} \zeta - h \partial_x \left( g \partial_x \zeta + r u \right) =  \\
+  &amp; = \partial_{tt} \zeta - gh \partial_{xx} \zeta - h r \partial_x u = \\
+  &amp; = \partial_{tt} \zeta - gh \partial_{xx} \zeta + r \partial_t \zeta \ .
+\end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Analytical solution of the ideal system, with series on natural modes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Analytical solution of the problem.</strong> The solution can be written as the sum of a uniform function (fast part, as it instantaneously adapts to the boundary condition), and the series of natural modes (that can be then separated into slow modes - whose dynamics is solved - and fast modes - that are either truncated, or whose contribution is statically recovered),</p>
+<p><span class="math display">\[\zeta(x,t) = \zeta_0(t) + \sum_{n=1}^{+\infty} f_n(x) g_n(t) = \zeta_0(t) + \widetilde{\zeta}(x,t) \ .\]</span></p>
+<p>The uniform function identically satisfies the boundary condition in <span class="math inline">\(x = L\)</span>. In order to satisfy the boundary condition in <span class="math inline">\(x=0\)</span> for <span class="math inline">\(\forall t\)</span>, <span class="math inline">\(\zeta_0(t) = Z f(t)\)</span>. This function doesn’t satisfy the wave equation, and thus it acts as a forcing contribution for the series of natural modes,</p>
+<p><span class="math display">\[\frac{1}{c^2} \partial_{tt} \widetilde\zeta - \partial_{xx} \widetilde\zeta = - \frac{1}{c^2} \partial_{tt} \zeta_0 = - \frac{Z}{c^2} \ddot{f}(t) \ .\]</span></p>
+<p><strong>Natural modes</strong> are evaluated solving the homogeneous problem for <span class="math inline">\(\widetilde\zeta(x,t)\)</span>, using separation of variables,</p>
+<p><span class="math display">\[- k_n^2 = \frac{f''_n(x)}{f_n(x)} \qquad \text{only if homogeneous} = \frac{1}{c^2} \frac{\ddot{g}_n(t)}{g_n(t)} \]</span></p>
+<ul>
+<li><p>applying boundary conditions to set constants of integration</p>
+<p><span class="math display">\[f_n(x) = A_n \sin\left( k_n x \right) \ ,\]</span></p>
+<p>with <span class="math inline">\(k_n = \left( n - \frac{1}{2} \right) \frac{\pi}{L}\)</span>.</p></li>
+<li><p>then solving the inhomogeneous problem to evaluate the time coefficients of the natural modes, exploiting their orthogonality</p></li>
+</ul>
+<p><span class="math display">\[\sum_{n=1}^{+\infty} \left\{ \frac{1}{c^2} \ddot{g}_n(t)  + k_n^2 g_n(t)  \right\} \sin(k_n x) = - \frac{Z}{c^2} \ddot{f}(t) \ ,\]</span></p>
+<p>Multiplying by <span class="math inline">\(\sin(k_m x)\)</span> and integrating over <span class="math inline">\(x \in [0, L]\)</span> provides the decoupled dynamical equations for the amplitude of the modes,</p>
+<p><span class="math display">\[\ddot{g}_{n}(t) + \omega_n^2 g_{n}(t) = - \frac{2}{\left(n-\frac{1}{2}\right) \pi} Z \ddot{f}(t) \ ,\]</span></p>
+<p>with <span class="math inline">\(\omega_n = c k_n\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Details about Fourier expansion and orthogonality of Fourier base functions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{aligned}
+  \int_{x=0}^{L} \sin\left[ \left( n- \frac{1}{2} \right) \frac{\pi}{L} x \right] \sin\left[  \left( m - \frac{1}{2} \right) \frac{\pi}{L} x \right] \, dx
+  &amp; = \frac{1}{2} \int_{x=0}^{L} \left\{ \cos\left[ \left( n - m \right) \frac{\pi}{L} x \right] - \cos\left[  \left( n + m - 1 \right) \frac{\pi}{L} x \right] \right\} \, dx = \\
+\end{aligned}\]</span></p>
+<p>using</p>
+<p><span class="math display">\[\cos(\alpha \mp \beta) = \cos \alpha \cos \beta \pm \sin \alpha \sin \beta\]</span></p>
+<p><span class="math display">\[\sin \alpha \sin \beta = \frac{1}{2} \left[ \cos(\alpha - \beta) - \cos(\alpha + \beta) \right]\]</span></p>
+<p>The factor <span class="math inline">\(n-m\)</span> is equal to zero if <span class="math inline">\(m = n\)</span>, its cosine is equal to <span class="math inline">\(1\)</span>, and the integral over <span class="math inline">\(x \in [0,L]\)</span> is equal to <span class="math inline">\(\frac{L}{2}\)</span>. If <span class="math inline">\(m \ne n\)</span>, then the integral is identically zero, since <span class="math inline">\(\frac{L}{\pi(n-m)} \left. \sin\left( (n-m) \frac{\pi x}{L} \right)\right|_{x=0}^{L} = 0\)</span>.</p>
+<p>Since <span class="math inline">\(m,n \in \mathbb{N}^+\)</span>, the factor <span class="math inline">\(n+m-1\)</span> is always positive, and the integral of the second term is identically zero, since <span class="math inline">\(\frac{L}{\pi(n+m-1)} \left. \sin\left( (n+m-1) \frac{\pi x}{L} \right)\right|_{x=0}^{L} = 0\)</span>.</p>
+<hr>
+<p><span class="math display">\[\int_{x=0}^{L} \sin\left[  \left( m - \frac{1}{2} \right) \frac{\pi}{L} x \right] \, dx = - \frac{L}{\left( m - \frac{1}{2} \right) \pi} \left. \cos \left[ \left( m - \frac{1}{2} \right) \frac{\pi}{L} x \right]\right|_{x=0}^{L} = \frac{L}{\left( m - \frac{1}{2} \right) \pi} \ .\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Analytical solution of the dissipative system, with series on natural modes
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Analytical solution</strong> Sum of a uniform function and a series of natural modes. The uniform function <span class="math inline">\(\zeta_0(x,t) = Z f(t)\)</span> satisfies the non-homogeneous boundary conditions. Thus, the PDE for the series of natural modes is the non-homogeneous wave equation</p>
+<p><span class="math display">\[\frac{1}{c^2} \partial_{tt} \widetilde\zeta - \partial_{xx} \widetilde\zeta + \frac{r}{c^2} \partial_t \widetilde\zeta = - \frac{Z}{c^2} \left( \ddot{f} + r \dot{f} \right) \ .\]</span></p>
+<p>Natural modes are computed using separation of variables, <span class="math inline">\(\widetilde\zeta(x,t) = \sum_{n=1}^{+\infty} f_n(x) g_n(t)\)</span>,</p>
+<p><span class="math display">\[0 = \ddot{g} f - c^2 f'' g + r \dot{g} f \ ,\]</span></p>
+<p>and dividing by <span class="math inline">\(c^2 g f\)</span>, and separating on opposite sides of the equal sign the functions of <span class="math inline">\(x\)</span> and <span class="math inline">\(t\)</span></p>
+<p><span class="math display">\[-k_n^2 = \frac{f_n''}{f_n}  \qquad \text{only if homogeneous} = \frac{1}{c^2}\frac{\ddot{g}_n + r \dot{g}_n}{g_n} \ .\]</span></p>
+<p>and prescribing homogeneous boundary conditions for <span class="math inline">\(\widetilde\zeta\)</span>, <span class="math inline">\(\widetilde\zeta(0,t) = 0\)</span>, <span class="math inline">\(\partial_x \zeta(L,t) = 0\)</span> (this condition can be derived from the boundary condition on <span class="math inline">\(u(L,t)\)</span> and the momentum equation), it follows</p>
+<p><span class="math display">\[f_n(x) = A_n \sin(k_n x) \ ,\]</span></p>
+<p>with <span class="math inline">\(k_n = \left( n - \frac{1}{2} \right) \frac{\pi}{L}\)</span>. Introducing the series of natural modes in the non-homogeneous wave equation</p>
+<p><span class="math display">\[\sum_{n=1}^{+\infty} \left\{ \ddot{g}_{n} + r \dot{g}_{n} + \omega_n^2 g_{n} \right\} \sin(k_n x) = - Z \left( \ddot{f} + r \dot{f} \right) \ ,\]</span></p>
+<p>with <span class="math inline">\(\omega_n = k_n c = k_n \sqrt{gh}\)</span>. Exploiting the orthogonality of the basis functions, the decoupled set of equations for the amplitude of the modes reads</p>
+<p><span class="math display">\[\ddot{g}_n + r \dot{g}_n + \omega_n^2 g_n = - \frac{2 Z}{\left(n-\frac{1}{2}\right) \pi} \left( \ddot{f}(t) + r \dot{f}(t) \right) \ .\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Height of the water at the head of the channel
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The height of the free surface of the water at the head of the bay in <span class="math inline">\(x = L\)</span> is</p>
+<p><span class="math display">\[\begin{aligned}
+  \zeta(L,t)
+  &amp; = \zeta_0(t) + \sum_{n=1}^{+\infty} g_n(t) \sin\left( k_n L \right) = \\
+  &amp; = \zeta_0(t) + \sum_{n=1}^{+\infty} g_n(t) (-1)^{n+1} \ ,
+\end{aligned}\]</span></p>
+<p>since <span class="math inline">\(\sin(k_n L) = (-1)^{n+1}\)</span>.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="frequency-response" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="frequency-response"><span class="header-section-number">3</span> Frequency response</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Solution in Fourier domain of Helmholtz equation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Solving in frequency response the modified wave equation.</strong> The semi-Fourier transform of the function <span class="math inline">\(\zeta(x,t)\)</span>,</p>
+<p><span class="math display">\[\hat{\zeta}(x,\omega) := \mathscr{F}\{ \zeta(x,t) \}(\omega) = \frac{1}{\sqrt{2 \pi}} \int_{t=-\infty}^{+\infty} \zeta(x,t) e^{-i\omega t} \, dt \ ,\]</span></p>
+<p>satisfies transformed modified homogeneous wave equation</p>
+<p><span class="math display">\[0 = -\omega^2 \hat{\zeta} - c^2 \hat{\zeta}'' + i \omega r \hat{\zeta}  \quad \rightarrow \quad  \hat{\zeta}'' + \frac{\omega^2 - i \omega r}{c^2} \hat{\zeta} = 0 \ ,\]</span></p>
+<p>being <span class="math inline">\(( \cdot )' = \partial_x \left( \cdot \right)|_\omega\)</span>, with boundary conditions</p>
+<p><span class="math display">\[
+  \hat{\zeta}(0, \omega) = Z \hat{f}(\omega) \qquad , \qquad
+  \hat{\zeta}'(L, \omega) = 0 \ .
+\]</span></p>
+<p>The solution of the equation in frequency domain reads <span class="math inline">\(\hat{\zeta}(x,\omega) = A_1 e^{i k_1 x} + A_2 e^{i k_2 x}\)</span>, with <span class="math inline">\(k_{1,2}\)</span> the solutions of the equation</p>
+<p><span class="math display">\[k^2 = \frac{\omega^2 - i \omega r}{c^2} \ ,\]</span></p>
+<p>with <span class="math inline">\(k_{1,2}(\omega) = |k(\omega)| e^{i \left( \phi(\omega) + \pi (n-1) \right)}\)</span>, with</p>
+<p><span class="math display">\[|k(\omega)| = \dots \quad , \quad \phi(\omega) = \dots\]</span></p>
+<p>The two solutions are opposite, <span class="math inline">\(k_2 = - k_1\)</span>, and thus the solution in the frequency domain reads</p>
+<p><span class="math display">\[\hat{\zeta}(x,\omega) = A_1 e^{i k_1 x} + A_2 e^{-i k_1 x} \ .\]</span></p>
+<p><strong>Prescribing the boundary conditions.</strong></p>
+<p><span class="math display">\[\begin{aligned}
+  Z \hat{f}(\omega) &amp; = \hat{\zeta}(0,\omega) = A_1 + A_2 \\
+  0 &amp; = \hat{\zeta}'(L,\omega) = i k_1 \left( A_1 e^{i k_1 L} - A_2 e^{-i k_1 L} \right) \ ,
+\end{aligned}\]</span></p>
+<p>and thus <span class="math inline">\(A_2 = A_1 e^{i 2 k_1 L}\)</span>, and</p>
+<p><span class="math display">\[Z \hat{f}(\omega) = A_1 \left( 1 + e^{i 2 k_1 L} \right)\]</span></p>
+<p><span class="math display">\[\quad \rightarrow \quad
+\left\{ \begin{aligned}
+  A_1 &amp; = \frac{Z \hat{f}(\omega)}{1 + e^{i 2 k_1 L}} \\
+  A_2 &amp; = \frac{Z \hat{f}(\omega)}{1 + e^{-i 2 k_1 L}}
+\end{aligned}\right.\]</span></p>
+<p>so that</p>
+<p><span class="math display">\[\begin{aligned}
+  \hat{\zeta}(x,\omega)
+  &amp; = A_1 e^{i k_1 x} + A_2 e^{-i k_1 x} = \\
+  &amp; = Z \hat{f}(\omega) \left\{ e^{-i k_1 L} \frac{e^{i k_1 x}}{e^{-i k_1 L} + e^{i k_1 L}} + e^{i k_1 L} \frac{e^{-i k_1 x}}{e^{-i k_1 L} + e^{i k_1 L}} \right\} \\
+  &amp; = Z \hat{f}(\omega) \left\{ \frac{ e^{i k_1 (x-L)} +  e^{-i k_1 (x-L)} }{e^{-i k_1 L} + e^{i k_1 L}} \right\} = \\
+  &amp; = Z \hat{f}(\omega) \frac{\cos(k_1(L-x))}{\cos(k_1 L)} \\
+\end{aligned}\]</span></p>
+<p>In general <span class="math inline">\(k_1\)</span> is complex, <span class="math inline">\(k_1 = k_r + i k_i\)</span>, so that</p>
+<p><span class="math display">\[\begin{aligned}
+  \cos(k_1 x)
+  &amp; = \frac{ e^{i k_r x} e^{-k_i x} + e^{-i k_r x} e^{k_i x}}{2} = \\
+  &amp; = \frac{[ \cos(k_r x) + i \sin(k_r x) ] e^{-k_i x} + [ \cos(k_r x) - i \sin(k_r x) ] e^{k_i x}}{2} = \\
+  &amp; = \cos(k_r x) \cosh(k_i x) - i \sin(k_r x) \sinh(k_i x) \ .
+\end{aligned}\]</span></p>
+<p>having exploited Euler relation and the definition of hyperbolic functions,</p>
+<p><span class="math display">\[\begin{aligned}
+  e^{i x} &amp; = \cos(x) + i \sin(x) \\
+  \cosh x &amp; = \frac{e^x + e^{-x}}{2} \\
+  \sinh x &amp; = \frac{e^x - e^{-x}}{2}
+\end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Height at the head of the channel.</strong> The height at the head of the channel is <span class="math inline">\(\zeta(L,t)\)</span>. The frequency response follows</p>
+<p><span class="math display">\[\hat{\zeta}(L, \omega) = Z \hat{f}(\omega) \frac{1}{\cos(k_1 L)} \ ,\]</span></p>
+<p>with the <strong>transfer function</strong></p>
+<p><span class="math display">\[G(L, \omega) = \frac{1}{\cos(k_1 L)} = \frac{1}{\cos(k_r L) \cosh(k_i L) - i \sin(k_r L) \sinh(k_i L)}\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Transfer function of the mode amplitude <span class="math inline">\(\ G_n(\omega)\)</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(f(t) = e^{i \omega t}\)</span> the frequency response of the amplitude of the <span class="math inline">\(n^{\rm th}\)</span> mode has (complex) amplitude</p>
+<p><span class="math display">\[G_n(\omega) = - \frac{2 Z}{\left(n-\frac{1}{2}\right) \pi} \cdot \frac{-\omega^2 + i r \omega}{-\omega^2 + i r \omega + \omega_n^2}\]</span></p>
+</div>
+</div>
+</div>
 <div id="8a545931-a7a3-4c36-bcdc-abd259fc76e6" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
