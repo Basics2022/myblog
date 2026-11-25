@@ -5,19 +5,17 @@
       "/posts/tides/sections/earth-dynamics-and-tidal-forces.html",
       "/posts/tides/sections/tides.html",
       "/posts/tides/sections/dynamics-01-straight-channel.html",
-      "/posts/tides/sections/dynamics-02-aquaplanet.html",
       "/posts/tides/sections/dynamics-03-adriatic-sea.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/tides/sections/earth-dynamics-and-tidal-forces.html",
       "/posts/tides/sections/dynamics-03-adriatic-sea.html",
-      "/posts/tides/sections/dynamics-02-aquaplanet.html",
-      "/posts/tides/sections/dynamics-01-straight-channel.html",
-      "/posts/tides/index.html",
       "/posts/tides/sections/tides.html",
+      "/posts/tides/sections/dynamics-01-straight-channel.html",
+      "/posts/tides/sections/earth-dynamics-and-tidal-forces.html",
+      "/posts/tides/index.html",
       "/posts/normal-reaction-distribution/index.html",
       "/posts/tensor-orders-and-plates/index.html",
       "/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html",
