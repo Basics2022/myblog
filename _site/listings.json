@@ -1,5 +1,25 @@
 [
   {
+    "listing": "/posts/tides/index.html",
+    "items": [
+      "/posts/tides/sections/earth-dynamics-and-tidal-forces.html",
+      "/posts/tides/sections/tides.html",
+      "/posts/tides/sections/dynamics-01-straight-channel.html",
+      "/posts/tides/sections/dynamics-02-aquaplanet.html",
+      "/posts/tides/sections/dynamics-03-adriatic-sea.html"
+    ]
+  },
+  {
+    "listing": "/posts/tutoring-hs-math-physics/index.html",
+    "items": [
+      "/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html",
+      "/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html",
+      "/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html",
+      "/posts/tutoring-hs-math-physics/sessions/session-02.html",
+      "/posts/tutoring-hs-math-physics/sessions/session-01.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/tides/sections/earth-dynamics-and-tidal-forces.html",
@@ -7,6 +27,7 @@
       "/posts/tides/sections/dynamics-02-aquaplanet.html",
       "/posts/tides/sections/dynamics-01-straight-channel.html",
       "/posts/tides/index.html",
+      "/posts/tides/sections/tides.html",
       "/posts/normal-reaction-distribution/index.html",
       "/posts/tensor-orders-and-plates/index.html",
       "/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html",
@@ -25,25 +46,6 @@
       "/posts/hyperstatics-and-weak-form/index.html",
       "/posts/welcome-ipynb/index.html",
       "/posts/welcome/index.html"
-    ]
-  },
-  {
-    "listing": "/posts/tutoring-hs-math-physics/index.html",
-    "items": [
-      "/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-03.html",
-      "/posts/tutoring-hs-math-physics/sessions/session-XX-calculus-crash-02.html",
-      "/posts/tutoring-hs-math-physics/sessions/session-03-calculus-crash-01.html",
-      "/posts/tutoring-hs-math-physics/sessions/session-02.html",
-      "/posts/tutoring-hs-math-physics/sessions/session-01.html"
-    ]
-  },
-  {
-    "listing": "/posts/tides/index.html",
-    "items": [
-      "/posts/tides/sections/earth-dynamics-and-tidal-forces.html",
-      "/posts/tides/sections/dynamics-01-straight-channel.html",
-      "/posts/tides/sections/dynamics-02-aquaplanet.html",
-      "/posts/tides/sections/dynamics-03-adriatic-sea.html"
     ]
   }
 ]
