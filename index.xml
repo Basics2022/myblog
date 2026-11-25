@@ -5776,8 +5776,9 @@ if (outputEl) {{
                         })                };            </script>        </div>
 </div>
 </div>
-<section id="solution-of-the-dissipative-wave-equation-in-frequency-space-domain" class="level4" data-number="3.1.1">
-<h4 data-number="3.1.1" class="anchored" data-anchor-id="solution-of-the-dissipative-wave-equation-in-frequency-space-domain"><span class="header-section-number">3.1.1</span> Solution of the dissipative wave equation in frequency-space domain</h4>
+</section>
+<section id="solution-of-the-dissipative-wave-equation-in-frequency-space-domain" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="solution-of-the-dissipative-wave-equation-in-frequency-space-domain"><span class="header-section-number">3.2</span> Solution of the dissipative wave equation in frequency-space domain</h3>
 <p>The frequency response of the system can be evaluated solving the dissipative wave equation in frequency-space domain. The solution reads</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Baligned%7D%0A%20%20%5Chat%7B%5Czeta%7D(x,%5Comega)%20=%20Z%20%5Chat%7Bf%7D(%5Comega)%20%5Cfrac%7B%5Ccos(k(L-x))%7D%7B%5Ccos(k%20L)%7D%20%5C%20,%0A%5Cend%7Baligned%7D"></p>
 <p>with <img src="https://latex.codecogs.com/png.latex?k"> a complex wave number, s.t. <img src="https://latex.codecogs.com/png.latex?k%5E2%20=%20%20%5Cfrac%7B%5Comega%5E2%20-%20i%20%5Comega%20r%7D%7Bc%5E2%7D">. But what’s the cosine of a complex argument? See the box below to find the answer and realize how the imaginary part introduce modulation due to dispersion.</p>
@@ -6352,7 +6353,6 @@ if (outputEl) {{
 
 </section>
 </section>
-</section>
 
  ]]></description>
   <category>shallow water equations</category>
@@ -6612,7 +6612,7 @@ Summary
 
 </tr>
 
-<tr data-index="2" data-categories="c2hhbGxvdyUyMHdhdGVyJTIwZXF1YXRpb25zJTJDaHlwZXJib2xpYyUyMHByb2JsZW1zJTJDd2F2ZSUyMGVxdWF0aW9ucyUyQ2ZyZXF1ZW5jeSUyMHJlc3BvbnNl" data-listing-date-sort="1795561200000" data-listing-file-modified-sort="1795629902348" data-listing-date-modified-sort="1795629902000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2440" data-listing-title-sort="Dynamics of a straight channel" data-listing-filename-sort="dynamics-01-straight-channel.ipynb">
+<tr data-index="2" data-categories="c2hhbGxvdyUyMHdhdGVyJTIwZXF1YXRpb25zJTJDaHlwZXJib2xpYyUyMHByb2JsZW1zJTJDd2F2ZSUyMGVxdWF0aW9ucyUyQ2ZyZXF1ZW5jeSUyMHJlc3BvbnNl" data-listing-date-sort="1795561200000" data-listing-file-modified-sort="1795630926293" data-listing-date-modified-sort="1795630926000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2440" data-listing-title-sort="Dynamics of a straight channel" data-listing-filename-sort="dynamics-01-straight-channel.ipynb">
 <td>
 <span class="listing-section">2</span>
 </td>
