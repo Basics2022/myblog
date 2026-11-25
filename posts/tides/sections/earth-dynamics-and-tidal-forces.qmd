@@ -10,6 +10,269 @@ date-modified: last-modified
 categories: [tides, tidal forces, classical mechanics, celestial mechanics, gravitation]
 toc: true
 toc-title: "On this page"
+number-sections: true
+number-depth: 3
 ---
 
-...
+**todo**
+
+* Add collapsible boxes
+
+::: {.callout-note collapse="true"}
+## Derivation: Gradient of the Log-Likelihood
+
+Starting from the joint probability $p(x, \theta)$:
+
+$$\nabla_\theta \log p(x \mid \theta) = \frac{\nabla_\theta p(x \mid \theta)}{p(x \mid \theta)}$$
+
+Expanding the numerator using the chain rule gives...
+:::
+
+# Reference Frames and Kinematics
+
+Let $B$ be the center of mass (CM) of the Earth-Moon system, which we assume is an inertial reference frame.
+
+* **Frame $(0)$**: Inertial frame centered at $B$ with axes $(\hat{\mathbf{x}}_0, \hat{\mathbf{y}}_0, \hat{\mathbf{z}}_0)$.
+* **Frame $(1)$**: Centered at $B$, rotating with the orbital angular velocity of the Earth-Moon system $\theta_1(t)$ around $\hat{\mathbf{z}}_0$.
+* **Frame $(2)$**: Centered at the Earth's center $E$, tilted by the obliquity angle $\varepsilon$ around $\hat{\mathbf{y}}_0$ (or $\hat{\mathbf{y}}_1$).
+* **Frame $(3)$**: Centered at $E$, rotating with the Earth's daily rotation $\theta_3(t)$ around $\hat{\mathbf{z}}_2$.
+
+
+
+## Coordinate Transformations
+
+1. **$0 \to 1$: Rotation by $\theta_1$ around $\hat{\mathbf{z}}_0$**
+   $$
+   \begin{cases}
+   \hat{\mathbf{x}}_1 = \hat{\mathbf{x}}_0 \cos\theta_1 + \hat{\mathbf{y}}_0 \sin\theta_1 \\
+   \hat{\mathbf{y}}_1 = -\hat{\mathbf{x}}_0 \sin\theta_1 + \hat{\mathbf{y}}_0 \cos\theta_1 \\
+   \hat{\mathbf{z}}_1 = \hat{\mathbf{z}}_0
+   \end{cases}
+   $$
+
+2. **$0 \to 2$: Tilt by $\varepsilon$ around $\hat{\mathbf{y}}_0$**
+   $$
+   \begin{cases}
+   \hat{\mathbf{x}}_2 = \hat{\mathbf{x}}_0 \cos\varepsilon - \hat{\mathbf{z}}_0 \sin\varepsilon \\
+   \hat{\mathbf{y}}_2 = \hat{\mathbf{y}}_0 \\
+   \hat{\mathbf{z}}_2 = \hat{\mathbf{x}}_0 \sin\varepsilon + \hat{\mathbf{z}}_0 \cos\varepsilon
+   \end{cases}
+   $$
+
+3. **$2 \to 3$: Rotation by $\theta_3$ around $\hat{\mathbf{z}}_2$**
+   $$
+   \begin{cases}
+   \hat{\mathbf{x}}_3 = \hat{\mathbf{x}}_2 \cos\theta_3 + \hat{\mathbf{y}}_2 \sin\theta_3 \\
+   \hat{\mathbf{y}}_3 = -\hat{\mathbf{x}}_2 \sin\theta_3 + \hat{\mathbf{y}}_2 \cos\theta_3 \\
+   \hat{\mathbf{z}}_3 = \hat{\mathbf{z}}_2
+   \end{cases}
+   $$
+
+## Angular Velocity and Acceleration of Earth ($E$)
+
+The angular velocity of frame $(3)$ with respect to the inertial frame $(0)$ is:
+$$
+\boldsymbol{\omega}_{3/0} = \dot{\theta}_3 \hat{\mathbf{z}}_2
+$$
+
+Let $R_{E,1}$ be the distance from the barycenter $B$ to the Earth's center $E$. The velocity and acceleration of $E$ with respect to frame $(0)$ are:
+$$
+\mathbf{v}^{(0)}_{E/B} = R_{E,1} \dot{\theta}_1 \hat{\mathbf{y}}_1
+$$
+$$
+\mathbf{a}^{(0)}_{E/B} = -R_{E,1} \dot{\theta}_1^2 \hat{\mathbf{x}}_1
+$$
+
+From the equation of motion of the Earth around the barycenter (due to the Moon's gravity):
+$$
+-M_E R_{E,1} \dot{\theta}_1^2 = -\frac{G M_E M_M}{R_{EM}^2} \implies \dot{\theta}_1^2 = \frac{G M_M}{R_{EM}^2 R_{E,1}}
+$$
+Therefore, the acceleration of the Earth's center is:
+$$
+\mathbf{a}^{(0)}_{E/B} = -\frac{G M_M}{R_{EM}^2} \hat{\mathbf{x}}_1
+$$
+
+---
+
+# Relative Dynamics in Frame $(3)$
+
+For a point mass $m$ at position $P$ on the Earth's surface, Newton's second law in the inertial frame is:
+$$
+m \mathbf{a}^{(0)}_{P/B} = \mathbf{F}
+$$
+
+Using relative kinematics between frame $(0)$ and frame $(3)$:
+$$
+\mathbf{a}^{(0)}_{P/B} = \mathbf{a}^{(0)}_{E/B} + \mathbf{a}^{(3)}_{P/E} + \boldsymbol{\alpha}_{3/0} \times \mathbf{r}_{EP} + 2\boldsymbol{\omega}_{3/0} \times \mathbf{v}^{(3)}_{P/E} + \boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP})
+$$
+
+Solving for the acceleration $\mathbf{a}^{(3)}_{P/E}$ observed in the Earth-fixed frame $(3)$:
+$$
+\mathbf{a}^{(3)}_{P/E} = \frac{\mathbf{F}}{m} - \mathbf{a}^{(0)}_{E/B} - \boldsymbol{\alpha}_{3/0} \times \mathbf{r}_{EP} - 2\boldsymbol{\omega}_{3/0} \times \mathbf{v}^{(3)}_{P/E} - \boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP})
+$$
+
+## Real Forces Acting on $P$
+
+1. **Gravitational force from the Earth:**
+   $$
+   \mathbf{F}_E = -\frac{G M_E m}{R_E^2} \hat{\mathbf{R}}_P
+   $$
+   where $\hat{\mathbf{R}}_P$ is the unit radial vector from the center of the Earth $E$ to $P$.
+
+2. **Gravitational force from the Moon:**
+   Since the vector from the Moon to $P$ is $R_{EM}\hat{\mathbf{x}}_1 + R_E\hat{\mathbf{R}}_P$:
+   $$
+   \mathbf{F}_M = -G M_M m \frac{R_{EM}\hat{\mathbf{x}}_1 + R_E\hat{\mathbf{R}}_P}{|R_{EM}\hat{\mathbf{x}}_1 + R_E\hat{\mathbf{R}}_P|^3} = -\frac{G M_M m}{R_{EM}^2} \frac{\hat{\mathbf{x}}_1 + \frac{R_E}{R_{EM}}\hat{\mathbf{R}}_P}{\left|\hat{\mathbf{x}}_1 + \frac{R_E}{R_{EM}}\hat{\mathbf{R}}_P\right|^3}
+   $$
+   Using a first-order Taylor expansion for $\frac{R_E}{R_{EM}} \ll 1$:
+   $$
+   \mathbf{F}_M \approx -\frac{G M_M m}{R_{EM}^2} \left\{ \hat{\mathbf{x}}_1 + \frac{R_E}{R_{EM}} \left( \hat{\mathbf{R}}_P - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)\hat{\mathbf{x}}_1 \right) \right\}
+   $$
+
+3. **Non-gravitational forces ($\mathbf{F}_{\text{non-g}}$):**
+   Pressure gradients ($\nabla P$) in fluids, friction, etc.
+
+## Combined Equation of Motion
+
+Substituting $\mathbf{F}_E$, $\mathbf{F}_M$, and $\mathbf{a}^{(0)}_{E/B}$ into the relative acceleration equation (noting that the $-\frac{G M_M}{R_{EM}^2}\hat{\mathbf{x}}_1$ terms cancel out):
+$$
+\mathbf{a}^{(3)}_{P/E} \approx -\frac{G M_E}{R_E^2} \hat{\mathbf{R}}_P - \frac{G M_M}{R_{EM}^2} \frac{R_E}{R_{EM}} \left( \hat{\mathbf{R}}_P - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)\hat{\mathbf{x}}_1 \right) - \boldsymbol{\alpha}_{3/0} \times \mathbf{r}_{EP} - 2\boldsymbol{\omega}_{3/0} \times \mathbf{v}^{(3)}_{P/E} - \boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP}) + \frac{\mathbf{F}_{\text{non-g}}}{m}
+$$
+
+### Assumptions & Orders of Magnitude
+
+* **Assumptions:** Earth's rotation rate is constant ($\boldsymbol{\alpha}_{3/0} = \mathbf{0}$ and $\boldsymbol{\omega}_{3/0} = \Omega_E \hat{\mathbf{z}}_2$).
+* **Constants:**
+  * $G \approx 6.67 \times 10^{-11} \text{ m}^3 \text{kg}^{-1} \text{s}^{-2}$
+  * $M_E \approx 5.97 \times 10^{24} \text{ kg}$, $M_M \approx 7.35 \times 10^{22} \text{ kg}$
+  * $R_{EM} \approx 3.84 \times 10^8 \text{ m}$, $R_E \approx 6.3 \times 10^6 \text{ m}$
+  * $\Omega_E \approx \frac{1 \text{ rad}}{1 \text{ day}} \approx 1.1 \times 10^{-5} \text{ s}^{-1}$ (or $2\pi / 86400 \approx 7.27 \times 10^{-5} \text{ rad/s}$)
+* **Accelerations:**
+  * Earth's surface gravity: $g_0 = \frac{G M_E}{R_E^2} \approx 10 \text{ m/s}^2$
+  * Tidal acceleration scale: $\frac{G M_M}{R_{EM}^2} \frac{R_E}{R_{EM}} \approx (4 \times 10^{-5}) \times (2 \times 10^{-2}) \approx 8 \times 10^{-7} \text{ m/s}^2$
+  * Centrifugal acceleration: $\Omega_E^2 R_E \approx 8.5 \times 10^{-4} \text{ m/s}^2$
+  * Coriolis acceleration: $2 \Omega_E v^{(3)}_{P/E}$ (negligible if $v^{(3)}_{P/E} \ll 10^{-1} \text{ m/s}$)
+
+---
+
+# Spherical Coordinates and Vector Projections
+
+We describe point $P$ in spherical coordinates $(r, \varphi, \Delta\theta)$ stationary with respect to frame $(3)$, where $\varphi$ is the colatitude (angle from $\hat{\mathbf{z}}_3 = \hat{\mathbf{z}}_2$) and $\Delta\theta$ is the longitude relative to $\hat{\mathbf{x}}_3$.
+
+## Local Orthonormal Basis $(\hat{\mathbf{R}}, \hat{\boldsymbol{\theta}}, \hat{\boldsymbol{\varphi}})$
+
+$$
+\begin{cases}
+\hat{\mathbf{R}} = \hat{\mathbf{z}}_3 \cos\varphi + \hat{\mathbf{x}}_3 \sin\varphi \cos\Delta\theta + \hat{\mathbf{y}}_3 \sin\varphi \sin\Delta\theta \\
+\hat{\boldsymbol{\theta}} = -\hat{\mathbf{x}}_3 \sin\Delta\theta + \hat{\mathbf{y}}_3 \cos\Delta\theta \\
+\hat{\boldsymbol{\varphi}} = -\hat{\mathbf{z}}_3 \sin\varphi + \hat{\mathbf{x}}_3 \cos\varphi \cos\Delta\theta + \hat{\mathbf{y}}_3 \cos\varphi \sin\Delta\theta
+\end{cases}
+$$
+
+## Centrifugal Term Evaluation
+
+With $\boldsymbol{\omega}_{3/0} = \Omega_E \hat{\mathbf{z}}_2$ and $\mathbf{r}_{EP} = R_E \hat{\mathbf{R}}_P$:
+$$
+\begin{aligned}
+-\boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP}) &= -\Omega_E \hat{\mathbf{z}}_2 \times \left[ \Omega_E \hat{\mathbf{z}}_2 \times R_E \left( \hat{\mathbf{z}}_2 \cos\varphi + \hat{\mathbf{x}}_2 \sin\varphi \cos(\theta_3 + \Delta\theta) + \hat{\mathbf{y}}_2 \sin\varphi \sin(\theta_3 + \Delta\theta) \right) \right] \\
+&= +R_E \Omega_E^2 \sin\varphi \, \hat{\rho}_P
+\end{aligned}
+$$
+where $\hat{\rho}_P = \hat{\mathbf{x}}_3 \cos\Delta\theta + \hat{\mathbf{y}}_3 \sin\Delta\theta = \hat{\mathbf{R}} \sin\varphi + \hat{\boldsymbol{\varphi}} \cos\varphi$. Thus:
+$$
+-\boldsymbol{\omega}_{3/0} \times (\boldsymbol{\omega}_{3/0} \times \mathbf{r}_{EP}) = R_E \Omega_E^2 \left( \sin^2\varphi \, \hat{\mathbf{R}} + \sin\varphi \cos\varphi \, \hat{\boldsymbol{\varphi}} \right)
+$$
+
+## Tidal Term Projection ($\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P$)
+
+Expressing $\hat{\mathbf{x}}_1$ in frame $(2)$:
+$$
+\hat{\mathbf{x}}_1 = (\hat{\mathbf{x}}_2 \cos\varepsilon - \hat{\mathbf{z}}_2 \sin\varepsilon)\cos\theta_1 + \hat{\mathbf{y}}_2 \sin\theta_1
+$$
+Taking the dot product with $\hat{\mathbf{R}}_P = \hat{\mathbf{z}}_2 \cos\varphi + \hat{\mathbf{x}}_2 \sin\varphi \cos(\theta_3 + \Delta\theta) + \hat{\mathbf{y}}_2 \sin\varphi \sin(\theta_3 + \Delta\theta)$:
+$$
+\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P = \cos\varepsilon \cos\theta_1 \sin\varphi \cos(\theta_3 + \Delta\theta) + \sin\theta_1 \sin\varphi \sin(\theta_3 + \Delta\theta) - \sin\varepsilon \cos\theta_1 \cos\varphi
+$$
+
+*(Note: If the obliquity $\varepsilon = 0$, this simplifies to $\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P = \sin\varphi \cos(\theta_3 + \Delta\theta - \theta_1)$.)*
+
+We can decompose $\hat{\mathbf{x}}_1$ in the local basis as:
+$$
+\hat{\mathbf{x}}_1 = (\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}})\hat{\mathbf{R}} + (\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\varphi}})\hat{\boldsymbol{\varphi}} + (\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\theta}})\hat{\boldsymbol{\theta}}
+$$
+where:
+* $\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\theta}} = -\cos\varepsilon \cos\theta_1 \sin(\theta_3 + \Delta\theta) + \sin\theta_1 \cos(\theta_3 + \Delta\theta)$
+* $\hat{\mathbf{x}}_1 \cdot \hat{\boldsymbol{\varphi}} = \cos\varepsilon \cos\theta_1 \cos\varphi \cos(\theta_3 + \Delta\theta) + \sin\theta_1 \cos\varphi \sin(\theta_3 + \Delta\theta) + \sin\varepsilon \cos\theta_1 \sin\varphi$
+
+---
+
+# Hydrostatic Equilibrium and Free Surface Elevation ($\zeta$)
+
+Assuming a fluid particle is approximately at rest with respect to the Earth ($\mathbf{a}^{(3)}_{P/E} \approx \mathbf{0}$, $\mathbf{v}^{(3)}_{P/E} \approx \mathbf{0}$) and $\frac{\mathbf{F}_{\text{non-g}}}{m} = -\frac{1}{\rho}\nabla P$:
+
+## Component Equations
+
+1. **Radial direction ($\hat{\mathbf{R}}$):**
+   $$
+   0 = -g^E_r - g^M_r + 3\frac{G M_M}{R_{EM}^2} \frac{r}{R_{EM}} (\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)^2 + r \Omega_E^2 \sin^2\varphi - \frac{1}{\rho}\partial_r P
+   $$
+   where $g^E_r = \frac{G M_E}{r^2}$ and $g^M_r = \frac{G M_M}{R_{EM}^2}\frac{r}{R_{EM}}$.
+
+2. **Azimuthal direction ($\hat{\boldsymbol{\theta}}$):**
+   $$
+   \frac{1}{\rho r \sin\varphi} \partial_\theta P = g_{\theta, \text{tidal}}
+   $$
+
+3. **Polar/Colatitude direction ($\hat{\boldsymbol{\varphi}}$):**
+   $$
+   \frac{1}{\rho r} \partial_\varphi P = g_{\varphi, \text{tidal}} + r \Omega_E^2 \sin\varphi \cos\varphi
+   $$
+
+## Radial Integration
+
+Let $r_0$ be the unperturbed spherical radius and $\zeta(\varphi, \theta_3 + \Delta\theta)$ be the free surface elevation. Integrating the radial equation from $r = r_0$ to $r = r_0 + \zeta$ (assuming $\zeta \ll r_0$):
+
+* **Earth's gravity term:**
+  $$
+  -\int_{r_0}^{r_0+\zeta} \frac{G M_E}{r^2} dr = \left. \frac{G M_E}{r} \right|_{r_0}^{r_0+\zeta} = G M_E \left( \frac{1}{r_0 + \zeta} - \frac{1}{r_0} \right) \approx -\frac{G M_E}{r_0^2}\zeta
+  $$
+
+* **Tidal term:**
+  $$
+  -\int_{r_0}^{r_0+\zeta} \frac{G M_M}{R_{EM}^3} r \left( 1 - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)^2 \right) dr \approx -\frac{G M_M}{R_{EM}^3} \left( 1 - 3(\hat{\mathbf{x}}_1 \cdot \hat{\mathbf{R}}_P)^2 \right) r_0 \zeta
+  $$
+
+Combining the integrated terms gives the pressure difference across the layer:
+$$
+\frac{1}{\rho} \int_{r_0}^{r_0+\zeta} \partial_r P \, dr = \frac{P_{\text{atm}} - P(r_0, \mathbf{x})}{\rho} = f(\mathbf{x})\zeta
+$$
+
+## Boundary Condition on the Free Surface
+
+On the free surface $r_s = r_0 + \zeta(\varphi, \theta)$, the pressure is constant: $P(r_0 + \zeta, \varphi, \theta) = P_{\text{atm}}$. Taking total derivatives along the surface:
+$$
+\left.\frac{\partial P}{\partial r}\right|_{r_s} \frac{\partial \zeta}{\partial \varphi} + \left.\frac{\partial P}{\partial \varphi}\right|_{r_s} = 0, \qquad \left.\frac{\partial P}{\partial r}\right|_{r_s} \frac{\partial \zeta}{\partial \theta} + \left.\frac{\partial P}{\partial \theta}\right|_{r_s} = 0
+$$
+
+Using the first-order hydrostatic approximation $\left.\frac{1}{\rho}\frac{\partial P}{\partial r}\right|_{r_s} \approx -\frac{G M_E}{r_0^2}$:
+$$
+\begin{cases}
+\dfrac{\partial \zeta}{\partial \theta} \approx \dfrac{r_0^3}{G M_E} \, g_{\theta, \text{tidal}} \sin\varphi \\[10pt]
+\dfrac{\partial \zeta}{\partial \varphi} \approx \dfrac{r_0^3}{G M_E} \left( g_{\varphi, \text{tidal}} + r_0 \Omega_E^2 \sin\varphi \cos\varphi \right)
+\end{cases}
+$$
+
+## Equilibrium Tide Solution
+
+Recognizing that the tidal accelerations derive from a potential proportional to $|\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2$, these partial differential equations become:
+$$
+\begin{aligned}
+0 &= \frac{\partial}{\partial \theta} \left\{ -\zeta + \frac{r_0^4}{G M_E} \frac{M_M}{R_{EM}^3} \frac{3}{2} |\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2 + \dots \right\} \\
+0 &= \frac{\partial}{\partial \varphi} \left\{ -\zeta + \frac{r_0^4}{G M_E} \frac{M_M}{R_{EM}^3} \frac{3}{2} |\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2 + \frac{1}{2} \frac{r_0^4 \Omega_E^2}{G M_E} \sin^2\varphi \right\}
+\end{aligned}
+$$
+
+Integrating yields the equilibrium surface elevation $\zeta(\theta, \varphi)$ (including both the lunar tidal bulge and the rotational equatorial bulge):
+$$
+\zeta(\theta, \varphi) = \zeta_0 + \frac{3}{2} \frac{r_0^4}{R_{EM}^3} \frac{M_M}{M_E} |\hat{\mathbf{R}}_P \cdot \hat{\mathbf{x}}_1|^2(\theta, \varphi) + \frac{1}{2} \frac{r_0^4 \Omega_E^2}{G M_E} \sin^2\varphi
+$$

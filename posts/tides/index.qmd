@@ -28,6 +28,7 @@ First, the dynamics of the Earth is formulated in the Earth–Moon system, takin
 
 Dynamics is then introduced through a hierarchy of models of increasing complexity based on the shallow-water equations: first, the frequency response of a straight channel under external forcing is studied; next, the dynamics of an ocean covering the entire surface of an *aquaplanet* Earth in the Earth–Moon system is examined; finally, the evolution of an approximate model of a real basin is analyzed.
 
+![Tides in a static model of an *aquaplanet*.](tides-static-ocean.png){ #fig-tides-static-ocean fig-align="center" }
 
 
 
