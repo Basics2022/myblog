@@ -30,5 +30,5 @@ Dynamics is then introduced through a hierarchy of models of increasing complexi
 
 ![Tides in a static model of an *aquaplanet*.](tides-static-ocean.png){ #fig-tides-static-ocean fig-align="center" }
 
-
+...
 

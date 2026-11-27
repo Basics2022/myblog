@@ -94,5 +94,8 @@
   },
   "posts/tides/sections/tides.ipynb": {
     "tides.html": "73ebb013"
+  },
+  "posts/tides/sections/incompressible-fluids-non-inertial-ref-frame.qmd": {
+    "incompressible-fluids-non-inertial-ref-frame.html": "6d0c34cd"
   }
 }

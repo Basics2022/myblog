@@ -1,0 +1,145 @@
+---
+title: "Governing equations of incompressible fluids in non-inertial reference frames"
+subtitle: "..."
+description: "Governing equations of incompressible fluids in non-inertial reference frames"
+section: 1
+author: "Basics"
+date: "2026-11-29"
+lang: en
+date-modified: last-modified
+categories: [fluid mechanics]
+toc: true
+toc-title: "On this page"
+number-sections: true
+number-depth: 3
+---
+
+## Navier--Stokes equations
+
+**Navier-Stokes equations** in inertial reference frame
+
+$$\left\{ \begin{aligned}
+  & \nabla \cdot \mathbf{u} = \mathbf{0} \\
+  & \rho \frac{D \mathbf{u}}{D t} = \rho \mathbf{g} + \nabla \cdot \mathbb{T} \ ,
+\end{aligned} \right.$$
+
+with the stress tensor for an incompressible Newtonian fluid, $\mathbb{T} = - p \mathbb{I} + \mathbb{S} = - p \mathbb{I} + 2 \mu \mathbb{D}$, and the deformation velocity tensor $\mathbb{D} = \frac{1}{2} \left( \nabla \mathbf{u} + \nabla^T \mathbf{u} \right)$.
+
+**Relative kinematics**
+
+$$\begin{aligned}
+  \mathbf{r}_{P/O} & = \mathbf{r}_{Q/O} + \mathbf{r}_{P/Q} \\
+  \mathbf{v}^{(0)}_{P/O} & = \mathbf{v}^{(0)}_{Q/O} + \mathbf{v}^{(1)}_{P/Q} + \boldsymbol\omega_{1/0} \times \mathbf{r}_{P/Q} \\
+  \mathbf{a}^{(0)}_{P/O} & = \mathbf{a}^{(0)}_{Q/O} + \mathbf{a}^{(1)}_{P/Q} + \boldsymbol\alpha_{1/0} \times \mathbf{r}_{P/Q} + 2 \boldsymbol\omega_{1/0} \times \mathbf{v}^{(1)}_{P/Q} + \boldsymbol\omega_{1/0} \times \boldsymbol\omega_{1/0} \times \mathbf{r}_{P/Q} \\
+\end{aligned}$$
+
+**Navier stokes in the non-inertial reference frame.** 
+
+$$\left\{ \begin{aligned}
+  & \nabla \cdot \mathbf{v} = \mathbf{0} \\
+  & \rho \frac{D \mathbf{v}}{D t} = \rho \mathbf{g} + \nabla \cdot \mathbb{T} - \rho \left\{ \mathbf{a}^{(0)}_{Q/O} + \boldsymbol\alpha_{1/0} \times \mathbf{r} + 2 \boldsymbol\omega_{1/0} \times \mathbf{v} + \boldsymbol\omega_{1/0} \times \boldsymbol\omega_{1/0} \times \mathbf{r} \right\} \ ,
+\end{aligned} \right.$$
+
+with $\mathbf{r}$ and $\mathbf{v}$ the position and the velocity w.r.t. the origin of the non-inertial reference frame.
+
+:::{.callout-note collapse=true}
+### Incompressibility constraint
+
+Let $\mathbf{u} := \mathbf{v}^{(0)}_{P/Q}$, and $\mathbf{v} := \mathbf{v}^{(1)}_{P/Q}$. Then
+
+$$\begin{aligned}
+  \nabla \cdot \mathbf{u}(\mathbf{r},t)
+  & = \nabla \cdot \left( \mathbf{v}^{(0)}_{Q/O}(t) + \mathbf{v}^{(1)}(\mathbf{r},t) + \boldsymbol\omega_{1/0}(t) \times \mathbf{r}_{P/Q} \right) = \\
+  & = \nabla \cdot \mathbf{v}(\mathbf{r},t) \ .
+\end{aligned}$$
+
+Here the argument of the fields is $\mathbf{r}$ 
+
+:::
+
+:::{.callout-note collapse=true}
+### Divergence $\ \nabla \cdot \left( \mathbf{a} \times \mathbf{r} \right)$, with $\mathbf{a}$ independent from space
+
+$$
+  \nabla \cdot \left( \mathbf{a} \times \mathbf{r} \right)
+    = \partial_i \left( \varepsilon_{ijk} a_j r_k \right) 
+    = \varepsilon_{ijk} a_j \delta_{ik} = \varepsilon_{iji} a_j \equiv 0 \ ,
+$$
+
+since the symbols $\varepsilon_{ijk}$ with repeated indices are zero.
+
+:::
+
+:::{.callout-note collapse=true}
+# Change of coordinates
+
+Let $\{ x^0, y^0, z^0 \}$ a set of Cartesian coordinates describing the points in space w.r.t. an inertial reference frame $(0)$. Let $\{ x^1, y^1, z^1 \}$ a set of Cartsisan coordinates at rest w.r.t. the non-inertial reference frame $(1)$. The origin of the reference frame $Q$ w.r.t. the origin of the reference frame $O$ is in $\mathbf{r}_{Q/O}$, its orientation is determined by the rotation tensor $\mathbb{R}^{0\to1}$ transforming the vectors of the Carteisan basis $\hat{\mathbf{e}}^0_i$ into the corresponding vectors of the Cartesian basis $\hat{\mathbf{e}}^1_i$,
+
+$$\hat{\mathbf{e}}^{1}_i = \mathbb{R}^{0\to1} \cdot \hat{\mathbf{e}}^0_i \ ,$$
+
+being $\mathbb{R}^{0\to1} = \hat{\mathbf{e}}^1_k \otimes \hat{\mathbf{e}}^0_k$, see [Classical Mechanics: Kinematics: Rotations](https://basics2022.github.io/bbooks-physics-mechanics/ch/kinematics-rotations.html). For orthogonal bases, the transformation is immediately obtained with orthogonal projection of the vectors of the other bases,
+
+$$\hat{\mathbf{e}}^1_i = \left( \hat{\mathbf{e}}^1_i \cdot \hat{\mathbf{e}}^0_k \right) \hat{\mathbf{e}}^0_k = \left[ \left( \hat{\mathbf{e}}^1_j \cdot \hat{\mathbf{e}}^0_k  \right) \hat{\mathbf{e}}^0_k \otimes \hat{\mathbf{e}}^0_j \right] \cdot \hat{\mathbf{e}}^0_i \ ,$$
+
+and thus $\mathbb{R}^{0\to1} = \left( \hat{\mathbf{e}}^1_j \cdot \hat{\mathbf{e}}^0_k  \right) \hat{\mathbf{e}}^0_k \otimes \hat{\mathbf{e}}^0_j = R^{0\to1}_{kj} \hat{\mathbf{e}}^0_k \otimes \hat{\mathbf{e}}^0_j$, with $R^{0\to1}_{kj} = \hat{\mathbf{e}}^0_k \cdot \hat{\mathbf{e}}^1_j$. Using the transformation of the vectors of the bases, the transformation of the the components of the vectors immedately follows
+
+$$\mathbf{w} = w^0_i \hat{\mathbf{e}}^0_i = w^0_i R^{0\to1}_{ik} \hat{\mathbf{e}}^1_k = w^1_k \hat{\mathbf{e}}^1_k \ ,$$
+
+so that $w^1_k = w^0_i R^{0\to1}_{ik}$, and $w^0_i = w^1_k R^{0\to1}_{ik}$. Thus, the relative position of a point $P$ w.r.t. $(0)$ can be written as
+
+$$\begin{aligned}
+  \mathbf{r}_{P/O} 
+  & = \mathbf{r}_{Q/O} + \mathbf{r}_{P/Q} = \\
+  & = \left( r^0_{Q/O,i} + r^0_{P/Q,i} \right) \hat{\mathbf{e}}^0_i = \\
+  & = \left( r^0_{Q/O,i} + r^1_{P/Q,k} R^{0\to1}_{ik} \right) \hat{\mathbf{e}}^0_i \ ,
+\end{aligned}$$
+
+This relation holds for every point $P$, and thus the law of transformation of coordinates is
+
+$$\begin{aligned}
+  r^0_i & = r^0_{Q,i}(t) + R^{0\to1}_{ik}(t) \, r^1_k \\
+  r^1_k & =  R^{0\to1}_{ik}(t) \left( r^0_i - r^0_{Q,i}(t) \right) \\
+\end{aligned}$$
+
+Thus, the derivative w.r.t. $r_i^0$ reads
+
+$$\partial^i_0 = \frac{\partial r^1_k}{\partial r^0_i} \partial^1_k = R^{0\to1}_{ik} \partial^1_k \ .$$
+
+**Differential operators.**
+
+* Gradient of a scalar field
+
+  $$\nabla_0 f(\mathbf{r}_0) = \hat{\mathbf{e}}^0_i \partial^0_i f = R^{0\to1}_{ik} \hat{\mathbf{e}}^1_k R^{0\to1}_{ij} \partial^1_j f = \hat{\mathbf{e}}^1_k \partial^1_k f = \nabla_1 f(\mathbf{r}_1) \ ,$$
+
+* Divergence of a vector field
+
+  $$\nabla_0 \cdot \mathbf{w}(\mathbf{r}_0) = \partial^0_i w^0_i = R^{0\to1}_{ik} \partial^1_k \left( R^{0\to1}_{ij} w^1_j \right) = \delta_{jk} \partial^1_{k} w^1_j = \partial^1_k w^1_k = \nabla_1 \cdot \mathbf{w}(\mathbf{r}_1) \ .$$
+
+* Advection operator
+
+  $$\begin{aligned}
+    \mathbf{a}(\mathbf{r}_0) \cdot \nabla_0 \mathbf{w}(\mathbf{r}_0) 
+    & = a^0_i \partial^0_i w^0_k \hat{\mathbf{e}}^0_k = \\
+    & = R^{0\to1}_{i \alpha} R^{0\to1}_{i \beta} R^{0\to1}_{k \gamma} R^{0\to1}_{k \delta} a^1_\alpha \partial^1_\beta w^1_\gamma \hat{\mathbf{e}}^1_\delta = \\
+    & = a^1_\alpha \partial^1_\alpha w^1_\gamma \hat{\mathbf{e}}^1_\gamma = \\
+    & = \mathbf{a}(\mathbf{r}_1) \cdot \nabla_1 \mathbf{w}(\mathbf{r}_1) \ .
+  \end{aligned}$$
+
+* Laplacian of a vector field
+
+  $$\begin{aligned}
+    \Delta_0 \mathbf{w}(\mathbf{r}_0) 
+    & = \partial^0_i \partial^0_i w^0_k \hat{\mathbf{e}}^0_k = \\
+    & = R^{0\to1}_{i \alpha} R^{0\to1}_{i \beta} R^{0\to1}_{k \gamma} R^{0\to1}_{k \delta} \partial^1_\alpha \partial^1_\beta w^1_\gamma \hat{\mathbf{e}}^1_\delta = \\
+    & = \partial^1_\alpha \partial^1_\alpha w^1_\gamma \hat{\mathbf{e}}^1_\gamma = \\
+    & = \Delta_1 \mathbf{w}(\mathbf{r}_1) \ .
+  \end{aligned}$$
+
+:::
+
+## Shallow water equations
+
+**Flat surface.**
+
+**Spherical surface.**
+

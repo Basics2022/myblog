@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Basics">
-<meta name="dcterms.date" content="2026-11-26">
+<meta name="dcterms.date" content="2026-11-28">
 <meta name="description" content="Dynamics of a model of the Adriatic sea.">
 
 <title>Dynamics of a realistic basin – basics blog</title>
@@ -98,6 +98,35 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
   });
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -338,14 +367,14 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 26, 2026</p>
+        <p class="date">November 28, 2026</p>
       </div>
     </div>
     
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">November 25, 2026</p>
+        <p class="date-modified">November 27, 2026</p>
       </div>
     </div>
       
@@ -356,8 +385,22 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model" id="toc-model" class="nav-link active" data-scroll-target="#model"><span class="header-section-number">1</span> Model</a>
+  <ul class="collapse">
+  <li><a href="#governing-equations" id="toc-governing-equations" class="nav-link" data-scroll-target="#governing-equations"><span class="header-section-number">1.1</span> Governing equations</a></li>
+  <li><a href="#boundary-conditions" id="toc-boundary-conditions" class="nav-link" data-scroll-target="#boundary-conditions"><span class="header-section-number">1.2</span> Boundary conditions</a></li>
+  <li><a href="#tidal-force" id="toc-tidal-force" class="nav-link" data-scroll-target="#tidal-force"><span class="header-section-number">1.3</span> Tidal force</a></li>
+  <li><a href="#numerical-schemes" id="toc-numerical-schemes" class="nav-link" data-scroll-target="#numerical-schemes"><span class="header-section-number">1.4</span> Numerical schemes</a></li>
+  </ul></li>
+  <li><a href="#simulations" id="toc-simulations" class="nav-link" data-scroll-target="#simulations"><span class="header-section-number">2</span> Simulations</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a></li>
+  </ul>
+<div class="quarto-code-links"><h2>Code Links</h2><ul><li><a href="https://colab.research.google.com/github/Basics2022/myblog/blob/main"><i class="bi bi-laptop"></i>Open in Colab</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -366,9 +409,200 @@ gtag('config', 'G-3LNCTR9MVE', { 'anonymize_ip': true});
 
 
 
+<section id="model" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="model"><span class="header-section-number">1</span> Model</h2>
+<section id="governing-equations" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="governing-equations"><span class="header-section-number">1.1</span> Governing equations</h3>
+<p><strong>Shallow water equations.</strong> Conservative form of the equations</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \partial_t \zeta + \nabla \cdot ( \zeta \mathbf{u} ) = 0 \\
+  &amp; \partial_t ( \zeta \mathbf{u} ) + \nabla \cdot \left( \zeta \mathbf{u} \otimes \mathbf{u} + \frac{g \zeta^2}{2} \mathbb{I} \right) = \text{variable depth} + \text{non inertial + tidal + dissipation} \ ,
+\end{aligned}\right.\]</span></p>
+<p>while convective form reads</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \partial_t \zeta + \nabla \cdot ( \zeta \mathbf{u} ) = 0 \\
+  &amp; \zeta \partial_t  \mathbf{u} + \zeta \mathbf{u} \cdot \nabla \mathbf{u} + g \zeta \nabla \zeta = \text{variable depth} + \text{non inertial + tidal + dissipation}
+\end{aligned}\right.\]</span></p>
+<p>or, dividing the momentum equation by <span class="math inline">\(\zeta\)</span></p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \partial_t \zeta + \nabla \cdot ( \zeta \mathbf{u} ) = 0 \\
+  &amp; \partial_t  \mathbf{u} + \mathbf{u} \cdot \nabla \mathbf{u} + g \nabla \zeta = \text{variable depth} + \text{non inertial + tidal + dissipation}
+\end{aligned}\right.\]</span></p>
+<p>The sum of Moon gravitational pull and non-inertial force per unit-mass, with constant angular velocity of the non-inertial reference frame w.r.t. the inertial ref.frame <span class="math inline">\(\boldsymbol\omega_{1/0}\)</span> s.t. <span class="math inline">\(\boldsymbol\alpha_{1/0} = \mathbf{0}\)</span>, reads</p>
+<p><span class="math display">\[-\mathbf{a}^{(0)}_{P/O} - 2 \boldsymbol\omega_{1/0} \times \mathbf{v}^{(1)} - \boldsymbol\omega_{1/0} \times \boldsymbol\omega_{1/0} \times (P-Q) \ .\]</span></p>
+<p>Using spherical coordinates <span class="math inline">\(\boldsymbol\omega_{1/0} = \Omega_{1/0} \hat{\mathbf{z}}\)</span>, <span class="math inline">\(\mathbf{v}^{(1)} = v_{\varphi}\hat{\boldsymbol\varphi} + v_{\theta}\hat{\boldsymbol\theta}\)</span>, <span class="math inline">\(\mathbf{P-Q} = a \hat{\mathbf{R}}\)</span>,</p>
+<ul>
+<li><p>tidal forces</p>
+<p>…</p></li>
+<li><p>centrifugal acceleration</p>
+<p><span class="math display">\[\boldsymbol\omega \times \boldsymbol\omega \times (P-Q) = \Omega^2 a \, \hat{\mathbf{z}} \sin \varphi \times \hat{\boldsymbol\theta} = - \Omega^2 a \sin \varphi \hat{\boldsymbol\rho} = \Omega^2 a \left( - \sin^2 \varphi \, \hat{\mathbf{R}} - \sin \varphi \cos \varphi \, \hat{\boldsymbol\varphi} \right) \]</span></p></li>
+<li><p>Coriolis force (divided by <span class="math inline">\(2\)</span>)</p>
+<p><span class="math display">\[\boldsymbol\omega_{1/0} \times \mathbf{v}^{(1)} = \Omega \hat{\mathbf{z}} \times ( v_{\varphi}\hat{\boldsymbol\varphi} + v_{\theta}\hat{\boldsymbol\theta}) = \Omega v_\varphi \cos \varphi \hat{\boldsymbol\theta} - \Omega v_\theta \hat{\boldsymbol\rho} =  \Omega v_\varphi \cos \varphi \hat{\boldsymbol\theta} - \Omega v_\theta \left( \sin \varphi \, \hat{\mathbf{R}} + \cos \varphi \, \hat{\boldsymbol\varphi} \right) \ ,\]</span></p>
+<p>i.e., using lat <span class="math inline">\(\phi = \frac{\pi}{2} - \varphi\)</span>,</p>
+<p><span class="math display">\[2 \boldsymbol\omega_{1/0} \times \mathbf{v}^{(1)} = - 2 \Omega v_\theta \cos \phi \, \hat{\mathbf{R}} + 2 \Omega \, \sin \phi \left( -v_\theta \hat{\boldsymbol\varphi} + v_\varphi \hat{\boldsymbol\theta} \right) \]</span></p></li>
+<li><p>linear dissipation <span class="math inline">\(- r \mathbf{u}\)</span></p></li>
+</ul>
+<p><strong>Steady reference state.</strong> … centrifugal force is constant in the non-inertial reference frame, so it only acts on the steady reference state and not in the unsteady linearized equations around that.</p>
+<p><strong>Linearized equations</strong> around the reference state <span class="math inline">\(\left.\left(\zeta, \mathbf{u}\right)\right|_{\rm ref} = (\zeta_0(\mathbf{r}), \mathbf{0})\)</span></p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \partial_t \zeta' + \nabla \cdot \left( \zeta_0  \mathbf{u}'  \right) = 0 \\
+  &amp; \partial_t \mathbf{u}' + g \nabla \zeta' = -2 \boldsymbol\omega_{1/0} \times \mathbf{u}' - r \mathbf{u}' + \text{tidal forces}
+\end{aligned}\right.\]</span></p>
+<ul>
+<li>i.c + b.c.</li>
+</ul>
+<p><strong>Frequency domain.</strong> Frequency response of the system is studied in frequency domain, with Fourier transform of the functions, <span class="math inline">\(\hat{f}(\mathbf{r}, \omega) := \mathcal{F}\{ f(\mathbf{r}, t) \}(\omega)\)</span>, and the linearized equations for <span class="math inline">\(\left( \hat{\zeta}, \hat{\mathbf{u}} \right)(\mathbf{r}, \omega)\)</span>,</p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; i \omega \hat{\zeta} + \nabla \cdot \left( \zeta_0  \hat{\mathbf{u}} \right) = 0 \\
+  &amp; i \omega \hat{\mathbf{u}} + g \nabla \hat{\zeta} + 2 \boldsymbol\omega_{1/0} \times \hat{\mathbf{u}} + r \hat{\mathbf{u}} = \hat{\mathbf{g}}_{\rm tidal}(\omega) \ .
+\end{aligned}\right.\]</span></p>
+<ul>
+<li>i.c + b.c.</li>
+</ul>
+<p><strong>Assumptions.</strong></p>
+<ul>
+<li><strong>Mainly</strong> the reason why tidal forces are neglected and replaced by a prescribe level of the sea at the open boundary of the domain
+<ul>
+<li>orders of magnitude in narrow/short basins…</li>
+<li>an open-ended basi behaves as a Helmholtz resonator. <strong>todo</strong> <em>discuss stability in fluid dynamics? Oscillators vs noise-amplifiers?</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="boundary-conditions" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="boundary-conditions"><span class="header-section-number">1.2</span> Boundary conditions</h3>
+<p><strong>Coast.</strong> No-flux, <span class="math inline">\(\mathbf{u} \cdot \hat{\mathbf{n}} = 0\)</span>.</p>
+<p><strong>Flather radiation condition.</strong></p>
+<section id="characteristics-of-the-hyperbolic-problem-and-flux-boundary-conditions-e.g.-for-finite-volume-methods" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="characteristics-of-the-hyperbolic-problem-and-flux-boundary-conditions-e.g.-for-finite-volume-methods"><span class="header-section-number">1.2.1</span> Characteristics of the hyperbolic problem and flux boundary conditions (e.g.&nbsp;for Finite Volume Methods)</h4>
+<p><strong>n-dimensional linearized shallow water equations.</strong></p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \partial_t \zeta' + \nabla \cdot ( \zeta_0 \mathbf{u}' ) = 0 \\
+  &amp; \partial_t ( \zeta_0 \mathbf{u}' ) + \nabla \cdot \left( g \zeta_0 \zeta' \mathbb{I} \right) = \text{variable depth} + \text{non inertial + tidal + dissipation} \ ,
+\end{aligned}\right.\]</span></p>
+<p><strong>1-dimensional linearized shallow water equations.</strong></p>
+<p><span class="math display">\[\left\{ \begin{aligned}
+  &amp; \partial_t \zeta' + \partial_x ( \zeta_0 u' ) = 0 \\
+  &amp; \partial_t ( \zeta_0 u' ) + \partial_x \left( g \zeta_0 \zeta' \right) = \text{variable depth} + \text{non inertial + tidal + dissipation} \ ,
+\end{aligned}\right.\]</span></p>
+<p><em>Conservative form</em></p>
+<p><span class="math display">\[
+\partial_t \begin{bmatrix} \zeta' \\ \zeta_0 u' \end{bmatrix} + \partial_x \begin{bmatrix} \zeta_0 u' \\ g \zeta_0 \zeta' \end{bmatrix} = \begin{bmatrix} 0 \\ \text{non inertial + tidal + dissipation} \end{bmatrix}
+\]</span></p>
+<p><em>Convective form</em></p>
+<p><span class="math display">\[
+\partial_t \begin{bmatrix} \zeta' \\ \zeta_0 u' \end{bmatrix} + \begin{bmatrix} 0 &amp; 1 \\ g \zeta_0 &amp; 0 \end{bmatrix} \partial_x \begin{bmatrix} \zeta' \\ \zeta_0 u' \end{bmatrix} = - \begin{bmatrix} 0 \\ \partial_x( g \zeta_0 ) \, \zeta' \end{bmatrix} + \begin{bmatrix} 0 \\ \text{non inertial + tidal + dissipation} \end{bmatrix}
+\]</span></p>
+<p>The characteristic velocities of the linearized hyperbolic problem are the eigenvalues of the advection matrix <span class="math inline">\(\mathbf{A}\)</span>, here</p>
+<p><span class="math display">\[0 = \left| \mathbf{A} - s_{1,2} \mathbf{I} \right| = s^2 - g\zeta_0 \quad \rightarrow \quad s_{1,2} = \mp \sqrt{g \zeta_0} =: \mp c_0 \ ,\]</span></p>
+<p>with corresponding right and left eigenvectors collected as the columns of matrices <span class="math inline">\(\mathbf{R}\)</span> and <span class="math inline">\(\mathbf{L}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+  \mathbf{R} = \begin{bmatrix} \zeta_0 &amp; \zeta_0 \\ \zeta_0 c_0 &amp; - \zeta_0 c_0 \end{bmatrix}
+  \quad , \quad
+  \mathbf{L} = \mathbf{R}^{-1} = \frac{1}{2 \zeta_0 c_0} \begin{bmatrix} -c_0 &amp; -1 \\ - c_0 &amp; 1 \end{bmatrix}
+\end{aligned}\]</span></p>
+<p>Since the 2 characteristic velocities have opposite sign, in every point of the domain there’s a family of characteristics moving to the right and one family moving to the left. At the boundaries of the domain, there’s always a familiy of characteristics leaving the domain, and one family entering the domain.</p>
+<p>This observation is used in the implementation of boundary conditions for finite volume methods.</p>
+<p><strong>Solid boundaries.</strong> In order to implement zero-mass flux boundary condition through a boundary at rest, <span class="math inline">\(\mathbf{u} \cdot \hat{\mathbf{n}} = 0\)</span>, a <em>ghost cell</em> with state <span class="math inline">\(\mathbf{u}_{g} = \left( \zeta_\partial, -\zeta_\partial u_\partial \right)\)</span> can be defined as a function of the state <span class="math inline">\(\mathbf{u}_\partial\)</span> of the cell at the boundary, so that Roe numerical flux reads</p>
+<p><span class="math display">\[\mathbf{F}^{\rm Roe} = \frac{1}{2} \left\{ \mathbf{F}_g + \mathbf{F}_\partial - \left| \hat{\mathbf{A}} \right| ( \mathbf{u}_g - \mathbf{u}_\partial ) \right\} = \begin{bmatrix} 0 \\ \dots \end{bmatrix} \ .\]</span></p>
+<p><strong>Non-reflective boundary conditions (Flather?).</strong></p>
+<p><span class="math display">\[\partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{F}(\mathbf{u})\]</span></p>
+<p>Diagonalization of <span class="math inline">\(\mathbf{A} = \mathbf{R} \boldsymbol\Lambda \mathbf{L}\)</span>, and definition of characteristic variables <span class="math inline">\(\mathbf{v} = \mathbf{L} \mathbf{u}\)</span>, governed by a the equations</p>
+<p><span class="math display">\[\partial_t \mathbf{v} + \boldsymbol\Lambda \partial_x \mathbf{v} = \mathbf{F}(\mathbf{R} \mathbf{v})\]</span></p>
+</section>
+</section>
+<section id="tidal-force" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="tidal-force"><span class="header-section-number">1.3</span> Tidal force</h3>
+<ul>
+<li>Semi-diurnal (<span class="math inline">\(\approx 12\)</span> hours)
+<ul>
+<li>Principal lunar (<span class="math inline">\(\rm M_2\)</span>, period <span class="math inline">\(T_{\rm M_2} \simeq 12.42 \, {\rm h}\)</span>)</li>
+<li>Principal solar (<span class="math inline">\(\rm S_2\)</span>, period <span class="math inline">\(T_{\rm S_2} \simeq 12.00 \, {\rm h}\)</span>)</li>
+<li>Larger lunar elliptic (<span class="math inline">\(\rm N_2\)</span>), driven by changes in Earth-Moon distance along their elliptical orbit</li>
+</ul></li>
+<li>Diurnal (<span class="math inline">\(\approx 24\)</span> hours)
+<ul>
+<li>Luni-solar diurnal (<span class="math inline">\(\rm K_1\)</span>, period <span class="math inline">\(T_{\rm K_1} \simeq 23 \, {\rm h} \, 56'\)</span>, sidereal day, due to declination changes of the Moon and Sun)</li>
+<li>Principal lunar (<span class="math inline">\(\rm O_1\)</span>, period <span class="math inline">\(T_{\rm M_2} \simeq 25 \, {\rm h} \, 49'\)</span>)</li>
+<li>Principal solar (<span class="math inline">\(\rm P_1\)</span>, period <span class="math inline">\(T_{\rm M_2} \simeq 14 \, {\rm h} \, 4'\)</span>)</li>
+</ul></li>
+<li>Long-period: forth-nighlty, monthly, semi-annual, annual, multi-years</li>
+</ul>
+<p><strong>todo</strong></p>
+<ul>
+<li>discuss the <strong>origin</strong> of these contributions</li>
+<li>discuss the <strong>magnitude</strong> of these contributions</li>
+<li>discuss <strong>beating</strong> between two oscillations with close frequencies</li>
+<li>real-world nuance: spring tides few days later (due to dissipation) after New and Full Moon</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Constituent</th>
+<th style="text-align: center;">Symbol</th>
+<th style="text-align: center;">Period</th>
+<th style="text-align: center;">Relative amplitude</th>
+<th style="text-align: left;">Primary driver</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">M2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">100.0</td>
+<td style="text-align: left;">Moon’s avg gravitational pull</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">K1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">58.4</td>
+<td style="text-align: left;">Lunar and solar orbital declination</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">S2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">46.5</td>
+<td style="text-align: left;">Sun avg gravitational pull</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">O1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">41.5</td>
+<td style="text-align: left;">Moon’s orbital declination</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">P1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">19.3</td>
+<td style="text-align: left;">Sun’s orbital declination</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">N2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">19.1</td>
+<td style="text-align: left;">Moon’s elliptical orbit</td>
+</tr>
+</tbody>
+</table>
 <p>…</p>
+</section>
+<section id="numerical-schemes" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="numerical-schemes"><span class="header-section-number">1.4</span> Numerical schemes</h3>
+</section>
+</section>
+<section id="simulations" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="simulations"><span class="header-section-number">2</span> Simulations</h2>
+</section>
+<section id="results" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
